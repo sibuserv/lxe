@@ -1,0 +1,43 @@
+LXE -- Linux cross-toolchain environment
+
+Copyright: 2015 Boris Pek <tehnick-8@mail.ru>
+License: Expat
+
+Homepage: https://github.com/tehnick/lxe
+
+History:
+This project was inspired by MXE (http://mxe.cc/) and was made for own purpose.
+Now it is the part of simple build server which builds for a few old GNU/Linux
+distributions (i686 and x86_64), MS Windows (i686 and x86_64) and Adroid
+(ARMv7 and x86). Maybe one day it will be able to build C++ apps for OS X too.
+
+Description:
+This project may be useful when you need to build your applications for a few
+old GNU/Linux distributions and you do not want to manage a number of chroot
+environments and/or use a hypervisor (like QEMU, VirtualBox or VMware) with
+full operating systems. It requires significantly less amount of disk space and
+CPU power.
+
+Important notes:
+If you want to distribute statically linked binaries, you have to check the
+license compatibility very carefully. Even if your project is free and/or
+open-source software.
+
+Dependencies:
+bash, gcc, binutils, libtool, realpath, pkg-config, make, autoreconf, automake,
+cmake, wget, curl, tar (with gzip, bzip2 and xz support), patch, sed, find,
+python, python-libxml2 (for some versions of mesa)
+
+Examples of usage:
+  ./make.sh qt5
+  ./make.sh qtbase qtserialport qtscript
+  ./make.sh gdal freeglut
+  ./make.sh help
+  ./make.sh clean
+  ./make.sh distclean
+
+Some useful links:
+  http://mxe.cc/
+  https://github.com/mxe/mxe
+  http://sysmagazine.com/posts/198142/
+

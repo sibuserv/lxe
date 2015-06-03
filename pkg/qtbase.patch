@@ -1,0 +1,10 @@
+--- a/src/platformsupport/fontdatabases/basic/basic.pri
++++ b/src/platformsupport/fontdatabases/basic/basic.pri
+@@ -83,5 +83,7 @@
+ } else:contains(QT_CONFIG, system-freetype) {
+     # pull in the proper freetype2 include directory
+     include($$QT_SOURCE_TREE/config.tests/unix/freetype/freetype.pri)
++    CONFIG += link_pkgconfig
++    PKGCONFIG += freetype2
+ }
+ 
