@@ -32,9 +32,10 @@ Examples of usage:
   ./make.sh qt5
   ./make.sh qtbase qtserialport qtscript
   ./make.sh gdal freeglut
-  ./make.sh help
   ./make.sh clean
   ./make.sh distclean
+  ./make.sh --version
+  ./make.sh --help
 
 Some useful links:
   http://mxe.cc/
