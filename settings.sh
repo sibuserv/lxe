@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # CONFIGS="AstraLinux-1.2_static"
-CONFIGS="AstraLinux-1.2_static AstraLinux-1.2_shared AstraLinux-1.4_shared"
+CONFIGS="AstraLinux-1.2_shared AstraLinux-1.3_shared AstraLinux-1.4_shared"
 # CONFIGS="МСВС-3.0-80001-16_shared"
 # CONFIGS="МСВС-3.0-80001-12_shared МСВС-3.0-80001-16_shared МСВС-5.0_shared"
 
