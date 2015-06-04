@@ -28,7 +28,8 @@
             ${LIB_TYPE_OPTS} \
             --without-debug \
             --without-python \
-            --without-plugins
+            --without-plugins \
+            --without-crypto
 
         BuildPkg -j ${JOBS} -i -k
         InstallPkg install -i -k
