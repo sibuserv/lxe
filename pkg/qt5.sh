@@ -11,6 +11,7 @@
         CheckDependencies
 
         date -R > "${INST_DIR}/${PKG}"
+        echo "[config]   ${CONFIG}"
         echo "[no-build] ${PKG}"
     fi
 )

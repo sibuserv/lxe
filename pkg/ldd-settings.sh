@@ -23,6 +23,7 @@ EOF
         ln -sf "${TARGET}-ldd" "ldd"
 
         date -R > "${INST_DIR}/${PKG}"
+        echo "[config]   ${CONFIG}"
         echo "[no-build] ${PKG}"
     fi
 )

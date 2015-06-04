@@ -36,6 +36,7 @@ set(PKG_CONFIG_EXECUTABLE ${PREFIX}/bin/${TARGET}-pkg-config)
 EOF
 
         date -R > "${INST_DIR}/${PKG}"
+        echo "[config]   ${CONFIG}"
         echo "[no-build] ${PKG}"
     fi
 )

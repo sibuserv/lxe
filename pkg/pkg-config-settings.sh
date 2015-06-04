@@ -30,6 +30,7 @@ EOF
         ln -sf "${TARGET}-pkg-config" "pkg-config"
 
         date -R > "${INST_DIR}/${PKG}"
+        echo "[config]   ${CONFIG}"
         echo "[no-build] ${PKG}"
     fi
 )
