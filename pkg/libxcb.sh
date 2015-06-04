@@ -27,7 +27,8 @@
             --prefix="${SYSROOT}/usr" \
             ${LXE_CONFIGURE_OPTS} \
             ${LIB_TYPE_OPTS} \
-            --disable-build-docs
+            --disable-build-docs \
+            ac_cv_path_XSLTPROC=yes
 
         BuildPkg -j ${JOBS}
         InstallPkg install
