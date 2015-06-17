@@ -23,10 +23,13 @@
         SetCrossToolchainPath
         UnsetCrossToolchainVariables
 
+        [[ "${ARCH}" == i*86 ]] && \
+            KERNEL_ARCH=i386 || \
+            KERNEL_ARCH=${ARCH}
         IsPkgVersionGreaterOrEqualTo "2.6.20" && \
-            BuildPkg ARCH=${ARCH} ${ARCH}_defconfig || \
-            BuildPkg ARCH=${ARCH} defconfig
-        InstallPkg ARCH=${ARCH} headers_install \
+            BuildPkg ARCH=${KERNEL_ARCH} ${KERNEL_ARCH}_defconfig || \
+            BuildPkg ARCH=${KERNEL_ARCH} defconfig
+        InstallPkg ARCH=${KERNEL_ARCH} headers_install \
             INSTALL_HDR_PATH="${SYSROOT}/usr"
 
         CleanPkgBuildDir
