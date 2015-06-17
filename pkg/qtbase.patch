@@ -1,3 +1,7 @@
+Description: Fix static linking with freetype library
+Author: Boris Pek <tehnick-8@mail.ru>
+Last-Update: 2015-06-04
+
 --- a/src/platformsupport/fontdatabases/basic/basic.pri
 +++ b/src/platformsupport/fontdatabases/basic/basic.pri
 @@ -83,5 +83,7 @@
