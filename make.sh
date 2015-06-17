@@ -54,13 +54,20 @@ then
     exit 0
 elif [ "${1}" = "clean" ] && [ -z "${2}" ]
 then
-    set -x
-    rm -rf "${MAIN_DIR}/dist"
+    for CONFIG in ${CONFIGS}
+    do
+        PREFIX="${MAIN_DIR}/dist/${CONFIG}"
+        if [ -d "${PREFIX}" ]
+        then
+            echo "rm -rf \"${PREFIX}\""
+            rm -rf "${PREFIX}"
+        fi
+    done
     exit 0
 elif [ "${1}" = "distclean" ] && [ -z "${2}" ]
 then
-    set -x
-    rm -rf "${MAIN_DIR}/dist"
+    "${MAIN_DIR}/make.sh" clean
+    echo "rm -rf \"${MAIN_DIR}/src\""
     rm -rf "${MAIN_DIR}/src"
     exit 0
 fi
