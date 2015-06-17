@@ -38,6 +38,11 @@ UnsetLibraryPath()
     unset LIBRARY_PATH
 }
 
+UnsetMakeFlags()
+{
+    unset MAKEFLAGS
+}
+
 SetCrossToolchainVariables()
 {
     export CROSS_COMPILE=${TARGET}-
@@ -214,6 +219,7 @@ PrepareBuild()
     rm -f configure.log make.log make-install.log
 
     PrepareLibTypeOpts
+    UnsetMakeFlags
 }
 
 CopySrcAndPrepareBuild()
@@ -228,6 +234,7 @@ CopySrcAndPrepareBuild()
     rm -f configure.log make.log make-install.log
 
     PrepareLibTypeOpts
+    UnsetMakeFlags
 }
 
 ConfigurePkg()
