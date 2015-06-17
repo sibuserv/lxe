@@ -22,6 +22,11 @@
         SetCrossToolchainPath
         SetCrossToolchainVariables
         # unset cxx CXX
+        if [[ "${ARCH}" == i*86 ]]
+        then
+            export CFLAGS="${CFLAGS} -m32 -march=${ARCH}"
+            export CXXFLAGS="${CXXFLAGS} -m32 -march=${ARCH}"
+        fi
         ConfigurePkg \
             --prefix="/usr" \
             ${LXE_CONFIGURE_OPTS} \
@@ -31,9 +36,10 @@
             --disable-profile \
             --disable-debug \
             --without-selinux \
-            libc_cv_forced_unwind=yes \
-            libc_cv_ctors_header=yes \
             libc_cv_c_cleanup=yes \
+            libc_cv_ctors_header=yes \
+            libc_cv_forced_unwind=yes \
+            libc_cv_gcc_builtin_expect=yes \
             cross_compiling=yes
 
         BuildPkg

@@ -23,12 +23,20 @@
         SetCrossToolchainPath
         SetCrossToolchainVariables
         unset cc CC cxx CXX
+        if [[ "${ARCH}" == i*86 ]]
+        then
+            export CFLAGS="${CFLAGS} -m32"
+            export CXXFLAGS="${CXXFLAGS} -m32"
+        fi
         ConfigurePkg \
             --prefix="/usr" \
             ${LXE_CONFIGURE_OPTS} \
             --with-headers="${SYSROOT}/usr/include" \
             --enable-kernel="${LINUX_VER}" \
             libc_cv_c_cleanup=yes \
+            libc_cv_ctors_header=yes \
+            libc_cv_forced_unwind=yes \
+            libc_cv_gcc_builtin_expect=yes \
             cross_compiling=yes
 
         InstallPkg install-headers install_root="${SYSROOT}" -i -k
