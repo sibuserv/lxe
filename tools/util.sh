@@ -210,7 +210,8 @@ PrepareLibTypeOpts()
 PrepareBuild()
 {
     mkdir -p "${BUILD_DIR}/${PKG_SUBDIR}"
-    rm -f "${LOG_DIR}/${PKG_SUBDIR}"/*.log
+    cd "${LOG_DIR}/${PKG_SUBDIR}"
+    rm -f configure.log make.log make-install.log
 
     PrepareLibTypeOpts
 }
@@ -223,7 +224,8 @@ CopySrcAndPrepareBuild()
     else
         cp -afT "${PKG_SRC_DIR}/${PKG_SUBDIR_ORIG}" "${BUILD_DIR}/${PKG_SUBDIR}"
     fi
-    rm -f "${LOG_DIR}/${PKG_SUBDIR}"/*.log
+    cd "${LOG_DIR}/${PKG_SUBDIR}"
+    rm -f configure.log make.log make-install.log
 
     PrepareLibTypeOpts
 }
