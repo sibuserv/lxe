@@ -83,6 +83,19 @@ SetGlibcBuildFlags()
     export CFLAGS="-s -O2 -fPIC -fno-stack-protector -U_FORTIFY_SOURCE"
     export LDFLAGS="-Wl,--strip-all"
     export CXXFLAGS="${CFLAGS}"
+
+    if [[ "${ARCH}" == i*86 ]]
+    then
+        export CFLAGS="${CFLAGS} -m32 -march=${ARCH}"
+        export CXXFLAGS="${CXXFLAGS} -m32 -march=${ARCH}"
+    fi
+}
+
+SetGCCBuildFlags()
+{
+    export CFLAGS="-s -O2 -fPIC -fno-stack-protector -U_FORTIFY_SOURCE"
+    export LDFLAGS="-Wl,--strip-all"
+    export CXXFLAGS="${CFLAGS}"
 }
 
 CheckFail()

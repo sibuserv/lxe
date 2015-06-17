@@ -23,11 +23,6 @@
         SetCrossToolchainPath
         SetCrossToolchainVariables
         unset cc CC cxx CXX
-        if [[ "${ARCH}" == i*86 ]]
-        then
-            export CFLAGS="${CFLAGS} -m32"
-            export CXXFLAGS="${CXXFLAGS} -m32"
-        fi
         ConfigurePkg \
             --prefix="/usr" \
             ${LXE_CONFIGURE_OPTS} \

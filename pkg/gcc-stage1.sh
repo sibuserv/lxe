@@ -19,7 +19,7 @@
         UnpackSources
         PrepareBuild
 
-        SetGlibcBuildFlags
+        SetGCCBuildFlags
         SetCrossToolchainPath
         UnsetCrossToolchainVariables
         ( cd "${PREFIX}/bin" && rm -f gcc cpp )

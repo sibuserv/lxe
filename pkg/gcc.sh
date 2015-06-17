@@ -18,7 +18,7 @@
         UnpackSources
         PrepareBuild
 
-        SetGlibcBuildFlags
+        SetGCCBuildFlags
         SetCrossToolchainPath
         SetCrossToolchainVariables
         unset cc CC cxx CXX
