@@ -28,6 +28,7 @@
             ${LXE_CONFIGURE_OPTS} \
             --with-headers="${SYSROOT}/usr/include" \
             --enable-kernel="${LINUX_VER}" \
+            libc_cv_ssp=no \
             libc_cv_c_cleanup=yes \
             libc_cv_ctors_header=yes \
             libc_cv_forced_unwind=yes \

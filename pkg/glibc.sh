@@ -21,7 +21,9 @@
         SetGlibcBuildFlags
         SetCrossToolchainPath
         SetCrossToolchainVariables
-        # unset cxx CXX
+        unset cxx CXX
+        IsPkgVersionGreaterOrEqualTo "2.16.0" && \
+            EXTRA_CONFIGURE_OPTS="--enable-obsolete-rpc"
         ConfigurePkg \
             --prefix="/usr" \
             ${LXE_CONFIGURE_OPTS} \
@@ -31,6 +33,8 @@
             --disable-profile \
             --disable-debug \
             --without-selinux \
+            ${EXTRA_CONFIGURE_OPTS} \
+            libc_cv_ssp=no \
             libc_cv_c_cleanup=yes \
             libc_cv_ctors_header=yes \
             libc_cv_forced_unwind=yes \
