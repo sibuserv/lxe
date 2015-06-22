@@ -3,7 +3,7 @@
 SYSTEM="AstraLinux-1.2_shared"
 
 ARCH=x86_64
-TARGET=${ARCH}-pc-linux-gnu
+TARGET=${ARCH}-cross-linux-gnu
 DEFAULT_LIB_TYPE=shared
 
 # GCC_VER=4.3.2

@@ -5,7 +5,7 @@
 SYSTEM="МСВС-3.0-80001-16_shared"
 
 ARCH=i386
-TARGET=${ARCH}-pc-linux-gnu
+TARGET=${ARCH}-cross-linux-gnu
 DEFAULT_LIB_TYPE=shared
 
 # GCC_VER=4.1.3

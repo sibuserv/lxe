@@ -3,7 +3,7 @@
 SYSTEM="AstraLinux-1.2_static"
 
 ARCH=x86_64
-TARGET=${ARCH}-pc-linux-gnu
+TARGET=${ARCH}-cross-linux-gnu
 DEFAULT_LIB_TYPE=static
 
 # GCC_VER=4.9.2
