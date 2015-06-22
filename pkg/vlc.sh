@@ -6,12 +6,9 @@
     PKG=vlc
     PKG_VERSION=${VLC_VER}
     PKG_SUBDIR=${PKG}-${PKG_VERSION}
-    if IsPkgVersionGreaterOrEqualTo "2.0.0"
-    then
-        PKG_FILE=${PKG}-${PKG_VERSION}.tar.xz
-    else
+    IsPkgVersionGreaterOrEqualTo "2.0.0" && \
+        PKG_FILE=${PKG}-${PKG_VERSION}.tar.xz || \
         PKG_FILE=${PKG}-${PKG_VERSION}.tar.bz2
-    fi
     PKG_URL="http://download.videolan.org/pub/videolan/vlc/${PKG_VERSION}/${PKG_FILE}"
     PKG_DEPS="gcc mesa"
     # glew

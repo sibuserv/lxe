@@ -7,12 +7,9 @@
     PKG_VERSION=${LIBPNG_VER}
     PKG_SUBDIR=${PKG}-${PKG_VERSION}
     PKG_FILE=${PKG}-${PKG_VERSION}.tar.bz2
-    if IsPkgVersionGreaterOrEqualTo "1.2.52"
-    then
-        PKG_URL="http://sourceforge.net/projects/${PKG}/files/libpng12/${PKG_VERSION}/${PKG_FILE}"
-    else
+    IsPkgVersionGreaterOrEqualTo "1.2.52" && \
+        PKG_URL="http://sourceforge.net/projects/${PKG}/files/libpng12/${PKG_VERSION}/${PKG_FILE}" || \
         PKG_URL="http://sourceforge.net/projects/${PKG}/files/libpng12/older-releases/${PKG_VERSION}/${PKG_FILE}"
-    fi
     PKG_DEPS="gcc zlib"
 
     if ! IsPkgInstalled

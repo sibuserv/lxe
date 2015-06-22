@@ -13,8 +13,8 @@
     else
         PKG_SUBDIR_ORIG=Mesa-${PKG_VERSION}
         PKG_FILE=MesaLib-${PKG_VERSION}.tar.bz2
-        IsPkgVersionGreaterOrEqualTo "10.0" &&
-            PKG_URL="ftp://freedesktop.org/pub/${PKG}/older-versions/${PKG_VERSION:0:2}.x/${PKG_VERSION}/${PKG_FILE}" ||
+        IsPkgVersionGreaterOrEqualTo "10.0" && \
+            PKG_URL="ftp://freedesktop.org/pub/${PKG}/older-versions/${PKG_VERSION:0:2}.x/${PKG_VERSION}/${PKG_FILE}" || \
             PKG_URL="ftp://freedesktop.org/pub/${PKG}/older-versions/${PKG_VERSION:0:1}.x/${PKG_VERSION}/${PKG_FILE}"
     fi
     PKG_DEPS="gcc pkg-config-settings expat makedepend x11proto-gl x11proto-dri2 libx11 libxext libxfixes libxdamage libxxf86vm libxt libdrm"
