@@ -256,9 +256,9 @@ ConfigurePkg()
     cd "${BUILD_DIR}/${PKG_SUBDIR}"
     if [ -z "${PKG_SUBDIR_ORIG}" ]
     then 
-        "${PKG_SRC_DIR}/${PKG_SUBDIR}/configure" ${@} &> "${LOG_FILE}"
+        "${PKG_SRC_DIR}/${PKG_SUBDIR}/configure" ${@} &>> "${LOG_FILE}"
     else
-        "${PKG_SRC_DIR}/${PKG_SUBDIR_ORIG}/configure" ${@} &> "${LOG_FILE}"
+        "${PKG_SRC_DIR}/${PKG_SUBDIR_ORIG}/configure" ${@} &>> "${LOG_FILE}"
     fi
     CheckFail "${LOG_FILE}"
 }
@@ -267,7 +267,7 @@ ConfigurePkgInBuildDir()
 {
     local LOG_FILE="${LOG_DIR}/${PKG_SUBDIR}/configure.log"
     cd "${BUILD_DIR}/${PKG_SUBDIR}"
-    ./configure ${@} &> "${LOG_FILE}"
+    ./configure ${@} &>> "${LOG_FILE}"
     CheckFail "${LOG_FILE}"
 }
 
@@ -276,7 +276,7 @@ ConfigureQmakeProject()
     local LOG_FILE="${LOG_DIR}/${PKG_SUBDIR}/configure.log"
     local PATH="${PREFIX}/qt5/bin:${PATH}"
     cd "${BUILD_DIR}/${PKG_SUBDIR}"
-    "${SYSROOT}/qt5/bin/qmake" ${@} &> "${LOG_FILE}"
+    "${SYSROOT}/qt5/bin/qmake" ${@} &>> "${LOG_FILE}"
     CheckFail "${LOG_FILE}"
 }
 
@@ -285,7 +285,7 @@ ConfigureCmakeProject()
     local LOG_FILE="${LOG_DIR}/${PKG_SUBDIR}/configure.log"
     local CMAKE_TOOLCHAIN_FILE="${SYSROOT}/usr/share/cmake/${SYSTEM}.config.cmake"
     cd "${BUILD_DIR}/${PKG_SUBDIR}"
-    cmake -DCMAKE_TOOLCHAIN_FILE="${CMAKE_TOOLCHAIN_FILE}" ${@} &> "${LOG_FILE}"
+    cmake -DCMAKE_TOOLCHAIN_FILE="${CMAKE_TOOLCHAIN_FILE}" ${@} &>> "${LOG_FILE}"
     CheckFail "${LOG_FILE}"
 }
 
@@ -293,7 +293,7 @@ BuildPkg()
 {
     local LOG_FILE="${LOG_DIR}/${PKG_SUBDIR}/make.log"
     cd "${BUILD_DIR}/${PKG_SUBDIR}"
-    make ${@} &> "${LOG_FILE}"
+    make ${@} &>> "${LOG_FILE}"
     CheckFail "${LOG_FILE}"
 }
 
@@ -301,7 +301,7 @@ InstallPkg()
 {
     local LOG_FILE="${LOG_DIR}/${PKG_SUBDIR}/make-install.log"
     cd "${BUILD_DIR}/${PKG_SUBDIR}"
-    make ${@} &> "${LOG_FILE}"
+    make ${@} &>> "${LOG_FILE}"
     CheckFail "${LOG_FILE}"
 
     DeleteExtraFiles
