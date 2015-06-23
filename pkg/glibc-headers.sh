@@ -23,11 +23,14 @@
         SetCrossToolchainPath
         SetCrossToolchainVariables
         unset cc CC cxx CXX
+        IsPkgVersionGreaterOrEqualTo "2.16.0" && \
+            EXTRA_CONFIGURE_OPTS="--enable-obsolete-rpc"
         ConfigurePkg \
             --prefix="/usr" \
             ${LXE_CONFIGURE_OPTS} \
             --with-headers="${SYSROOT}/usr/include" \
             --enable-kernel="${LINUX_VER}" \
+            ${EXTRA_CONFIGURE_OPTS} \
             libc_cv_ssp=no \
             libc_cv_c_cleanup=yes \
             libc_cv_ctors_header=yes \
@@ -35,7 +38,7 @@
             libc_cv_gcc_builtin_expect=yes \
             cross_compiling=yes
 
-        InstallPkg install-headers install_root="${SYSROOT}" -i -k
+        InstallPkg DESTDIR="${SYSROOT}" install-headers -i -k
 
         CleanPkgBuildDir
         CleanPkgSrcDir

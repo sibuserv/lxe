@@ -42,7 +42,7 @@
             cross_compiling=yes
 
         BuildPkg
-        InstallPkg install_root="${SYSROOT}" install
+        InstallPkg DESTDIR="${SYSROOT}" install
 
         CleanPkgBuildDir
         CleanPkgSrcDir
