@@ -44,5 +44,12 @@
     TO_STR=""
     FILE="${PKG_SRC_DIR}/${SUBDIR}/login/Makefile"
     sed -i "${FILE}" -e "s!${FROM_STR}!${TO_STR}!"
+
+    if IsPkgVersionGreaterOrEqualTo "2.16.0"
+    then
+        LOG_FILE="${LOG_DIR}/${PKG_SUBDIR}/patch.log"
+        cd "${PKG_SRC_DIR}/${SUBDIR}"
+        patch -p1 -i "${PKG_DIR}/glibc-2.16.0.patch" &> "${LOG_FILE}"
+    fi
 )
 
