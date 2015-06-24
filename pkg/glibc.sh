@@ -39,7 +39,9 @@
             cross_compiling=yes
 
         BuildPkg
-        InstallPkg DESTDIR="${SYSROOT}" install
+        IsPkgVersionGreaterOrEqualTo "2.16.0" && \
+            InstallPkg install DESTDIR="${SYSROOT}" || \
+            InstallPkg install install_root="${SYSROOT}"
 
         CleanPkgBuildDir
         CleanPkgSrcDir

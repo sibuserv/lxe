@@ -35,7 +35,9 @@
             libc_cv_gcc_builtin_expect=yes \
             cross_compiling=yes
 
-        InstallPkg DESTDIR="${SYSROOT}" install-headers -i -k
+        IsPkgVersionGreaterOrEqualTo "2.16.0" && \
+            InstallPkg install-headers DESTDIR="${SYSROOT}" -i -k || \
+            InstallPkg install-headers install_root="${SYSROOT}" -i -k
 
         CleanPkgBuildDir
         CleanPkgSrcDir
