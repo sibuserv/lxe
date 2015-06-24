@@ -75,7 +75,7 @@ SetBuildFlags()
 {
     export CFLAGS="-s -Os -fPIC -fstack-protector-strong -D_FORTIFY_SOURCE=2 -fdata-sections -ffunction-sections"
     export LDFLAGS="-Wl,--strip-all -Wl,--as-needed -Wl,-z,relro -Wl,--gc-sections"
-    export CXXFLAGS="${CFLAGS}"
+    export CXXFLAGS="${CFLAGS} -static-libstdc++"
 
     if IsVer1GreaterOrEqualToVer2 "${GCC_VER}" "4.9.0"
     then
