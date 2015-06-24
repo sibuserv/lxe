@@ -1,5 +1,8 @@
+--- v1.1 (2015-06-24) ---
+* Fix installation of glibc older than 2.16.0.
+
 --- v1.0 (2015-06-24) ---
-* Fix build of glibc >= 2.16.0.
+* Fix build of glibc 2.16.0 and later.
 * Update config for Ubuntu 14.04-LTS [i586] (static).
 * Add support of Ubuntu 14.04-LTS [amd64] (static).
 * Rename TARGET from ${ARCH}-pc-linux-gnu to ${ARCH}-cross-linux-gnu.
