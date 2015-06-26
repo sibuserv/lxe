@@ -47,8 +47,8 @@
 
         DIR="${PREFIX}/${TARGET}/include"
         [ -d "${DIR}" ] && \
-            mv -f "${DIR}"/* "${SYSROOT}/usr/include/" && \
-            rmdir "${DIR}" 2> /dev/null
+            cp -afT "${DIR}" "${SYSROOT}/usr/include" && \
+            rm -rf "${DIR}" 2> /dev/null
 
         DIR="${PREFIX}/${TARGET}/lib"
         [ -d "${DIR}" ] && \
