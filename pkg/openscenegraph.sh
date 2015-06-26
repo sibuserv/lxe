@@ -10,6 +10,7 @@
     PKG_FILE=OpenSceneGraph-${PKG_VERSION}.zip
     PKG_URL="http://www.openscenegraph.org/downloads/developer_releases/${PKG_FILE}"
     PKG_DEPS="gcc pkg-config-settings zlib libpng jpeg tiff giflib freetype gdal cmake-settings"
+    [ ! -z "${GCC_EXTRA_VER}" ] && PKG_DEPS="${PKG_DEPS} gcc-extra"
 
     if ! IsPkgInstalled
     then
@@ -19,9 +20,10 @@
         UnpackSources
         PrepareBuild
 
-        SetBuildFlags
+        SetBuildFlags "${GCC_EXTRA_VER}"
+        UpdateGCCSymlinks "${GCC_EXTRA_VER}"
+        SetCrossToolchainVariables "${GCC_EXTRA_VER}"
         SetCrossToolchainPath
-        SetCrossToolchainVariables
         CXXFLAGS="${CXXFLAGS} -fpermissive"
         ConfigureCmakeProject \
             -DCMAKE_BUILD_TYPE=Release \
@@ -45,6 +47,8 @@
 
         CleanPkgBuildDir
         CleanPkgSrcDir
+
+        UpdateGCCSymlinks
     fi
 )
 
