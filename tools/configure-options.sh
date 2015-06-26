@@ -38,6 +38,9 @@ PrepareGCCConfigureOpts()
         --with-sysroot=${SYSROOT} \
         --libdir=${SYSROOT}/usr/lib \
         --includedir=${SYSROOT}/usr/include \
+        --with-gxx-include-dir=${SYSROOT}/usr/include/c++/${PKG_VERSION} \
+        --with-slibdir=${SYSROOT}/usr/lib/gcc/${TARGET}/${PKG_VERSION} \
+        --enable-version-specific-runtime-libs \
         --disable-multilib \
         --disable-maintainer-mode \
         --disable-bootstrap \
