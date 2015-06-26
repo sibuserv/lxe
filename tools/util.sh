@@ -87,7 +87,7 @@ UpdateGCCSymlinks()
     cd "${PREFIX}/bin"
 
     local FILE=""
-    for N in "c++" "cpp" "g++" "gcc" "gcc-ar" "gcc-nm" "gcc-ranlib" "gcov" "gcov-tool"
+    for N in c++ cpp g++ gcc gcc-ar gcc-nm gcc-ranlib gcov gcov-tool
     do
         FILE="${N}-${GCC_CURRENT_VER}"
         if [ -e "${FILE}" ]
@@ -97,6 +97,12 @@ UpdateGCCSymlinks()
             ln -sf "${FILE}" "${TARGET}-${N}-${GCC_CURRENT_VER}"
         fi
     done
+}
+
+DeleteGCCSymlinks()
+{
+    cd "${PREFIX}/bin"
+    rm -f c++ cpp g++ gcc gcc-ar gcc-nm gcc-ranlib gcov gcov-tool
 }
 
 SetBuildFlags()
