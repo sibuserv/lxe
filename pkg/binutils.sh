@@ -52,7 +52,6 @@
         ln -sf "${TARGET}-addr2line" "addr2line"
         ln -sf "${TARGET}-c++filt"   "c++filt"
         ln -sf "${TARGET}-elfedit"   "elfedit"
-        ln -sf "${TARGET}-gcov"      "gcov"
         ln -sf "${TARGET}-gprof"     "gprof"
         ln -sf "${TARGET}-readelf"   "readelf"
         ln -sf "${TARGET}-size"      "size"
