@@ -21,19 +21,12 @@
 
         SetGlibcBuildFlags
         SetCrossToolchainPath
+        PrepareGlibcConfigureOpts
         SetCrossToolchainVariables
         unset cc CC cxx CXX
         ConfigurePkg \
-            --prefix="/usr" \
             ${LXE_CONFIGURE_OPTS} \
-            --with-headers="${SYSROOT}/usr/include" \
-            --enable-kernel="${LINUX_VER}" \
-            libc_cv_ssp=no \
-            libc_cv_c_cleanup=yes \
-            libc_cv_ctors_header=yes \
-            libc_cv_forced_unwind=yes \
-            libc_cv_gcc_builtin_expect=yes \
-            cross_compiling=yes
+            ${GLIBC_CONFIGURE_OPTS}
 
         IsPkgVersionGreaterOrEqualTo "2.16.0" && \
             InstallPkg install-headers DESTDIR="${SYSROOT}" -i -k || \

@@ -20,23 +20,12 @@
 
         SetGlibcBuildFlags
         SetCrossToolchainPath
+        PrepareGlibcConfigureOpts
         SetCrossToolchainVariables
         unset cxx CXX
         ConfigurePkg \
-            --prefix="/usr" \
             ${LXE_CONFIGURE_OPTS} \
-            --with-headers="${SYSROOT}/usr/include" \
-            --with-binutils="${PREFIX}/bin" \
-            --enable-kernel="${LINUX_VER}" \
-            --disable-profile \
-            --disable-debug \
-            --without-selinux \
-            libc_cv_ssp=no \
-            libc_cv_c_cleanup=yes \
-            libc_cv_ctors_header=yes \
-            libc_cv_forced_unwind=yes \
-            libc_cv_gcc_builtin_expect=yes \
-            cross_compiling=yes
+            ${GLIBC_CONFIGURE_OPTS}
 
         BuildPkg
         IsPkgVersionGreaterOrEqualTo "2.16.0" && \
