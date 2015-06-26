@@ -8,14 +8,12 @@
     mkdir -p "mkspecs/linux-g++-${SYSTEM}"
     cp -af "mkspecs/linux-g++"/* "mkspecs/linux-g++-${SYSTEM}/"
 
-    SetCrossToolchainVariables
+    SetCrossToolchainVariables "${GCC_EXTRA_VER}"
     FILE="mkspecs/linux-g++-${SYSTEM}/qmake.conf"
     cat > "${FILE}" << EOF
 MAKEFILE_GENERATOR      = UNIX
 CONFIG                 += incremental
 QMAKE_INCREMENTAL_STYLE = sublib
-
-CROSS_COMPILE           = ${CROSS_COMPILE}
 
 include(../common/linux.conf)
 include(../common/gcc-base-unix.conf)
@@ -26,16 +24,16 @@ QMAKE_INCDIR            = \$\$[QT_SYSROOT]/usr/include
 QMAKE_LIBDIR            = \$\$[QT_SYSROOT]/usr/lib
 
 # modifications to g++-unix.conf
-QMAKE_CC                = \$\${CROSS_COMPILE}gcc
-QMAKE_CXX               = \$\${CROSS_COMPILE}g++
+QMAKE_CC                = ${CC}
+QMAKE_CXX               = ${CXX}
 QMAKE_LINK              = \$\${QMAKE_CXX}
 QMAKE_LINK_SHLIB        = \$\${QMAKE_CXX}
 
 # modifications to linux.conf
-QMAKE_AR                = \$\${CROSS_COMPILE}ar cqs
-QMAKE_OBJCOPY           = \$\${CROSS_COMPILE}objcopy
-QMAKE_NM                = \$\${CROSS_COMPILE}nm -P
-QMAKE_STRIP             = \$\${CROSS_COMPILE}strip
+QMAKE_AR                = ${AR} cqs
+QMAKE_OBJCOPY           = ${OBJCOPY}
+QMAKE_NM                = ${NM} -P
+QMAKE_STRIP             = ${STRIP}
 
 # build flags
 QMAKE_CFLAGS           += -fstack-protector-strong -D_FORTIFY_SOURCE=2 -fPIC

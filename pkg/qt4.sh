@@ -14,6 +14,7 @@
             PKG_URL="http://download.qt.io/archive/qt/${QT4_SUBVER}/${QT4_VER}/${PKG_FILE}" || \
             PKG_URL="http://download.qt.io/archive/qt/${QT4_SUBVER}/${PKG_FILE}" )
     PKG_DEPS="gcc pkg-config-settings zlib libpng jpeg freetype fontconfig libxcb libx11 libxext libxi libxrender libxrandr mesa"
+    [ ! -z "${GCC_EXTRA_VER}" ] && PKG_DEPS="${PKG_DEPS} gcc-extra"
 
     if ! IsPkgInstalled
     then
@@ -23,12 +24,12 @@
         UnpackSources
         PrepareBuild
 
-#         SetGlibcBuildFlags
+        SetBuildFlags "${GCC_EXTRA_VER}"
+        UpdateGCCSymlinks "${GCC_EXTRA_VER}"
+        SetCrossToolchainVariables "${GCC_EXTRA_VER}"
         SetCrossToolchainPath
-        SetCrossToolchainVariables
         export LD=${CROSS_COMPILE}g++
-#         export CXXFLAGS="${CFLAGS} -std=c++03"
-        unset CFLAGS CXXFLAGS LDFLAGS
+        # unset CFLAGS CXXFLAGS LDFLAGS
         ConfigurePkg \
             -xplatform "linux-g++-${SYSTEM}" \
             -device-option CROSS_COMPILE="${TARGET}-" \
@@ -97,6 +98,8 @@
 
         CleanPkgBuildDir
         CleanPkgSrcDir
+
+        UpdateGCCSymlinks
 
         rm -rf "${SYSROOT}/qt4/lib"/*.la
     fi
