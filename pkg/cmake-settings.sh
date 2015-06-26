@@ -15,9 +15,7 @@
     then
         CheckDependencies
 
-        SetCrossToolchainVariables
         mkdir -p "${SYSROOT}/usr/share/cmake"
-
         cat > "${SYSROOT}/usr/share/cmake/${SYSTEM}.config.cmake" << EOF
 set(CMAKE_SYSTEM_NAME Linux)
 set(BUILD_SHARED_LIBS OFF)
@@ -27,8 +25,8 @@ set(CMAKE_FIND_ROOT_PATH ${SYSROOT})
 set(CMAKE_FIND_ROOT_PATH_MODE_PROGRAM NEVER)
 set(CMAKE_FIND_ROOT_PATH_MODE_INCLUDE ONLY)
 set(CMAKE_FIND_ROOT_PATH_MODE_LIBRARY ONLY)
-set(CMAKE_C_COMPILER ${PREFIX}/bin/${CC})
-set(CMAKE_CXX_COMPILER ${PREFIX}/bin/${CXX})
+set(CMAKE_C_COMPILER ${PREFIX}/bin/gcc)
+set(CMAKE_CXX_COMPILER ${PREFIX}/bin/g++)
 set(CMAKE_INSTALL_PREFIX ${SYSROOT}/usr CACHE PATH "Installation Prefix")
 set(CMAKE_BUILD_TYPE Release CACHE STRING "Debug|Release|RelWithDebInfo|MinSizeRel")
 set(CMAKE_CROSS_COMPILING ON) # Workaround for http://www.cmake.org/Bug/view.php?id=14075
