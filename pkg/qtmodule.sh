@@ -18,9 +18,9 @@
         UnpackSources
         PrepareBuild
 
-        SetBuildFlags
+        SetBuildFlags "${GCC_EXTRA_VER}"
+        SetCrossToolchainVariables "${GCC_EXTRA_VER}"
         SetCrossToolchainPath
-        SetCrossToolchainVariables
         ConfigureQmakeProject \
             "${PKG_SRC_DIR}/${PKG_SUBDIR_ORIG}/${PKG}.pro"
 
