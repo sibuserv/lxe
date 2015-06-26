@@ -13,8 +13,11 @@ PrepareDirs()
     mkdir -p "${SYSROOT}/lib"
     mkdir -p "${SYSROOT}/usr/lib"
 
-    ln -snf "lib" "${SYSROOT}/lib64"
-    ln -snf "lib" "${SYSROOT}/usr/lib64"
+    if [ "${ARCH}" = x86_64 ]
+    then
+        ln -snf "lib" "${SYSROOT}/lib64"
+        ln -snf "lib" "${SYSROOT}/usr/lib64"
+    fi
 }
 
 SetCrossToolchainPath()
@@ -45,11 +48,15 @@ UnsetMakeFlags()
 
 SetCrossToolchainVariables()
 {
+    [ ! -z "${1}" ] && \
+        local GCC_SUFFIX=-${1} || \
+        local GCC_SUFFIX=-${GCC_VER}
+
     export CROSS_COMPILE=${TARGET}-
-    export cc=${CROSS_COMPILE}gcc
-    export CC=${CROSS_COMPILE}gcc
-    export cxx=${CROSS_COMPILE}g++
-    export CXX=${CROSS_COMPILE}g++
+    export cc=${CROSS_COMPILE}gcc${GCC_SUFFIX}
+    export CC=${CROSS_COMPILE}gcc${GCC_SUFFIX}
+    export cxx=${CROSS_COMPILE}g++${GCC_SUFFIX}
+    export CXX=${CROSS_COMPILE}g++${GCC_SUFFIX}
     export AR=${CROSS_COMPILE}ar
     export AS=${CROSS_COMPILE}as
     export LD=${CROSS_COMPILE}ld
@@ -71,36 +78,69 @@ UnsetCrossToolchainVariables()
     unset PKG_CONFIG_SYSROOT_DIR PKG_CONFIG_PATH PKG_CONFIG_LIBDIR
 }
 
+UpdateGCCSymlinks()
+{
+    [ ! -z "${1}" ] && \
+        local GCC_CURRENT_VER=${1} || \
+        local GCC_CURRENT_VER=${GCC_VER}
+
+    cd "${PREFIX}/bin"
+
+    local FILE=""
+    for N in "c++" "cpp" "g++" "gcc" "gcc-ar" "gcc-nm" "gcc-ranlib" "gcov" "gcov-tool"
+    do
+        FILE="${N}-${GCC_CURRENT_VER}"
+        if [ -e "${FILE}" ]
+        then
+            ln -sf "${FILE}" "${N}"
+            ln -sf "${FILE}" "${TARGET}-${N}"
+            ln -sf "${FILE}" "${TARGET}-${N}-${GCC_CURRENT_VER}"
+        fi
+    done
+}
+
 SetBuildFlags()
 {
-    export CFLAGS="-s -Os -fPIC -fstack-protector-strong -D_FORTIFY_SOURCE=2 -fdata-sections -ffunction-sections"
-    export LDFLAGS="-Wl,--strip-all -Wl,--as-needed -Wl,-z,relro -Wl,--gc-sections"
-    export CXXFLAGS="${CFLAGS} -static-libstdc++"
+    [ ! -z "${1}" ] && \
+        local GCC_CURRENT_VER=${1} || \
+        local GCC_CURRENT_VER=${GCC_VER}
 
-    if IsVer1GreaterOrEqualToVer2 "${GCC_VER}" "4.9.0"
-    then
-        export CXXFLAGS="${CFLAGS} -std=c++11"
-    fi
+    export CFLAGS="-s -Os -fPIC -fdata-sections -ffunction-sections -D_FORTIFY_SOURCE=2"
+    IsVer1GreaterOrEqualToVer2 "${GCC_CURRENT_VER}" "4.9.0" && \
+        export CFLAGS="${CFLAGS} -fstack-protector-strong"
+
+    export CXXFLAGS="${CFLAGS}"
+    IsVer1GreaterOrEqualToVer2 "${GCC_CURRENT_VER}" "4.5.0" && \
+        export CXXFLAGS="${CXXFLAGS} -static-libstdc++"
+    IsVer1GreaterOrEqualToVer2 "${GCC_CURRENT_VER}" "4.9.0" && \
+        export CXXFLAGS="${CXXFLAGS} -std=c++11"
+
+    export LDFLAGS="-Wl,--strip-all -Wl,--as-needed -Wl,-z,relro -Wl,--gc-sections"
 }
 
 SetGlibcBuildFlags()
 {
-    export CFLAGS="-s -O2 -fPIC -fno-stack-protector -U_FORTIFY_SOURCE"
-    export LDFLAGS="-Wl,--strip-all"
-    export CXXFLAGS="${CFLAGS}"
+    export CFLAGS="-s -O2 -U_FORTIFY_SOURCE"
+    IsVer1GreaterOrEqualToVer2 "${GCC_VER}" "4.9.0" && \
+        export CFLAGS="${CFLAGS} -fno-stack-protector"
 
     if [[ "${ARCH}" == i*86 ]]
     then
         export CFLAGS="${CFLAGS} -m32 -march=${ARCH}"
-        export CXXFLAGS="${CXXFLAGS} -m32 -march=${ARCH}"
+    elif [ "${ARCH}" = x86_64 ]
+    then
+        export CFLAGS="${CFLAGS} -m64"
     fi
+
+    export CXXFLAGS="${CFLAGS}"
+    export LDFLAGS="-Wl,--strip-all"
 }
 
 SetGCCBuildFlags()
 {
     export CFLAGS="-s -O2 -fPIC -fno-stack-protector -U_FORTIFY_SOURCE"
-    export LDFLAGS="-Wl,--strip-all"
     export CXXFLAGS="${CFLAGS}"
+    export LDFLAGS="-Wl,--strip-all"
 }
 
 CheckFail()
@@ -208,26 +248,6 @@ UnpackSources()
         fi
     fi
     set +e
-}
-
-PrepareConfigureOpts()
-{
-    LXE_CONFIGURE_OPTS="--build=${BUILD} --target=${TARGET} --host=${TARGET}"
-}
-
-PrepareLibTypeOpts()
-{
-    local LIB_TYPE="${DEFAULT_LIB_TYPE}"
-    [ ! -z "${1}" ] && LIB_TYPE="${1}"
-    if [ "${LIB_TYPE}" = "static" ]
-    then
-        LIB_TYPE_OPTS="--enable-static --disable-shared"
-    elif [ "${LIB_TYPE}" = "both" ]
-    then
-        LIB_TYPE_OPTS="--enable-static --enable-shared"
-    else
-        LIB_TYPE_OPTS="--enable-shared --disable-static"
-    fi
 }
 
 PrepareBuild()
