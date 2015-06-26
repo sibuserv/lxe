@@ -7,6 +7,7 @@ export MAIN_DIR="$(dirname $(realpath -s ${0}))"
 cd "${MAIN_DIR}"
 . "${MAIN_DIR}/settings.sh"
 . "${MAIN_DIR}/tools/define-paths.sh"
+. "${MAIN_DIR}/tools/configure-options.sh"
 . "${MAIN_DIR}/tools/util.sh"
 
 # Help, version, clean up an full clean up

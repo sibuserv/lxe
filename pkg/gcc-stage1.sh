@@ -20,33 +20,16 @@
         PrepareBuild
 
         SetGCCBuildFlags
-        SetCrossToolchainPath
+        PrepareGCCConfigureOpts
         UnsetCrossToolchainVariables
-        ( cd "${PREFIX}/bin" && rm -f gcc cpp )
+        SetCrossToolchainPath
+        DeleteGCCSymlinks
         ConfigurePkg \
-            --prefix="${PREFIX}" \
-            --target="${TARGET}" \
-            --build="${BUILD}" \
-            --host="${BUILD}" \
-            --with-sysroot="${SYSROOT}" \
-            --libdir="${SYSROOT}/usr/lib" \
-            --includedir="${SYSROOT}/usr/include" \
-            --with-headers="${SYSROOT}/usr/include" \
+            ${GCC_CONFIGURE_OPTS} \
             --enable-languages=c \
             --enable-static \
             --disable-shared \
-            --disable-multilib \
-            --disable-maintainer-mode \
-            --disable-bootstrap \
-            --disable-debug \
-            --disable-threads \
-            --disable-libmudflap \
-            --disable-libssp \
-            --disable-libgomp \
-            --with-gnu-ld \
-            --with-gnu-as \
-            --without-headers \
-            cross_compiling=yes
+            --disable-threads
 
         BuildPkg all-gcc
         BuildPkg install-gcc
@@ -56,13 +39,17 @@
         CleanPkgBuildDir
         CleanPkgSrcDir
 
+        UpdateGCCSymlinks
+
         cd "${SYSROOT}/usr/lib/gcc/${TARGET}/${GCC_VER}"
         ln -sf "libgcc.a" "libgcc_eh.a"
         # ln -sf "libgcc.a" "libgcc_sh.a"
 
         cd "${PREFIX}/bin"
-        ln -sf "${TARGET}-gcc" "gcc"
-        ln -sf "${TARGET}-cpp" "cpp"
+        ln -sf "gcc-${GCC_VER}" "gcc"
+        ln -sf "cpp-${GCC_VER}" "cpp"
+        ln -sf "${TARGET}-gcc-${GCC_VER}" "gcc"
+        ln -sf "${TARGET}-cpp-${GCC_VER}" "cpp"
     fi
 )
 
