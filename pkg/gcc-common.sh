@@ -17,12 +17,6 @@
         UnpackSources
         PrepareBuild
 
-        if [ "${ARCH}" = x86_64 ]
-        then
-            mkdir -p "${PREFIX}/${TARGET}/lib"
-            ln -snf "lib" "${PREFIX}/${TARGET}/lib64"
-        fi
-
         SetGCCBuildFlags "${PKG_VERSION}"
         PrepareGCCConfigureOpts "${PKG_VERSION}"
         SetCrossToolchainVariables "${PKG_VERSION}"
@@ -45,20 +39,17 @@
 
         UpdateGCCSymlinks
 
-        DIR="${PREFIX}/${TARGET}/include"
-        [ -d "${DIR}" ] && \
-            cp -afT "${DIR}" "${SYSROOT}/usr/include" && \
-            rm -rf "${DIR}" 2> /dev/null
+        DIR="${SYSROOT}/usr/lib/gcc/${TARGET}"
+        mv -f "${DIR}"/lib*/* "${DIR}/${PKG_VERSION}/"
+        rmdir "${DIR}"/lib* 2> /dev/null
 
-        DIR="${PREFIX}/${TARGET}/lib"
-        [ -d "${DIR}" ] && \
-            mv -f "${DIR}"/* "${SYSROOT}/usr/lib/gcc/${TARGET}/${PKG_VERSION}/" && \
-            rmdir "${DIR}" 2> /dev/null
-
-        [ "${ARCH}" = x86_64 ] && \
-            rm -f "${PREFIX}/${TARGET}/lib64" 2> /dev/null
-
-        rmdir "${PREFIX}/${TARGET}" 2> /dev/null
+        DIR_2="${PREFIX}/${TARGET}"
+        if [ -d "${DIR_2}" ]
+        then
+            mv -f "${DIR_2}"/lib*/* "${DIR}/${PKG_VERSION}/"
+            rmdir "${DIR_2}"/lib* 2> /dev/null
+            rmdir "${DIR_2}" 2> /dev/null
+        fi
 
         find "${PREFIX}/libexec/gcc" \
              "${SYSROOT}/usr/lib/gcc" \
