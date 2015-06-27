@@ -46,7 +46,7 @@
         DIR_2="${PREFIX}/${TARGET}"
         if [ -d "${DIR_2}" ]
         then
-            mv -f "${DIR_2}"/lib*/* "${DIR}/${PKG_VERSION}/"
+            mv -f "${DIR_2}"/lib*/* "${DIR}/${PKG_VERSION}/" 2> /dev/null
             rmdir "${DIR_2}"/lib* 2> /dev/null
             rmdir "${DIR_2}" 2> /dev/null
         fi
