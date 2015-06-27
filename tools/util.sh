@@ -84,9 +84,9 @@ UpdateGCCSymlinks()
         local GCC_CURRENT_VER=${1} || \
         local GCC_CURRENT_VER=${GCC_VER}
 
-    cd "${PREFIX}/bin"
-
     local FILE=""
+
+    cd "${PREFIX}/bin"
     for N in c++ cpp g++ gcc gcc-ar gcc-nm gcc-ranlib gcov gcov-tool
     do
         FILE="${N}-${GCC_CURRENT_VER}"
@@ -95,6 +95,17 @@ UpdateGCCSymlinks()
             ln -sf "${FILE}" "${N}"
             ln -sf "${FILE}" "${TARGET}-${N}"
             ln -sf "${FILE}" "${TARGET}-${N}-${GCC_CURRENT_VER}"
+        fi
+    done
+
+    # Fix for old libGL (mesa) built without RPATH:
+    cd "${SYSROOT}/usr/lib"
+    for N in libgcc_s.so.1 libstdc++.so.6
+    do
+        FILE="${SYSROOT}/usr/lib/gcc/${TARGET}/${GCC_CURRENT_VER}/${N}"
+        if [ -e "${FILE}" ]
+        then
+            ln -sf "${FILE}" "${N}"
         fi
     done
 }
