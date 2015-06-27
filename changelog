@@ -1,5 +1,7 @@
---- v1.1 (2015-06-24) ---
+--- v1.1 (2015-06-xx) ---
 * Fix installation of glibc older than 2.16.0.
+* Update GCC_VER and add GCC_EXTRA_VER into all configs.
+* Add support of Ubuntu 14.04-LTS [i586 and amd64] (shared).
 
 --- v1.0 (2015-06-24) ---
 * Fix build of glibc 2.16.0 and later.
