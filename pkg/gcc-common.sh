@@ -40,7 +40,7 @@
         UpdateGCCSymlinks
 
         DIR="${SYSROOT}/usr/lib/gcc/${TARGET}"
-        mv -f "${DIR}"/lib*/* "${DIR}/${PKG_VERSION}/"
+        mv -f "${DIR}"/lib*/* "${DIR}/${PKG_VERSION}/" 2> /dev/null
         rmdir "${DIR}"/lib* 2> /dev/null
 
         DIR_2="${PREFIX}/${TARGET}"
