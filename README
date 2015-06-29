@@ -21,7 +21,8 @@ CPU power.
 Important notes:
 If you want to distribute statically linked binaries, you have to check the
 license compatibility very carefully. Even if your project is free and/or
-open-source software.
+open-source software. (But for personal use or for use within your company
+you may mix libraries as you wish.)
 
 Dependencies:
 bash, gcc, binutils, libtool, realpath, pkg-config, make, autoreconf, automake,
@@ -41,4 +42,13 @@ Some useful links:
   http://mxe.cc/
   https://github.com/mxe/mxe
   http://sysmagazine.com/posts/198142/
+
+Other notes:
+If your program actively uses OpenGL from Mesa project and your program is built
+using modern GCC (from gcc-extra package), it will not be enough to link your
+program with libstdc++ statically (GCC option -static-libstdc++). You will also
+need to distribute the copy of libstdc++.so.6 library with your application and
+use RPATH (for example '-Wl,rpath,$ORIGIN' or '-Wl,rpath,$ORIGIN/lib') and/or
+use launch script with properly set LD_LIBRARY_PATH (or LD_PRELOAD) environment
+variable.
 
