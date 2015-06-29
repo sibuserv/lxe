@@ -1,19 +1,21 @@
 #!/bin/sh
 
-# This port is not supported yet.
+# This distro is not supported yet.
 
 SYSTEM="МСВС-5.0_shared"
 
-ARCH=i386
+ARCH=i486
 TARGET=${ARCH}-cross-linux-gnu
 DEFAULT_LIB_TYPE=shared
 
-GCC_VER=4.1.3
+# GCC_VER=4.1.3
+GCC_VER=4.1.2
 # GCC_EXTRA_VER=4.9.2
 GCC_EXTRA_VER=5.1.0
 # BINUTILS_VER=2.18
 BINUTILS_VER=2.25
 
+# LINUX_VER=2.6.28.10
 LINUX_VER=2.6.28.10
 LINUX_SUBVER=2.6
 
