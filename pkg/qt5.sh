@@ -4,7 +4,7 @@
 
 (
     PKG=qt5
-    PKG_DEPS="qtbase qttools qtserialport qtscript qtwebsockets"
+    PKG_DEPS="qtbase qttools qtserialport qtscript qtwebsockets qtconnectivity"
 
     if ! IsPkgInstalled
     then
