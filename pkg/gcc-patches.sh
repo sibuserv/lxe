@@ -5,11 +5,12 @@
         SUBDIR="${PKG_SUBDIR_ORIG}" || \
         SUBDIR="${PKG_SUBDIR}"
 
-    if IsPkgVersionGreaterOrEqualTo "5.0.0" && ! IsPkgVersionGreaterOrEqualTo "5.1.1"
+    PATCH_FILE="${PKG_DIR}/gcc-${PKG_VERSION}.patch"
+    if [ -e "${PATCH_FILE}" ]
     then
         LOG_FILE="${LOG_DIR}/${PKG_SUBDIR}/patch.log"
         cd "${PKG_SRC_DIR}/${SUBDIR}"
-        patch -p1 -i "${PKG_DIR}/gcc-5.1.0.patch" &> "${LOG_FILE}"
+        patch -p1 -i "${PATCH_FILE}" &> "${LOG_FILE}"
     fi
 
     if [ "$(ls "${PKG_SRC_DIR}/${SUBDIR}"/gmp-*.tar.* 2>/dev/null | wc -l)" = "0" ]
