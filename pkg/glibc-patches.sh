@@ -45,19 +45,6 @@
     FILE="${PKG_SRC_DIR}/${SUBDIR}/login/Makefile"
     sed -i "${FILE}" -e "s!${FROM_STR}!${TO_STR}!"
 
-    if ! IsPkgVersionGreaterOrEqualTo "2.8"
-    then
-        # sys/signalfd.h sys/eventfd.h \
-        # sys/timerfd.h sys/fanotify.h bits/eventfd.h bits/inotify.h \
-        # bits/signalfd.h bits/timerfd.h bits/epoll.h \
-        # bits/socket_type.h bits/syscall.h bits/sysctl.h \
-        # bits/mman-linux.h
-        FROM_STR=" sys/inotify.h"
-        TO_STR=" sys/inotify.h sys/eventfd.h"
-        FILE="${PKG_SRC_DIR}/${SUBDIR}/sysdeps/unix/sysv/linux/Makefile"
-        sed -i "${FILE}" -e "s;${FROM_STR};${TO_STR};"
-    fi
-
     if IsPkgVersionGreaterOrEqualTo "2.16.0"
     then
         LOG_FILE="${LOG_DIR}/${PKG_SUBDIR}/patch.log"
