@@ -25,6 +25,9 @@
         SetCrossToolchainVariables "${GCC_EXTRA_VER}"
         SetCrossToolchainPath
         export LD=${CROSS_COMPILE}g++
+        IsPkgVersionGreaterOrEqualTo "5.5.0" && \
+            EXTRA_CONFIGURE_OPTS="${EXTRA_CONFIGURE_OPTS} -qt-xkbcommon-x11" || \
+            EXTRA_CONFIGURE_OPTS="${EXTRA_CONFIGURE_OPTS} -qt-xkbcommon"
         ConfigurePkg \
             -xplatform "linux-g++-${SYSTEM}" \
             -device-option CROSS_COMPILE="${TARGET}-" \
@@ -45,7 +48,6 @@
             -c++11 \
             -qt-pcre \
             -qt-xcb \
-            -qt-xkbcommon \
             -system-zlib \
             -system-libpng \
             -system-libjpeg \
@@ -89,6 +91,7 @@
             -no-use-gold-linker \
             -no-pulseaudio \
             -no-alsa \
+            ${EXTRA_CONFIGURE_OPTS} \
             -v
 #             -platform "linux-g++-${SYSTEM}" \
 #             -no-gcc-sysroot \
