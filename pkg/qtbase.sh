@@ -26,8 +26,11 @@
         SetCrossToolchainPath
         export LD=${CROSS_COMPILE}g++
         IsPkgVersionGreaterOrEqualTo "5.5.0" && \
-            EXTRA_CONFIGURE_OPTS="${EXTRA_CONFIGURE_OPTS} -qt-xkbcommon-x11" || \
-            EXTRA_CONFIGURE_OPTS="${EXTRA_CONFIGURE_OPTS} -qt-xkbcommon"
+            EXTRA_CONFIGURE_OPTS="${EXTRA_CONFIGURE_OPTS}
+                                  -qt-xkbcommon-x11
+                                  -no-xkbcommon-evdev" || \
+            EXTRA_CONFIGURE_OPTS="${EXTRA_CONFIGURE_OPTS}
+                                  -qt-xkbcommon"
         ConfigurePkg \
             -xplatform "linux-g++-${SYSTEM}" \
             -device-option CROSS_COMPILE="${TARGET}-" \
