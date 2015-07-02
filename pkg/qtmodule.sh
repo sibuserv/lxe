@@ -19,6 +19,7 @@
         PrepareBuild
 
         SetBuildFlags "${GCC_EXTRA_VER}"
+        UpdateGCCSymlinks "${GCC_EXTRA_VER}"
         SetCrossToolchainVariables "${GCC_EXTRA_VER}"
         SetCrossToolchainPath
         ConfigureQmakeProject \
@@ -29,6 +30,8 @@
 
         CleanPkgBuildDir
         CleanPkgSrcDir
+
+        UpdateGCCSymlinks
 
         rm -rf "${SYSROOT}/qt5/lib"/*.la
     fi
