@@ -1,10 +1,16 @@
 --- v1.1 (2015-07-xx) ---
 * Fix installation of glibc older than 2.16.0.
+* Update GCC_VER and add GCC_EXTRA_VER into all configs.
+* Update package gcc: now it provides the same GCC version as in original
+  distro or the latest version from the same GCC series (for example, 4.8.x).
+* Add new package gcc-extra with modern versions of GCC (now it is 5.1.0).
+  GCC from this package is required for compiling the newest versions of Qt5
+  and OpenSceneGraph. You may use this compiler when your application uses
+  features from C++11 or C++14. Do not forget to link libstdc++ statically.
+* Add new package qtconnectivity.
+* Add support of Ubuntu 14.04-LTS [i586 and amd64] (shared).
 * Update QT5_VER (from 5.4.2 to 5.5.0) in all configs except AstraLinux 1.2
   (too old Glibc there).
-* Update GCC_VER and add GCC_EXTRA_VER into all configs.
-* Add support of Ubuntu 14.04-LTS [i586 and amd64] (shared).
-* Add new package qtconnectivity.
 
 --- v1.0 (2015-06-24) ---
 * Fix build of glibc 2.16.0 and later.
