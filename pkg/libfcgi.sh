@@ -10,6 +10,7 @@
     PKG_FILE=${PKG}_${PKG_VERSION}.orig.tar.gz
     PKG_URL="http://ftp.debian.org/debian/pool/main/libf/${PKG}/${PKG_FILE}"
     PKG_DEPS="gcc"
+    [ ! -z "${GCC_EXTRA_VER}" ] && PKG_DEPS="${PKG_DEPS} gcc-extra"
 
     if ! IsPkgInstalled
     then
@@ -19,20 +20,23 @@
         UnpackSources
         CopySrcAndPrepareBuild
 
-        SetBuildFlags
+        SetBuildFlags "${GCC_EXTRA_VER}"
+        UpdateGCCSymlinks "${GCC_EXTRA_VER}"
+        SetCrossToolchainVariables "${GCC_EXTRA_VER}"
         SetCrossToolchainPath
-        SetCrossToolchainVariables
         PrepareLibTypeOpts "static"
         ConfigurePkgInBuildDir \
             --prefix="${SYSROOT}/usr" \
             ${LXE_CONFIGURE_OPTS} \
             ${LIB_TYPE_OPTS}
 
-        BuildPkg -j ${JOBS}
+        BuildPkg
         InstallPkg install
 
         CleanPkgBuildDir
         CleanPkgSrcDir
+
+        UpdateGCCSymlinks
     fi
 )
 
