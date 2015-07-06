@@ -1,4 +1,4 @@
---- v1.1 (2015-07-xx) ---
+--- v1.1 (2015-07-06) ---
 * Fix installation of glibc older than 2.16.0.
 * Update GCC_VER and add GCC_EXTRA_VER into all configs.
 * Update package gcc: now it provides the same GCC version as in original
