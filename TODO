@@ -1,6 +1,4 @@
 --- TODO ---
-* Rewrite IsVer1GreaterOrEqualToVer2() function without using of dpkg
-  (for non Debian-based systems).
 ? Provide option for build of each library in the static or shared mode.
 ? Rewrite project from bash scripts to make files.
 

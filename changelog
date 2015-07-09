@@ -1,5 +1,7 @@
 --- v1.2 (2015-07-xx) ---
 * Add new package libfcgi.
+* Rewrite IsVer1GreaterOrEqualToVer2() function without using of dpkg
+  (for non Debian-based systems).
 
 --- v1.1 (2015-07-06) ---
 * Fix installation of glibc older than 2.16.0.
