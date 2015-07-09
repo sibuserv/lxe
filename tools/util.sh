@@ -179,8 +179,7 @@ CheckDependencies()
 
 IsVer1GreaterOrEqualToVer2()
 {
-    # TODO: rewrite without using of dpkg (for non Debian-based systems)
-    dpkg --compare-versions "${1}" ge "${2}" && \
+    [ "${1}" = "$(echo -e "${1}\n${2}" | sort -V | tail -n1)" ] && \
         return 0 || \
         return 1
 }
