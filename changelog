@@ -1,5 +1,6 @@
 --- v1.2 (2015-07-xx) ---
 * Add new package libfcgi.
+* Update OPENSSL_VER from 1.0.2a to 1.0.2d  in all static configs.
 * Rewrite IsVer1GreaterOrEqualToVer2() function without using of dpkg
   (for non Debian-based systems).
 
