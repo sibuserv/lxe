@@ -28,6 +28,7 @@
             LIB_TYPE_OPTS="shared"
         cd "${BUILD_DIR}/${PKG_SUBDIR}"
         ln -sf "config" "configure"
+        unset CROSS_COMPILE
         ConfigurePkgInBuildDir \
             --prefix="${SYSROOT}/usr" \
             ${LIB_TYPE_OPTS} \
