@@ -26,13 +26,18 @@
         [ "${DEFAULT_LIB_TYPE}" = "static" ] && \
             LIB_TYPE_OPTS="no-shared" || \
             LIB_TYPE_OPTS="shared"
+        [[ "${ARCH}" == i*86 ]] && \
+            OPENSSL_TARGET="linux-generic32 -DL_ENDIAN" || \
+            OPENSSL_TARGET="linux-${ARCH}"
         cd "${BUILD_DIR}/${PKG_SUBDIR}"
-        ln -sf "config" "configure"
+        ln -sf "Configure" "configure"
         unset CROSS_COMPILE
+        export LD_LIBRARY_PATH="${SYSROOT}/usr/lib"
         ConfigurePkgInBuildDir \
             --prefix="${SYSROOT}/usr" \
+            ${OPENSSL_TARGET} \
             ${LIB_TYPE_OPTS} \
-            no-capieng \
+            -Wa,--noexecstack \
             zlib
 
         BuildPkg all
