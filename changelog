@@ -1,4 +1,4 @@
---- v1.2 (2015-07-xx) ---
+--- v1.2 (2015-07-11) ---
 * Rewrite IsVer1GreaterOrEqualToVer2() function without using of dpkg
   (for non Debian-based systems).
 * Update OPENSSL_VER from 1.0.2a to 1.0.2d  in all static configs.
