@@ -16,12 +16,12 @@
 
         GetSources
         UnpackSources
-        CopySrcAndPrepareBuild
+        PrepareBuild
 
         SetBuildFlags
         SetCrossToolchainPath
         SetCrossToolchainVariables
-        ConfigurePkgInBuildDir \
+        ConfigurePkg \
             --prefix="${SYSROOT}/usr" \
             ${LXE_CONFIGURE_OPTS} \
             ${LIB_TYPE_OPTS}
