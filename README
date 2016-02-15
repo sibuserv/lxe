@@ -1,6 +1,6 @@
 LXE -- Linux cross-toolchain environment
 
-Copyright: 2015 Boris Pek <tehnick-8@mail.ru>
+Copyright: 2015-2016 Boris Pek <tehnick-8@mail.ru>
 License: Expat
 
 Homepage: https://github.com/tehnick/lxe
@@ -16,7 +16,8 @@ This project may be useful when you need to build your applications for a few
 old GNU/Linux distributions and you do not want to manage a number of chroot
 environments and/or use a hypervisor (like QEMU, VirtualBox or VMware) with
 full operating systems. It requires significantly less amount of disk space and
-CPU power.
+CPU power. And it is much simpler and faster than Open Build Service, Jenkins,
+etc.
 
 Important notes:
 If you want to distribute statically linked binaries, you have to check the
@@ -41,8 +42,8 @@ Examples of usage:
 Some useful links:
   https://github.com/tehnick/sibuserv
   https://github.com/mxe/mxe
-  http://mxe.cc/
-  http://sysmagazine.com/posts/198142/
+  https://habrahabr.ru/post/198142/
+  http://web.archive.org/web/20150813010310/http://sysmagazine.com/posts/198142
 
 Other notes:
 If your program actively uses OpenGL from Mesa project and your program is built
