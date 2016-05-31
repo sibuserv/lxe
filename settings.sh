@@ -27,7 +27,7 @@ JOBS=4
 
 # Default list of packages:
 # LOCAL_PKG_LIST="gcc pkg-config-settings cmake-settings ldd-settings"
-LOCAL_PKG_LIST="qt5 openscenegraph freeglut ldd-settings"
+LOCAL_PKG_LIST="qt5 openscenegraph freeglut ldd-settings protobuf"
 
 # Delete unpacked source files after successful build of the package (true/false):
 CLEAN_SRC_DIR=true
