@@ -369,7 +369,6 @@ CleanPkgBuildDir()
 
 DeleteExtraFiles()
 {
-    rm -rf "${SYSROOT}/lib"/*.la
-    rm -rf "${SYSROOT}/usr/lib"/*.la
+    find "${SYSROOT}/lib" "${SYSROOT}/usr/lib" -type f -name '*.la' -exec rm -f {} \;
 }
 
