@@ -1,10 +1,11 @@
 --- v1.3 (2016-xx-xx) ---
 * Fix GCC 4.7.4 build using GCC >= 5.x. [Thanks to Eugene Petrov]
 * Add new packages: yasm, libjpeg-turbo, protobuf, sdl2.
-* Bump GCC_EXTRA_VER from 5.1.0 to 5.2.0.
-* Update BINUTILS_VER from 2.25 to 2.26 in all configs.
 * Improve DeleteExtraFiles() function: now `find` tool is used for searching
   and removing of *.la files.
+* Bump GCC_EXTRA_VER from 5.1.0 to 5.2.0.
+* Update BINUTILS_VER from 2.25 to 2.26 in all configs.
+* Update LIBPNG_VER from 1.2.53 to 1.2.56 in all static configs.
 
 --- v1.2 (2015-07-11) ---
 * Rewrite IsVer1GreaterOrEqualToVer2() function without using of dpkg
