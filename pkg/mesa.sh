@@ -33,6 +33,8 @@
         SetCrossToolchainPath
         SetCrossToolchainVariables
         PrepareLibTypeOpts "shared"
+        cd "${BUILD_DIR}/${PKG_SUBDIR}"
+        autoreconf -vfi &>> "${LOG_DIR}/${PKG_SUBDIR}/configure.log"
         ConfigurePkgInBuildDir \
             --prefix="${SYSROOT}/usr" \
             ${LXE_CONFIGURE_OPTS} \

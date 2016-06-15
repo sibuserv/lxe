@@ -4,6 +4,7 @@
 * Add new packages: yasm, libjpeg-turbo, protobuf, sdl2.
 * Improve DeleteExtraFiles() function: now `find` tool is used for searching
   and removing of *.la files.
+* Fix build of mesa in systems with automake >= 1.15 and later.
 * Update GCC_EXTRA_VER from 5.1.0 to 6.1.0 in all configs.
 * Update BINUTILS_VER from 2.25 to 2.26 in all configs.
 * Update OPENSCENEGRAPH_VER from 3.2.1 to 3.4.0 in all configs.
