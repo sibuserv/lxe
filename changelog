@@ -1,5 +1,6 @@
 --- v1.3 (2016-xx-xx) ---
 * Fix GCC 4.7.4 build using GCC >= 5.x. [Thanks to Eugene Petrov]
+* Add support of (versioned) extra settings files.
 * Add new packages: yasm, libjpeg-turbo, protobuf, sdl2.
 * Improve DeleteExtraFiles() function: now `find` tool is used for searching
   and removing of *.la files.
