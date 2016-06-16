@@ -130,7 +130,9 @@ SetBuildFlags()
     IsVer1GreaterOrEqualToVer2 "${GCC_CURRENT_VER}" "4.5.0" && \
         export CXXFLAGS="${CXXFLAGS} -static-libstdc++"
     IsVer1GreaterOrEqualToVer2 "${GCC_CURRENT_VER}" "4.9.0" && \
-        export CXXFLAGS="${CXXFLAGS} -std=c++11"
+        IsVer1GreaterOrEqualToVer2 "${GCC_CURRENT_VER}" "6.1.0" && \
+            export CXXFLAGS="${CXXFLAGS} -std=c++14" || \
+            export CXXFLAGS="${CXXFLAGS} -std=c++11"
 
     export LDFLAGS="-Wl,--strip-all -Wl,--as-needed -Wl,-z,relro -Wl,--gc-sections"
 }
