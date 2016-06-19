@@ -31,6 +31,9 @@
                                   -no-xkbcommon-evdev" || \
             EXTRA_CONFIGURE_OPTS="${EXTRA_CONFIGURE_OPTS}
                                   -qt-xkbcommon"
+        ! IsPkgVersionGreaterOrEqualTo "5.7.0" && \
+            EXTRA_CONFIGURE_OPTS="${EXTRA_CONFIGURE_OPTS}
+                                  -c++11"
         ConfigurePkg \
             -xplatform "linux-g++-${SYSTEM}" \
             -device-option CROSS_COMPILE="${TARGET}-" \
@@ -48,7 +51,6 @@
             -nomake examples \
             -nomake tests \
             -pch \
-            -c++11 \
             -qt-pcre \
             -qt-xcb \
             -system-zlib \
