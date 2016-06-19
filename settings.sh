@@ -4,19 +4,19 @@
 # CONFIGS="Ubuntu-14.04-LTS_i386_shared Ubuntu-14.04-LTS_amd64_shared"
 # CONFIGS="AstraLinux-1.2_static AstraLinux-1.3_static AstraLinux-1.4_static"
 # CONFIGS="AstraLinux-1.2_shared AstraLinux-1.3_shared AstraLinux-1.4_shared"
-# CONFIGS="МСВС-3.0-80001-16_shared"
-# CONFIGS="МСВС-3.0-80001-12_shared МСВС-3.0-80001-16_shared МСВС-5.0_shared"
 
-CONFIGS="AstraLinux-1.2_static
-         AstraLinux-1.2_shared
-         AstraLinux-1.3_static
-         AstraLinux-1.3_shared
-         AstraLinux-1.4_static
-         AstraLinux-1.4_shared
-         Ubuntu-14.04-LTS_i386_static
-         Ubuntu-14.04-LTS_i386_shared
-         Ubuntu-14.04-LTS_amd64_static
-         Ubuntu-14.04-LTS_amd64_shared"
+CONFIGS="
+        AstraLinux-1.2_static
+        AstraLinux-1.2_shared
+        AstraLinux-1.3_static
+        AstraLinux-1.3_shared
+        AstraLinux-1.4_static
+        AstraLinux-1.4_shared
+        Ubuntu-14.04-LTS_i386_static
+        Ubuntu-14.04-LTS_i386_shared
+        Ubuntu-14.04-LTS_amd64_static
+        Ubuntu-14.04-LTS_amd64_shared
+        "
 
 # Type of current system:
 BUILD="$(LC_ALL=C gcc -v 2>&1 | sed -ne "s|^Target: \(.*\)$|\1|p")"
