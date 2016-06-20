@@ -8,7 +8,7 @@ Homepage: https://github.com/tehnick/lxe
 History:
 This project was inspired by MXE (http://mxe.cc/) and was made for own purpose.
 Now it is the part of simple build server which builds for a few old GNU/Linux
-distributions (i686 and x86_64), MS Windows (i686 and x86_64) and Adroid
+distributions (i486, i586 and x86_64), MS Windows (i686 and x86_64) and Adroid
 (ARMv7 and x86). Maybe one day it will be able to build C++ apps for OS X too.
 
 Description:
@@ -43,7 +43,6 @@ Some useful links:
   https://github.com/tehnick/sibuserv
   https://github.com/mxe/mxe
   https://habrahabr.ru/post/198142/
-  http://web.archive.org/web/20150813010310/http://sysmagazine.com/posts/198142
 
 Other notes:
 If your program actively uses OpenGL from Mesa project and your program is built
