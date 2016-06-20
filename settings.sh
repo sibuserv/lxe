@@ -6,12 +6,12 @@
 # CONFIGS="AstraLinux-1.2_shared AstraLinux-1.3_shared AstraLinux-1.4_shared"
 
 CONFIGS="
-        AstraLinux-1.2_static
-        AstraLinux-1.2_shared
-        AstraLinux-1.3_static
-        AstraLinux-1.3_shared
         AstraLinux-1.4_static
         AstraLinux-1.4_shared
+        AstraLinux-1.3_static
+        AstraLinux-1.3_shared
+        AstraLinux-1.2_static
+        AstraLinux-1.2_shared
         Ubuntu-14.04-LTS_i386_static
         Ubuntu-14.04-LTS_i386_shared
         Ubuntu-14.04-LTS_amd64_static
@@ -27,7 +27,7 @@ JOBS=4
 
 # Default list of packages:
 # LOCAL_PKG_LIST="gcc pkg-config-settings cmake-settings ldd-settings"
-LOCAL_PKG_LIST="qt5 openscenegraph freeglut ldd-settings protobuf"
+LOCAL_PKG_LIST="cmake-settings ldd-settings freeglut qt5 protobuf openscenegraph"
 
 # Delete unpacked source files after successful build of the package (true/false):
 CLEAN_SRC_DIR=true
