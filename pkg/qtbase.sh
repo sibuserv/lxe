@@ -101,8 +101,8 @@
 #             -platform "linux-g++-${SYSTEM}" \
 #             -no-gcc-sysroot \
 
-        BuildPkg -j ${JOBS} -i -k
-        InstallPkg install -i -k
+        BuildPkg -j ${JOBS}
+        InstallPkg install
 
         CleanPkgBuildDir
         CleanPkgSrcDir
