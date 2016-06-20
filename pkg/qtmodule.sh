@@ -25,8 +25,8 @@
         ConfigureQmakeProject \
             "${PKG_SRC_DIR}/${PKG_SUBDIR_ORIG}/${PKG}.pro"
 
-        BuildPkg -j ${JOBS} -i -k
-        InstallPkg install -i -k
+        BuildPkg -j ${JOBS}
+        InstallPkg install
 
         CleanPkgBuildDir
         CleanPkgSrcDir
