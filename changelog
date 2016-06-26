@@ -12,9 +12,6 @@
   - OPENSCENEGRAPH_VER from 3.2.1 to 3.4.0
   - FREEGLUT_VER from 2.8.1 to 3.0.0
   - QT5_VER from 5.5.0 to 5.7.0
-  - MAKE_VER from 3.81 to 3.82
-    (workaround for rare problem of glibc build, search for
-    "glibc-2.*/shlib.lds:.*: syntax error" bug for more details)
 * Update in all static configs:
   - LIBPNG_VER from 1.2.53 to 1.2.56
 * Update SetBuildFlags() for GCC >= 6.1.0.
