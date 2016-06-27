@@ -29,8 +29,8 @@
             ${GLIBC_CONFIGURE_OPTS}
 
         IsPkgVersionGreaterOrEqualTo "2.16.0" && \
-            InstallPkg install-headers DESTDIR="${SYSROOT}" -i -k || \
-            InstallPkg install-headers install_root="${SYSROOT}" -i -k
+            InstallPkg install-headers DESTDIR="${SYSROOT}" || \
+            InstallPkg install-headers install_root="${SYSROOT}"
 
         CleanPkgBuildDir
         CleanPkgSrcDir
