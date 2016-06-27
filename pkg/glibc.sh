@@ -27,6 +27,11 @@
             ${LXE_CONFIGURE_OPTS} \
             ${GLIBC_CONFIGURE_OPTS}
 
+        # Workaround for rare problem of build of old glibc versions.
+        # Search for "glibc-2.*/shlib.lds:.*: syntax error" bug for
+        # more details.
+        BuildPkg -i -k
+
         BuildPkg
         IsPkgVersionGreaterOrEqualTo "2.16.0" && \
             InstallPkg install DESTDIR="${SYSROOT}" || \
