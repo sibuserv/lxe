@@ -57,7 +57,7 @@
         ln -sf "${TARGET}-size"      "size"
         ln -sf "${TARGET}-strings"   "strings"
 
-        rm -rf "${PREFIX}/lib"/*.la
+        find "${PREFIX}/lib" -type f -name '*.la' -exec rm -f {} \;
     fi
 )
 

@@ -51,10 +51,8 @@
             rmdir "${DIR_2}" 2> /dev/null
         fi
 
-        find "${PREFIX}/libexec/gcc" \
-             "${SYSROOT}/usr/lib/gcc" \
-             -type f  -name '*.la' | \
-             while read F; do rm "${F}"; done
+        find "${PREFIX}/libexec/gcc" "${SYSROOT}/usr/lib/gcc" \
+             -type f -name '*.la' -exec rm -f {} \;
     fi
 )
 

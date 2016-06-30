@@ -33,7 +33,7 @@
 
         UpdateGCCSymlinks
 
-        rm -rf "${SYSROOT}/qt5/lib"/*.la
+        find "${SYSROOT}/qt5/lib" -type f -name '*.la' -exec rm -f {} \;
     fi
 )
 
