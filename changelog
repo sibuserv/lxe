@@ -2,7 +2,7 @@
 * Fix GCC 4.3.6 build using GCC >= 5.x.
 * Fix GCC 4.7.4 build using GCC >= 5.x. [Thanks to Eugene Petrov]
 * Add support of (versioned) extra settings files.
-* Add new packages: yasm, libjpeg-turbo, protobuf, sdl2.
+* Add new packages: yasm, libjpeg-turbo, protobuf, sdl2, qwt.
 * Improve DeleteExtraFiles() function: now `find` tool is used for searching
   and removing of *.la files.
 * Fix build of mesa in systems with automake >= 1.15 and later.
