@@ -27,7 +27,7 @@ JOBS=4
 
 # Default list of packages:
 # LOCAL_PKG_LIST="gcc pkg-config-settings cmake-settings ldd-settings"
-LOCAL_PKG_LIST="cmake-settings ldd-settings freeglut sdl2 qt5 protobuf libjpeg-turbo openscenegraph"
+LOCAL_PKG_LIST="cmake-settings ldd-settings freeglut sdl2 qt5 qwt protobuf libjpeg-turbo openscenegraph"
 
 # Delete unpacked source files after successful build of the package (true/false):
 CLEAN_SRC_DIR=true
