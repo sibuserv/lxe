@@ -23,7 +23,8 @@ BUILD="$(LC_ALL=C gcc -v 2>&1 | sed -ne "s|^Target: \(.*\)$|\1|p")"
 # BUILD=x86_64-linux-gnu
 
 # Number of compilation processes during building of each package:
-JOBS=4
+JOBS=$(nproc 2>/dev/null || echo 1)
+# JOBS=4
 
 # Default list of packages:
 # LOCAL_PKG_LIST="gcc pkg-config-settings cmake-settings ldd-settings"
