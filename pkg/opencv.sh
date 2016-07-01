@@ -23,8 +23,8 @@
         UpdateGCCSymlinks "${GCC_EXTRA_VER}"
         SetCrossToolchainVariables "${GCC_EXTRA_VER}"
         SetCrossToolchainPath
-        CXXFLAGS="${CXXFLAGS} -fpermissive"
         ConfigureCmakeProject \
+            -DCMAKE_INSTALL_PREFIX="${SYSROOT}/usr" \
             -DCMAKE_BUILD_TYPE=Release \
             -DBUILD_TESTS=OFF \
             -DBUILD_PERF_TESTS=OFF \
