@@ -31,6 +31,10 @@
         # Search for "glibc-2.*/shlib.lds:.*: syntax error" bug for
         # more details.
         BuildPkg -i -k
+        ConfigurePkg \
+            ${LXE_CONFIGURE_OPTS} \
+            ${GLIBC_CONFIGURE_OPTS}
+        #
 
         BuildPkg
         IsPkgVersionGreaterOrEqualTo "2.16.0" && \
