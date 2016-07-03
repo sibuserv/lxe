@@ -49,6 +49,7 @@ EOF
 
 cmake -DCMAKE_TOOLCHAIN_FILE="${CMAKE_TOOLCHAIN_FILE}" \${@}
 EOF
+            chmod uog+x "${PREFIX}/bin"/${TARGET}-*cmake
 
             unset CMAKE_TOOLCHAIN_FILE
         done
