@@ -127,9 +127,6 @@ SetBuildFlags()
         export CFLAGS="${CFLAGS} -fstack-protector-strong"
 
     export CXXFLAGS="${CFLAGS}"
-    IsVer1GreaterOrEqualToVer2 "${GCC_CURRENT_VER}" "4.5.0" && \
-        export CXXFLAGS="${CXXFLAGS} -static-libstdc++"
-
     if IsVer1GreaterOrEqualToVer2 "${GCC_CURRENT_VER}" "4.9.0"
     then
         IsVer1GreaterOrEqualToVer2 "${GCC_CURRENT_VER}" "6.1.0" && \
@@ -138,6 +135,12 @@ SetBuildFlags()
     fi
 
     export LDFLAGS="-Wl,--strip-all -Wl,--as-needed -Wl,-z,relro -Wl,--gc-sections"
+    
+    if [ "${GCC_CURRENT_VER}" != "${GCC_VER}" ]
+    then
+        export CFLAGS="${CFLAGS} -static-libgcc"
+        export CXXFLAGS="${CXXFLAGS} -static-libgcc -static-libstdc++"
+    fi
 }
 
 SetGlibcBuildFlags()
