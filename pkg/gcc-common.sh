@@ -37,7 +37,8 @@
         CleanPkgBuildDir
         CleanPkgSrcDir
 
-        UpdateGCCSymlinks
+        UpdateGCCSymlinks "${PKG_VERSION}"
+        UpdateGCCSymlinks "${GCC_VER}"
 
         DIR="${SYSROOT}/usr/lib/gcc/${TARGET}"
         mv -f "${DIR}"/lib*/* "${DIR}/${PKG_VERSION}/" 2> /dev/null
