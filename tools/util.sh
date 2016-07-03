@@ -116,6 +116,16 @@ DeleteGCCSymlinks()
     rm -f c++ cpp g++ gcc gcc-ar gcc-nm gcc-ranlib gcov gcov-tool
 }
 
+UpdateCmakeSymlink()
+{
+    [ ! -z "${1}" ] && \
+        local GCC_CURRENT_VER=${1} || \
+        local GCC_CURRENT_VER=${GCC_VER}
+
+    ln -sf "${PREFIX}/bin/${TARGET}-gcc-${GCC_CURRENT_VER}-cmake" \
+           "${PREFIX}/bin/${TARGET}-cmake"
+}
+
 SetBuildFlags()
 {
     [ ! -z "${1}" ] && \
@@ -304,7 +314,7 @@ ConfigurePkg()
     local LOG_FILE="${LOG_DIR}/${PKG_SUBDIR}/configure.log"
     cd "${BUILD_DIR}/${PKG_SUBDIR}"
     if [ -z "${PKG_SUBDIR_ORIG}" ]
-    then 
+    then
         "${PKG_SRC_DIR}/${PKG_SUBDIR}/configure" ${@} &>> "${LOG_FILE}"
     else
         "${PKG_SRC_DIR}/${PKG_SUBDIR_ORIG}/configure" ${@} &>> "${LOG_FILE}"
@@ -332,9 +342,13 @@ ConfigureQmakeProject()
 ConfigureCmakeProject()
 {
     local LOG_FILE="${LOG_DIR}/${PKG_SUBDIR}/configure.log"
-    local CMAKE_TOOLCHAIN_FILE="${SYSROOT}/usr/share/cmake/${SYSTEM}.config.cmake"
     cd "${BUILD_DIR}/${PKG_SUBDIR}"
-    cmake -DCMAKE_TOOLCHAIN_FILE="${CMAKE_TOOLCHAIN_FILE}" ${@} &>> "${LOG_FILE}"
+    if [ -z "${PKG_SUBDIR_ORIG}" ]
+    then
+        "${PREFIX}/bin/${TARGET}-cmake" "${PKG_SRC_DIR}/${PKG_SUBDIR}" ${@} &>> "${LOG_FILE}"
+    else
+        "${PREFIX}/bin/${TARGET}-cmake" "${PKG_SRC_DIR}/${PKG_SUBDIR_ORIG}" ${@} &>> "${LOG_FILE}"
+    fi
     CheckFail "${LOG_FILE}"
 }
 

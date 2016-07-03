@@ -17,12 +17,12 @@
   - SDL2_VER from 2.0.3 to 2.0.4
 * Update in all static configs:
   - LIBPNG_VER from 1.2.53 to 1.2.56
-* Update SetBuildFlags() for better support of gcc-extra.
+* Update SetBuildFlags() function for better support of gcc-extra.
 * Provide different cmake toolchain files for different GCC versions:
   ${SYSROOT}/usr/share/cmake/${SYSTEM}.gcc-${GCC_CURRENT_VER}.conf.cmake
 * Add special special scripts with specified paths to toolchain files:
   ${PREFIX}/bin/${TARGET}-gcc-${GCC_CURRENT_VER}-cmake
-
+* Add UpdateCmakeSymlink() and improve ConfigureCmakeProject() functions.
 
 --- v1.2 (2015-07-11) ---
 * Rewrite IsVer1GreaterOrEqualToVer2() function without using of dpkg
