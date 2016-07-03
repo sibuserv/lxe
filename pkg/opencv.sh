@@ -21,20 +21,17 @@
 
         SetBuildFlags "${GCC_EXTRA_VER}"
         UpdateGCCSymlinks "${GCC_EXTRA_VER}"
+        UpdateCmakeSymlink "${GCC_EXTRA_VER}"
         SetCrossToolchainVariables "${GCC_EXTRA_VER}"
         SetCrossToolchainPath
         ConfigureCmakeProject \
-            -DCMAKE_INSTALL_PREFIX="${SYSROOT}/usr" \
-            -DCMAKE_BUILD_TYPE=Release \
             -DBUILD_TESTS=OFF \
             -DBUILD_PERF_TESTS=OFF \
             -DWITH_OPENEXR=OFF \
             -DBUILD_OPENEXR=OFF \
             -DWITH_TIFF=OFF \
             -DBUILD_TIFF=OFF \
-            -DBUILD_SHARED_LIBS=OFF \
-            -DENABLE_PRECOMPILED_HEADERS=OFF \
-            "${PKG_SRC_DIR}/${PKG_SUBDIR}"
+            -DENABLE_PRECOMPILED_HEADERS=OFF
 
         BuildPkg -j ${JOBS}
         InstallPkg install
@@ -43,6 +40,7 @@
         CleanPkgSrcDir
 
         UpdateGCCSymlinks
+        UpdateCmakeSymlink
     fi
 )
 
