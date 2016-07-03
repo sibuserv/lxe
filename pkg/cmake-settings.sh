@@ -19,7 +19,10 @@
         for GCC_CURRENT_VER in ${GCC_VER} ${GCC_EXTRA_VER}
         do
             SetBuildFlags "${GCC_CURRENT_VER}"
-            cat > "${SYSROOT}/usr/share/cmake/${SYSTEM}.gcc-${GCC_CURRENT_VER}.conf.cmake" << EOF
+
+            CMAKE_TOOLCHAIN_FILE="${SYSROOT}/usr/share/cmake/${SYSTEM}.gcc-${GCC_CURRENT_VER}.conf.cmake"
+
+            cat > "${CMAKE_TOOLCHAIN_FILE}" << EOF
 set(CMAKE_SYSTEM_NAME Linux)
 set(BUILD_SHARED_LIBS OFF)
 set(LIBTYPE STATIC)
@@ -40,6 +43,14 @@ set(CMAKE_BUILD_TYPE Release CACHE STRING "Debug|Release|RelWithDebInfo|MinSizeR
 set(CMAKE_CROSS_COMPILING ON) # Workaround for http://www.cmake.org/Bug/view.php?id=14075
 set(PKG_CONFIG_EXECUTABLE ${PREFIX}/bin/${TARGET}-pkg-config)
 EOF
+
+            cat > "${PREFIX}/bin/${TARGET}-gcc-${GCC_CURRENT_VER}-cmake" << EOF
+#!/bin/sh
+
+cmake -DCMAKE_TOOLCHAIN_FILE="${CMAKE_TOOLCHAIN_FILE}" \${@}
+EOF
+
+            unset CMAKE_TOOLCHAIN_FILE
         done
 
         date -R > "${INST_DIR}/${PKG}"
