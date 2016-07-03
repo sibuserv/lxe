@@ -22,22 +22,17 @@
 
         SetBuildFlags "${GCC_EXTRA_VER}"
         UpdateGCCSymlinks "${GCC_EXTRA_VER}"
+        UpdateCmakeSymlink "${GCC_EXTRA_VER}"
         SetCrossToolchainVariables "${GCC_EXTRA_VER}"
         SetCrossToolchainPath
-        CXXFLAGS="${CXXFLAGS} -fpermissive"
+#         CXXFLAGS="${CXXFLAGS} -fpermissive"
         ConfigureCmakeProject \
-            -DCMAKE_BUILD_TYPE=Release \
             -DPKG_CONFIG_EXECUTABLE="${PREFIX}/bin/${TARGET}-pkg-config" \
-            -DCMAKE_CXX_FLAGS="${CXXFLAGS}" \
-            -DCMAKE_SHARED_LINKER_FLAGS="${LDFLAGS}" \
-            -DCMAKE_EXE_LINKER_FLAGS="${LDFLAGS}" \
-            -DBUILD_SHARED_LIBS=OFF \
             -DDYNAMIC_OPENTHREADS=OFF \
             -DDYNAMIC_OPENSCENEGRAPH=OFF \
             -DBUILD_OSG_APPLICATIONS=OFF \
             -DOSG_USE_QT=OFF \
-            -D_OPENTHREADS_ATOMIC_USE_GCC_BUILTINS_EXITCODE=1 \
-            "${PKG_SRC_DIR}/${PKG_SUBDIR_ORIG}"
+            -D_OPENTHREADS_ATOMIC_USE_GCC_BUILTINS_EXITCODE=1
 #             -DCMAKE_INSTALL_PREFIX="${SYSROOT}/usr" \
 #             -DCMAKE_PREFIX_PATH="${SYSROOT}/usr" \
 #             -DCMAKE_MODULE_PATH="${SYSROOT}/usr" \
@@ -49,6 +44,7 @@
         CleanPkgSrcDir
 
         UpdateGCCSymlinks
+        UpdateCmakeSymlink
     fi
 )
 
