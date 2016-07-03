@@ -24,19 +24,13 @@
         SetCrossToolchainVariables
         if IsPkgVersionGreaterOrEqualTo "3.0.0"
         then
+            UpdateCmakeSymlink
             ConfigureCmakeProject \
-                -DCMAKE_BUILD_TYPE=Release \
-                -DPKG_CONFIG_EXECUTABLE="${PREFIX}/bin/${TARGET}-pkg-config" \
-                -DCMAKE_CXX_FLAGS="${CXXFLAGS}" \
-                -DCMAKE_SHARED_LINKER_FLAGS="${LDFLAGS}" \
-                -DCMAKE_EXE_LINKER_FLAGS="${LDFLAGS}" \
                 -DFREEGLUT_BUILD_SHARED_LIBS=OFF \
                 -DFREEGLUT_BUILD_STATIC_LIBS=ON \
                 -DFREEGLUT_REPLACE_GLUT=ON \
                 -DFREEGLUT_GLES=OFF \
-                -DFREEGLUT_BUILD_DEMOS=OFF \
-                "${PKG_SRC_DIR}/${PKG_SUBDIR}"
-
+                -DFREEGLUT_BUILD_DEMOS=OFF
         else
             PrepareLibTypeOpts "static"
             ConfigurePkg \
