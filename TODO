@@ -1,4 +1,5 @@
 --- TODO ---
+* Add package ffmpeg.
 * Add ConfigureAutotoolsProject() function.
 * Improve ConfigureCmakeProject() function.
 * Update GCC_EXTRA_VER to 6.1.0 or later and fix build of QtBase with it.
