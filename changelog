@@ -15,10 +15,13 @@
   - PROJ_VER from 4.8.0 to 4.9.2
   - OPENSCENEGRAPH_VER from 3.2.1 to 3.4.0
   - SDL2_VER from 2.0.3 to 2.0.4
+* Update in all static configs:
   - OPENSSL_VER from 1.0.2d to 1.0.2h
   - LIBGPG_ERROR_VER 1.19 to 1.23
   - LIBGCRYPT_VER from 1.6.3 to 1.7.1
-* Update in all static configs:
+  - LIBXML2_VER from 2.9.2 to 2.9.4
+  - LIBXSLT_VER from 1.1.28 to 1.1.29
+  - EXPAT_VER from 2.1.0 to 2.2.0
   - LIBPNG_VER from 1.2.53 to 1.2.56
 * Update SetBuildFlags() function for better support of gcc-extra.
 * Provide different cmake toolchain files for different GCC versions:
