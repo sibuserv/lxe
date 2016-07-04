@@ -1,6 +1,9 @@
 --- TODO ---
 * Add package ffmpeg.
 * Add ConfigureAutotoolsProject() function.
+* Rename Ubuntu configs.
+* Add configs for Ubuntu 16.04.
+* Add configs for Debian 8.x.
 * Update GCC_EXTRA_VER to 6.1.0 or later and fix build of QtBase with it.
 ? Provide option for build of each library in the static or shared mode.
 ? Rewrite project from bash scripts to make files.
