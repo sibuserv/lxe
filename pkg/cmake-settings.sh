@@ -22,6 +22,7 @@
 
             CMAKE_TOOLCHAIN_FILE="${SYSROOT}/usr/share/cmake/${SYSTEM}.gcc-${GCC_CURRENT_VER}.conf.cmake"
 
+            mkdir -p "${SYSROOT}/usr/share/cmake"
             cat > "${CMAKE_TOOLCHAIN_FILE}" << EOF
 set(CMAKE_SYSTEM_NAME Linux)
 set(BUILD_SHARED_LIBS OFF)
@@ -44,6 +45,7 @@ set(CMAKE_CROSS_COMPILING ON) # Workaround for http://www.cmake.org/Bug/view.php
 set(PKG_CONFIG_EXECUTABLE ${PREFIX}/bin/${TARGET}-pkg-config)
 EOF
 
+            mkdir -p "${PREFIX}/bin"
             cat > "${PREFIX}/bin/${TARGET}-gcc-${GCC_CURRENT_VER}-cmake" << EOF
 #!/bin/sh
 
