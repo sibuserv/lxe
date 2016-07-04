@@ -1,0 +1,17 @@
+Description: Fix build with GCC >= 5.x
+ "error: call of overloaded 'isinf(const double&)' is ambiguous"
+Author: Boris Pek <tehnick-8@mail.ru>
+Last-Update: 2016-07-04
+
+diff --git a/src/osgPlugins/osgjs/json_stream b/src/osgPlugins/osgjs/json_stream
+--- a/src/osgPlugins/osgjs/json_stream
++++ b/src/osgPlugins/osgjs/json_stream
+@@ -95,7 +95,7 @@
+                 return d;
+             }
+             else {
+-                if(isinf(d)) {
++                if(std::isinf(d)) {
+                     return std::numeric_limits<double>::max();
+                 }
+                 // no much way to do better than replace invalid float NaN by 0
