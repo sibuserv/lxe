@@ -7,7 +7,9 @@
     PKG_VERSION=${TIFF_VER}
     PKG_SUBDIR=${PKG}-${PKG_VERSION}
     PKG_FILE=${PKG}-${PKG_VERSION}.tar.gz
-    PKG_URL="http://download.osgeo.org/libtiff/${PKG_FILE}"
+    IsPkgVersionGreaterOrEqualTo "3.9.4" && \
+        PKG_URL="http://download.osgeo.org/libtiff/${PKG_FILE}" || \
+        PKG_URL="http://download.osgeo.org/libtiff/old/${PKG_FILE}"
     PKG_DEPS="gcc"
 
     if ! IsPkgInstalled
