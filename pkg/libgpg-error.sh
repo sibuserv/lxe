@@ -12,24 +12,9 @@
 
     if ! IsPkgInstalled
     then
-        CheckDependencies
-
-        GetSources
-        UnpackSources
-        PrepareBuild
-
-        SetBuildFlags
-        SetSystemPath
-        UnsetCrossToolchainVariables
-        ConfigureAutotoolsProject \
+        ProcessStandardAutotoolsProject \
             --disable-nls \
             --disable-languages
-
-        BuildPkg -j ${JOBS}
-        InstallPkg install
-
-        CleanPkgBuildDir
-        CleanPkgSrcDir
 
         cd "${PREFIX}/bin/"
         ln -sf "${SYSROOT}/usr/bin/gpg-error-config" "${TARGET}-gpg-error-config"

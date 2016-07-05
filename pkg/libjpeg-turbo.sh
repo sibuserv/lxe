@@ -12,22 +12,7 @@
 
     if ! IsPkgInstalled
     then
-        CheckDependencies
-
-        GetSources
-        UnpackSources
-        PrepareBuild
-
-        SetBuildFlags
-        SetCrossToolchainPath
-        SetCrossToolchainVariables
-        ConfigureAutotoolsProject
-
-        BuildPkg -j ${JOBS}
-        InstallPkg install
-
-        CleanPkgBuildDir
-        CleanPkgSrcDir
+        ProcessStandardAutotoolsProject
     fi
 )
 

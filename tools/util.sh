@@ -389,6 +389,46 @@ InstallPkg()
     EndOfPkgBuild
 }
 
+ProcessStandardAutotoolsProject()
+{
+    CheckDependencies
+
+    GetSources
+    UnpackSources
+    PrepareBuild
+
+    SetBuildFlags
+    SetCrossToolchainPath
+    SetCrossToolchainVariables
+    ConfigureAutotoolsProject ${@}
+
+    BuildPkg -j ${JOBS}
+    InstallPkg install
+
+    CleanPkgBuildDir
+    CleanPkgSrcDir
+}
+
+ProcessStandardAutotoolsProjectInBuildDir()
+{
+    CheckDependencies
+
+    GetSources
+    UnpackSources
+    CopySrcAndPrepareBuild
+
+    SetBuildFlags
+    SetCrossToolchainPath
+    SetCrossToolchainVariables
+    ConfigureAutotoolsProjectInBuildDir ${@}
+
+    BuildPkg -j ${JOBS}
+    InstallPkg install
+
+    CleanPkgBuildDir
+    CleanPkgSrcDir
+}
+
 CleanPkgSrcDir()
 {
     if [ "${CLEAN_SRC_DIR}" = "true" ]

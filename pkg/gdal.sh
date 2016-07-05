@@ -12,16 +12,7 @@
 
     if ! IsPkgInstalled
     then
-        CheckDependencies
-
-        GetSources
-        UnpackSources
-        CopySrcAndPrepareBuild
-
-        SetBuildFlags
-        SetCrossToolchainPath
-        SetCrossToolchainVariables
-        ConfigureAutotoolsProjectInBuildDir \
+        ProcessStandardAutotoolsProjectInBuildDir \
             --with-static-proj4="${SYSROOT}/usr" \
             --with-libjson-c=internal \
             --with-geotiff=internal \
@@ -68,12 +59,6 @@
             --without-php \
             --without-ruby \
             --without-python
-
-        BuildPkg -j ${JOBS}
-        InstallPkg install
-
-        CleanPkgBuildDir
-        CleanPkgSrcDir
 
         cd "${PREFIX}/bin/"
         ln -sf "${SYSROOT}/usr/bin/${PKG}-config" "${TARGET}-${PKG}config"

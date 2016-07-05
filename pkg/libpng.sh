@@ -14,22 +14,7 @@
 
     if ! IsPkgInstalled
     then
-        CheckDependencies
-
-        GetSources
-        UnpackSources
-        PrepareBuild
-
-        SetBuildFlags
-        SetCrossToolchainPath
-        SetCrossToolchainVariables
-        ConfigureAutotoolsProject
-
-        BuildPkg -j ${JOBS}
-        InstallPkg install
-
-        CleanPkgBuildDir
-        CleanPkgSrcDir
+        ProcessStandardAutotoolsProject
 
         cd "${PREFIX}/bin/"
         ln -sf "${SYSROOT}/usr/bin/${PKG}-config" "${TARGET}-${PKG}-config"

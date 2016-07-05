@@ -12,26 +12,11 @@
 
     if ! IsPkgInstalled
     then
-        CheckDependencies
-
-        GetSources
-        UnpackSources
-        PrepareBuild
-
-        SetBuildFlags
-        SetSystemPath
-        UnsetCrossToolchainVariables
-        ConfigureAutotoolsProject \
+        ProcessStandardAutotoolsProject \
             --with-gpg-error-prefix="${SYSROOT}/usr" \
             --disable-asm \
             ac_cv_sys_symbol_underscore=no \
             cross_compiling=yes
-
-        BuildPkg -j ${JOBS}
-        InstallPkg install
-
-        CleanPkgBuildDir
-        CleanPkgSrcDir
 
         cd "${PREFIX}/bin/"
         ln -sf "${SYSROOT}/usr/bin/${PKG}-config" "${TARGET}-${PKG}-config"

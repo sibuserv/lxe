@@ -12,24 +12,9 @@
 
     if ! IsPkgInstalled
     then
-        CheckDependencies
-
-        GetSources
-        UnpackSources
-        CopySrcAndPrepareBuild
-
-        SetBuildFlags
-        SetCrossToolchainPath
-        SetCrossToolchainVariables
-        ConfigureAutotoolsProjectInBuildDir \
+        ProcessStandardAutotoolsProjectInBuildDir \
             --with-gnu-ld \
             --without-harfbuzz
-
-        BuildPkg -j ${JOBS}
-        InstallPkg install
-
-        CleanPkgBuildDir
-        CleanPkgSrcDir
 
         cd "${PREFIX}/bin/"
         ln -sf "${SYSROOT}/usr/bin/${PKG}-config" "${TARGET}-${PKG}-config"

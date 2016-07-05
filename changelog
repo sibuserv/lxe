@@ -35,6 +35,9 @@
 * Add UpdateCmakeSymlink() and improve ConfigureCmakeProject() functions.
 * Add ConfigureAutotoolsProject() and ConfigureAutotoolsProjectInBuildDir()
   functions and use them where it is possible.
+* Add  ProcessStandardAutotoolsProjectInBuildDir() and
+  ProcessStandardAutotoolsProject() functions and use them where it is
+  possible.
 
 --- v1.2 (2015-07-11) ---
 * Rewrite IsVer1GreaterOrEqualToVer2() function without using of dpkg

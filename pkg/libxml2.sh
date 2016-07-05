@@ -12,25 +12,10 @@
 
     if ! IsPkgInstalled
     then
-        CheckDependencies
-
-        GetSources
-        UnpackSources
-        PrepareBuild
-
-        SetBuildFlags
-        SetCrossToolchainPath
-        SetCrossToolchainVariables
-        ConfigureAutotoolsProject \
+        ProcessStandardAutotoolsProject \
             --without-python \
             --without-debug \
             --without-threads
-
-        BuildPkg -j ${JOBS}
-        InstallPkg install
-
-        CleanPkgBuildDir
-        CleanPkgSrcDir
 
         cd "${PREFIX}/bin/"
         ln -sf "${SYSROOT}/usr/bin/xml2-config" "${TARGET}-xml2-config"
