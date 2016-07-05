@@ -26,10 +26,7 @@
         SetCrossToolchainPath
         # cd "${PKG_SRC_DIR}/${PKG_SUBDIR}"
         # ./autogen.sh &>> "${LOG_DIR}/${PKG_SUBDIR}/configure.log"
-        ConfigurePkg \
-            --prefix="${SYSROOT}/usr" \
-            ${LXE_CONFIGURE_OPTS} \
-            ${LIB_TYPE_OPTS} \
+        ConfigureAutotoolsProject \
             --with-zlib
 
         BuildPkg -j ${JOBS}

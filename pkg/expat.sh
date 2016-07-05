@@ -23,10 +23,7 @@
         SetBuildFlags
         SetCrossToolchainPath
         SetCrossToolchainVariables
-        ConfigurePkgInBuildDir \
-            --prefix="${SYSROOT}/usr" \
-            ${LXE_CONFIGURE_OPTS} \
-            ${LIB_TYPE_OPTS}
+        ConfigureAutotoolsProjectInBuildDir
 
         BuildPkg -j ${JOBS}
         InstallPkg install

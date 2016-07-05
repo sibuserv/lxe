@@ -25,10 +25,7 @@
         SetCrossToolchainVariables "${GCC_EXTRA_VER}"
         SetCrossToolchainPath
         PrepareLibTypeOpts "static"
-        ConfigurePkgInBuildDir \
-            --prefix="${SYSROOT}/usr" \
-            ${LXE_CONFIGURE_OPTS} \
-            ${LIB_TYPE_OPTS}
+        ConfigureAutotoolsProjectInBuildDir
 
         BuildPkg
         InstallPkg install

@@ -21,11 +21,8 @@
         SetBuildFlags
         SetCrossToolchainPath
         SetCrossToolchainVariables
-        ConfigurePkgInBuildDir \
-            --prefix="/usr" \
+        ConfigureAutotoolsProjectInBuildDir \
             --sysconfdir="/etc" \
-            ${LXE_CONFIGURE_OPTS} \
-            ${LIB_TYPE_OPTS} \
             --with-arch="${TARGET}" \
             --with-sysroot="${SYSROOT}" \
             --with-expat="${SYSROOT}/usr" \

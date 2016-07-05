@@ -24,11 +24,8 @@
         SetGlibcBuildFlags
         SetCrossToolchainPath
         SetCrossToolchainVariables
-        ConfigurePkg \
-            --prefix="${SYSROOT}/usr" \
-            ${LXE_CONFIGURE_OPTS} \
-            --enable-shared \
-            --disable-static \
+        PrepareLibTypeOpts "static"
+        ConfigureAutotoolsProject \
             --disable-gles1 \
             --disable-gles2 \
             --disable-libxml2 \

@@ -33,11 +33,8 @@
                 -DFREEGLUT_BUILD_DEMOS=OFF
         else
             PrepareLibTypeOpts "static"
-            ConfigurePkg \
-                --prefix="${SYSROOT}/usr" \
+            ConfigureAutotoolsProject \
                 --with-sysroot="${SYSROOT}" \
-                ${LXE_CONFIGURE_OPTS} \
-                ${LIB_TYPE_OPTS} \
                 --enable-replace-glut \
                 --disable-debug \
                 --with-gnu-ld

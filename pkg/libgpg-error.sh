@@ -21,10 +21,7 @@
         SetBuildFlags
         SetSystemPath
         UnsetCrossToolchainVariables
-        ConfigurePkg \
-            --prefix="${SYSROOT}/usr" \
-            ${LXE_CONFIGURE_OPTS} \
-            ${LIB_TYPE_OPTS} \
+        ConfigureAutotoolsProject \
             --disable-nls \
             --disable-languages
 

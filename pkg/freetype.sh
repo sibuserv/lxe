@@ -21,10 +21,7 @@
         SetBuildFlags
         SetCrossToolchainPath
         SetCrossToolchainVariables
-        ConfigurePkgInBuildDir \
-            --prefix="${SYSROOT}/usr" \
-            ${LXE_CONFIGURE_OPTS} \
-            ${LIB_TYPE_OPTS} \
+        ConfigureAutotoolsProjectInBuildDir \
             --with-gnu-ld \
             --without-harfbuzz
 

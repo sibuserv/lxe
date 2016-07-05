@@ -22,10 +22,7 @@
         SetCrossToolchainVariables
         [ "${DEFAULT_LIB_TYPE}" = "static" ] && \
             PrepareLibTypeOpts "both"
-        ConfigurePkg \
-            --prefix="${SYSROOT}/usr" \
-            ${LXE_CONFIGURE_OPTS} \
-            ${LIB_TYPE_OPTS} \
+        ConfigureAutotoolsProject \
             --enable-malloc0returnsnull
 
         BuildPkg -j ${JOBS}

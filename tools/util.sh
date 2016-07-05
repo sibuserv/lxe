@@ -330,6 +330,24 @@ ConfigurePkgInBuildDir()
     CheckFail "${LOG_FILE}"
 }
 
+ConfigureAutotoolsProject()
+{
+    ConfigurePkg \
+        --prefix="${SYSROOT}/usr" \
+        ${LXE_CONFIGURE_OPTS} \
+        ${LIB_TYPE_OPTS} \
+        ${@}
+}
+
+ConfigureAutotoolsProjectInBuildDir()
+{
+    ConfigurePkgInBuildDir \
+        --prefix="${SYSROOT}/usr" \
+        ${LXE_CONFIGURE_OPTS} \
+        ${LIB_TYPE_OPTS} \
+        ${@}
+}
+
 ConfigureQmakeProject()
 {
     local LOG_FILE="${LOG_DIR}/${PKG_SUBDIR}/configure.log"

@@ -25,10 +25,7 @@
         SetCrossToolchainVariables "${GCC_EXTRA_VER}"
         SetCrossToolchainPath
         PrepareLibTypeOpts "static"
-        ConfigurePkg \
-            --prefix="${SYSROOT}/usr" \
-            ${LXE_CONFIGURE_OPTS} \
-            ${LIB_TYPE_OPTS} \
+        ConfigureAutotoolsProject \
             --disable-rpath
 
         BuildPkg -j ${JOBS}

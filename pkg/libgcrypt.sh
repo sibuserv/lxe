@@ -21,12 +21,9 @@
         SetBuildFlags
         SetSystemPath
         UnsetCrossToolchainVariables
-        ConfigurePkg \
-            --prefix="${SYSROOT}/usr" \
-            ${LXE_CONFIGURE_OPTS} \
-            ${LIB_TYPE_OPTS} \
-            --disable-asm \
+        ConfigureAutotoolsProject \
             --with-gpg-error-prefix="${SYSROOT}/usr" \
+            --disable-asm \
             ac_cv_sys_symbol_underscore=no \
             cross_compiling=yes
 

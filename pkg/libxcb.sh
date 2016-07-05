@@ -23,10 +23,7 @@
         SetCrossToolchainVariables
         PrepareLibTypeOpts "shared"
         PATH="${PATH}:${SYSROOT}/usr/bin"
-        ConfigurePkg \
-            --prefix="${SYSROOT}/usr" \
-            ${LXE_CONFIGURE_OPTS} \
-            ${LIB_TYPE_OPTS} \
+        ConfigureAutotoolsProject \
             --disable-build-docs \
             ac_cv_path_XSLTPROC=yes
 
