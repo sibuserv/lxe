@@ -26,6 +26,7 @@
   - JPEG_VER from 8d to 9b
   - TIFF_VER from 4.0.3 to 4.0.6
   - GIFLIB_VER from 5.0.5 to 5.1.4
+  - JPEG_TURBO_VER from 1.4.1 to 1.5.0
 * Update SetBuildFlags() function for better support of gcc-extra.
 * Provide different cmake toolchain files for different GCC versions:
   ${SYSROOT}/usr/share/cmake/${SYSTEM}.gcc-${GCC_CURRENT_VER}.conf.cmake
