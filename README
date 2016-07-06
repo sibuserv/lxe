@@ -3,7 +3,7 @@ LXE -- Linux cross-toolchain environment
 Copyright: 2015-2016 Boris Pek <tehnick-8@mail.ru>
 License: Expat
 
-Homepage: https://github.com/tehnick/lxe
+Homepage: https://github.com/sibuserv/lxe
 
 History:
 This project was inspired by MXE (http://mxe.cc/) and was made for own purpose.
@@ -40,7 +40,8 @@ Examples of usage:
   ./make.sh --help
 
 Some useful links:
-  https://github.com/tehnick/sibuserv
+  https://github.com/sibuserv/sibuserv
+  https://github.com/sibuserv/mxe
   https://github.com/mxe/mxe
   https://habrahabr.ru/post/198142/
 
