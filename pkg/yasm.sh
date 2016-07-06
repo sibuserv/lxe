@@ -12,28 +12,9 @@
 
     if ! IsPkgInstalled
     then
-        CheckDependencies
-
-        GetSources
-        UnpackSources
-        PrepareBuild
-
-        SetBuildFlags
-        SetSystemPath
-        UnsetCrossToolchainVariables
-        ConfigurePkg \
-            --prefix="${PREFIX}" \
+        ProcessStandardAutotoolsProject \
+            --bindir="${PREFIX}/bin" \
             --disable-nls
-
-        BuildPkg -j ${JOBS}
-        InstallPkg install
-
-        CleanPkgBuildDir
-        CleanPkgSrcDir
-
-        cp -af "${PREFIX}/include"/libyasm* "${SYSROOT}/usr/include/"
-        rm -rf "${PREFIX}/include"/libyasm*
-        find "${PREFIX}/include" -depth -empty -delete
     fi
 )
 
