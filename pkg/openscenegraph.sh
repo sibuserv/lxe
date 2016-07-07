@@ -25,7 +25,6 @@
         UpdateCmakeSymlink "${GCC_EXTRA_VER}"
         SetCrossToolchainVariables "${GCC_EXTRA_VER}"
         SetCrossToolchainPath
-#         CXXFLAGS="${CXXFLAGS} -fpermissive"
         ConfigureCmakeProject \
             -DPKG_CONFIG_EXECUTABLE="${PREFIX}/bin/${TARGET}-pkg-config" \
             -DDYNAMIC_OPENTHREADS=OFF \
@@ -33,9 +32,6 @@
             -DBUILD_OSG_APPLICATIONS=OFF \
             -DOSG_USE_QT=OFF \
             -D_OPENTHREADS_ATOMIC_USE_GCC_BUILTINS_EXITCODE=1
-#             -DCMAKE_INSTALL_PREFIX="${SYSROOT}/usr" \
-#             -DCMAKE_PREFIX_PATH="${SYSROOT}/usr" \
-#             -DCMAKE_MODULE_PATH="${SYSROOT}/usr" \
 
         BuildPkg -j ${JOBS}
         InstallPkg install
