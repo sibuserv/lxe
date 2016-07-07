@@ -1,8 +1,9 @@
---- v1.3 (2016-xx-xx) ---
+--- v2.0 (2016-xx-xx) ---
 * Fix GCC 4.3.6 build using GCC >= 5.x.
 * Fix GCC 4.7.4 build using GCC >= 5.x. [Thanks to Eugene Petrov]
 * Add support of (versioned) extra settings files.
-* Add new packages: yasm, libjpeg-turbo, protobuf, sdl2, qwt, boost.
+* Add new packages: yasm, libjpeg-turbo, protobuf, sdl2, qwt, boost,
+  x264, ffmpeg.
 * Add new packages: exiv2, opencv. [Thanks to Eugene Petrov]
 * Fix build of mesa in systems with automake >= 1.15 and later.
 * Update in all configs:
