@@ -31,13 +31,13 @@ cmake, wget, curl, tar (with gzip, bzip2 and xz support), patch, sed, find,
 python, python-libxml2 (for some versions of mesa)
 
 Examples of usage:
-  ./make.sh qt5
-  ./make.sh qtbase qtserialport qtscript
-  ./make.sh gdal freeglut
-  ./make.sh clean
-  ./make.sh distclean
-  ./make.sh --version
-  ./make.sh --help
+  make qt5
+  make qtbase qtserialport qtscript
+  make gdal freeglut
+  make clean
+  make distclean
+  make version
+  make help
 
 Some useful links:
   https://github.com/sibuserv/sibuserv

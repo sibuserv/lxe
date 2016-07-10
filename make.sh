@@ -14,24 +14,24 @@ cd "${MAIN_DIR}"
 if [ "${1}" = "-h" ] || [ "${1}" = "--help" ]
 then
     echo \
-"Usage: ./make.sh [option] [package 1] [package 2] [package 3] ...
+"Usage: make [option] [package 1] [package 2] [package 3] ...
 
 Options:
     clean           clean up (delete dist/ subdirectory with all files)
     distclean       full clean up (delete dist/ and src/ subdirectories with all files)
-    -V, --version   display LXE version and exit
-    -h, --help      display this help and exit
+    version         display LXE version and exit
+    help            display this help and exit
 
 Examples:
-    ./make.sh
-    ./make.sh qt5
-    ./make.sh qtbase qtserialport qtscript
-    ./make.sh gdal freeglut
-    ./make.sh clean
-    ./make.sh distclean
+    make
+    make qt5
+    make qtbase qtserialport qtscript
+    make gdal freeglut
+    make clean
+    make distclean
 
 Settings:
-    Edit file settings.sh
+    Edit file settings.sh or add file settings.sh.<any-suffix>
 
 Configs:
     Some samples are available in subdirectory etc/
