@@ -21,7 +21,6 @@
         SetBuildFlags
         SetCrossToolchainPath
         SetCrossToolchainVariables
-        LDFLAGS="${LDFLAGS} -lrt"
         ConfigurePkg \
             --prefix="${SYSROOT}/usr" \
             --sysroot="${SYSROOT}" \
@@ -34,6 +33,8 @@
             --enable-avresample \
             --disable-debug \
             --disable-doc \
+            --disable-programs \
+            --disable-sdl \
             --disable-libx264
 
         BuildPkg -j ${JOBS}
