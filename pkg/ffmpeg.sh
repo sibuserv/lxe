@@ -33,9 +33,29 @@
             --enable-avresample \
             --disable-debug \
             --disable-doc \
+            --disable-libass \
+            --disable-libbluray \
+            --disable-libbs2b \
+            --disable-libcaca \
+            --disable-libmp3lame \
+            --disable-libopencore-amrnb \
+            --disable-libopencore-amrwb \
+            --disable-libopus \
+            --disable-libspeex \
+            --disable-libtheora \
+            --disable-libvidstab \
+            --disable-libvo-amrwbenc \
+            --disable-libvorbis \
+            --disable-libvpx \
+            --disable-libx264 \
+            --disable-libxvid \
             --disable-programs \
             --disable-sdl \
-            --disable-libx264
+            --disable-iconv \
+            --disable-openssl \
+            --disable-gnutls \
+            --disable-schannel \
+            --disable-securetransport
 
         BuildPkg -j ${JOBS}
         InstallPkg install
