@@ -14,8 +14,8 @@
     then
         ProcessStandardAutotoolsProject \
             --with-gpg-error-prefix="${SYSROOT}/usr" \
+            --disable-doc \
             --disable-asm \
-            ac_cv_sys_symbol_underscore=no \
             cross_compiling=yes
 
         cd "${PREFIX}/bin/"
