@@ -11,7 +11,7 @@ cd "${MAIN_DIR}"
 . "${MAIN_DIR}/tools/util.sh"
 
 # Help, version, clean up an full clean up
-if [ "${1}" = "-h" ] || [ "${1}" = "--help" ]
+if [ "${1}" = "help" ]
 then
     echo \
 "Usage: make [option] [package 1] [package 2] [package 3] ...
@@ -37,7 +37,7 @@ Configs:
     Some samples are available in subdirectory etc/
 "
     exit 0
-elif [ "${1}" = "-V" ] || [ "${1}" = "--version" ]
+elif [ "${1}" = "version" ]
 then
     if [ -d "${MAIN_DIR}/.git" ] && which git &>/dev/null
     then
