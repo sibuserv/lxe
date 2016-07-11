@@ -9,7 +9,8 @@
     PKG_SUBDIR_ORIG=${PKG}-opensource-src-${PKG_VERSION}
     PKG_FILE=${PKG}-opensource-src-${PKG_VERSION}.tar.xz
     PKG_URL="http://download.qt.io/archive/qt/${QT5_SUBVER}/${QT5_VER}/submodules/${PKG_FILE}"
-    PKG_DEPS="gcc pkg-config-settings zlib libpng jpeg freetype fontconfig libxcb libx11 libxext libxi libxrender libxrandr mesa"
+    PKG_DEPS="gcc pkg-config-settings zlib libpng jpeg freetype fontconfig
+              openssl libxcb libx11 libxext libxi libxrender libxrandr mesa"
     [ ! -z "${GCC_EXTRA_VER}" ] && PKG_DEPS="${PKG_DEPS} gcc-extra"
 
     if ! IsPkgInstalled
@@ -34,6 +35,7 @@
         ! IsPkgVersionGreaterOrEqualTo "5.7.0" && \
             EXTRA_CONFIGURE_OPTS="${EXTRA_CONFIGURE_OPTS}
                                   -c++11"
+        export OPENSSL_LIBS="$(${TARGET}-pkg-config --libs-only-l openssl)"
         ConfigurePkg \
             -xplatform "linux-g++-${SYSTEM}" \
             -device-option CROSS_COMPILE="${TARGET}-" \
@@ -48,6 +50,7 @@
             -release \
             -strip \
             -pkg-config \
+            -opengl desktop \
             -nomake examples \
             -nomake tests \
             -pch \
@@ -58,7 +61,7 @@
             -system-libjpeg \
             -system-freetype \
             -fontconfig \
-            -opengl desktop \
+            -openssl-linked \
             -no-kms \
             -no-egl \
             -no-eglfs \
@@ -79,7 +82,6 @@
             -no-icu \
             -no-dbus \
             -no-mtdev \
-            -no-openssl \
             -no-journald \
             -no-accessibility \
             -no-compile-examples \
@@ -108,6 +110,8 @@
         CleanPkgSrcDir
 
         UpdateGCCSymlinks
+
+        unset LD OPENSSL_LIBS
 
         find "${SYSROOT}/qt5/lib" -type f -name '*.la' -exec rm -f {} \;
     fi
