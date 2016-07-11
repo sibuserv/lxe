@@ -1,5 +1,6 @@
 --- v2.0 (2016-xx-xx) ---
 * Add Makefile as a proxy for shell script make.sh.
+* Add `make list` target: displays the list of available packages.
 * Fix GCC 4.3.6 build using GCC >= 5.x.
 * Fix GCC 4.7.4 build using GCC >= 5.x. [Thanks to Eugene Petrov]
 * Add support of (versioned) extra settings files.

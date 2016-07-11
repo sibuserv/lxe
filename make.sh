@@ -17,6 +17,7 @@ then
 "Usage: make [option] [package 1] [package 2] [package 3] ...
 
 Options:
+    list            display the list of available packages
     clean           clean up (delete dist/ subdirectory with all files)
     distclean       full clean up (delete dist/ and src/ subdirectories with all files)
     version         display LXE version and exit
@@ -52,6 +53,10 @@ then
              "tarball with sources of this project."
         exit 1
     fi
+    exit 0
+elif [ "${1}" = "list" ]
+then
+    grep 'PKG=' "${MAIN_DIR}/pkg"/*.sh | sed -ne "s|.*pkg/\(.*\)\.sh:.*|\1|p"
     exit 0
 elif [ "${1}" = "clean" ] && [ -z "${2}" ]
 then

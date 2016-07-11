@@ -34,6 +34,7 @@ Examples of usage:
   make qt5
   make qtbase qtserialport qtscript
   make gdal freeglut
+  make list
   make clean
   make distclean
   make version
