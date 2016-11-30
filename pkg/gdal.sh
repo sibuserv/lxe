@@ -7,7 +7,8 @@
     PKG_VERSION=${GDAL_VER}
     PKG_SUBDIR=${PKG}-${PKG_VERSION}
     PKG_FILE=${PKG}-${PKG_VERSION}.tar.gz
-    PKG_URL="ftp://ftp.remotesensing.org/${PKG}/${PKG_VERSION}/${PKG_FILE}"
+    # PKG_URL="ftp://ftp.remotesensing.org/${PKG}/${PKG_VERSION}/${PKG_FILE}"
+    PKG_URL="http://download.osgeo.org/${PKG}/${PKG_VERSION}/${PKG_FILE}"
     PKG_DEPS="gcc zlib expat libpng jpeg tiff giflib proj"
 
     if ! IsPkgInstalled
