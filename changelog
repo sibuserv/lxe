@@ -2,6 +2,7 @@
 * Update in all configs:
   - GCC_EXTRA_VER from 5.4.0 to 6.2.0
   - BINUTILS_VER from 2.26 to 2.27
+  - X264_VER from 20160706-2245 to 20161130-2245
   - FFMPEG_VER from 3.1.1 to 3.2.1
   - BOOST_VER from 1.61.0 to 1.62.0
   - SDL2_VER from 2.0.4 to 2.0.5
