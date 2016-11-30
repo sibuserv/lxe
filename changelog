@@ -5,6 +5,7 @@
   - FFMPEG_VER from 3.1.1 to 3.2.1
 * Update in all static configs:
   - JPEG_TURBO_VER from 1.5.0 to 1.5.1
+  - TIFF_VER from 4.0.6 to 4.0.7
 
 --- v2.0 (2016-07-12) ---
 * Add Makefile as a proxy for shell script make.sh.
