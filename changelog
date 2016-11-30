@@ -9,6 +9,7 @@
   - OPENSSL_VER from 1.0.2h to 1.0.2j
   - LIBGPG_ERROR_VER from 1.23 to 1.25
   - LIBGCRYPT_VER from 1.7.1 to 1.7.3
+  - FREETYPE_VER from 2.6.3 to 2.7
 
 --- v2.0 (2016-07-12) ---
 * Add Makefile as a proxy for shell script make.sh.
