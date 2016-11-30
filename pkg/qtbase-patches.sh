@@ -51,6 +51,8 @@ QMAKE_CFLAGS_RELEASE   += -Os
 QMAKE_CXXFLAGS_RELEASE += -Os
 QMAKE_LFLAGS_RELEASE   += -Wl,-s -Wl,--gc-sections
 
+QMAKE_CFLAGS_ISYSTEM    =
+
 load(qt_config)
 
 EOF

@@ -98,6 +98,7 @@
             -no-use-gold-linker \
             -no-pulseaudio \
             -no-alsa \
+            -no-pch \
             ${EXTRA_CONFIGURE_OPTS} \
             -v
 #             -platform "linux-g++-${SYSTEM}" \
