@@ -1,4 +1,4 @@
-Description: Fix GCC 4.7.4 build using GCC >= 5.x
+Description: Fix build of GCC 4.7.x and GCC 4.8.x using GCC >= 5.x
 Origin: https://github.com/DragonFlyBSD/DPorts/commit/a680cc6
 Last-Update: 2016-06-01
 
