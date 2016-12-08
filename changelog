@@ -1,5 +1,6 @@
 --- v2.1 (2016-xx-xx) ---
 * Fix Qt5 build using GCC >= 6.x.
+* Fix installation of fontconfig >= 2.12.0.
 * Update in all configs:
   - GCC_EXTRA_VER from 5.4.0 to 6.2.0
   - BINUTILS_VER from 2.26 to 2.27

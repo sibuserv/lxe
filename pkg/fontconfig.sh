@@ -22,7 +22,6 @@
         SetCrossToolchainPath
         SetCrossToolchainVariables
         ConfigureAutotoolsProjectInBuildDir \
-            --sysconfdir="/etc" \
             --with-arch="${TARGET}" \
             --with-sysroot="${SYSROOT}" \
             --with-expat="${SYSROOT}/usr" \
@@ -31,7 +30,7 @@
             --with-gnu-ld
 
         BuildPkg -j ${JOBS}
-        InstallPkg install DESTDIR="${SYSROOT}"
+        InstallPkg install
 
         CleanPkgBuildDir
         CleanPkgSrcDir
