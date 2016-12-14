@@ -35,6 +35,9 @@
         ! IsPkgVersionGreaterOrEqualTo "5.7.0" && \
             EXTRA_CONFIGURE_OPTS="${EXTRA_CONFIGURE_OPTS}
                                   -c++11"
+        ! IsPkgVersionGreaterOrEqualTo "5.7.1" && \
+            EXTRA_CONFIGURE_OPTS="${EXTRA_CONFIGURE_OPTS}
+                                  -no-nis"
         export OPENSSL_LIBS="$(${TARGET}-pkg-config --libs-only-l openssl)"
         ConfigurePkg \
             -xplatform "linux-g++-${SYSTEM}" \
@@ -74,7 +77,6 @@
             -no-harfbuzz \
             -no-qml-debug \
             -no-rpath \
-            -no-nis \
             -no-cups \
             -no-iconv \
             -no-libudev \
