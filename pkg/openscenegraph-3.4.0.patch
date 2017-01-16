@@ -15,3 +15,29 @@ diff --git a/src/osgPlugins/osgjs/json_stream b/src/osgPlugins/osgjs/json_stream
                      return std::numeric_limits<double>::max();
                  }
                  // no much way to do better than replace invalid float NaN by 0
+
+Description: Disable ffmpeg
+ OpenSceneGraph is using removed features of ffmpeg, which have
+ been deprecated for 3+ years.
+Origin: http://forum.openscenegraph.org/viewtopic.php?t=10485
+Bug: https://github.com/mxe/mxe/issues/1230
+Last-Update: 2016-02-22
+
+
+
+diff --git a/src/osgPlugins/CMakeLists.txt b/src/osgPlugins/CMakeLists.txt
+index 1111111..2222222 100644
+--- a/src/osgPlugins/CMakeLists.txt
++++ b/src/osgPlugins/CMakeLists.txt
+@@ -199,10 +199,6 @@ IF(XINE_FOUND)
+     ADD_SUBDIRECTORY(xine)
+ ENDIF()
+ 
+-IF(FFMPEG_FOUND AND OSG_CPP_EXCEPTIONS_AVAILABLE)
+-    ADD_SUBDIRECTORY(ffmpeg)
+-ENDIF()
+-
+ IF(GSTREAMER_FOUND AND GLIB_FOUND)
+     ADD_SUBDIRECTORY(gstreamer)
+ ENDIF()
+

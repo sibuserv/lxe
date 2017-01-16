@@ -27,6 +27,7 @@
         SetCrossToolchainPath
         ConfigureCmakeProject \
             -DPKG_CONFIG_EXECUTABLE="${PREFIX}/bin/${TARGET}-pkg-config" \
+            -DCMAKE_CXX_FLAGS="${CXXFLAGS} -fpermissive" \
             -DDYNAMIC_OPENTHREADS=OFF \
             -DDYNAMIC_OPENSCENEGRAPH=OFF \
             -DBUILD_OSG_APPLICATIONS=OFF \

@@ -145,7 +145,7 @@ SetBuildFlags()
     fi
 
     export LDFLAGS="-Wl,--strip-all -Wl,--as-needed -Wl,-z,relro -Wl,--gc-sections"
-    
+
     if [ "${GCC_CURRENT_VER}" != "${GCC_VER}" ]
     then
         export CFLAGS="${CFLAGS} -static-libgcc"
@@ -363,9 +363,9 @@ ConfigureCmakeProject()
     cd "${BUILD_DIR}/${PKG_SUBDIR}"
     if [ -z "${PKG_SUBDIR_ORIG}" ]
     then
-        "${PREFIX}/bin/${TARGET}-cmake" "${PKG_SRC_DIR}/${PKG_SUBDIR}" ${@} &>> "${LOG_FILE}"
+        "${PREFIX}/bin/${TARGET}-cmake" "${PKG_SRC_DIR}/${PKG_SUBDIR}" "${@}" &>> "${LOG_FILE}"
     else
-        "${PREFIX}/bin/${TARGET}-cmake" "${PKG_SRC_DIR}/${PKG_SUBDIR_ORIG}" ${@} &>> "${LOG_FILE}"
+        "${PREFIX}/bin/${TARGET}-cmake" "${PKG_SRC_DIR}/${PKG_SUBDIR_ORIG}" "${@}" &>> "${LOG_FILE}"
     fi
     CheckFail "${LOG_FILE}"
 }
