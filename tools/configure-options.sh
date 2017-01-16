@@ -41,13 +41,13 @@ PrepareGCCConfigureOpts()
         --with-gxx-include-dir=${SYSROOT}/usr/include/c++/${PKG_VERSION} \
         --with-slibdir=${SYSROOT}/usr/lib/gcc/${TARGET}/${PKG_VERSION} \
         --enable-version-specific-runtime-libs \
+        --enable-libgomp \
         --disable-multilib \
         --disable-maintainer-mode \
         --disable-bootstrap \
         --disable-debug \
         --disable-libmudflap \
         --disable-libssp \
-        --disable-libgomp \
         --with-gnu-ld \
         --with-gnu-as \
         libc_cv_forced_unwind=yes \
