@@ -1,7 +1,7 @@
-LXE -- Linux cross-toolchain environment
+LXE – Linux cross-toolchain environment
 
-Copyright: 2015-2017 Boris Pek <tehnick-8@mail.ru>
-License: Expat
+Copyright: 2015-2017 Boris Pek <tehnick-8@yandex.ru>
+License: MIT (Expat)
 
 Homepage: https://github.com/sibuserv/lxe
 
