@@ -5,6 +5,7 @@
   - LIBGPG_ERROR_VER from 1.25 to 1.26
   - LIBGCRYPT_VER from 1.7.3 to 1.7.6
   - OPENSSL_VER from 1.0.2j to 1.0.2k
+  - FREETYPE_VER from 2.7 to 2.7.1
 
 --- v2.1 (2017-01-18) ---
 * Fix Qt5 build using GCC >= 6.x.
