@@ -1,3 +1,7 @@
+--- v2.2 (2017-xx-xx) ---
+* Update in all configs:
+  - FFMPEG_VER from 3.2.1 to 3.2.4
+
 --- v2.1 (2017-01-18) ---
 * Fix Qt5 build using GCC >= 6.x.
 * Fix installation of fontconfig >= 2.12.0.
