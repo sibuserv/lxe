@@ -1,6 +1,7 @@
 --- v2.2 (2017-xx-xx) ---
 * Update in all configs:
   - FFMPEG_VER from 3.2.1 to 3.2.4
+  - PROTOBUF_VER from 3.1.0 to 3.2.0
 * Update in all static configs:
   - LIBGPG_ERROR_VER from 1.25 to 1.26
   - LIBGCRYPT_VER from 1.7.3 to 1.7.6
