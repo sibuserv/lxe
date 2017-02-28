@@ -1,5 +1,5 @@
 --- v2.2 (2017-xx-xx) ---
-* Add new packages: qtmultimedia, qtx11extras, qttranslations.
+* Add new packages: qtmultimedia, qtx11extras, qttranslations, qtxmlpatterns.
 * Update in all configs:
   - FFMPEG_VER from 3.2.1 to 3.2.4
   - PROTOBUF_VER from 3.1.0 to 3.2.0
