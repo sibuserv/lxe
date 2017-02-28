@@ -4,6 +4,7 @@
 
 (
     PKG=qttranslations
+    PKG_DEPS="qtbase qttools"
 
     . "${PKG_DIR}/qtmodule.sh"
 )

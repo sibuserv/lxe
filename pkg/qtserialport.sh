@@ -4,6 +4,7 @@
 
 (
     PKG=qtserialport
+    PKG_DEPS="qtbase"
 
     . "${PKG_DIR}/qtmodule.sh"
 )

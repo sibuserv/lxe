@@ -4,6 +4,7 @@
 
 (
     PKG=qtx11extras
+    PKG_DEPS="qtbase"
 
     . "${PKG_DIR}/qtmodule.sh"
 )
