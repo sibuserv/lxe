@@ -3,7 +3,8 @@
   qttranslations, qtxmlpatterns, qtcanvas3d, qtcharts, qtdatavis3d, qtgamepad,
   qtgraphicaleffects, qtlocation, qtquickcontrols, qtquickcontrols2, qtsensors,
   qtvirtualkeyboard, qtwebchannel.
-* Add new packages: aspell, libidn, libxss, qca, sqlite, x11proto-scrnsaver.
+* Add new packages: aspell, libidn, libxss, qca, sqlite, x11proto-scrnsaver,
+  tidy-html5.
 * Update in all configs:
   - FFMPEG_VER from 3.2.1 to 3.2.4
   - PROTOBUF_VER from 3.1.0 to 3.2.0

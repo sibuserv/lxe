@@ -36,7 +36,9 @@
 
         cd "${PREFIX}/bin/"
         ln -sf "${SYSROOT}/usr/bin/xslt-config" "${TARGET}-xslt-config"
-        ln -sf "${TARGET}-xslt-config" "xslt-config" 
+        ln -sf "${TARGET}-xslt-config" "xslt-config"
+
+        rm -f "${SYSROOT}/usr/bin/xsltproc"
     fi
 )
 
