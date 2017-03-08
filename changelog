@@ -12,7 +12,7 @@
   - OPENCV_VER from 2.4.13 to 3.2.0
   - QT5_VER from 5.7.0 to 5.8.0
 * Update in all static configs:
-  - LIBGPG_ERROR_VER from 1.25 to 1.26
+  - LIBGPG_ERROR_VER from 1.25 to 1.27
   - LIBGCRYPT_VER from 1.7.3 to 1.7.6
   - OPENSSL_VER from 1.0.2j to 1.0.2k
   - FREETYPE_VER from 2.7 to 2.7.1
