@@ -113,6 +113,7 @@ SQLITE_FOSSIL_VER=ada05cfa
 
 ASPELL_VER=0.60.6.1
 LIBIDN_VER=1.33
+ATTR_VER=2.4.47
 
 
 ### Developer libraries ###
