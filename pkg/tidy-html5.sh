@@ -25,7 +25,8 @@
         SetCrossToolchainVariables "${GCC_EXTRA_VER}"
         SetCrossToolchainPath
         ConfigureCmakeProject \
-            -DTIDY_COMPAT_HEADERS:BOOL=YES
+            -DTIDY_COMPAT_HEADERS:BOOL=YES \
+            -DBUILD_SHARED_LIB=${CMAKE_SHARED_BOOL}
 
         BuildPkg -j ${JOBS}
         InstallPkg install
@@ -35,6 +36,14 @@
 
         UpdateGCCSymlinks
         UpdateCmakeSymlink
+
+        if [ "${DEFAULT_LIB_TYPE}" = "static" ]
+        then
+            mv "${SYSROOT}/usr/lib/libtidys.a" \
+               "${SYSROOT}/usr/lib/libtidy.a"
+        else
+            rm -f "${SYSROOT}/usr/lib/libtidys.a"
+        fi
     fi
 )
 
