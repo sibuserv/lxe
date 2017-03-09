@@ -62,11 +62,17 @@ PrepareLibTypeOpts()
     if [ "${LIB_TYPE}" = "static" ]
     then
         LIB_TYPE_OPTS="--enable-static --disable-shared"
+        CMAKE_STATIC_BOOL=ON
+        CMAKE_SHARED_BOOL=OFF
     elif [ "${LIB_TYPE}" = "both" ]
     then
         LIB_TYPE_OPTS="--enable-static --enable-shared"
+        CMAKE_STATIC_BOOL=OFF
+        CMAKE_SHARED_BOOL=ON
     else
         LIB_TYPE_OPTS="--enable-shared --disable-static"
+        CMAKE_STATIC_BOOL=ON
+        CMAKE_SHARED_BOOL=ON
     fi
 }
 
