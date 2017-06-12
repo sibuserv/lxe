@@ -114,7 +114,7 @@ ATTR_VER=2.4.47
 
 
 ### Developer libraries ###
-PROTOBUF_VER=3.2.0
+PROTOBUF_VER=3.3.0
 BOOST_VER=1.63.0
 
 FREEGLUT_VER=3.0.0
