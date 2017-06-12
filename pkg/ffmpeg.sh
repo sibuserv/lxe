@@ -31,6 +31,7 @@
             --enable-cross-compile \
             --enable-avisynth \
             --enable-avresample \
+            --enable-gpl \
             --disable-debug \
             --disable-doc \
             --disable-libass \
