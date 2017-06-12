@@ -17,6 +17,7 @@
   - LIBGCRYPT_VER from 1.7.3 to 1.7.6
   - OPENSSL_VER from 1.0.2j to 1.0.2l
   - FREETYPE_VER from 2.7 to 2.8
+  - FONTCONFIG_VER from 2.12.1 to 2.12.3
 
 --- v2.1 (2017-01-18) ---
 * Fix Qt5 build using GCC >= 6.x.
