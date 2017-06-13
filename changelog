@@ -14,7 +14,7 @@
   - QT5_VER from 5.7.0 to 5.9.0
 * Update in all static configs:
   - LIBGPG_ERROR_VER from 1.25 to 1.27
-  - LIBGCRYPT_VER from 1.7.3 to 1.7.6
+  - LIBGCRYPT_VER from 1.7.3 to 1.7.7
   - OPENSSL_VER from 1.0.2j to 1.0.2l
   - FREETYPE_VER from 2.7 to 2.8
   - FONTCONFIG_VER from 2.12.1 to 2.12.3
