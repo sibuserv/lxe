@@ -10,7 +10,8 @@
     PKG_FILE=${PKG}-opensource-src-${PKG_VERSION}.tar.xz
     PKG_URL="http://download.qt.io/archive/qt/${QT5_SUBVER}/${QT5_VER}/submodules/${PKG_FILE}"
     PKG_DEPS="gcc pkg-config-settings zlib libpng jpeg freetype fontconfig
-              openssl libxcb libx11 libxext libxi libxrender libxrandr mesa"
+              openssl sqlite libxcb libx11 libxext libxi libxrender libxrandr
+              mesa"
     [ ! -z "${GCC_EXTRA_VER}" ] && PKG_DEPS="${PKG_DEPS} gcc-extra"
 
     if ! IsPkgInstalled
@@ -56,12 +57,14 @@
             -opengl desktop \
             -nomake examples \
             -nomake tests \
+            -plugin-sql-sqlite \
             -pch \
             -qt-pcre \
             -qt-xcb \
             -system-zlib \
             -system-libpng \
             -system-libjpeg \
+            -system-sqlite \
             -system-freetype \
             -fontconfig \
             -openssl-linked \
@@ -87,7 +90,6 @@
             -no-journald \
             -no-accessibility \
             -no-compile-examples \
-            -no-sql-sqlite \
             -no-sql-sqlite2 \
             -no-sql-mysql \
             -no-sql-psql \
