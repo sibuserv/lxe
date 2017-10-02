@@ -1,3 +1,7 @@
+--- v2.3 (2017-xx-xx) ---
+* Update in all static configs:
+  - LIBPNG_VER from 1.2.57 to 1.2.59
+
 --- v2.2 (2017-06-28) ---
 * Add new packages: qtactiveqt, qtdeclarative, qtmultimedia, qtx11extras,
   qttranslations, qtxmlpatterns, qtcanvas3d, qtcharts, qtdatavis3d, qtgamepad,
