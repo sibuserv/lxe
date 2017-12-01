@@ -228,6 +228,16 @@ EndOfPkgBuild()
     echo "[done]     ${PKG}"
 }
 
+CheckPkgUrl()
+{
+    if [ ! -z "${PKG_URL_2}" ]
+    then
+        curl -I "${PKG_URL}" &> /dev/null || \
+            PKG_URL="${PKG_URL_2}"
+        unset PKG_URL_2
+    fi
+}
+
 GetSources()
 {
     BeginOfPkgBuild
@@ -239,12 +249,14 @@ GetSources()
     cd "${SRC_DIR}"
     if [ ! -e "${PKG_FILE}" ]
     then
+        CheckPkgUrl
         local SIZE=$(curl -I "${PKG_URL}" 2>&1 | sed -ne "s|^Content-Length: \(.*\)$|\1|p")
         echo "${SIZE}" > "${TARBALL_SIZE}"
         ${WGET} -o "${LOG_FILE}" -O "${PKG_FILE}" "${PKG_URL}"
         CheckFail "${LOG_FILE}"
     elif [ -e "${TARBALL_SIZE}" ]
     then
+        CheckPkgUrl
         local SIZE=$(cat "${TARBALL_SIZE}")
         local FILE_SIZE=$(curl -I "file:${SRC_DIR}/${PKG_FILE}" 2>&1 | sed -ne "s|^Content-Length: \(.*\)$|\1|p")
         if [ "${FILE_SIZE}" != "${SIZE}" ]
