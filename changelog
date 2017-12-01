@@ -10,6 +10,7 @@
   - JPEG_TURBO_VER from 1.5.1 to 1.5.2
   - TIFF_VER from 4.0.7 to 4.0.9
   - LIBGCRYPT_VER from 1.7.7 to 1.8.1
+  - OPENSSL_VER from 1.0.2l to 1.0.2m
 
 --- v2.2 (2017-06-28) ---
 * Add new packages: qtactiveqt, qtdeclarative, qtmultimedia, qtx11extras,
