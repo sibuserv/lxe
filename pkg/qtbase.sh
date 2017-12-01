@@ -12,6 +12,7 @@
     PKG_DEPS="gcc pkg-config-settings zlib libpng jpeg freetype fontconfig
               openssl sqlite libxcb libx11 libxext libxi libxrender libxrandr
               mesa"
+    [ ! -z "${HARFBUZZ_VER}" ]  && PKG_DEPS="${PKG_DEPS} harfbuzz"
     [ ! -z "${GCC_EXTRA_VER}" ] && PKG_DEPS="${PKG_DEPS} gcc-extra"
 
     if ! IsPkgInstalled
@@ -27,6 +28,9 @@
         SetCrossToolchainVariables "${GCC_EXTRA_VER}"
         SetCrossToolchainPath
         export LD=${CROSS_COMPILE}g++
+        [ -z "${HARFBUZZ_VER}" ] && \
+            EXTRA_CONFIGURE_OPTS="${EXTRA_CONFIGURE_OPTS}
+                                  -no-harfbuzz"
         IsPkgVersionGreaterOrEqualTo "5.5.0" && \
             EXTRA_CONFIGURE_OPTS="${EXTRA_CONFIGURE_OPTS}
                                   -qt-xkbcommon-x11
@@ -77,7 +81,6 @@
             -no-glib \
             -no-xinput2 \
             -no-xcb-xlib \
-            -no-harfbuzz \
             -no-qml-debug \
             -no-rpath \
             -no-cups \

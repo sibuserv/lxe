@@ -1,8 +1,10 @@
 --- v2.3 (2017-xx-xx) ---
+* Add new package: harfbuzz.
 * Add CheckPkgUrl() function which checks availability of tarball with library
   sources using primary and reserve URLs (PKG_URL and PKG_URL_2 accordingly).
 * Use PKG_URL_2 variable for packages: openssl and libpng.
   (These projects often move tarballs into archive.)
+* Package qtbase (optionally) depends on package harfbuzz now.
 * Update in all static configs:
   - LIBPNG_VER from 1.2.57 to 1.2.59
   - EXPAT_VER from 2.2.0 to 2.2.5
