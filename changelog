@@ -15,6 +15,7 @@
   - TIFF_VER from 4.0.7 to 4.0.9
   - LIBGCRYPT_VER from 1.7.7 to 1.8.1
   - OPENSSL_VER from 1.0.2l to 1.0.2m
+  - FREETYPE_VER from 2.8 to 2.8.1
 
 --- v2.2 (2017-06-28) ---
 * Add new packages: qtactiveqt, qtdeclarative, qtmultimedia, qtx11extras,
