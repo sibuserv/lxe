@@ -232,8 +232,13 @@ CheckPkgUrl()
 {
     if [ ! -z "${PKG_URL_2}" ]
     then
-        curl -I "${PKG_URL}" &> /dev/null || \
+        if [ $(curl -I "${PKG_URL}" 2>/dev/null | grep '404 Not Found' | wc -l) != "0" ]
+        then
             PKG_URL="${PKG_URL_2}"
+        elif ! curl -I "${PKG_URL}" &> /dev/null
+        then
+            PKG_URL="${PKG_URL_2}"
+        fi
         unset PKG_URL_2
     fi
 }
