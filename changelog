@@ -8,6 +8,7 @@
 * Update in all configs:
   - GCC_EXTRA_VER from 7.1.0 to 6.4.0
   - PROTOBUF_VER from 3.3.0 to 3.4.0
+  - MXML_VER from 2.10 to 2.11
 * Update in all static configs:
   - LIBPNG_VER from 1.2.57 to 1.2.59
   - EXPAT_VER from 2.2.0 to 2.2.5
@@ -17,7 +18,8 @@
   - LIBGCRYPT_VER from 1.7.7 to 1.8.1
   - OPENSSL_VER from 1.0.2l to 1.0.2m
   - FREETYPE_VER from 2.8 to 2.8.1
-  - FONTCONFIG_VER from 2.12.1 to 2.12.6
+  - FONTCONFIG_VER from 2.12.3 to 2.12.6
+  - SQLITE_VER from 3.17.0 to 3.21.0
 
 --- v2.2 (2017-06-28) ---
 * Add new packages: qtactiveqt, qtdeclarative, qtmultimedia, qtx11extras,
@@ -63,7 +65,6 @@
   - LIBPNG_VER from 1.2.56 to 1.2.57
   - FREETYPE_VER from 2.6.3 to 2.7
   - FONTCONFIG_VER from 2.12.0 to 2.12.1
-  - SQLITE_VER from 3.17.0 to 3.21.0
 
 --- v2.0 (2016-07-12) ---
 * Add Makefile as a proxy for shell script make.sh.
