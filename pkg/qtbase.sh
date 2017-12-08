@@ -12,7 +12,6 @@
     PKG_DEPS="gcc pkg-config-settings zlib libpng jpeg freetype fontconfig
               openssl sqlite libxcb libx11 libxext libxi libxrender libxrandr
               mesa"
-    [ ! -z "${HARFBUZZ_VER}" ]  && PKG_DEPS="${PKG_DEPS} harfbuzz"
     [ ! -z "${GCC_EXTRA_VER}" ] && PKG_DEPS="${PKG_DEPS} gcc-extra"
 
     if ! IsPkgInstalled
