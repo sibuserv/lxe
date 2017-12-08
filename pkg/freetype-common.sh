@@ -4,7 +4,7 @@
 
 (
     PKG_VERSION=${FREETYPE_VER}
-    PKG_SUBDIR=freetype-${PKG_VERSION}
+    PKG_SUBDIR=${PKG}-${PKG_VERSION}
     PKG_FILE=freetype-${PKG_VERSION}.tar.bz2
     PKG_URL="http://sourceforge.net/projects/freetype/files/freetype2/${PKG_VERSION}/${PKG_FILE}"
 
