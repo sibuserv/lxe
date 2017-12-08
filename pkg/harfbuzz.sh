@@ -1,6 +1,6 @@
 #!/bin/sh
 
-[ -z "${HARFBUZZ_VER}" ] && exit 1
+[ -z "${HARFBUZZ_VER}" ] && exit 0
 
 (
     PKG=harfbuzz
