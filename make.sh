@@ -80,20 +80,8 @@ fi
 
 # Make packages
 
-for CONFIG in ${CONFIGS}
-do
-    if [ -e "${MAIN_DIR}/etc/${CONFIG}.sh" ]
-    then
-        . "${MAIN_DIR}/etc/${CONFIG}.sh"
-    else
-        echo "Config ${CONFIG} does not exist!"
-        exit 1
-    fi
-
-    DefinePaths
-    PrepareDirs
-    PrepareConfigureOpts
-
+BuildPackages()
+{
     if [ ! -z "${1}" ]
     then
         for ARG in ${@}
@@ -119,5 +107,21 @@ do
             fi
         done
     fi
+}
+
+for CONFIG in ${CONFIGS}
+do
+    if [ -e "${MAIN_DIR}/etc/${CONFIG}.sh" ]
+    then
+        . "${MAIN_DIR}/etc/${CONFIG}.sh"
+    else
+        echo "Config ${CONFIG} does not exist!"
+        exit 1
+    fi
+
+    DefinePaths
+    PrepareDirs
+    PrepareConfigureOpts
+    BuildPackages
 done
 
