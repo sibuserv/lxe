@@ -122,6 +122,6 @@ do
     DefinePaths
     PrepareDirs
     PrepareConfigureOpts
-    BuildPackages
+    BuildPackages ${@}
 done
 
