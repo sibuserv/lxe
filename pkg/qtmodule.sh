@@ -5,8 +5,14 @@
 (
     PKG_VERSION=${QT5_VER}
     PKG_SUBDIR=${PKG}-${PKG_VERSION}
-    PKG_SUBDIR_ORIG=${PKG}-opensource-src-${PKG_VERSION}
-    PKG_FILE=${PKG}-opensource-src-${PKG_VERSION}.tar.xz
+    if IsPkgVersionGreaterOrEqualTo "5.10.0"
+    then
+        PKG_SUBDIR_ORIG=${PKG}-everywhere-src-${PKG_VERSION}
+        PKG_FILE=${PKG}-everywhere-src-${PKG_VERSION}.tar.xz
+    else
+        PKG_SUBDIR_ORIG=${PKG}-opensource-src-${PKG_VERSION}
+        PKG_FILE=${PKG}-opensource-src-${PKG_VERSION}.tar.xz
+    fi
     PKG_URL="http://download.qt.io/archive/qt/${QT5_SUBVER}/${QT5_VER}/submodules/${PKG_FILE}"
 
     if ! IsPkgInstalled
