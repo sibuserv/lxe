@@ -8,7 +8,7 @@
 * Update in all configs:
   - GCC_EXTRA_VER from 7.1.0 to 6.4.0
   - PROTOBUF_VER from 3.3.0 to 3.4.0
-  - FFMPEG_VER from 3.3.2 to 3.4
+  - FFMPEG_VER from 3.3.2 to 3.4.1
   - MXML_VER from 2.10 to 2.11
   - BOOST_VER from 1.64.0 to 1.65.0
   - OPENCV_VER from 3.2.0 to 3.3.1
