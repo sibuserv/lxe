@@ -1,5 +1,5 @@
 --- v2.3 (2017-xx-xx) ---
-* Add new packages: freetype-stage1 and harfbuzz.
+* Add new packages: curl, freetype-stage1 and harfbuzz.
 * Add CheckPkgUrl() function which checks availability of tarball with library
   sources using primary and reserve URLs (PKG_URL and PKG_URL_2 accordingly).
 * Use PKG_URL_2 variable for packages: openssl and libpng.

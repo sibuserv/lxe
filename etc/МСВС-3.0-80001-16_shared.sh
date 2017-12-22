@@ -110,6 +110,7 @@ SQLITE_FOSSIL_VER=ff691a6b
 ASPELL_VER=0.60.6
 LIBIDN_VER=1.8
 ATTR_VER=2.4.44
+CURL_VER=7.18.2
 
 
 ### Developer libraries ###

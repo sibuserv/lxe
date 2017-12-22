@@ -108,6 +108,7 @@ ASPELL_VER=0.60.6.1
 LIBIDN_VER=1.25
 # ATTR_VER=2.4.46
 ATTR_VER=2.4.44
+CURL_VER=7.21.6
 
 
 ### Developer libraries ###
