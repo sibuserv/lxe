@@ -20,6 +20,7 @@
         UnpackSources
         PrepareBuild
 
+        # -DDYNAMIC_OSGEARTH=${CMAKE_SHARED_BOOL} \
         SetBuildFlags "${GCC_EXTRA_VER}"
         UpdateGCCSymlinks "${GCC_EXTRA_VER}"
         UpdateCmakeSymlink "${GCC_EXTRA_VER}"
@@ -27,7 +28,7 @@
         SetCrossToolchainPath
         ConfigureCmakeProject \
             -DWITH_EXTERNAL_TINYXML=ON \
-            -DDYNAMIC_OSGEARTH=${CMAKE_SHARED_BOOL} \
+            -DDYNAMIC_OSGEARTH=OFF \
             -DBUILD_OSGEARTH_EXAMPLES=OFF
 
         BuildPkg -j ${JOBS}
