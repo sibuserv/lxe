@@ -57,23 +57,26 @@ load(qt_config)
 
 EOF
 
-    # Workaround for fixing programs linking when Qt is built with static freetype:
-    if [ -e "${SYSROOT}/usr/lib/libfreetype.a" ]
+    if ! IsPkgVersionGreaterOrEqualTo "5.5.0"
     then
-        PATH="${PREFIX}/bin:${ORIG_PATH}"
-        FILE="${PKG_SRC_DIR}/${PKG_SUBDIR_ORIG}/mkspecs/features/qpa/basicunixfontdatabase.prf"
-        FROM_STR="^.*LIBS += .*$"
-        TO_STR="    LIBS += $(${TARGET}-pkg-config --static --libs freetype2)"
-        sed -i "${FILE}" -e "s!${FROM_STR}!${TO_STR}!g"
-    fi
+        # Workaround for fixing programs linking when Qt is built with static freetype:
+        if [ -e "${SYSROOT}/usr/lib/libfreetype.a" ]
+        then
+            PATH="${PREFIX}/bin:${ORIG_PATH}"
+            FILE="${PKG_SRC_DIR}/${PKG_SUBDIR_ORIG}/mkspecs/features/qpa/basicunixfontdatabase.prf"
+            FROM_STR="^.*LIBS += .*$"
+            TO_STR="    LIBS += $(${TARGET}-pkg-config --static --libs freetype2)"
+            sed -i "${FILE}" -e "s!${FROM_STR}!${TO_STR}!g"
+        fi
 
-    # Workaround for fixing programs linking when Qt is built with static libfontconfig:
-    if [ -e "${SYSROOT}/usr/lib/libfontconfig.a" ]; then
-        PATH="${PREFIX}/bin:${ORIG_PATH}"
-        FILE="${PKG_SRC_DIR}/${PKG_SUBDIR_ORIG}/mkspecs/features/qpa/genericunixfontdatabase.prf"
-        FROM_STR="^.*LIBS += .*$"
-        TO_STR="    LIBS += $(${TARGET}-pkg-config --static --libs fontconfig)"
-        sed -i "${FILE}" -e "s!${FROM_STR}!${TO_STR}!g"
+        # Workaround for fixing programs linking when Qt is built with static libfontconfig:
+        if [ -e "${SYSROOT}/usr/lib/libfontconfig.a" ]; then
+            PATH="${PREFIX}/bin:${ORIG_PATH}"
+            FILE="${PKG_SRC_DIR}/${PKG_SUBDIR_ORIG}/mkspecs/features/qpa/genericunixfontdatabase.prf"
+            FROM_STR="^.*LIBS += .*$"
+            TO_STR="    LIBS += $(${TARGET}-pkg-config --static --libs fontconfig)"
+            sed -i "${FILE}" -e "s!${FROM_STR}!${TO_STR}!g"
+        fi
     fi
 )
 
