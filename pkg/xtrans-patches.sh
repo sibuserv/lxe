@@ -4,6 +4,7 @@
     [ ! -z "${PKG_SUBDIR_ORIG}" ] && \
         SUBDIR="${PKG_SUBDIR_ORIG}" || \
         SUBDIR="${PKG_SUBDIR}"
+
     FROM_STR="pkgconfigdir = \$(datadir)/pkgconfig"
     TO_STR="pkgconfigdir = \$(libdir)/pkgconfig"
 

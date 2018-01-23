@@ -1,10 +1,6 @@
 #!/bin/sh
 
 (
-    LOG_FILE="${LOG_DIR}/${PKG_SUBDIR}/patch.log"
-    cd "${PKG_SRC_DIR}/${PKG_SUBDIR_ORIG}"
-    patch -p1 -i "${PKG_DIR}/${PKG}.patch" &> "${LOG_FILE}"
-
     mkdir -p "mkspecs/linux-g++-${SYSTEM}"
     cp -af "mkspecs/linux-g++"/* "mkspecs/linux-g++-${SYSTEM}/"
 

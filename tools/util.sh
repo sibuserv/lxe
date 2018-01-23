@@ -321,12 +321,18 @@ UnpackSources()
             tar xf "${PKG_FILE}"
         fi
         rm "${PKG_FILE}"
-        if [ -e "${MAIN_DIR}/pkg/${PKG}-patches.sh" ]
+
+        local PATCH_FILE="${PKG_DIR}/${PKG}-${PKG_VERSION}.patch"
+        if [ -e "${PATCH_FILE}" ]
         then
-            . "${MAIN_DIR}/pkg/${PKG}-patches.sh"
-        elif [ -h "${MAIN_DIR}/pkg/${PKG}-patches.sh" ]
+            local LOG_FILE="${LOG_DIR}/${PKG_SUBDIR}/patch.log"
+            cd "${PKG_SRC_DIR}/${SUBDIR}"
+            patch -p1 -i "${PATCH_FILE}" &> "${LOG_FILE}"
+        fi
+        local PATCH_SCRIPT="${MAIN_DIR}/pkg/${PKG}-patches.sh"
+        if [ -e "${PATCH_SCRIPT}" ] || [ -h "${PATCH_SCRIPT}" ]
         then
-            . "${MAIN_DIR}/pkg/${PKG}-patches.sh"
+            . "${PATCH_SCRIPT}"
         fi
     fi
     set +e
