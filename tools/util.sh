@@ -281,6 +281,24 @@ GetSources()
             CheckFail "${LOG_FILE}"
         fi
     fi
+    local CHECKSUMS_DATABASE_FILE="${MAIN_DIR}/etc/_checksums.database.txt"
+    if [ $(grep "${PKG_FILE}" "${CHECKSUMS_DATABASE_FILE}" | wc -l) != "1" ]
+    then
+        echo "[checksum] ${PKG_FILE}"
+        echo "Error! Checksum for file \"${PKG_FILE}\" is not found in"
+        echo "${CHECKSUMS_DATABASE_FILE}"
+        exit 1
+    fi
+    local PKG_CHECKSUM=$(cat "${CHECKSUMS_DATABASE_FILE}" | sed -ne "s|^\(.*\)  ${PKG_FILE}$|\1|p")
+    local TARBALL_CHECKSUM=$(openssl dgst -sha256 "${PKG_FILE}" 2>/dev/null | sed -n 's,^.*\([0-9a-f]\{64\}\)$,\1,p')
+    if [ "${TARBALL_CHECKSUM}" != "${PKG_CHECKSUM}" ]
+    then
+        echo "[checksum] ${PKG_FILE}"
+        echo "Error! Checksum mismatch:"
+        echo "TARBALL_CHECKSUM = ${TARBALL_CHECKSUM}"
+        echo "PKG_CHECKSUM     = ${PKG_CHECKSUM}"
+        exit 1
+    fi
 
     BeginOfPkgBuild
 }
