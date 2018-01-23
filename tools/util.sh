@@ -216,10 +216,19 @@ IsPkgInstalled()
         return 1
 }
 
-BeginOfPkgBuild()
+PrintSystemInfo()
 {
     echo "[config]   ${CONFIG}"
+}
+
+BeginOfPkgBuild()
+{
     echo "[build]    ${PKG}"
+}
+
+BeginDownload()
+{
+    echo "[download] ${PKG_FILE}"
 }
 
 EndOfPkgBuild()
@@ -245,7 +254,7 @@ CheckPkgUrl()
 
 GetSources()
 {
-    BeginOfPkgBuild
+    PrintSystemInfo
 
     local WGET="wget -v -c --no-config --no-check-certificate --max-redirect=50"
     local LOG_FILE="${LOG_DIR}/${PKG_SUBDIR}/tarball-download.log"
@@ -257,6 +266,7 @@ GetSources()
         CheckPkgUrl
         local SIZE=$(curl -I "${PKG_URL}" 2>&1 | sed -ne "s|^Content-Length: \(.*\)$|\1|p")
         echo "${SIZE}" > "${TARBALL_SIZE}"
+        BeginDownload
         ${WGET} -o "${LOG_FILE}" -O "${PKG_FILE}" "${PKG_URL}"
         CheckFail "${LOG_FILE}"
     elif [ -e "${TARBALL_SIZE}" ]
@@ -266,10 +276,13 @@ GetSources()
         local FILE_SIZE=$(curl -I "file:${SRC_DIR}/${PKG_FILE}" 2>&1 | sed -ne "s|^Content-Length: \(.*\)$|\1|p")
         if [ "${FILE_SIZE}" != "${SIZE}" ]
         then
+            BeginDownload
             ${WGET} -o "${LOG_FILE}" -O "${PKG_FILE}" "${PKG_URL}"
             CheckFail "${LOG_FILE}"
         fi
     fi
+
+    BeginOfPkgBuild
 }
 
 UnpackSources()

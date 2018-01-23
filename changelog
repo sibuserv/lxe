@@ -6,6 +6,7 @@
   sources using primary and reserve URLs (PKG_URL and PKG_URL_2 accordingly).
 * Use PKG_URL_2 variable for packages: openssl and libpng.
   (These projects often move tarballs into archive.)
+* Improve notifications during build of packages.
 * Simplify function for `make clean`: now it is just removes whole subdirectory
   "dist/" instead of alternate deleting of "dist/${CONFIG}" subdirectories.
 * Packages qtbase and freetype (optionally) depend on package harfbuzz now.
