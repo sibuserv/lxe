@@ -60,15 +60,8 @@ then
     exit 0
 elif [ "${1}" = "clean" ] && [ -z "${2}" ]
 then
-    for CONFIG in ${CONFIGS}
-    do
-        PREFIX="${MAIN_DIR}/dist/${CONFIG}"
-        if [ -d "${PREFIX}" ]
-        then
-            echo "rm -rf \"${PREFIX}\""
-            rm -rf "${PREFIX}"
-        fi
-    done
+    echo "rm -rf \"${MAIN_DIR}/dist\""
+    rm -rf "${MAIN_DIR}/dist"
     exit 0
 elif [ "${1}" = "distclean" ] && [ -z "${2}" ]
 then
