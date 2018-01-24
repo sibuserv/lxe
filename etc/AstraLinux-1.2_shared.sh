@@ -1,5 +1,7 @@
 #!/bin/sh
 
+# This distro is not supported for now!
+
 ### System info ###
 SYSTEM="AstraLinux-1.2_shared"
 ARCH=x86_64
