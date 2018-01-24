@@ -4,7 +4,30 @@
 
 (
     PKG=qt5
-    PKG_DEPS="qtbase qtconnectivity qtscript qtserialport qtsvg qttools qtwebsockets"
+    PKG_DEPS="qtbase
+              qtactiveqt
+              qtcanvas3d
+              qtcharts
+              qtconnectivity
+              qtdatavis3d
+              qtdeclarative
+              qtgamepad
+              qtgraphicaleffects
+              qtlocation
+              qtmultimedia
+              qtquickcontrols2
+              qtquickcontrols
+              qtscript
+              qtsensors
+              qtserialport
+              qtsvg
+              qttools
+              qttranslations
+              qtvirtualkeyboard
+              qtwebchannel
+              qtwebsockets
+              qtx11extras
+              qtxmlpatterns"
 
     if ! IsPkgInstalled
     then

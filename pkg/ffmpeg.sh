@@ -51,7 +51,6 @@
             --disable-libx264 \
             --disable-libxvid \
             --disable-programs \
-            --disable-sdl \
             --disable-iconv \
             --disable-openssl \
             --disable-gnutls \

@@ -6,8 +6,14 @@
     PKG=qtbase
     PKG_VERSION=${QT5_VER}
     PKG_SUBDIR=${PKG}-${PKG_VERSION}
-    PKG_SUBDIR_ORIG=${PKG}-opensource-src-${PKG_VERSION}
-    PKG_FILE=${PKG}-opensource-src-${PKG_VERSION}.tar.xz
+    if IsPkgVersionGreaterOrEqualTo "5.10.0"
+    then
+        PKG_SUBDIR_ORIG=${PKG}-everywhere-src-${PKG_VERSION}
+        PKG_FILE=${PKG}-everywhere-src-${PKG_VERSION}.tar.xz
+    else
+        PKG_SUBDIR_ORIG=${PKG}-opensource-src-${PKG_VERSION}
+        PKG_FILE=${PKG}-opensource-src-${PKG_VERSION}.tar.xz
+    fi
     PKG_URL="http://download.qt.io/archive/qt/${QT5_SUBVER}/${QT5_VER}/submodules/${PKG_FILE}"
     PKG_DEPS="gcc pkg-config-settings zlib libpng jpeg freetype fontconfig
               openssl sqlite libxcb libx11 libxext libxi libxrender libxrandr
@@ -27,6 +33,9 @@
         SetCrossToolchainVariables "${GCC_EXTRA_VER}"
         SetCrossToolchainPath
         export LD=${CROSS_COMPILE}g++
+        [ -z "${HARFBUZZ_VER}" ] && \
+            EXTRA_CONFIGURE_OPTS="${EXTRA_CONFIGURE_OPTS}
+                                  -no-harfbuzz"
         IsPkgVersionGreaterOrEqualTo "5.5.0" && \
             EXTRA_CONFIGURE_OPTS="${EXTRA_CONFIGURE_OPTS}
                                   -qt-xkbcommon-x11
@@ -77,7 +86,6 @@
             -no-glib \
             -no-xinput2 \
             -no-xcb-xlib \
-            -no-harfbuzz \
             -no-qml-debug \
             -no-rpath \
             -no-cups \

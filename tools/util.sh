@@ -216,10 +216,19 @@ IsPkgInstalled()
         return 1
 }
 
-BeginOfPkgBuild()
+PrintSystemInfo()
 {
     echo "[config]   ${CONFIG}"
+}
+
+BeginOfPkgBuild()
+{
     echo "[build]    ${PKG}"
+}
+
+BeginDownload()
+{
+    echo "[download] ${PKG_FILE}"
 }
 
 EndOfPkgBuild()
@@ -228,31 +237,58 @@ EndOfPkgBuild()
     echo "[done]     ${PKG}"
 }
 
+CheckPkgUrl()
+{
+    if [ ! -z "${PKG_URL_2}" ]
+    then
+        if [ $(curl -I "${PKG_URL}" 2>/dev/null | grep '404 Not Found' | wc -l) != "0" ]
+        then
+            PKG_URL="${PKG_URL_2}"
+        elif ! curl -I "${PKG_URL}" &> /dev/null
+        then
+            PKG_URL="${PKG_URL_2}"
+        fi
+        unset PKG_URL_2
+    fi
+}
+
 GetSources()
 {
-    BeginOfPkgBuild
+    PrintSystemInfo
 
     local WGET="wget -v -c --no-config --no-check-certificate --max-redirect=50"
     local LOG_FILE="${LOG_DIR}/${PKG_SUBDIR}/tarball-download.log"
-    local TARBALL_SIZE="${LOG_DIR}/${PKG_SUBDIR}/tarball-size.info"
     mkdir -p "${LOG_DIR}/${PKG_SUBDIR}"
     cd "${SRC_DIR}"
     if [ ! -e "${PKG_FILE}" ]
     then
-        local SIZE=$(curl -I "${PKG_URL}" 2>&1 | sed -ne "s|^Content-Length: \(.*\)$|\1|p")
-        echo "${SIZE}" > "${TARBALL_SIZE}"
+        BeginDownload
+        CheckPkgUrl
         ${WGET} -o "${LOG_FILE}" -O "${PKG_FILE}" "${PKG_URL}"
         CheckFail "${LOG_FILE}"
-    elif [ -e "${TARBALL_SIZE}" ]
-    then
-        local SIZE=$(cat "${TARBALL_SIZE}")
-        local FILE_SIZE=$(curl -I "file:${SRC_DIR}/${PKG_FILE}" 2>&1 | sed -ne "s|^Content-Length: \(.*\)$|\1|p")
-        if [ "${FILE_SIZE}" != "${SIZE}" ]
-        then
-            ${WGET} -o "${LOG_FILE}" -O "${PKG_FILE}" "${PKG_URL}"
-            CheckFail "${LOG_FILE}"
-        fi
     fi
+    local CHECKSUMS_DATABASE_FILE="${MAIN_DIR}/etc/_checksums.database.txt"
+    if [ $(grep "${PKG_FILE}" "${CHECKSUMS_DATABASE_FILE}" | wc -l) != "1" ]
+    then
+        echo "[checksum] ${PKG_FILE}"
+        echo "Error! Checksum for file \"${PKG_FILE}\" is not found in"
+        echo "${CHECKSUMS_DATABASE_FILE}"
+        exit 1
+    fi
+    local PKG_CHECKSUM=$(cat "${CHECKSUMS_DATABASE_FILE}" | sed -ne "s|^\(.*\)  ${PKG_FILE}$|\1|p")
+    local TARBALL_CHECKSUM=$(openssl dgst -sha256 "${PKG_FILE}" 2>/dev/null | sed -n 's,^.*\([0-9a-f]\{64\}\)$,\1,p')
+    if [ "${TARBALL_CHECKSUM}" != "${PKG_CHECKSUM}" ]
+    then
+        echo "[checksum] ${PKG_FILE}"
+        echo "Error! Checksum mismatch:"
+        echo "TARBALL_CHECKSUM = ${TARBALL_CHECKSUM}"
+        echo "PKG_CHECKSUM     = ${PKG_CHECKSUM}"
+        echo "Try to remove tarball to force build system to download it again:"
+        echo "rm \"${SRC_DIR}/${PKG_FILE}\""
+        exit 1
+    fi
+
+    BeginOfPkgBuild
 }
 
 UnpackSources()
@@ -273,12 +309,18 @@ UnpackSources()
             tar xf "${PKG_FILE}"
         fi
         rm "${PKG_FILE}"
-        if [ -e "${MAIN_DIR}/pkg/${PKG}-patches.sh" ]
+
+        local PATCH_FILE="${PKG_DIR}/${PKG}-${PKG_VERSION}.patch"
+        if [ -e "${PATCH_FILE}" ]
         then
-            . "${MAIN_DIR}/pkg/${PKG}-patches.sh"
-        elif [ -h "${MAIN_DIR}/pkg/${PKG}-patches.sh" ]
+            local LOG_FILE="${LOG_DIR}/${PKG_SUBDIR}/patch.log"
+            cd "${PKG_SRC_DIR}/${SUBDIR}"
+            patch -p1 -i "${PATCH_FILE}" &> "${LOG_FILE}"
+        fi
+        local PATCH_SCRIPT="${MAIN_DIR}/pkg/${PKG}-patches.sh"
+        if [ -e "${PATCH_SCRIPT}" ] || [ -h "${PATCH_SCRIPT}" ]
         then
-            . "${MAIN_DIR}/pkg/${PKG}-patches.sh"
+            . "${PATCH_SCRIPT}"
         fi
     fi
     set +e

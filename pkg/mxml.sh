@@ -7,7 +7,7 @@
     PKG_VERSION=${MXML_VER}
     PKG_SUBDIR=${PKG}-${PKG_VERSION}
     PKG_FILE=${PKG_SUBDIR}.tar.gz
-    PKG_URL="https://github.com/michaelrsweet/mxml/releases/download/release-${PKG_VERSION}/${PKG_FILE}"
+    PKG_URL="https://github.com/michaelrsweet/mxml/archive/v${PKG_VERSION}.tar.gz"
     PKG_DEPS="gcc"
     [ ! -z "${GCC_EXTRA_VER}" ] && PKG_DEPS="${PKG_DEPS} gcc-extra"
 

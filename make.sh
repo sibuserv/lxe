@@ -60,15 +60,8 @@ then
     exit 0
 elif [ "${1}" = "clean" ] && [ -z "${2}" ]
 then
-    for CONFIG in ${CONFIGS}
-    do
-        PREFIX="${MAIN_DIR}/dist/${CONFIG}"
-        if [ -d "${PREFIX}" ]
-        then
-            echo "rm -rf \"${PREFIX}\""
-            rm -rf "${PREFIX}"
-        fi
-    done
+    echo "rm -rf \"${MAIN_DIR}/dist\""
+    rm -rf "${MAIN_DIR}/dist"
     exit 0
 elif [ "${1}" = "distclean" ] && [ -z "${2}" ]
 then
@@ -80,20 +73,8 @@ fi
 
 # Make packages
 
-for CONFIG in ${CONFIGS}
-do
-    if [ -e "${MAIN_DIR}/etc/${CONFIG}.sh" ]
-    then
-        . "${MAIN_DIR}/etc/${CONFIG}.sh"
-    else
-        echo "Config ${CONFIG} does not exist!"
-        exit 1
-    fi
-
-    DefinePaths
-    PrepareDirs
-    PrepareConfigureOpts
-
+BuildPackages()
+{
     if [ ! -z "${1}" ]
     then
         for ARG in ${@}
@@ -119,5 +100,21 @@ do
             fi
         done
     fi
+}
+
+for CONFIG in ${CONFIGS}
+do
+    if [ -e "${MAIN_DIR}/etc/${CONFIG}.sh" ]
+    then
+        . "${MAIN_DIR}/etc/${CONFIG}.sh"
+    else
+        echo "Config ${CONFIG} does not exist!"
+        exit 1
+    fi
+
+    DefinePaths
+    PrepareDirs
+    PrepareConfigureOpts
+    BuildPackages ${@}
 done
 

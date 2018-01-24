@@ -6,9 +6,9 @@
     PKG=openscenegraph
     PKG_VERSION=${OPENSCENEGRAPH_VER}
     PKG_SUBDIR=${PKG}-${PKG_VERSION}
-    PKG_SUBDIR_ORIG=OpenSceneGraph-${PKG_VERSION}
-    PKG_FILE=OpenSceneGraph-${PKG_VERSION}.zip
-    PKG_URL="http://trac.openscenegraph.org/downloads/developer_releases/${PKG_FILE}"
+    PKG_SUBDIR_ORIG=OpenSceneGraph-OpenSceneGraph-${PKG_VERSION}
+    PKG_FILE=OpenSceneGraph-${PKG_VERSION}.tar.gz
+    PKG_URL="https://github.com/openscenegraph/OpenSceneGraph/archive/${PKG_FILE}"
     PKG_DEPS="gcc pkg-config-settings zlib libpng jpeg tiff giflib freetype gdal cmake-settings"
     [ ! -z "${GCC_EXTRA_VER}" ] && PKG_DEPS="${PKG_DEPS} gcc-extra"
 

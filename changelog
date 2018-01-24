@@ -1,3 +1,45 @@
+--- v2.3 (2018-01-xx) ---
+* Stop support of AstraLinux 1.2 [amd64] (shared). Also this is the last
+  LXE release with support of AstraLinux 1.2 [amd64] (static).
+* Add checkup of checksums for all tarballs with sources. Only size of tarballs
+  was checked before.
+* Add new packages: curl, tinyxml2, osgearth, freetype-stage1, harfbuzz.
+* Add CheckPkgUrl() function which checks availability of tarball with library
+  sources using primary and reserve URLs (PKG_URL and PKG_URL_2 accordingly).
+* Use PKG_URL_2 variable for packages: openssl and libpng.
+  (These projects often move tarballs into archive.)
+* Improve notifications during build of packages.
+* Simplify usage of *.patch files: apply them directly from UnpackSources()
+  function instead of forcing of usage of additional scripts (see *-patches.sh).
+* Simplify GetSources() function: do not check the size of tarballs because
+  the checkup of checksum should be enough.
+* Simplify function for `make clean`: now it is just removes whole subdirectory
+  "dist/" instead of alternate deleting of "dist/${CONFIG}" subdirectories.
+* Packages qtbase and freetype (optionally) depend on package harfbuzz now.
+* Update in all configs:
+  - GCC_EXTRA_VER from 7.1.0 to 6.4.0
+  - PROTOBUF_VER from 3.3.0 to 3.4.0
+  - FFMPEG_VER from 3.3.2 to 3.4.1
+  - MXML_VER from 2.10 to 2.11
+  - BOOST_VER from 1.64.0 to 1.65.0
+  - OPENCV_VER from 3.2.0 to 3.3.1
+  - OPENSCENEGRAPH_VER from 3.4.0 to 3.4.1
+  - GDAL_VER from 1.11.1 to 2.2.3 (except AstraLinux 1.2)
+  - QT5_VER from 5.9.0 to 5.10.0 (except AstraLinux 1.2)
+  - SDL2_VER from 2.0.5 to 2.0.7 (except AstraLinux 1.2)
+* Update in all static configs:
+  - LIBPNG_VER from 1.2.57 to 1.2.59
+  - EXPAT_VER from 2.2.0 to 2.2.5
+  - ZLIB_VER from 1.2.8 to 1.2.11
+  - JPEG_VER from 9b to 9c
+  - JPEG_TURBO_VER from 1.5.1 to 1.5.2
+  - TIFF_VER from 4.0.7 to 4.0.9
+  - LIBGCRYPT_VER from 1.7.7 to 1.8.1
+  - OPENSSL_VER from 1.0.2l to 1.0.2n
+  - FREETYPE_VER from 2.8 to 2.8.1
+  - FONTCONFIG_VER from 2.12.3 to 2.12.6
+  - SQLITE_VER from 3.17.0 to 3.21.0
+
 --- v2.2 (2017-06-28) ---
 * Add new packages: qtactiveqt, qtdeclarative, qtmultimedia, qtx11extras,
   qttranslations, qtxmlpatterns, qtcanvas3d, qtcharts, qtdatavis3d, qtgamepad,
