@@ -7,7 +7,7 @@
     PKG_VERSION=${FONTCONFIG_VER}
     PKG_SUBDIR=${PKG}-${PKG_VERSION}
     PKG_FILE=${PKG}-${PKG_VERSION}.tar.gz
-    PKG_URL="http://fontconfig.org/release/${PKG_FILE}"
+    PKG_URL="https://www.freedesktop.org/software/fontconfig/release/${PKG_FILE}"
     PKG_DEPS="gcc pkg-config-settings expat freetype"
 
     if ! IsPkgInstalled

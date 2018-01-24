@@ -8,7 +8,7 @@
     PKG_SUBDIR=${PKG}-${PKG_VERSION}
     PKG_FILE=${PKG}-${PKG_VERSION}.tar.gz
     # PKG_URL="http://zlib.net/${PKG_FILE}"
-    PKG_URL="http://sourceforge.net/projects/libpng/files/${PKG}/${PKG_VERSION}/${PKG_FILE}"
+    PKG_URL="https://sourceforge.net/projects/libpng/files/${PKG}/${PKG_VERSION}/${PKG_FILE}"
     PKG_DEPS="gcc"
 
     if ! IsPkgInstalled

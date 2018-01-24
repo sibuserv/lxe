@@ -8,7 +8,7 @@
     PKG_SUBDIR=${PKG}-${PKG_VERSION}
     PKG_SUBDIR_ORIG=libpthread-stubs-${PKG_VERSION}
     PKG_FILE=libpthread-stubs-${PKG_VERSION}.tar.bz2
-    PKG_URL="http://xcb.freedesktop.org/dist/${PKG_FILE}"
+    PKG_URL="https://xcb.freedesktop.org/dist/${PKG_FILE}"
     PKG_DEPS="glibc"
 
     if ! IsPkgInstalled

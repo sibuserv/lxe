@@ -5,7 +5,7 @@
 (
     PKG_SUBDIR=${PKG}-${PKG_VERSION}
     PKG_FILE=${PKG_SUBDIR_ORIG}.tar.bz2
-    PKG_URL="http://xorg.freedesktop.org/releases/individual/proto/${PKG_FILE}"
+    PKG_URL="https://xorg.freedesktop.org/releases/individual/proto/${PKG_FILE}"
 
     if ! IsPkgInstalled
     then

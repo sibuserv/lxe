@@ -7,7 +7,7 @@
     PKG_VERSION=${ASPELL_VER}
     PKG_SUBDIR=${PKG}-${PKG_VERSION}
     PKG_FILE=${PKG_SUBDIR}.tar.gz
-    PKG_URL="http://ftp.gnu.org/gnu/${PKG}/${PKG_FILE}"
+    PKG_URL="https://ftp.gnu.org/gnu/${PKG}/${PKG_FILE}"
     PKG_DEPS="gcc"
 
     if ! IsPkgInstalled

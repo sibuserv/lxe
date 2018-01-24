@@ -8,7 +8,7 @@
     PKG_SUBDIR=${PKG}-${PKG_VERSION}
     PKG_SUBDIR_ORIG=cmake-${PKG_VERSION}
     PKG_FILE=cmake-${PKG_VERSION}.tar.gz
-    PKG_URL="http://www.cmake.org/files/v${CMAKE_SUBVER}/${PKG_FILE}"
+    PKG_URL="https://www.cmake.org/files/v${CMAKE_SUBVER}/${PKG_FILE}"
     PKG_DEPS=
 
     if ! IsPkgInstalled
@@ -36,7 +36,7 @@ set(CMAKE_C_COMPILER "${PREFIX}/bin/${TARGET}-gcc-${GCC_CURRENT_VER}")
 set(CMAKE_CXX_COMPILER "${PREFIX}/bin/${TARGET}-g++-${GCC_CURRENT_VER}")
 set(CMAKE_INSTALL_PREFIX "${SYSROOT}/usr" CACHE PATH "Installation Prefix")
 set(CMAKE_BUILD_TYPE Release CACHE STRING "Debug|Release|RelWithDebInfo|MinSizeRel")
-set(CMAKE_CROSS_COMPILING ON) # Workaround for http://www.cmake.org/Bug/view.php?id=14075
+set(CMAKE_CROSS_COMPILING ON) # Workaround for https://www.cmake.org/Bug/view.php?id=14075
 set(PKG_CONFIG_EXECUTABLE ${PREFIX}/bin/${TARGET}-pkg-config)
 
 if(NOT DEFINED CMAKE_C_FLAGS)

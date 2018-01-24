@@ -9,7 +9,7 @@
     IsPkgVersionGreaterOrEqualTo "2.0.0" && \
         PKG_FILE=${PKG}-${PKG_VERSION}.tar.xz || \
         PKG_FILE=${PKG}-${PKG_VERSION}.tar.bz2
-    PKG_URL="http://download.videolan.org/pub/videolan/vlc/${PKG_VERSION}/${PKG_FILE}"
+    PKG_URL="https://download.videolan.org/pub/videolan/vlc/${PKG_VERSION}/${PKG_FILE}"
     PKG_DEPS="gcc mesa"
     # glew
 

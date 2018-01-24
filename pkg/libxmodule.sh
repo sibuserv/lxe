@@ -7,7 +7,7 @@
     [ ! -z "${PKG_SUBDIR_ORIG}" ] && \
         PKG_FILE=${PKG_SUBDIR_ORIG}.tar.bz2 || \
         PKG_FILE=${PKG_SUBDIR}.tar.bz2
-    PKG_URL="http://xorg.freedesktop.org/releases/individual/lib/${PKG_FILE}"
+    PKG_URL="https://xorg.freedesktop.org/releases/individual/lib/${PKG_FILE}"
 
     if ! IsPkgInstalled
     then

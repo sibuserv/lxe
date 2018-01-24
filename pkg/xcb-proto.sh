@@ -7,7 +7,7 @@
     PKG_VERSION=${XCB_PROTO_VER}
     PKG_SUBDIR=${PKG}-${PKG_VERSION}
     PKG_FILE=${PKG_SUBDIR}.tar.bz2
-    PKG_URL="http://xcb.freedesktop.org/dist/${PKG_FILE}"
+    PKG_URL="https://xcb.freedesktop.org/dist/${PKG_FILE}"
     PKG_DEPS="gcc pkg-config-settings libxml2"
 
     if ! IsPkgInstalled
