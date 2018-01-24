@@ -258,28 +258,14 @@ GetSources()
 
     local WGET="wget -v -c --no-config --no-check-certificate --max-redirect=50"
     local LOG_FILE="${LOG_DIR}/${PKG_SUBDIR}/tarball-download.log"
-    local TARBALL_SIZE="${LOG_DIR}/${PKG_SUBDIR}/tarball-size.info"
     mkdir -p "${LOG_DIR}/${PKG_SUBDIR}"
     cd "${SRC_DIR}"
     if [ ! -e "${PKG_FILE}" ]
     then
-        CheckPkgUrl
-        local SIZE=$(curl -I "${PKG_URL}" 2>&1 | sed -ne "s|^Content-Length: \(.*\)$|\1|p")
-        echo "${SIZE}" > "${TARBALL_SIZE}"
         BeginDownload
+        CheckPkgUrl
         ${WGET} -o "${LOG_FILE}" -O "${PKG_FILE}" "${PKG_URL}"
         CheckFail "${LOG_FILE}"
-    elif [ -e "${TARBALL_SIZE}" ]
-    then
-        CheckPkgUrl
-        local SIZE=$(cat "${TARBALL_SIZE}")
-        local FILE_SIZE=$(curl -I "file:${SRC_DIR}/${PKG_FILE}" 2>&1 | sed -ne "s|^Content-Length: \(.*\)$|\1|p")
-        if [ "${FILE_SIZE}" != "${SIZE}" ]
-        then
-            BeginDownload
-            ${WGET} -o "${LOG_FILE}" -O "${PKG_FILE}" "${PKG_URL}"
-            CheckFail "${LOG_FILE}"
-        fi
     fi
     local CHECKSUMS_DATABASE_FILE="${MAIN_DIR}/etc/_checksums.database.txt"
     if [ $(grep "${PKG_FILE}" "${CHECKSUMS_DATABASE_FILE}" | wc -l) != "1" ]
@@ -297,6 +283,8 @@ GetSources()
         echo "Error! Checksum mismatch:"
         echo "TARBALL_CHECKSUM = ${TARBALL_CHECKSUM}"
         echo "PKG_CHECKSUM     = ${PKG_CHECKSUM}"
+        echo "Try to remove tarball to force build system to download it again:"
+        echo "rm \"${SRC_DIR}/${PKG_FILE}\""
         exit 1
     fi
 

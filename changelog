@@ -11,6 +11,8 @@
 * Improve notifications during build of packages.
 * Simplify usage of *.patch files: apply them directly from UnpackSources()
   function instead of forcing of usage of additional scripts (see *-patches.sh).
+* Simplify GetSources() function: do not check the size of tarballs because
+  the checkup of checksum should be enough.
 * Simplify function for `make clean`: now it is just removes whole subdirectory
   "dist/" instead of alternate deleting of "dist/${CONFIG}" subdirectories.
 * Packages qtbase and freetype (optionally) depend on package harfbuzz now.
