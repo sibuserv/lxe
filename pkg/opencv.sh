@@ -8,7 +8,7 @@
     PKG_SUBDIR=${PKG}-${PKG_VERSION}
     PKG_FILE=${PKG}-${PKG_VERSION}.zip
     #PKG_URL="https://github.com/Itseez/opencv/archive/${PKG_FILE}"
-    PKG_URL="http://sourceforge.net/projects/opencvlibrary/files/opencv-unix/${PKG_VERSION}/${PKG_FILE}"
+    PKG_URL="https://sourceforge.net/projects/opencvlibrary/files/opencv-unix/${PKG_VERSION}/${PKG_FILE}"
     PKG_DEPS="gcc cmake-settings"
     [ ! -z "${GCC_EXTRA_VER}" ] && PKG_DEPS="${PKG_DEPS} gcc-extra"
 

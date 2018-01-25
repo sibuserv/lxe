@@ -8,7 +8,7 @@
     PKG_SUBDIR=${PKG}-${PKG_VERSION}
     PKG_SUBDIR_ORIG=boost_$(echo "${PKG_VERSION}" | tr '.' '_')
     PKG_FILE=${PKG_SUBDIR_ORIG}.tar.bz2
-    PKG_URL="http://sourceforge.net/projects/${PKG}/files/${PKG}/${PKG_VERSION}/${PKG_FILE}"
+    PKG_URL="https://sourceforge.net/projects/${PKG}/files/${PKG}/${PKG_VERSION}/${PKG_FILE}"
     PKG_DEPS="gcc bzip2 expat zlib"
     [ ! -z "${GCC_EXTRA_VER}" ] && PKG_DEPS="${PKG_DEPS} gcc-extra"
 

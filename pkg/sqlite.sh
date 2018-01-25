@@ -8,8 +8,8 @@
     PKG_SUBDIR=${PKG}-${PKG_VERSION}
     PKG_SUBDIR_ORIG=SQLite-${SQLITE_FOSSIL_VER}
     PKG_FILE=SQLite-${SQLITE_FOSSIL_VER}.tar.gz
-    # http://www.sqlite.org/cgi/src/taglist
-    PKG_URL="http://www.sqlite.org/cgi/src/tarball/${PKG_FILE}"
+    # https://www.sqlite.org/cgi/src/taglist
+    PKG_URL="https://www.sqlite.org/cgi/src/tarball/${PKG_FILE}"
     PKG_DEPS="gcc"
 
     if ! IsPkgInstalled

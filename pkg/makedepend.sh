@@ -7,7 +7,7 @@
     PKG_VERSION=${MAKEDEPEND_VER}
     PKG_SUBDIR=${PKG}-${PKG_VERSION}
     PKG_FILE=${PKG}-${PKG_VERSION}.tar.bz2
-    PKG_URL="http://xorg.freedesktop.org/releases/individual/util/${PKG_FILE}"
+    PKG_URL="https://xorg.freedesktop.org/releases/individual/util/${PKG_FILE}"
     PKG_DEPS=
 
     if ! IsPkgInstalled

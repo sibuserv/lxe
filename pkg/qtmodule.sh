@@ -13,7 +13,7 @@
         PKG_SUBDIR_ORIG=${PKG}-opensource-src-${PKG_VERSION}
         PKG_FILE=${PKG}-opensource-src-${PKG_VERSION}.tar.xz
     fi
-    PKG_URL="http://download.qt.io/archive/qt/${QT5_SUBVER}/${QT5_VER}/submodules/${PKG_FILE}"
+    PKG_URL="https://download.qt.io/archive/qt/${QT5_SUBVER}/${QT5_VER}/submodules/${PKG_FILE}"
 
     if ! IsPkgInstalled
     then

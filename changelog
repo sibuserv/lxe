@@ -8,6 +8,7 @@
   sources using primary and reserve URLs (PKG_URL and PKG_URL_2 accordingly).
 * Use PKG_URL_2 variable for packages: openssl and libpng.
   (These projects often move tarballs into archive.)
+* Use HTTPS instead of HTTP in all PKG_URLs where it is possible.
 * Improve notifications during build of packages.
 * Simplify usage of *.patch files: apply them directly from UnpackSources()
   function instead of forcing of usage of additional scripts (see *-patches.sh).

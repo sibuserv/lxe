@@ -9,10 +9,10 @@
     PKG_SUBDIR_ORIG=qt-everywhere-opensource-src-${PKG_VERSION}
     PKG_FILE=${PKG_SUBDIR_ORIG}.tar.gz
     [ "${PKG_VERSION}" = "4.8.7" ] && \
-        PKG_URL="http://download.qt.io/official_releases/qt/${QT4_SUBVER}/${QT4_VER}/${PKG_FILE}" || \
+        PKG_URL="https://download.qt.io/official_releases/qt/${QT4_SUBVER}/${QT4_VER}/${PKG_FILE}" || \
         ( IsPkgVersionGreaterOrEqualTo "4.8.0" && \
-            PKG_URL="http://download.qt.io/archive/qt/${QT4_SUBVER}/${QT4_VER}/${PKG_FILE}" || \
-            PKG_URL="http://download.qt.io/archive/qt/${QT4_SUBVER}/${PKG_FILE}" )
+            PKG_URL="https://download.qt.io/archive/qt/${QT4_SUBVER}/${QT4_VER}/${PKG_FILE}" || \
+            PKG_URL="https://download.qt.io/archive/qt/${QT4_SUBVER}/${PKG_FILE}" )
     PKG_DEPS="gcc pkg-config-settings zlib libpng jpeg freetype fontconfig libxcb libx11 libxext libxi libxrender libxrandr mesa"
     [ ! -z "${GCC_EXTRA_VER}" ] && PKG_DEPS="${PKG_DEPS} gcc-extra"
 

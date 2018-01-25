@@ -8,7 +8,7 @@
     PKG_SUBDIR=${PKG}-${PKG_VERSION}
     PKG_SUBDIR_ORIG=SDL2-${PKG_VERSION}
     PKG_FILE=${PKG_SUBDIR_ORIG}.tar.gz
-    PKG_URL="http://www.libsdl.org/release/${PKG_FILE}"
+    PKG_URL="https://www.libsdl.org/release/${PKG_FILE}"
     PKG_DEPS="gcc"
     [ ! -z "${GCC_EXTRA_VER}" ] && PKG_DEPS="${PKG_DEPS} gcc-extra"
 

@@ -8,7 +8,7 @@
     PKG_SUBDIR=${PKG}-${PKG_VERSION}
     PKG_SUBDIR_ORIG=pkg-config-${PKG_VERSION}
     PKG_FILE=pkg-config-${PKG_VERSION}.tar.gz
-    PKG_URL="http://pkgconfig.freedesktop.org/releases/${PKG_FILE}"
+    PKG_URL="https://pkgconfig.freedesktop.org/releases/${PKG_FILE}"
     PKG_DEPS=
 
     if ! IsPkgInstalled
