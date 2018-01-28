@@ -44,6 +44,8 @@
 
         CleanPkgBuildDir
         CleanPkgSrcDir
+
+        unset LD_LIBRARY_PATH
     fi
 )
 
