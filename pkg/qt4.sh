@@ -103,6 +103,8 @@
 
         UpdateGCCSymlinks
 
+        unset LD
+
         find "${SYSROOT}/qt4/lib" -type f -name '*.la' -exec rm -f {} \;
     fi
 )

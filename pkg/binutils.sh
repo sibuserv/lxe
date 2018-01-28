@@ -47,6 +47,8 @@
         CleanPkgBuildDir
         CleanPkgSrcDir
 
+        unset MAKEINFO
+
         cd "${PREFIX}/bin"
         ln -sf "${TARGET}-ld"        "ld"
         ln -sf "${TARGET}-addr2line" "addr2line"

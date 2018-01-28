@@ -23,18 +23,17 @@
         PrepareGlibcConfigureOpts
         SetCrossToolchainVariables
         unset cxx CXX
-        ConfigurePkg \
-            ${LXE_CONFIGURE_OPTS} \
-            ${GLIBC_CONFIGURE_OPTS}
 
         # Workaround for rare problem of build of old glibc versions.
         # Search for "glibc-2.*/shlib.lds:.*: syntax error" bug for
         # more details.
-        BuildPkg -i -k
+        export LANGUAGE=""
+        export LC_ALL="C"
+        #
+
         ConfigurePkg \
             ${LXE_CONFIGURE_OPTS} \
             ${GLIBC_CONFIGURE_OPTS}
-        #
 
         BuildPkg
         IsPkgVersionGreaterOrEqualTo "2.16.0" && \
@@ -43,6 +42,8 @@
 
         CleanPkgBuildDir
         CleanPkgSrcDir
+
+        unset LC_ALL
     fi
 )
 
