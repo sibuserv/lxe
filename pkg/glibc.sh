@@ -22,7 +22,6 @@
         SetCrossToolchainPath
         PrepareGlibcConfigureOpts
         SetCrossToolchainVariables
-        unset cxx CXX
 
         # Workaround for rare problem of build of old glibc versions.
         # Search for "glibc-2.*/shlib.lds:.*: syntax error" bug for
@@ -31,6 +30,7 @@
         export LC_ALL="C"
         #
 
+        unset cxx CXX
         ConfigurePkg \
             ${LXE_CONFIGURE_OPTS} \
             ${GLIBC_CONFIGURE_OPTS}
