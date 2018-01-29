@@ -318,7 +318,7 @@ UnpackSources()
             patch -p1 -i "${PATCH_FILE}" &> "${LOG_FILE}"
         fi
         local PATCH_SCRIPT="${MAIN_DIR}/pkg/${PKG}-patches.sh"
-        if [ -e "${PATCH_SCRIPT}" ] || [ -h "${PATCH_SCRIPT}" ]
+        if [ -e "${PATCH_SCRIPT}" ]
         then
             . "${PATCH_SCRIPT}"
         fi
