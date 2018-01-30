@@ -311,14 +311,14 @@ UnpackSources()
         rm "${PKG_FILE}"
 
         local PATCH_FILE="${PKG_DIR}/${PKG}-${PKG_VERSION}.patch"
-        if [ -e "${PATCH_FILE}" ]
+        if [ -e "${PATCH_FILE}" ] || [ -h "${PATCH_FILE}" ]
         then
             local LOG_FILE="${LOG_DIR}/${PKG_SUBDIR}/patch.log"
             cd "${PKG_SRC_DIR}/${SUBDIR}"
             patch -p1 -i "${PATCH_FILE}" &> "${LOG_FILE}"
         fi
         local PATCH_SCRIPT="${MAIN_DIR}/pkg/${PKG}-patches.sh"
-        if [ -e "${PATCH_SCRIPT}" ]
+        if [ -e "${PATCH_SCRIPT}" ] || [ -h "${PATCH_SCRIPT}" ]
         then
             . "${PATCH_SCRIPT}"
         fi
