@@ -253,6 +253,21 @@ CheckPkgUrl()
     fi
 }
 
+IsTarballCheckRequired()
+{
+    local MUTABLE_TARBALLS_PKG_LIST="sqlite"
+
+    for PKG_WITH_MUTABLE_TARBALL in ${MUTABLE_TARBALLS_PKG_LIST}
+    do
+        if [ "${PKG_WITH_MUTABLE_TARBALL}" = "${PKG}" ]
+        then
+            echo "[checksum] skip check of ${PKG_FILE}"
+            return 1
+        fi
+    done
+    return 0
+}
+
 GetSources()
 {
     PrintSystemInfo
@@ -278,7 +293,7 @@ GetSources()
     fi
     local PKG_CHECKSUM=$(cat "${CHECKSUMS_DATABASE_FILE}" | sed -ne "s|^\(.*\)  ${PKG_FILE}$|\1|p")
     local TARBALL_CHECKSUM=$(openssl dgst -sha256 "${PKG_FILE}" 2>/dev/null | sed -n 's,^.*\([0-9a-f]\{64\}\)$,\1,p')
-    if [ "${TARBALL_CHECKSUM}" != "${PKG_CHECKSUM}" ]
+    if [ "${TARBALL_CHECKSUM}" != "${PKG_CHECKSUM}" ] && IsTarballCheckRequired
     then
         echo "[checksum] ${PKG_FILE}"
         echo "Error! Checksum mismatch:"
