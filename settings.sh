@@ -7,6 +7,7 @@ CONFIGS="
         AstraLinux-1.3_static
         AstraLinux-1.3_shared
         AstraLinux-1.2_static
+        AstraLinux-1.2_shared
         Ubuntu-14.04-LTS_amd64_static
         Ubuntu-14.04-LTS_amd64_shared
         Ubuntu-14.04-LTS_i386_static
