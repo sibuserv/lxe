@@ -241,7 +241,8 @@ CheckPkgUrl()
 {
     if [ ! -z "${PKG_URL_2}" ]
     then
-        if [ $(curl -L -I "${PKG_URL}" 2>/dev/null | grep '404 Not Found' | wc -l) != "0" ]
+        local HTTP_REPLY=$(curl -L -I "${PKG_URL}" 2>/dev/null | grep 'HTTP/')
+        if [ $(echo "${HTTP_REPLY}" | grep '404' | wc -l) != "0" ]
         then
             PKG_URL="${PKG_URL_2}"
         elif ! curl -L -I "${PKG_URL}" &> /dev/null
@@ -250,6 +251,21 @@ CheckPkgUrl()
         fi
         unset PKG_URL_2
     fi
+}
+
+IsTarballCheckRequired()
+{
+    local MUTABLE_TARBALLS_PKG_LIST="sqlite"
+
+    for PKG_WITH_MUTABLE_TARBALL in ${MUTABLE_TARBALLS_PKG_LIST}
+    do
+        if [ "${PKG_WITH_MUTABLE_TARBALL}" = "${PKG}" ]
+        then
+            echo "[checksum] skip check of ${PKG_FILE}"
+            return 1
+        fi
+    done
+    return 0
 }
 
 GetSources()
@@ -277,7 +293,7 @@ GetSources()
     fi
     local PKG_CHECKSUM=$(cat "${CHECKSUMS_DATABASE_FILE}" | sed -ne "s|^\(.*\)  ${PKG_FILE}$|\1|p")
     local TARBALL_CHECKSUM=$(openssl dgst -sha256 "${PKG_FILE}" 2>/dev/null | sed -n 's,^.*\([0-9a-f]\{64\}\)$,\1,p')
-    if [ "${TARBALL_CHECKSUM}" != "${PKG_CHECKSUM}" ]
+    if [ "${TARBALL_CHECKSUM}" != "${PKG_CHECKSUM}" ] && IsTarballCheckRequired
     then
         echo "[checksum] ${PKG_FILE}"
         echo "Error! Checksum mismatch:"

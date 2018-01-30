@@ -6,8 +6,9 @@
     PKG=curl
     PKG_VERSION=${CURL_VER}
     PKG_SUBDIR=${PKG}-${PKG_VERSION}
-    PKG_FILE=${PKG}-${PKG_VERSION}.tar.bz2
+    PKG_FILE=${PKG}-${PKG_VERSION}.tar.gz
     PKG_URL="https://curl.haxx.se/download/${PKG_FILE}"
+    PKG_URL_2="https://curl.haxx.se/download/archeology/${PKG_FILE}"
     PKG_DEPS="gcc"
 
     if ! IsPkgInstalled
