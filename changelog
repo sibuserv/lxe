@@ -1,4 +1,4 @@
---- v2.3 (2018-01-xx) ---
+--- v3.0 (2018-02-01) ---
 * Add checkup of checksums for all tarballs with sources. Only size of tarballs
   was checked before.
 * Add new packages: curl, tinyxml2, osgearth, freetype-stage1, harfbuzz.
