@@ -32,7 +32,7 @@ JOBS=$(nproc 2>/dev/null || echo 1)
 # LOCAL_PKG_LIST="gcc pkg-config-settings cmake-settings ldd-settings"
 LOCAL_PKG_LIST="cmake-settings ldd-settings freeglut sdl2 qtbase qtconnectivity
                 qtscript qtserialport qtsvg qttools qtwebsockets qwt protobuf
-                libjpeg-turbo boost ffmpeg openscenegraph osgearth"
+                boost ffmpeg openscenegraph osgearth"
 
 # Delete unpacked source files after successful build of the package (true/false):
 CLEAN_SRC_DIR=true
