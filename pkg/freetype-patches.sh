@@ -1,4 +1,6 @@
 #!/bin/sh
+#
+# This file is part of LXE project. See LICENSE file for licensing information.
 
 (
     FILE="${PKG_SRC_DIR}/${PKG_SUBDIR}/builds/unix/install.mk"

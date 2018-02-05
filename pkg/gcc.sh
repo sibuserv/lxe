@@ -1,4 +1,6 @@
 #!/bin/sh
+#
+# This file is part of LXE project. See LICENSE file for licensing information.
 
 [ -z "${GCC_VER}" ] && exit 1
 

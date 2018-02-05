@@ -1,4 +1,6 @@
 #!/bin/bash
+#
+# This file is part of LXE project. See LICENSE file for licensing information.
 
 PrepareDirs()
 {

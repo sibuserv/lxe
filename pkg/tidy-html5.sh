@@ -1,4 +1,6 @@
 #!/bin/sh
+#
+# This file is part of LXE project. See LICENSE file for licensing information.
 
 [ -z "${TIDY_HTML5_VER}" ] && exit 1
 

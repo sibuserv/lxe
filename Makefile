@@ -1,3 +1,5 @@
+# This file is part of LXE project. See LICENSE file for licensing information.
+
 MAIN_DIR := $(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
 
 .PHONY: default
