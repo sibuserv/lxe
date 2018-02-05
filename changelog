@@ -1,3 +1,7 @@
+--- v3.1 (2018-xx-xx) ---
+* Add USE_JPEG_TURBO variable to all configs: set it to "true" for using of
+  libjpeg-turbo library instead of jpeg.
+
 --- v3.0 (2018-02-01) ---
 * Add checkup of checksums for all tarballs with sources. Only size of tarballs
   was checked before.

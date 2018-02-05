@@ -2,6 +2,14 @@
 #
 # This file is part of LXE project. See LICENSE file for licensing information.
 
+if [ "${USE_JPEG_TURBO}" = "true" ]
+then
+    echo "[build]    jpeg"
+    echo "Error! You cannot build package \"jpeg\" because"
+    echo "USE_JPEG_TURBO variable is set to \"true\"."
+    exit 1
+fi
+
 [ -z "${JPEG_VER}" ] && exit 1
 
 (

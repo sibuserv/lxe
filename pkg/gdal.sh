@@ -11,7 +11,9 @@
     PKG_FILE=${PKG}-${PKG_VERSION}.tar.gz
     # PKG_URL="ftp://ftp.remotesensing.org/${PKG}/${PKG_VERSION}/${PKG_FILE}"
     PKG_URL="http://download.osgeo.org/${PKG}/${PKG_VERSION}/${PKG_FILE}"
-    PKG_DEPS="gcc zlib expat libpng jpeg tiff giflib proj"
+    PKG_DEPS="gcc zlib expat libpng tiff giflib proj"
+    [ "${USE_JPEG_TURBO}" = "true" ] && PKG_DEPS="${PKG_DEPS} libjpeg-turbo" || \
+                                        PKG_DEPS="${PKG_DEPS} jpeg"
 
     if ! IsPkgInstalled
     then
