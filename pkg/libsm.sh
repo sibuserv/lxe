@@ -12,7 +12,7 @@
 
     . "${PKG_DIR}/libxmodule.sh"
 
-    if [ "${DEFAULT_LIB_TYPE}" = "static" ]
+    if IsStaticPackage
     then
         rm -f "${SYSROOT}/usr/lib/libSM.so"
     fi

@@ -35,6 +35,9 @@
         UpdateGCCSymlinks "${GCC_EXTRA_VER}"
         SetCrossToolchainVariables "${GCC_EXTRA_VER}"
         SetCrossToolchainPath
+        IsStaticPackage && \
+            LIB_TYPE_OPTS="-static" || \
+            LIB_TYPE_OPTS="-shared"
         export LD=${CROSS_COMPILE}g++
         [ -z "${HARFBUZZ_VER}" ] && \
             EXTRA_CONFIGURE_OPTS="${EXTRA_CONFIGURE_OPTS}
@@ -59,10 +62,10 @@
             -device-option PKG_CONFIG="${TARGET}-pkg-config" \
             -extprefix "${SYSROOT}/qt5" \
             -sysroot "${SYSROOT}" \
+            ${LIB_TYPE_OPTS} \
             -confirm-license \
             -opensource \
             -continue \
-            -static \
             -release \
             -strip \
             -pkg-config \

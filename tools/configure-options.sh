@@ -71,24 +71,22 @@ PrepareLibTypeOpts()
 
     if [ "${LIB_TYPE}" = "static" ]
     then
-        LIB_TYPE_OPTS="--enable-static --disable-shared"
         AUTOTOOLS_STATIC_STR="--enable-static"
         AUTOTOOLS_SHARED_STR="--disable-shared"
         CMAKE_STATIC_BOOL="ON"
         CMAKE_SHARED_BOOL="OFF"
     elif [ "${LIB_TYPE}" = "both" ]
     then
-        LIB_TYPE_OPTS="--enable-static --enable-shared"
         AUTOTOOLS_STATIC_STR="--enable-static"
         AUTOTOOLS_SHARED_STR="--enable-shared"
         CMAKE_STATIC_BOOL="ON"
         CMAKE_SHARED_BOOL="ON"
-    else
-        LIB_TYPE_OPTS="--enable-shared --disable-static"
+    else # "${LIB_TYPE}" = "shared"
         AUTOTOOLS_STATIC_STR="--disable-static"
         AUTOTOOLS_SHARED_STR="--enable-shared"
         CMAKE_STATIC_BOOL="OFF"
         CMAKE_SHARED_BOOL="ON"
     fi
+    LIB_TYPE_OPTS="${AUTOTOOLS_STATIC_STR} ${AUTOTOOLS_SHARED_STR}"
 }
 

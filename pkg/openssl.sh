@@ -24,7 +24,7 @@
         SetBuildFlags
         SetCrossToolchainPath
         SetCrossToolchainVariables
-        [ "${DEFAULT_LIB_TYPE}" = "static" ] && \
+        IsStaticPackage && \
             LIB_TYPE_OPTS="no-shared" || \
             LIB_TYPE_OPTS="shared"
         [[ "${ARCH}" == i*86 ]] && \

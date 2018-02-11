@@ -31,12 +31,15 @@
         ./bootstrap.sh &>> "${LOG_DIR}/${PKG_SUBDIR}/configure.log"
         CheckFail "${LOG_DIR}/${PKG_SUBDIR}/configure.log"
 
+        IsStaticPackage && \
+            LIB_TYPE_OPTS="static" || \
+            LIB_TYPE_OPTS="shared"
         cd "${BUILD_DIR}/${PKG_SUBDIR}"
         ./tools/build/b2 \
             -a \
             -q \
             -j ${JOBS} \
-            link=static \
+            link=${LIB_TYPE_OPTS} \
             threading=multi \
             variant=release \
             --layout=tagged \

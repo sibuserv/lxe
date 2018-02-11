@@ -28,7 +28,7 @@
         SetCrossToolchainPath
         ConfigureCmakeProject \
             -DTIDY_COMPAT_HEADERS:BOOL=YES \
-            -DBUILD_SHARED_LIB=${CMAKE_SHARED_BOOL}
+            -DBUILD_SHARED_LIB="${CMAKE_SHARED_BOOL}"
 
         BuildPkg -j ${JOBS}
         InstallPkg install

@@ -24,7 +24,7 @@
         SetBuildFlags
         SetCrossToolchainPath
         SetCrossToolchainVariables
-        [ "${DEFAULT_LIB_TYPE}" = "static" ] && \
+        IsStaticPackage && \
             LIB_TYPE_OPTS="--static" || \
             LIB_TYPE_OPTS="--shared"
         ConfigurePkgInBuildDir \

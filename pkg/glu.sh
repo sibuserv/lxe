@@ -22,7 +22,7 @@
         SetBuildFlags
         SetCrossToolchainPath
         SetCrossToolchainVariables
-        [ "${DEFAULT_LIB_TYPE}" = "static" ] && \
+        IsStaticPackage && \
             PrepareLibTypeOpts "both"
         ConfigureAutotoolsProjectInBuildDir
 

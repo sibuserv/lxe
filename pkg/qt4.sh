@@ -35,6 +35,9 @@
         UpdateGCCSymlinks "${GCC_EXTRA_VER}"
         SetCrossToolchainVariables "${GCC_EXTRA_VER}"
         SetCrossToolchainPath
+        IsStaticPackage && \
+            LIB_TYPE_OPTS="-static" || \
+            LIB_TYPE_OPTS="-shared"
         export LD=${CROSS_COMPILE}g++
         # unset CFLAGS CXXFLAGS LDFLAGS
         ConfigurePkg \
@@ -45,10 +48,10 @@
             -sysroot "${SYSROOT}" \
             -prefix "${SYSROOT}/qt4" \
             -prefix-install \
+            ${LIB_TYPE_OPTS} \
             -confirm-license \
             -opensource \
             -continue \
-            -static \
             -release \
             -force-pkg-config \
             -nomake examples \

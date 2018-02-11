@@ -23,7 +23,7 @@
         SetBuildFlags
         SetCrossToolchainPath
         SetCrossToolchainVariables
-        if [ "${DEFAULT_LIB_TYPE}" = "static" ]
+        if IsStaticPackage
         then
             LIB_NAME="libbz2.a"
             MAKEFILE="Makefile"

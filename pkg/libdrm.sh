@@ -23,7 +23,7 @@
         SetBuildFlags
         SetCrossToolchainPath
         SetCrossToolchainVariables
-        [ "${DEFAULT_LIB_TYPE}" = "static" ] && \
+        IsStaticPackage && \
             PrepareLibTypeOpts "both"
         ConfigureAutotoolsProject \
             --disable-udev \

@@ -26,7 +26,6 @@
         SetGlibcBuildFlags
         SetCrossToolchainPath
         SetCrossToolchainVariables
-        PrepareLibTypeOpts "static"
         ConfigureAutotoolsProject \
             --disable-gles1 \
             --disable-gles2 \

@@ -28,13 +28,12 @@
         then
             UpdateCmakeSymlink
             ConfigureCmakeProject \
-                -DFREEGLUT_BUILD_SHARED_LIBS=OFF \
-                -DFREEGLUT_BUILD_STATIC_LIBS=ON \
+                -DFREEGLUT_BUILD_SHARED_LIBS="${CMAKE_SHARED_BOOL}" \
+                -DFREEGLUT_BUILD_STATIC_LIBS="${CMAKE_STATIC_BOOL}" \
                 -DFREEGLUT_REPLACE_GLUT=ON \
                 -DFREEGLUT_GLES=OFF \
                 -DFREEGLUT_BUILD_DEMOS=OFF
         else
-            PrepareLibTypeOpts "static"
             ConfigureAutotoolsProject \
                 --with-sysroot="${SYSROOT}" \
                 --enable-replace-glut \

@@ -32,8 +32,8 @@
         ConfigureCmakeProject \
             -DPKG_CONFIG_EXECUTABLE="${PREFIX}/bin/${TARGET}-pkg-config" \
             -DCMAKE_CXX_FLAGS="${CXXFLAGS} -fpermissive" \
-            -DDYNAMIC_OPENTHREADS=OFF \
-            -DDYNAMIC_OPENSCENEGRAPH=OFF \
+            -DDYNAMIC_OPENTHREADS="${CMAKE_SHARED_BOOL}" \
+            -DDYNAMIC_OPENSCENEGRAPH="${CMAKE_SHARED_BOOL}" \
             -DBUILD_OSG_APPLICATIONS=OFF \
             -DOSG_USE_QT=OFF \
             -D_OPENTHREADS_ATOMIC_USE_GCC_BUILTINS_EXITCODE=1

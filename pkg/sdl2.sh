@@ -26,7 +26,6 @@
         UpdateGCCSymlinks "${GCC_EXTRA_VER}"
         SetCrossToolchainVariables "${GCC_EXTRA_VER}"
         SetCrossToolchainPath
-        PrepareLibTypeOpts "static"
         ConfigureAutotoolsProject \
             --disable-rpath
 
