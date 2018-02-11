@@ -5,7 +5,5 @@
 * Add configs for Debian 8.
 * Add package clang-extra and cmake toolchain file for builds using Clang.
 ! Use firejail for sandboxing of build tools.
-! Provide possibility to build manually selected list of static libraries in
-  environments with shared libraries.
 ? Rewrite project from bash scripts to make files.
 
