@@ -1,4 +1,6 @@
 #!/bin/sh
+#
+# This file is part of LXE project. See LICENSE file for licensing information.
 
 [ -z "${GLU_VER}" ] || \
 (
@@ -20,7 +22,7 @@
         SetBuildFlags
         SetCrossToolchainPath
         SetCrossToolchainVariables
-        [ "${DEFAULT_LIB_TYPE}" = "static" ] && \
+        IsStaticPackage && \
             PrepareLibTypeOpts "both"
         ConfigureAutotoolsProjectInBuildDir
 

@@ -1,4 +1,6 @@
 #!/bin/sh
+#
+# This file is part of LXE project. See LICENSE file for licensing information.
 
 [ -z "${TIDY_HTML5_VER}" ] && exit 1
 
@@ -26,7 +28,7 @@
         SetCrossToolchainPath
         ConfigureCmakeProject \
             -DTIDY_COMPAT_HEADERS:BOOL=YES \
-            -DBUILD_SHARED_LIB=${CMAKE_SHARED_BOOL}
+            -DBUILD_SHARED_LIB="${CMAKE_SHARED_BOOL}"
 
         BuildPkg -j ${JOBS}
         InstallPkg install

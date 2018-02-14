@@ -1,4 +1,6 @@
 #!/bin/sh
+#
+# This file is part of LXE project. See LICENSE file for licensing information.
 
 [ -z "${OPENSSL_VER}" ] && exit 1
 
@@ -22,7 +24,7 @@
         SetBuildFlags
         SetCrossToolchainPath
         SetCrossToolchainVariables
-        [ "${DEFAULT_LIB_TYPE}" = "static" ] && \
+        IsStaticPackage && \
             LIB_TYPE_OPTS="no-shared" || \
             LIB_TYPE_OPTS="shared"
         [[ "${ARCH}" == i*86 ]] && \

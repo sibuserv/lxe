@@ -34,6 +34,11 @@ JOBS=$(nproc 2>/dev/null || echo 1)
 LOCAL_PKG_LIST="cmake-settings ldd-settings boost aspell
                 libotr tidy-html5 qtbase qttools qtmultimedia qtwebkit qca"
 
+# List of packages which should provide static libraries in environments with
+# shared libraries (see DEFAULT_LIB_TYPE variable in configs):
+# STATIC_PKG_LIST="freeglut sdl2 qt4 qtbase qwt freeglut protobuf boost proj gdal
+#                  openscenegraph osgearth x264 ffmpeg libfcgi"
+
 # Delete unpacked source files after successful build of the package (true/false):
 CLEAN_SRC_DIR=true
 

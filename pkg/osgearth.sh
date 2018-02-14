@@ -1,4 +1,6 @@
 #!/bin/sh
+#
+# This file is part of LXE project. See LICENSE file for licensing information.
 
 [ -z "${OSGEARTH_VER}" ] && exit 1
 
@@ -20,15 +22,14 @@
         UnpackSources
         PrepareBuild
 
-        # -DDYNAMIC_OSGEARTH=${CMAKE_SHARED_BOOL} \
         SetBuildFlags "${GCC_EXTRA_VER}"
         UpdateGCCSymlinks "${GCC_EXTRA_VER}"
         UpdateCmakeSymlink "${GCC_EXTRA_VER}"
         SetCrossToolchainVariables "${GCC_EXTRA_VER}"
         SetCrossToolchainPath
         ConfigureCmakeProject \
+            -DDYNAMIC_OSGEARTH="${CMAKE_SHARED_BOOL}" \
             -DWITH_EXTERNAL_TINYXML=ON \
-            -DDYNAMIC_OSGEARTH=OFF \
             -DBUILD_OSGEARTH_EXAMPLES=OFF
 
         BuildPkg -j ${JOBS}

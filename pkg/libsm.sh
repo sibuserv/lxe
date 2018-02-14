@@ -1,4 +1,6 @@
 #!/bin/sh
+#
+# This file is part of LXE project. See LICENSE file for licensing information.
 
 [ -z "${LIBSM_VER}" ] && exit 1
 
@@ -10,7 +12,7 @@
 
     . "${PKG_DIR}/libxmodule.sh"
 
-    if [ "${DEFAULT_LIB_TYPE}" = "static" ]
+    if IsStaticPackage
     then
         rm -f "${SYSROOT}/usr/lib/libSM.so"
     fi

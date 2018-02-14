@@ -1,4 +1,6 @@
 #!/bin/sh
+#
+# This file is part of LXE project. See LICENSE file for licensing information.
 
 [ -z "${SDL2_VER}" ] && exit 1
 
@@ -24,7 +26,6 @@
         UpdateGCCSymlinks "${GCC_EXTRA_VER}"
         SetCrossToolchainVariables "${GCC_EXTRA_VER}"
         SetCrossToolchainPath
-        PrepareLibTypeOpts "static"
         ConfigureAutotoolsProject \
             --disable-rpath
 

@@ -1,4 +1,6 @@
 #!/bin/sh
+#
+# This file is part of LXE project. See LICENSE file for licensing information.
 
 [ -z "${MXML_VER}" ] && exit 1
 
@@ -23,7 +25,6 @@
         UpdateGCCSymlinks "${GCC_EXTRA_VER}"
         SetCrossToolchainVariables "${GCC_EXTRA_VER}"
         SetCrossToolchainPath
-        PrepareLibTypeOpts "static"
         ConfigureAutotoolsProjectInBuildDir \
             --enable-threads
 

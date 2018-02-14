@@ -1,4 +1,6 @@
 #!/bin/sh
+#
+# This file is part of LXE project. See LICENSE file for licensing information.
 
 [ -z "${GIFLIB_VER}" ] && exit 1
 
@@ -19,7 +21,9 @@
     else
         PKG_URL="https://sourceforge.net/projects/${PKG}/files/giflib-4.x/${PKG_SUBDIR}/${PKG_FILE}"
     fi
-    PKG_DEPS="gcc zlib jpeg"
+    PKG_DEPS="gcc zlib"
+    [ "${USE_JPEG_TURBO}" = "true" ] && PKG_DEPS="${PKG_DEPS} libjpeg-turbo" || \
+                                        PKG_DEPS="${PKG_DEPS} jpeg"
 
     if ! IsPkgInstalled
     then

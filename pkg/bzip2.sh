@@ -1,4 +1,6 @@
 #!/bin/sh
+#
+# This file is part of LXE project. See LICENSE file for licensing information.
 
 [ -z "${BZIP2_VER}" ] && exit 1
 
@@ -21,7 +23,7 @@
         SetBuildFlags
         SetCrossToolchainPath
         SetCrossToolchainVariables
-        if [ "${DEFAULT_LIB_TYPE}" = "static" ]
+        if IsStaticPackage
         then
             LIB_NAME="libbz2.a"
             MAKEFILE="Makefile"

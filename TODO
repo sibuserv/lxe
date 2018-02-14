@@ -4,7 +4,6 @@
 * Add configs for Ubuntu 16.04.
 * Add configs for Debian 8.
 * Add package clang-extra and cmake toolchain file for builds using Clang.
-! Provide possibility to build manually selected list of static libraries in
-  environments with shared libraries.
+! Use firejail for sandboxing of build tools.
 ? Rewrite project from bash scripts to make files.
 

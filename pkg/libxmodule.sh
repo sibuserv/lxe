@@ -1,4 +1,6 @@
 #!/bin/sh
+#
+# This file is part of LXE project. See LICENSE file for licensing information.
 
 [ -z "${PKG}" ] && exit 1
 
@@ -20,7 +22,7 @@
         SetBuildFlags
         SetCrossToolchainPath
         SetCrossToolchainVariables
-        [ "${DEFAULT_LIB_TYPE}" = "static" ] && \
+        IsStaticPackage && \
             PrepareLibTypeOpts "both"
         ConfigureAutotoolsProject \
             --enable-malloc0returnsnull

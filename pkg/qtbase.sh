@@ -1,4 +1,6 @@
 #!/bin/sh
+#
+# This file is part of LXE project. See LICENSE file for licensing information.
 
 [ -z "${QT5_VER}" ] && exit 1
 
@@ -15,9 +17,10 @@
         PKG_FILE=${PKG}-opensource-src-${PKG_VERSION}.tar.xz
     fi
     PKG_URL="https://download.qt.io/archive/qt/${QT5_SUBVER}/${QT5_VER}/submodules/${PKG_FILE}"
-    PKG_DEPS="gcc pkg-config-settings zlib libpng jpeg freetype fontconfig
-              openssl sqlite libxcb libx11 libxext libxi libxrender libxrandr
-              mesa"
+    PKG_DEPS="gcc pkg-config-settings zlib libpng freetype fontconfig openssl
+              sqlite libxcb libx11 libxext libxi libxrender libxrandr mesa"
+    [ "${USE_JPEG_TURBO}" = "true" ] && PKG_DEPS="${PKG_DEPS} libjpeg-turbo" || \
+                                        PKG_DEPS="${PKG_DEPS} jpeg"
     [ ! -z "${GCC_EXTRA_VER}" ] && PKG_DEPS="${PKG_DEPS} gcc-extra"
 
     if ! IsPkgInstalled
@@ -32,6 +35,9 @@
         UpdateGCCSymlinks "${GCC_EXTRA_VER}"
         SetCrossToolchainVariables "${GCC_EXTRA_VER}"
         SetCrossToolchainPath
+        IsStaticPackage && \
+            LIB_TYPE_OPTS="-static" || \
+            LIB_TYPE_OPTS="-shared"
         export LD=${CROSS_COMPILE}g++
         [ -z "${HARFBUZZ_VER}" ] && \
             EXTRA_CONFIGURE_OPTS="${EXTRA_CONFIGURE_OPTS}
@@ -56,10 +62,10 @@
             -device-option PKG_CONFIG="${TARGET}-pkg-config" \
             -extprefix "${SYSROOT}/qt5" \
             -sysroot "${SYSROOT}" \
+            ${LIB_TYPE_OPTS} \
             -confirm-license \
             -opensource \
             -continue \
-            -static \
             -release \
             -strip \
             -pkg-config \

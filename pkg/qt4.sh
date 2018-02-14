@@ -1,4 +1,6 @@
 #!/bin/sh
+#
+# This file is part of LXE project. See LICENSE file for licensing information.
 
 [ -z "${QT4_VER}" ] && exit 1
 
@@ -15,7 +17,10 @@
     then
         PKG_URL="https://download.qt.io/official_releases/qt/${QT4_SUBVER}/${QT4_VER}/${PKG_FILE}"
     fi
-    PKG_DEPS="gcc pkg-config-settings zlib libpng jpeg freetype fontconfig libxcb libx11 libxext libxi libxrender libxrandr mesa"
+    PKG_DEPS="gcc pkg-config-settings zlib libpng freetype fontconfig libxcb
+              libx11 libxext libxi libxrender libxrandr mesa"
+    [ "${USE_JPEG_TURBO}" = "true" ] && PKG_DEPS="${PKG_DEPS} libjpeg-turbo" || \
+                                        PKG_DEPS="${PKG_DEPS} jpeg"
     [ ! -z "${GCC_EXTRA_VER}" ] && PKG_DEPS="${PKG_DEPS} gcc-extra"
 
     if ! IsPkgInstalled
@@ -30,6 +35,9 @@
         UpdateGCCSymlinks "${GCC_EXTRA_VER}"
         SetCrossToolchainVariables "${GCC_EXTRA_VER}"
         SetCrossToolchainPath
+        IsStaticPackage && \
+            LIB_TYPE_OPTS="-static" || \
+            LIB_TYPE_OPTS="-shared"
         export LD=${CROSS_COMPILE}g++
         # unset CFLAGS CXXFLAGS LDFLAGS
         ConfigurePkg \
@@ -40,10 +48,10 @@
             -sysroot "${SYSROOT}" \
             -prefix "${SYSROOT}/qt4" \
             -prefix-install \
+            ${LIB_TYPE_OPTS} \
             -confirm-license \
             -opensource \
             -continue \
-            -static \
             -release \
             -force-pkg-config \
             -nomake examples \

@@ -1,4 +1,6 @@
 #!/bin/bash
+#
+# This file is part of LXE project. See LICENSE file for licensing information.
 
 PrepareDirs()
 {
@@ -193,6 +195,17 @@ CheckDependencies()
     then
         ( "${MAIN_DIR}/make.sh" ${PKG_DEPS} ) || exit 1
     fi
+}
+
+IsStaticPackage()
+{
+    [ "${DEFAULT_LIB_TYPE}" = "static" ] && return 0 || true
+
+    for STATIC_PKG in ${STATIC_PKG_LIST}
+    do
+        [ "${STATIC_PKG}" = "${PKG}" ] && return 0 || true
+    done
+    return 1
 }
 
 IsVer1GreaterOrEqualToVer2()

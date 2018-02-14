@@ -1,4 +1,6 @@
 #!/bin/sh
+#
+# This file is part of LXE project. See LICENSE file for licensing information.
 
 [ -z "${LIBDRM_VER}" ] && exit 1
 
@@ -21,7 +23,7 @@
         SetBuildFlags
         SetCrossToolchainPath
         SetCrossToolchainVariables
-        [ "${DEFAULT_LIB_TYPE}" = "static" ] && \
+        IsStaticPackage && \
             PrepareLibTypeOpts "both"
         ConfigureAutotoolsProject \
             --disable-udev \

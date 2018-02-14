@@ -1,4 +1,6 @@
 #!/bin/sh
+#
+# This file is part of LXE project. See LICENSE file for licensing information.
 
 [ -z "${VLC_VER}" ] && exit 1
 
@@ -24,7 +26,6 @@
         SetGlibcBuildFlags
         SetCrossToolchainPath
         SetCrossToolchainVariables
-        PrepareLibTypeOpts "static"
         ConfigureAutotoolsProject \
             --disable-gles1 \
             --disable-gles2 \
