@@ -4,6 +4,7 @@
 * Add USE_JPEG_TURBO variable to all configs: set it to "true" for using of
   libjpeg-turbo library instead of jpeg library.
 * Add update-checksums-database.sh tool.
+* Build package ffmpeg with x264 support.
 * Update in all configs:
   - QT5_VER from 5.10.0 to 5.10.1 (except AstraLinux 1.2)
 
