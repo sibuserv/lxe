@@ -10,7 +10,7 @@
     PKG_SUBDIR=${PKG}-${PKG_VERSION}
     PKG_FILE=${PKG_SUBDIR}.tar.bz2
     PKG_URL="http://www.ffmpeg.org/releases/${PKG_FILE}"
-    PKG_DEPS="gcc bzip2 yasm zlib"
+    PKG_DEPS="gcc bzip2 x264 yasm zlib"
 
     if ! IsPkgInstalled
     then
@@ -33,6 +33,7 @@
             --enable-cross-compile \
             --enable-avisynth \
             --enable-avresample \
+            --enable-libx264 \
             --enable-gpl \
             --disable-debug \
             --disable-doc \
@@ -50,7 +51,6 @@
             --disable-libvo-amrwbenc \
             --disable-libvorbis \
             --disable-libvpx \
-            --disable-libx264 \
             --disable-libxvid \
             --disable-programs \
             --disable-iconv \

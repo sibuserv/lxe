@@ -1,0 +1,113 @@
+Author: Boris Pek <tehnick-8@yandex.ru>
+Date:   Mon Feb 26 17:39:20 2018 +0300
+
+    Fix installation of shared library
+
+diff --git a/Makefile.in b/Makefile.in
+index fd48565..f6a6236 100644
+--- a/Makefile.in
++++ b/Makefile.in
+@@ -141,7 +141,7 @@ clang-changes:
+ # Install everything...
+ #
+ 
+-install:	$(TARGETS) install-$(LIBMXML) install-libmxml.a
++install:	$(TARGETS) install-$(LIBMXML)
+ 	echo Installing mxmldoc in $(BUILDROOT)$(bindir)...
+ 	$(INSTALL_DIR) $(BUILDROOT)$(bindir)
+ 	$(INSTALL_BIN) mxmldoc $(BUILDROOT)$(bindir)
+
+
+Author: Boris Pek <tehnick-8@yandex.ru>
+Date:   Mon Feb 26 17:36:40 2018 +0300
+
+    Add missing$(LIBS) and $(LDFLAGS) to Makefile
+
+diff --git a/Makefile.in b/Makefile.in
+index eef14fe..fd48565 100644
+--- a/Makefile.in
++++ b/Makefile.in
+@@ -271,7 +271,7 @@ mxml1.dll:	$(LIBOBJS)
+ 
+ libmxml.so.1.6:	$(LIBOBJS)
+ 	echo Creating $@...
+-	$(DSO) $(DSOFLAGS) -o libmxml.so.1.6 $(LIBOBJS)
++	$(DSO) $(DSOFLAGS) -o libmxml.so.1.6 $(LIBOBJS) $(LIBS) $(LDFLAGS)
+ 	$(RM) libmxml.so libmxml.so.1
+ 	$(LN) libmxml.so.1.6 libmxml.so
+ 	$(LN) libmxml.so.1.6 libmxml.so.1
+
+Author: Boris Pek <tehnick-8@yandex.ru>
+Date:   Mon Feb 26 17:18:51 2018 +0300
+
+    Remove rpath from configure.in and configure
+
+--- a/configure
++++ b/configure
+@@ -4308,8 +4308,8 @@
+ $as_echo "yes" >&6; }
+ 			LIBMXML="libmxml.so.1.6"
+ 			DSO="\$(CC)"
+-			DSOFLAGS="$DSOFLAGS -Wl,-h,libmxml.so.1 -G -R\$(libdir) \$(OPTIM)"
+-			LDFLAGS="$LDFLAGS -R\$(libdir)"
++			DSOFLAGS="$DSOFLAGS -Wl,-h,libmxml.so.1 -G \$(OPTIM)"
++			LDFLAGS="$LDFLAGS"
+                 	;;
+ 
+ 		HP-UX*)
+@@ -4326,7 +4326,7 @@
+ $as_echo "yes" >&6; }
+ 			LIBMXML="libmxml.so.1.6"
+ 			DSO="\$(CC)"
+-			DSOFLAGS="$DSOFLAGS -Wl,-rpath,\$(libdir),-set_version,sgi1.0,-soname,libmxml.so.1 -shared \$(OPTIM)"
++			DSOFLAGS="$DSOFLAGS -Wl,-set_version,sgi1.0,-soname,libmxml.so.1 -shared \$(OPTIM)"
+ 			;;
+ 
+ 		OSF1* | Linux | GNU)
+@@ -4334,8 +4334,8 @@
+ $as_echo "yes" >&6; }
+ 			LIBMXML="libmxml.so.1.6"
+ 			DSO="\$(CC)"
+-			DSOFLAGS="$DSOFLAGS -Wl,-soname,libmxml.so.1,-rpath,\$(libdir) -shared \$(OPTIM)"
+-                        LDFLAGS="$LDFLAGS -Wl,-rpath,\$(libdir)"
++			DSOFLAGS="$DSOFLAGS -Wl,-soname,libmxml.so.1 -shared \$(OPTIM)"
++                        LDFLAGS="$LDFLAGS"
+ 			;;
+ 
+ 		*BSD*)
+@@ -4343,8 +4343,8 @@
+ $as_echo "yes" >&6; }
+ 			LIBMXML="libmxml.so.1.6"
+ 			DSO="\$(CC)"
+-			DSOFLAGS="$DSOFLAGS -Wl,-soname,libmxml.so.1,-R\$(libdir) -shared \$(OPTIM)"
+-			LDFLAGS="$LDFLAGS -Wl,-R\$(libdir)"
++			DSOFLAGS="$DSOFLAGS -Wl,-soname,libmxml.so.1 -shared \$(OPTIM)"
++			LDFLAGS="$LDFLAGS"
+                         ;;
+ 
+ 		Darwin*)
+
+--- a/configure.ac
++++ b/configure.ac
+@@ -173,8 +173,7 @@
+ 			AC_MSG_RESULT(yes)
+ 			LIBMXML="libmxml.so.1.6"
+ 			DSO="\$(CC)"
+-			DSOFLAGS="$DSOFLAGS -Wl,-h,libmxml.so.1 -G -R\$(libdir) \$(OPTIM)"
+-			LDFLAGS="$LDFLAGS -R\$(libdir)"
++			DSOFLAGS="$DSOFLAGS -Wl,-h,libmxml.so.1 -G \$(OPTIM)"
+                 	;;
+ 
+ 		HP-UX*)
+@@ -204,8 +203,7 @@
+ 			AC_MSG_RESULT(yes)
+ 			LIBMXML="libmxml.so.1.6"
+ 			DSO="\$(CC)"
+-			DSOFLAGS="$DSOFLAGS -Wl,-soname,libmxml.so.1,-R\$(libdir) -shared \$(OPTIM)"
+-			LDFLAGS="$LDFLAGS -Wl,-R\$(libdir)"
++			DSOFLAGS="$DSOFLAGS -Wl,-soname,libmxml.so.1  -shared \$(OPTIM)"
+                         ;;
+ 
+ 		Darwin*)
+
+
