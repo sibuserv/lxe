@@ -30,9 +30,9 @@ JOBS=$(nproc 2>/dev/null || echo 1)
 
 # Default list of packages:
 # LOCAL_PKG_LIST="gcc pkg-config-settings cmake-settings ldd-settings"
-# LOCAL_PKG_LIST="cmake-settings ldd-settings boost aspell hunspell minizip
-LOCAL_PKG_LIST="cmake-settings ldd-settings boost aspell
-                libotr tidy-html5 qtbase qttools qtmultimedia qtwebkit qca"
+# TODO: hunspell minizip qtkeychain libsignal-protocol-c qtwebkit
+LOCAL_PKG_LIST="cmake-settings ldd-settings boost aspell libotr tidy-html5
+                qtbase qttools qtmultimedia qca"
 
 # List of packages which should provide static libraries in environments with
 # shared libraries (see DEFAULT_LIB_TYPE variable in configs):
