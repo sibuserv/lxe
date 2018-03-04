@@ -27,8 +27,6 @@
             mkdir -p "${SYSROOT}/usr/share/cmake"
             cat > "${CMAKE_TOOLCHAIN_FILE}" << EOF
 set(CMAKE_SYSTEM_NAME Linux)
-set(BUILD_SHARED_LIBS OFF)
-set(LIBTYPE STATIC)
 set(CMAKE_PREFIX_PATH "${SYSROOT}")
 set(CMAKE_FIND_ROOT_PATH "${SYSROOT}")
 set(CMAKE_FIND_ROOT_PATH_MODE_PROGRAM NEVER)
