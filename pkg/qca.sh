@@ -29,6 +29,8 @@
         SetCrossToolchainPath
         ConfigureCmakeProject \
             -DCMAKE_SYSTEM_PREFIX_PATH="${SYSROOT}/qt5" \
+            -DBUILD_SHARED_LIBS="${CMAKE_SHARED_BOOL}" \
+            -DBUILD_STATIC_LIBS="${CMAKE_STATIC_BOOL}" \
             -DBUILD_TESTS=OFF \
             -DBUILD_TOOLS=OFF \
             -DUSE_RELATIVE_PATHS=OFF \
