@@ -1,4 +1,5 @@
 --- v3.1 (2018-xx-xx) ---
+* Delete package: vlc.
 * Add new package: libsignal-protocol-c.
 * Add possibility to build manually selected list of static libraries in
   environments with shared libraries. See STATIC_PKG_LIST in settings.sh.
