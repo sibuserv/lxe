@@ -1,5 +1,6 @@
 --- TODO ---
-* Add packages: hunspell, minizip, qtkeychain, qtwebkit.
+* Add packages: hunspell, minizip, qtkeychain, qtwebkit, jsoncpp, miniupnpc,
+  gstreamer, gst-plugins-base, lua.
 * Add configs for AstraLinux 1.5.
 * Add configs for Ubuntu 16.04.
 * Add configs for Debian 8.
