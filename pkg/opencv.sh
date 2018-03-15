@@ -29,6 +29,8 @@
         SetCrossToolchainPath
         ConfigureCmakeProject \
             -DCMAKE_INSTALL_PREFIX="${SYSROOT}/usr" \
+            -DBUILD_SHARED_LIBS="${CMAKE_SHARED_BOOL}" \
+            -DBUILD_STATIC_LIBS="${CMAKE_STATIC_BOOL}" \
             -DCMAKE_CXX_FLAGS="" \
             -DCMAKE_C_FLAGS="" \
             -DCMAKE_SHARED_LINKER_FLAGS="" \
