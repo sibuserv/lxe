@@ -1,0 +1,53 @@
+From: Boris Pek <tehnick-8@yandex.ru>
+Date: Fri, 16 Mar 2018 01:09:37 +0300
+Subject: [PATCH 1/2] disable usage of extra libraries
+
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 1111111..2222222 100755
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -117,10 +117,10 @@ ENDIF (OSGEARTH_USE_GLES)
+ 
+ FIND_PACKAGE(CURL)
+ FIND_PACKAGE(GDAL)
+-FIND_PACKAGE(GEOS)
++#FIND_PACKAGE(GEOS)
+ FIND_PACKAGE(Sqlite3)
+ FIND_PACKAGE(ZLIB)
+-FIND_PACKAGE(Poco)
++#FIND_PACKAGE(Poco)
+ 
+ FIND_PACKAGE(LevelDB)
+ FIND_PACKAGE(RocksDB)
+
+From: Boris Pek <tehnick-8@yandex.ru>
+Date: Fri, 16 Mar 2018 01:10:49 +0300
+Subject: [PATCH 2/2] disable build of applications and tests
+
+
+diff --git a/src/CMakeLists.txt b/src/CMakeLists.txt
+index 1111111..2222222 100644
+--- a/src/CMakeLists.txt
++++ b/src/CMakeLists.txt
+@@ -23,13 +23,13 @@ ENDFOREACH( lib )
+ 
+ ADD_SUBDIRECTORY( osgEarthDrivers )
+ 
+-IF(NOT ANDROID)
+-    ADD_SUBDIRECTORY( applications )
+-ENDIF()
+-
+-IF(NOT OSGEARTH_BUILD_PLATFORM_IPHONE AND NOT OSGEARTH_BUILD_PLATFORM_IPHONE_SIMULATOR)
+-    ADD_SUBDIRECTORY( tests )
+-ENDIF()
++#IF(NOT ANDROID)
++#    ADD_SUBDIRECTORY( applications )
++#ENDIF()
++#
++#IF(NOT OSGEARTH_BUILD_PLATFORM_IPHONE AND NOT OSGEARTH_BUILD_PLATFORM_IPHONE_SIMULATOR)
++#    ADD_SUBDIRECTORY( tests )
++#ENDIF()
+ 
+ 
+ IF(MSVC80)
