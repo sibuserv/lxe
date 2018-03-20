@@ -20,6 +20,7 @@
   - OPENCV_VER from 3.3.1 to 3.4.0
   - TINYXML2_VER from 4.0.1 to 6.0.0
   - OSGEARTH_VER from 2.8 to 2.9
+  - PROTOBUF_VER from 3.4.0 to 3.5.2
   - QT5_VER from 5.10.0 to 5.10.1 (except AstraLinux 1.2)
   - SDL2_VER from 2.0.7 to 2.0.8 (except AstraLinux 1.2)
   - PROJ_VER from 4.9.3 to 4.9.3 (except AstraLinux 1.2)

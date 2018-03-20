@@ -117,7 +117,7 @@ CURL_VER=7.57.0
 
 
 ### Developer libraries ###
-PROTOBUF_VER=3.4.0
+PROTOBUF_VER=3.5.2
 BOOST_VER=1.65.0
 
 FREEGLUT_VER=3.0.0
