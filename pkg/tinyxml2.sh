@@ -26,7 +26,9 @@
         UpdateCmakeSymlink "${GCC_EXTRA_VER}"
         SetCrossToolchainVariables "${GCC_EXTRA_VER}"
         SetCrossToolchainPath
-        ConfigureCmakeProject
+        ConfigureCmakeProject \
+            -DBUILD_SHARED_LIBS="${CMAKE_SHARED_BOOL}" \
+            -DBUILD_STATIC_LIBS="${CMAKE_STATIC_BOOL}"
 
         BuildPkg -j ${JOBS}
         InstallPkg install

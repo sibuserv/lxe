@@ -1,4 +1,5 @@
 --- TODO ---
+! Add ability to download sources without building of packages.
 * Add packages: hunspell, minizip, qtkeychain, qtwebkit, jsoncpp, miniupnpc,
   gstreamer, gst-plugins-base, lua.
 * Add configs for AstraLinux 1.5.
