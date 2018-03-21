@@ -1,4 +1,4 @@
---- v3.1 (2018-xx-xx) ---
+--- v3.1 (2018-03-21) ---
 * Delete package: vlc.
 * Add new package: libsignal-protocol-c.
 * Add possibility to build manually selected list of static libraries in
