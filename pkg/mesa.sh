@@ -26,7 +26,7 @@
     fi
     PKG_DEPS="gcc pkg-config-settings expat makedepend x11proto-gl x11proto-dri2
               libx11 libxext libxfixes libxdamage libxxf86vm libxt libdrm"
-    [ ! -z "${UDEV_VER}" ] && PKG_DEPS="${PKG_DEPS} udev"
+    IsPkgVersionGreaterOrEqualTo "10.5.0" && PKG_DEPS="${PKG_DEPS} udev"
     # libx11-xcb-dev, libxcb-dri2-0-dev, libxcb-xfixes0-dev
     # python, python-libxml2 (for some versions of mesa)
 
@@ -44,6 +44,9 @@
         PrepareLibTypeOpts "shared"
         cd "${BUILD_DIR}/${PKG_SUBDIR}"
         autoreconf -vfi &>> "${LOG_DIR}/${PKG_SUBDIR}/configure.log"
+        IsPkgVersionGreaterOrEqualTo "10.5.0" && \
+            EXTRA_CONFIGURE_OPTS="--enable-sysfs" || \
+            EXTRA_CONFIGURE_OPTS=""
         ConfigureAutotoolsProjectInBuildDir \
             "${EXTRA_CONFIGURE_OPTS}" \
             --enable-glx-tls \

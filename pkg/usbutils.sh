@@ -2,15 +2,15 @@
 #
 # This file is part of LXE project. See LICENSE file for licensing information.
 
-[ -z "${UDEV_VER}" ] && exit 1
+[ -z "${USBUTILS_VER}" ] && exit 1
 
 (
-    PKG=udev
-    PKG_VERSION=${UDEV_VER}
+    PKG=usbutils
+    PKG_VERSION=${USBUTILS_VER}
     PKG_SUBDIR=${PKG}-${PKG_VERSION}
-    PKG_FILE=${PKG}-${PKG_VERSION}.tar.bz2
-    PKG_URL="https://mirrors.edge.kernel.org/pub/linux/utils/kernel/hotplug/${PKG_FILE}"
-    PKG_DEPS="gcc pciutils usbutils"
+    PKG_FILE=${PKG}-${PKG_VERSION}.tar.xz
+    PKG_URL="https://mirrors.edge.kernel.org/pub/linux/utils/usb/usbutils/${PKG_FILE}"
+    PKG_DEPS="gcc libusb"
 
     if ! IsPkgInstalled
     then
@@ -25,10 +25,9 @@
         SetCrossToolchainVariables
         PrepareLibTypeOpts "shared"
         ConfigureAutotoolsProject \
-            --with-pci-ids-path="${SYSROOT}/usr/share/misc" \
+            --datarootdir="${SYSROOT}/usr/lib" \
             --disable-gudev \
-            --disable-introspection \
-            --disable-keymap
+            --disable-introspection
 
         BuildPkg -j ${JOBS}
         InstallPkg install

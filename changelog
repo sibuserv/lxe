@@ -1,5 +1,5 @@
 --- v3.2 (2018-xx-xx) ---
-* Add new package: udev.
+* Add new packages: libusb, pciutils, sysfsutils, udev, usbutils.
 * Add support of AstraLinux 1.5 [amd64] (static and shared).
 * Update in all static configs:
   - OPENSSL_VER from 1.0.2n to 1.0.2o

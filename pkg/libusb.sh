@@ -2,15 +2,15 @@
 #
 # This file is part of LXE project. See LICENSE file for licensing information.
 
-[ -z "${UDEV_VER}" ] && exit 1
+[ -z "${LIBUSB_VER}" ] && exit 1
 
 (
-    PKG=udev
-    PKG_VERSION=${UDEV_VER}
+    PKG=libusb # libusbx libusb-1.0
+    PKG_VERSION=${LIBUSB_VER}
     PKG_SUBDIR=${PKG}-${PKG_VERSION}
-    PKG_FILE=${PKG}-${PKG_VERSION}.tar.bz2
-    PKG_URL="https://mirrors.edge.kernel.org/pub/linux/utils/kernel/hotplug/${PKG_FILE}"
-    PKG_DEPS="gcc pciutils usbutils"
+    PKG_FILE=${PKG}-${PKG_VERSION}.tar.gz
+    PKG_URL="https://github.com/libusb/libusb/archive/v${PKG_VERSION}.tar.gz"
+    PKG_DEPS="gcc"
 
     if ! IsPkgInstalled
     then
@@ -24,11 +24,9 @@
         SetCrossToolchainPath
         SetCrossToolchainVariables
         PrepareLibTypeOpts "shared"
-        ConfigureAutotoolsProject \
-            --with-pci-ids-path="${SYSROOT}/usr/share/misc" \
-            --disable-gudev \
-            --disable-introspection \
-            --disable-keymap
+        cd "${PKG_SRC_DIR}/${PKG_SUBDIR}"
+        autoreconf -vfi &>> "${LOG_DIR}/${PKG_SUBDIR}/configure.log"
+        ConfigureAutotoolsProject
 
         BuildPkg -j ${JOBS}
         InstallPkg install

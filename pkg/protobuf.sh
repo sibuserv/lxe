@@ -31,7 +31,7 @@
         then
             cd "${PKG_SRC_DIR}/${PKG_SUBDIR}"
             ./autogen.sh &>> "${LOG_DIR}/${PKG_SUBDIR}/configure.log"
-            CheckFail "${LOG_FILE}"
+            CheckFail "${LOG_DIR}/${PKG_SUBDIR}/configure.log"
         fi
         ConfigureAutotoolsProject \
             --with-zlib
