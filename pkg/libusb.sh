@@ -25,7 +25,8 @@
         PrepareLibTypeOpts "shared"
         cd "${PKG_SRC_DIR}/${PKG_SUBDIR}"
         autoreconf -vfi &>> "${LOG_DIR}/${PKG_SUBDIR}/configure.log"
-        ConfigureAutotoolsProject
+        ConfigureAutotoolsProject \
+            --disable-udev
 
         BuildPkg -j ${JOBS}
         InstallPkg install
