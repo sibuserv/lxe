@@ -266,6 +266,20 @@ CheckPkgUrl()
     fi
 }
 
+IsIgnoredPackage()
+{
+    local IGNORED_PKGS_LIST="jpeg libjpeg-turbo qt4"
+
+    for IGNORED_PKG in ${IGNORED_PKGS_LIST}
+    do
+        if [ "${IGNORED_PKG}" = "${1}" ]
+        then
+            return 0
+        fi
+    done
+    return 1
+}
+
 IsTarballCheckRequired()
 {
     local MUTABLE_TARBALLS_PKG_LIST="sqlite"
