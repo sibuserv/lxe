@@ -2,8 +2,7 @@
 #
 # This file is part of LXE project. See LICENSE file for licensing information.
 
-[ -z "${SYSFSUTILS_VER}" ] && exit 1
-
+[ -z "${SYSFSUTILS_VER}" ] || \
 (
     PKG=sysfsutils
     PKG_VERSION=${SYSFSUTILS_VER}

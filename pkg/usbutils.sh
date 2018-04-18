@@ -2,8 +2,7 @@
 #
 # This file is part of LXE project. See LICENSE file for licensing information.
 
-[ -z "${USBUTILS_VER}" ] && exit 1
-
+[ -z "${USBUTILS_VER}" ] || \
 (
     PKG=usbutils
     PKG_VERSION=${USBUTILS_VER}

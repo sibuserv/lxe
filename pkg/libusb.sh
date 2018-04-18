@@ -2,8 +2,7 @@
 #
 # This file is part of LXE project. See LICENSE file for licensing information.
 
-[ -z "${LIBUSB_VER}" ] && exit 1
-
+[ -z "${LIBUSB_VER}" ] || \
 (
     PKG=libusb # libusbx libusb-1.0
     PKG_VERSION=${LIBUSB_VER}

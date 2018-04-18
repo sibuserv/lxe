@@ -2,8 +2,7 @@
 #
 # This file is part of LXE project. See LICENSE file for licensing information.
 
-[ -z "${UDEV_VER}" ] && exit 1
-
+[ -z "${UDEV_VER}" ] || \
 (
     PKG=udev
     PKG_VERSION=${UDEV_VER}
