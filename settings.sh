@@ -2,6 +2,8 @@
 
 # All available configs are in "etc/" subdirectory. Select necessary of them:
 CONFIGS="
+        AstraLinux-1.5_static
+        AstraLinux-1.5_shared
         AstraLinux-1.4_static
         AstraLinux-1.4_shared
         AstraLinux-1.3_static
