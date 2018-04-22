@@ -13,11 +13,12 @@
     PKG_URL="ftp://ftp.funet.fi/pub/linux/kernel/v${LINUX_SUBVER}/${PKG_FILE}"
     PKG_DEPS=
 
-    if ! IsPkgInstalled
-    then
-        CheckDependencies
+    CheckSourcesAndDependencies
 
-        GetSources
+    if IsBuildRequired
+    then
+        PrintSystemInfo
+        BeginOfPkgBuild
         UnpackSources
         CopySrcAndPrepareBuild
 

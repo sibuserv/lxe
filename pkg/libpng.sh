@@ -13,7 +13,9 @@
     PKG_URL_2="https://sourceforge.net/projects/${PKG}/files/libpng${LIBPNG_SUBVER}/older-releases/${PKG_VERSION}/${PKG_FILE}"
     PKG_DEPS="gcc zlib"
 
-    if ! IsPkgInstalled
+    CheckSourcesAndDependencies
+
+    if IsBuildRequired
     then
         ProcessStandardAutotoolsProject
 

@@ -12,7 +12,9 @@
     PKG_URL="http://www.exiv2.org/${PKG_FILE}"
     PKG_DEPS="gcc zlib expat"
 
-    if ! IsPkgInstalled
+    CheckSourcesAndDependencies
+
+    if IsBuildRequired
     then
         ProcessStandardAutotoolsProjectInBuildDir
     fi

@@ -11,7 +11,9 @@
     PKG_URL="https://www.freedesktop.org/software/${PKG}/release/${PKG_FILE}"
     PKG_DEPS="gcc freetype-stage1"
 
-    if ! IsPkgInstalled
+    CheckSourcesAndDependencies
+
+    if IsBuildRequired
     then
         ProcessStandardAutotoolsProject
     fi

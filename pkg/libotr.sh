@@ -12,7 +12,9 @@
     PKG_URL="https://otr.cypherpunks.ca/${PKG_FILE}"
     PKG_DEPS="gcc libgpg-error libgcrypt"
 
-    if ! IsPkgInstalled
+    CheckSourcesAndDependencies
+
+    if IsBuildRequired
     then
         ProcessStandardAutotoolsProjectInBuildDir
     fi

@@ -12,11 +12,12 @@
     PKG_URL="http://www.bzip.org/${PKG_VERSION}/${PKG_FILE}"
     PKG_DEPS="gcc"
 
-    if ! IsPkgInstalled
-    then
-        CheckDependencies
+    CheckSourcesAndDependencies
 
-        GetSources
+    if IsBuildRequired
+    then
+        PrintSystemInfo
+        BeginOfPkgBuild
         UnpackSources
         CopySrcAndPrepareBuild
 

@@ -30,11 +30,12 @@
     # libx11-xcb-dev, libxcb-dri2-0-dev, libxcb-xfixes0-dev
     # python, python-libxml2 (for some versions of mesa)
 
-    if ! IsPkgInstalled
-    then
-        CheckDependencies
+    CheckSourcesAndDependencies
 
-        GetSources
+    if IsBuildRequired
+    then
+        PrintSystemInfo
+        BeginOfPkgBuild
         UnpackSources
         CopySrcAndPrepareBuild
 

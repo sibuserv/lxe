@@ -13,11 +13,12 @@
     PKG_DEPS="gcc pkg-config-settings libxml2"
     #  libgcrypt
 
-    if ! IsPkgInstalled
-    then
-        CheckDependencies
+    CheckSourcesAndDependencies
 
-        GetSources
+    if IsBuildRequired
+    then
+        PrintSystemInfo
+        BeginOfPkgBuild
         UnpackSources
         PrepareBuild
 

@@ -12,11 +12,12 @@
     PKG_URL="https://www.kernel.org/pub/software/utils/pciutils/${PKG_FILE}"
     PKG_DEPS="gcc"
 
-    if ! IsPkgInstalled
-    then
-        CheckDependencies
+    CheckSourcesAndDependencies
 
-        GetSources
+    if IsBuildRequired
+    then
+        PrintSystemInfo
+        BeginOfPkgBuild
         UnpackSources
 
         mkdir -p "${SYSROOT}/usr/share/misc"

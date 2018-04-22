@@ -21,6 +21,7 @@ then
 Options:
     all             build all available packages
     list            display the list of available packages
+    download        download sources without build of packages
     clean           clean up (delete dist/ subdirectory with all files)
     distclean       full clean up (delete dist/ and src/ subdirectories with all files)
     version         display LXE version and exit
@@ -28,9 +29,13 @@ Options:
 
 Examples:
     make
-    make qt5
+    make all
+    make qt5 qwt
     make qtbase qtserialport qtscript
     make gdal freeglut
+    make \"download\"
+    make \"download all\"
+    make \"download ffmpeg sdl2\"
     make clean
     make distclean
 
@@ -72,50 +77,83 @@ then
     echo "rm -rf \"${MAIN_DIR}/src\""
     rm -rf "${MAIN_DIR}/src"
     exit 0
+elif [ "${1}" = "download" ]
+then
+    export DOWNLOAD_ONLY="true"
 fi
 
 # Make packages
 
 BuildPackages()
 {
-    if [ "${1}" = "all" ]
+    if [ ! -z "${1}" ]
     then
-        for ARG in $(${0} list)
-        do
-            IsIgnoredPackage "${ARG}" && continue || true
-            if [ -e "${MAIN_DIR}/pkg/${ARG}.sh" ]
+        if [ "${1}" = "all" ]
+        then
+            BuildAllPackages
+        elif [ "${1}" = "download" ]
+        then
+            if [ "${2}" = "all" ]
             then
-                . "${MAIN_DIR}/pkg/${ARG}.sh" || exit 1
-            else
-                echo "Package ${ARG} does not exist!"
-                exit 1
-            fi
-        done
-    elif [ ! -z "${1}" ]
-    then
-        for ARG in ${@}
-        do
-            if [ -e "${MAIN_DIR}/pkg/${ARG}.sh" ]
+                BuildAllPackages
+            elif [ ! -z "${2}" ]
             then
-                . "${MAIN_DIR}/pkg/${ARG}.sh" || exit 1
+                BuildPackagesFromOptions ${@}
             else
-                echo "Package ${ARG} does not exist!"
-                exit 1
+                BuildPackagesFromSettings
             fi
-        done
+        else
+            BuildPackagesFromOptions ${@}
+        fi
     elif [ ! -z "${LOCAL_PKG_LIST}" ]
     then
-        for ARG in ${LOCAL_PKG_LIST}
-        do
-            if [ -e "${MAIN_DIR}/pkg/${ARG}.sh" ]
-            then
-                . "${MAIN_DIR}/pkg/${ARG}.sh" || exit 1
-            else
-                echo "Package ${ARG} does not exist!"
-                exit 1
-            fi
-        done
+        BuildPackagesFromSettings
     fi
+}
+
+BuildAllPackages()
+{
+    for ARG in $(${0} list)
+    do
+        IsOption "${ARG}" && continue || true
+        IsIgnoredPackage "${ARG}" && continue || true
+        if [ -e "${MAIN_DIR}/pkg/${ARG}.sh" ]
+        then
+            . "${MAIN_DIR}/pkg/${ARG}.sh" || exit 1
+        else
+            echo "Package ${ARG} does not exist!"
+            exit 1
+        fi
+    done
+}
+
+BuildPackagesFromOptions()
+{
+    for ARG in ${@}
+    do
+        IsOption "${ARG}" && continue || true
+        if [ -e "${MAIN_DIR}/pkg/${ARG}.sh" ]
+        then
+            . "${MAIN_DIR}/pkg/${ARG}.sh" || exit 1
+        else
+            echo "Package ${ARG} does not exist!"
+            exit 1
+        fi
+    done
+}
+
+BuildPackagesFromSettings()
+{
+    for ARG in ${LOCAL_PKG_LIST}
+    do
+        if [ -e "${MAIN_DIR}/pkg/${ARG}.sh" ]
+        then
+            . "${MAIN_DIR}/pkg/${ARG}.sh" || exit 1
+        else
+            echo "Package ${ARG} does not exist!"
+            exit 1
+        fi
+    done
 }
 
 for CONFIG in ${CONFIGS}

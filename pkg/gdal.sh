@@ -15,7 +15,9 @@
     [ "${USE_JPEG_TURBO}" = "true" ] && PKG_DEPS="${PKG_DEPS} libjpeg-turbo" || \
                                         PKG_DEPS="${PKG_DEPS} jpeg"
 
-    if ! IsPkgInstalled
+    CheckSourcesAndDependencies
+
+    if IsBuildRequired
     then
         ProcessStandardAutotoolsProjectInBuildDir \
             --with-static-proj4="${SYSROOT}/usr" \

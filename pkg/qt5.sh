@@ -31,7 +31,7 @@
               qtx11extras
               qtxmlpatterns"
 
-    if ! IsPkgInstalled
+    if IsBuildRequired
     then
         CheckDependencies
 

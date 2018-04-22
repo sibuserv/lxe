@@ -20,7 +20,9 @@ fi
     PKG_URL="http://www.ijg.org/files/${PKG_FILE}"
     PKG_DEPS="gcc"
 
-    if ! IsPkgInstalled
+    CheckSourcesAndDependencies
+
+    if IsBuildRequired
     then
         ProcessStandardAutotoolsProjectInBuildDir
     fi

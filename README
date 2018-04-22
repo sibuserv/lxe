@@ -27,13 +27,16 @@ you may mix libraries as you wish.)
 
 Dependencies:
 bash, gcc, binutils, libtool, realpath, pkg-config, make, autoreconf, automake,
-cmake, wget, curl, tar (with gzip, bzip2 and xz support), patch, sed, find,
+cmake, wget, curl, tar (with gzip, bzip2 and xz support), patch, sed, find, du,
 python, python-libxml2 (for some versions of mesa)
 
 Examples of usage:
+  make
   make qt5
   make qtbase qtserialport qtscript
   make gdal freeglut
+  make "download"
+  make "download ffmpeg sdl2"
   make list
   make clean
   make distclean

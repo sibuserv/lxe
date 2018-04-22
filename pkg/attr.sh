@@ -12,7 +12,9 @@
     PKG_URL="https://download.savannah.nongnu.org/releases/attr/${PKG_FILE}"
     PKG_DEPS="gcc libgpg-error libgcrypt"
 
-    if ! IsPkgInstalled
+    CheckSourcesAndDependencies
+
+    if IsBuildRequired
     then
         ProcessStandardAutotoolsProjectInBuildDir
     fi

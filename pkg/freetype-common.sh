@@ -10,7 +10,9 @@
     PKG_FILE=freetype-${PKG_VERSION}.tar.bz2
     PKG_URL="https://sourceforge.net/projects/freetype/files/freetype2/${PKG_VERSION}/${PKG_FILE}"
 
-    if ! IsPkgInstalled
+    CheckSourcesAndDependencies
+
+    if IsBuildRequired
     then
         if [ "${PKG}" = "freetype-stage1" ]
         then

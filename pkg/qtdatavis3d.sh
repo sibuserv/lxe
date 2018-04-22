@@ -8,7 +8,7 @@
     PKG=qtdatavis3d
     PKG_DEPS="qtbase qtdeclarative qtmultimedia"
 
-    if ! IsPkgInstalled
+    if IsBuildRequired
     then
         if IsVer1GreaterOrEqualToVer2 "${QT5_VER}" "5.7.0"
         then

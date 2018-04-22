@@ -13,11 +13,12 @@
     PKG_URL_2="ftp://ftp.openssl.org/source/old/${OPENSSL_SUBVER}/${PKG_FILE}"
     PKG_DEPS="gcc zlib libgcrypt"
 
-    if ! IsPkgInstalled
-    then
-        CheckDependencies
+    CheckSourcesAndDependencies
 
-        GetSources
+    if IsBuildRequired
+    then
+        PrintSystemInfo
+        BeginOfPkgBuild
         UnpackSources
         CopySrcAndPrepareBuild
 

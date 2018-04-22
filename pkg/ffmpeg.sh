@@ -12,11 +12,12 @@
     PKG_URL="http://www.ffmpeg.org/releases/${PKG_FILE}"
     PKG_DEPS="gcc bzip2 x264 yasm zlib"
 
-    if ! IsPkgInstalled
-    then
-        CheckDependencies
+    CheckSourcesAndDependencies
 
-        GetSources
+    if IsBuildRequired
+    then
+        PrintSystemInfo
+        BeginOfPkgBuild
         UnpackSources
         PrepareBuild
 

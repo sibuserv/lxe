@@ -11,11 +11,12 @@
     PKG_URL="https://mirrors.edge.kernel.org/pub/linux/utils/kernel/hotplug/${PKG_FILE}"
     PKG_DEPS="gcc pciutils usbutils"
 
-    if ! IsPkgInstalled
-    then
-        CheckDependencies
+    CheckSourcesAndDependencies
 
-        GetSources
+    if IsBuildRequired
+    then
+        PrintSystemInfo
+        BeginOfPkgBuild
         UnpackSources
         PrepareBuild
 

@@ -8,7 +8,7 @@
     PKG=qtcanvas3d
     PKG_DEPS="qtbase qtdeclarative"
 
-    if ! IsPkgInstalled
+    if IsBuildRequired
     then
         if IsVer1GreaterOrEqualToVer2 "${QT5_VER}" "5.5.0"
         then

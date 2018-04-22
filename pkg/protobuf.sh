@@ -10,15 +10,15 @@
     PKG_SUBDIR=${PKG}-${PKG_VERSION}
     PKG_FILE=${PKG_SUBDIR}.tar.gz
     PKG_URL="https://github.com/google/protobuf/releases/download/v${PKG_VERSION}/protobuf-cpp-${PKG_VERSION}.tar.gz"
-
     PKG_DEPS="gcc zlib"
     [ ! -z "${GCC_EXTRA_VER}" ] && PKG_DEPS="${PKG_DEPS} gcc-extra"
 
-    if ! IsPkgInstalled
-    then
-        CheckDependencies
+    CheckSourcesAndDependencies
 
-        GetSources
+    if IsBuildRequired
+    then
+        PrintSystemInfo
+        BeginOfPkgBuild
         UnpackSources
         PrepareBuild
 

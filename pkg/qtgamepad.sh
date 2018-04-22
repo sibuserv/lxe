@@ -8,7 +8,7 @@
     PKG=qtgamepad
     PKG_DEPS="qtbase qtdeclarative"
 
-    if ! IsPkgInstalled
+    if IsBuildRequired
     then
         if IsVer1GreaterOrEqualToVer2 "${QT5_VER}" "5.7.0"
         then

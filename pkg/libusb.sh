@@ -11,11 +11,12 @@
     PKG_URL="https://github.com/libusb/libusb/archive/v${PKG_VERSION}.tar.gz"
     PKG_DEPS="gcc"
 
-    if ! IsPkgInstalled
-    then
-        CheckDependencies
+    CheckSourcesAndDependencies
 
-        GetSources
+    if IsBuildRequired
+    then
+        PrintSystemInfo
+        BeginOfPkgBuild
         UnpackSources
         PrepareBuild
 

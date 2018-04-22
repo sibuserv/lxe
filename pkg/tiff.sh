@@ -14,7 +14,9 @@
         PKG_URL="http://download.osgeo.org/libtiff/old/${PKG_FILE}"
     PKG_DEPS="gcc"
 
-    if ! IsPkgInstalled
+    CheckSourcesAndDependencies
+
+    if IsBuildRequired
     then
         ProcessStandardAutotoolsProjectInBuildDir
     fi

@@ -12,7 +12,9 @@
     PKG_URL="http://download.osgeo.org/${PKG}/${PKG_FILE}"
     PKG_DEPS="gcc"
 
-    if ! IsPkgInstalled
+    CheckSourcesAndDependencies
+
+    if IsBuildRequired
     then
         ProcessStandardAutotoolsProject \
             --with-mutex

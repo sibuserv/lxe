@@ -13,7 +13,7 @@
     PKG_URL="https://www.cmake.org/files/v${CMAKE_SUBVER}/${PKG_FILE}"
     PKG_DEPS=
 
-    if ! IsPkgInstalled
+    if IsBuildRequired
     then
         CheckDependencies
 
