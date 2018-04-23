@@ -6,7 +6,7 @@
 
 (
     PKG=qtmultimedia
-    PKG_DEPS="qtbase"
+    PKG_DEPS="qtbase qtdeclarative"
 
     . "${PKG_DIR}/qtmodule.sh"
 )
