@@ -438,6 +438,7 @@ UnpackSources()
         if [ -e "${PATCH_FILE}" ] || [ -h "${PATCH_FILE}" ]
         then
             local LOG_FILE="${LOG_DIR}/${PKG_SUBDIR}/patch.log"
+            mkdir -p "${LOG_DIR}/${PKG_SUBDIR}"
             cd "${PKG_SRC_DIR}/${SUBDIR}"
             patch -p1 -i "${PATCH_FILE}" &> "${LOG_FILE}"
         fi
@@ -480,6 +481,7 @@ CopySrcAndPrepareBuild()
 ConfigurePkg()
 {
     local LOG_FILE="${LOG_DIR}/${PKG_SUBDIR}/configure.log"
+    mkdir -p "${LOG_DIR}/${PKG_SUBDIR}"
     cd "${BUILD_DIR}/${PKG_SUBDIR}"
     if [ -z "${PKG_SUBDIR_ORIG}" ]
     then
@@ -493,6 +495,7 @@ ConfigurePkg()
 ConfigurePkgInBuildDir()
 {
     local LOG_FILE="${LOG_DIR}/${PKG_SUBDIR}/configure.log"
+    mkdir -p "${LOG_DIR}/${PKG_SUBDIR}"
     cd "${BUILD_DIR}/${PKG_SUBDIR}"
     ./configure ${@} &>> "${LOG_FILE}"
     CheckFail "${LOG_FILE}"
@@ -518,8 +521,9 @@ ConfigureAutotoolsProjectInBuildDir()
 
 ConfigureQmakeProject()
 {
-    local LOG_FILE="${LOG_DIR}/${PKG_SUBDIR}/configure.log"
     local PATH="${PREFIX}/qt5/bin:${PATH}"
+    local LOG_FILE="${LOG_DIR}/${PKG_SUBDIR}/configure.log"
+    mkdir -p "${LOG_DIR}/${PKG_SUBDIR}"
     cd "${BUILD_DIR}/${PKG_SUBDIR}"
     "${SYSROOT}/qt5/bin/qmake" ${@} &>> "${LOG_FILE}"
     CheckFail "${LOG_FILE}"
@@ -528,6 +532,7 @@ ConfigureQmakeProject()
 ConfigureCmakeProject()
 {
     local LOG_FILE="${LOG_DIR}/${PKG_SUBDIR}/configure.log"
+    mkdir -p "${LOG_DIR}/${PKG_SUBDIR}"
     cd "${BUILD_DIR}/${PKG_SUBDIR}"
     if [ -z "${PKG_SUBDIR_ORIG}" ]
     then
@@ -541,6 +546,7 @@ ConfigureCmakeProject()
 BuildPkg()
 {
     local LOG_FILE="${LOG_DIR}/${PKG_SUBDIR}/make.log"
+    mkdir -p "${LOG_DIR}/${PKG_SUBDIR}"
     cd "${BUILD_DIR}/${PKG_SUBDIR}"
     make ${@} &>> "${LOG_FILE}"
     CheckFail "${LOG_FILE}"
@@ -549,6 +555,7 @@ BuildPkg()
 InstallPkg()
 {
     local LOG_FILE="${LOG_DIR}/${PKG_SUBDIR}/make-install.log"
+    mkdir -p "${LOG_DIR}/${PKG_SUBDIR}"
     cd "${BUILD_DIR}/${PKG_SUBDIR}"
     make ${@} &>> "${LOG_FILE}"
     CheckFail "${LOG_FILE}"
