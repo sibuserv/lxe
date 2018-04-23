@@ -12,6 +12,7 @@
         if IsPkgVersionGreaterOrEqualTo "4.6.0"
         then
             LOG_FILE="${LOG_DIR}/${PKG_SUBDIR}/bootstrap.log"
+            mkdir -p "${LOG_DIR}/${PKG_SUBDIR}"
             cd "${PKG_SRC_DIR}/${SUBDIR}"
             # Get GCC embedded libraries:
             ./contrib/download_prerequisites &> "${LOG_FILE}"

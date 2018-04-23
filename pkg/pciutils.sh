@@ -20,6 +20,7 @@
         BeginOfPkgBuild
         UnpackSources
 
+        mkdir -p "${LOG_DIR}/${PKG_SUBDIR}"
         mkdir -p "${SYSROOT}/usr/share/misc"
         cp -av  "${PKG_SRC_DIR}/${PKG_SUBDIR}/pci.ids" \
                 "${SYSROOT}/usr/share/misc/pci.ids" > \
