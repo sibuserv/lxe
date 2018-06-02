@@ -30,8 +30,10 @@
         SetCrossToolchainPath
         ConfigureCmakeProject \
             -DDYNAMIC_OSGEARTH="${CMAKE_SHARED_BOOL}" \
-            -DWITH_EXTERNAL_TINYXML=ON \
-            -DBUILD_OSGEARTH_EXAMPLES=OFF
+            -DWITH_EXTERNAL_TINYXML=OFF \
+            -DBUILD_OSGEARTH_EXAMPLES=OFF \
+            -DBUILD_APPLICATIONS=OFF \
+            -DBUILD_TESTS=OFF
 
         BuildPkg -j ${JOBS}
         InstallPkg install
