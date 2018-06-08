@@ -22,3 +22,22 @@ index 1111111..2222222 100644
      ADD_PLUGIN_DIRECTORY(gstreamer)
  ENDIF()
 
+
+
+From: Boris Pek <tehnick-8@yandex.ru>
+Date: Sat Jun 9 00:57:36 2018 +0300
+Subject: Fix cross-compilation
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 82816f5..eb13e4d 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -323,7 +323,7 @@ ENDIF()
+ 
+ INCLUDE_DIRECTORIES(${OpenSceneGraph_SOURCE_DIR}/include/)
+ 
+-INCLUDE_DIRECTORIES(SYSTEM ${OPENGL_INCLUDE_DIR})
++INCLUDE_DIRECTORIES(${OPENGL_INCLUDE_DIR})
+ 
+ # Common global definitions
+ #ADD_DEFINITIONS(-D)
