@@ -3,22 +3,22 @@ Description: Disable ffmpeg
  been deprecated for 3+ years.
 Origin: http://forum.openscenegraph.org/viewtopic.php?t=10485
 Bug: https://github.com/mxe/mxe/issues/1230
-Last-Update: 2016-02-22
+Last-Update: 2018-06-09
 
 
 diff --git a/src/osgPlugins/CMakeLists.txt b/src/osgPlugins/CMakeLists.txt
 index 1111111..2222222 100644
 --- a/src/osgPlugins/CMakeLists.txt
 +++ b/src/osgPlugins/CMakeLists.txt
-@@ -199,10 +199,6 @@ IF(XINE_FOUND)
-     ADD_SUBDIRECTORY(xine)
+@@ -217,10 +217,6 @@ IF(XINE_FOUND)
+     ADD_PLUGIN_DIRECTORY(xine)
  ENDIF()
  
 -IF(FFMPEG_FOUND AND OSG_CPP_EXCEPTIONS_AVAILABLE)
--    ADD_SUBDIRECTORY(ffmpeg)
+-    ADD_PLUGIN_DIRECTORY(ffmpeg)
 -ENDIF()
 -
  IF(GSTREAMER_FOUND AND GLIB_FOUND)
-     ADD_SUBDIRECTORY(gstreamer)
+     ADD_PLUGIN_DIRECTORY(gstreamer)
  ENDIF()
 
