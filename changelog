@@ -6,6 +6,7 @@
 * Improve GetSources() function: show error message if size of downloaded
   tarball is equal to zero. (Only checksum mismatch was shown earlier.)
 * Drop "-LTS" suffix from name of Ubuntu configs.
+* Update patch for osgearth package: fix build with OSG 3.6.1 and newer.
 * Update in all static configs:
   - OPENSSL_VER from 1.0.2n to 1.0.2o
 * Update in all configs:
