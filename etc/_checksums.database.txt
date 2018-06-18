@@ -231,8 +231,10 @@ a0d047b2da5782c8332c59ae203984b64e4d5dc5f4ba9c0884fdbe753d0afb46  qtbase-everywh
 267eb2af1a203c087f2113f43b08014d0e2d2cb269295b8602d869a2fad5296c  qtbase-opensource-src-5.9.0.tar.xz
 d289626f06236f2c0e3065416fd6a8a72b8895cb5253ee2d9b6320df5b452987  qtcanvas3d-everywhere-src-5.10.0.tar.xz
 de829a8e6aa4b8496048e9b6f3bff306a80c35935855a94426025ddfb8bcb0c0  qtcanvas3d-everywhere-src-5.10.1.tar.xz
+0fb51102bdd595673e2cc4f4878b8fb8b7da4c8b1f026885a75912e2421d2ede  qtcanvas3d-everywhere-src-5.11.1.tar.xz
 12ce2c4a8467d349ecfdba831cc03c539f2b207aa21082a4e1043dcf8f1b31ef  qtcharts-everywhere-src-5.10.0.tar.xz
 4f0d577bf73dd2bbb2765c2cfb493a2d68790fc2c64f42544d31dba806321ec9  qtcharts-everywhere-src-5.10.1.tar.xz
+62f65f08b08c1fdce4f358103be1f7d7aba54d21774e1a9bfff91314ad667a2b  qtcharts-everywhere-src-5.11.1.tar.xz
 2e3fe2e872449065ec3326955fb97c629106f62b9441e8dfd2e0adfc9fb169a6  qtconnectivity-everywhere-src-5.10.0.tar.xz
 652821dc6819658ec4bc1a6bf149fd7a61008748ff4745b54f038ccf276d3ec9  qtconnectivity-everywhere-src-5.10.1.tar.xz
 738ed4eb058334fe7cfd6d68f2e2e7c9b2a97f3477b36ae26ed82703dcaae657  qtconnectivity-everywhere-src-5.11.1.tar.xz
