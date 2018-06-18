@@ -3,6 +3,7 @@
 * Add `make all` target: build all available packages.
 * Add `make download` target: download sources without build of packages.
 * Add support of AstraLinux 1.5 [amd64] (static and shared).
+* Stop support of AstraLinux 1.2 [amd64] (static and shared).
 * Improve GetSources() function: show error message if size of downloaded
   tarball is equal to zero. (Only checksum mismatch was shown earlier.)
 * Drop "-LTS" suffix from name of Ubuntu configs.
@@ -10,8 +11,9 @@
 * Update in all static configs:
   - OPENSSL_VER from 1.0.2n to 1.0.2o
 * Update in all configs:
-  - OPENSCENEGRAPH_VER from 3.4.1 to 3.6.1 (except AstraLinux 1.2)
-  - PROJ_VER from 5.0.0 to 5.1.0 (except AstraLinux 1.2)
+  - QT5_VER from 5.10.1 to 5.11.1
+  - PROJ_VER from 5.0.0 to 5.1.0
+  - OPENSCENEGRAPH_VER from 3.4.1 to 3.6.1
 
 --- v3.1 (2018-03-21) ---
 * Delete package: vlc.
