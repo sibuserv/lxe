@@ -8,18 +8,11 @@
     PKG=qtvirtualkeyboard
     PKG_DEPS="qtbase qtdeclarative qtmultimedia qtquickcontrols qtsvg"
 
-    if IsBuildRequired
+    if IsVer1GreaterOrEqualToVer2 "${QT5_VER}" "5.7.0"
     then
-        if IsVer1GreaterOrEqualToVer2 "${QT5_VER}" "5.7.0"
-        then
-            . "${PKG_DIR}/qtmodule.sh"
-        else
-            CheckDependencies
-
-            date -R > "${INST_DIR}/${PKG}"
-            echo "[config]   ${CONFIG}"
-            echo "[no-build] ${PKG}"
-        fi
+        . "${PKG_DIR}/qtmodule.sh"
+    else
+        . "${PKG_DIR}/qtmodule-nonexistent.sh"
     fi
 )
 
