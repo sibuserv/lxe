@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# This distro is not supported for now!
+# This version of system is not supported now!
 
 ### System info ###
 SYSTEM="AstraLinux-1.2_shared"

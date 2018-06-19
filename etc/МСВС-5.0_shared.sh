@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# This distro is not supported for now!
+# This system is not supported now!
 
 ### System info ###
 SYSTEM="МСВС-5.0_shared"

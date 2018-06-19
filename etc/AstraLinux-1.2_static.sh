@@ -1,5 +1,7 @@
 #!/bin/sh
 
+# This version of system is not supported now!
+
 ### System info ###
 SYSTEM="AstraLinux-1.2_static"
 ARCH=x86_64
