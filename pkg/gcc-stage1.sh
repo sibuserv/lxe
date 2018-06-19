@@ -35,7 +35,7 @@
             --disable-threads
 
         BuildPkg all-gcc
-        BuildPkg install-gcc
+        InstallPkg install-gcc
         BuildPkg all-target-libgcc
         InstallPkg install-target-libgcc
 
