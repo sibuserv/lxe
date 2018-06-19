@@ -34,9 +34,13 @@
             --disable-shared \
             --disable-threads
 
-        BuildPkg all-gcc
-        InstallPkg install-gcc
-        BuildPkg all-target-libgcc
+        IsVer1GreaterOrEqualToVer2 "${LINUX_VER}" "3.13.0" &&
+            export NJOBS=${JOBS} ||
+            export NJOBS=1
+
+        BuildPkg -j ${NJOBS} all-gcc
+        BuildPkg install-gcc
+        BuildPkg -j ${NJOBS} all-target-libgcc
         InstallPkg install-target-libgcc
 
         CleanPkgBuildDir

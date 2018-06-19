@@ -543,6 +543,43 @@ ConfigureCmakeProject()
     CheckFail "${LOG_FILE}"
 }
 
+BuildGlibc()
+{
+    # This is an ugly hack for fixing build of glibc library ignoring one
+    # unpredictable build error which looks like:
+    # <some-path>/build/glibc-<library-version>/shlib.lds:135: syntax error
+    # collect2: error: ld returned 1 exit status
+    # make[2]: *** [<some-path>/build/glibc-<library-version>/libc.so] Error 1
+    local LOG_FILE="${LOG_DIR}/${PKG_SUBDIR}/make.log"
+    mkdir -p "${LOG_DIR}/${PKG_SUBDIR}"
+    cd "${BUILD_DIR}/${PKG_SUBDIR}"
+    make ${@} &>> "${LOG_FILE}"
+    if [ ! $? -eq 0 ]
+    then
+        if [ $(grep '/shlib.lds:.*: syntax error' "${LOG_FILE}" | wc -l) != 0 ]
+        then
+            echo &>> "${LOG_FILE}"
+            echo "!!!!! This unpredictable linker error has happened again..." &>> "${LOG_FILE}"
+            echo "!!!!! Let's try to finish the build!" &>> "${LOG_FILE}"
+            echo &>> "${LOG_FILE}"
+            sleep 5
+
+            export LANGUAGE=""
+            export LC_ALL="C"
+            unset cxx CXX
+            ConfigurePkg \
+                ${LXE_CONFIGURE_OPTS} \
+                ${GLIBC_CONFIGURE_OPTS}
+
+            make ${@} &>> "${LOG_FILE}"
+            CheckFail "${LOG_FILE}"
+        else
+            tail -n 50 "${LOG_FILE}"
+            exit 1
+        fi
+    fi
+}
+
 BuildPkg()
 {
     local LOG_FILE="${LOG_DIR}/${PKG_SUBDIR}/make.log"

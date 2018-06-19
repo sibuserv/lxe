@@ -11,7 +11,8 @@
     PKG_SUBDIR_ORIG=OpenSceneGraph-OpenSceneGraph-${PKG_VERSION}
     PKG_FILE=OpenSceneGraph-${PKG_VERSION}.tar.gz
     PKG_URL="https://github.com/openscenegraph/OpenSceneGraph/archive/${PKG_FILE}"
-    PKG_DEPS="gcc pkg-config-settings zlib libpng tiff giflib freetype gdal cmake-settings"
+    PKG_DEPS="gcc pkg-config-settings cmake-settings zlib libpng tiff giflib
+              freetype curl gdal"
     [ "${USE_JPEG_TURBO}" = "true" ] && PKG_DEPS="${PKG_DEPS} libjpeg-turbo" || \
                                         PKG_DEPS="${PKG_DEPS} jpeg"
     [ ! -z "${GCC_EXTRA_VER}" ] && PKG_DEPS="${PKG_DEPS} gcc-extra"

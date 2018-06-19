@@ -38,7 +38,7 @@
             ${LXE_CONFIGURE_OPTS} \
             ${GLIBC_CONFIGURE_OPTS}
 
-        BuildPkg
+        BuildGlibc -j ${JOBS}
         IsPkgVersionGreaterOrEqualTo "2.16.0" && \
             InstallPkg install DESTDIR="${SYSROOT}" || \
             InstallPkg install install_root="${SYSROOT}"
