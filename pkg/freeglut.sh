@@ -13,11 +13,12 @@
     PKG_DEPS="gcc mesa libxi cmake-settings"
     [ ! -z "${GLU_VER}" ] && PKG_DEPS="${PKG_DEPS} glu"
 
-    if ! IsPkgInstalled
-    then
-        CheckDependencies
+    CheckSourcesAndDependencies
 
-        GetSources
+    if IsBuildRequired
+    then
+        PrintSystemInfo
+        BeginOfPkgBuild
         UnpackSources
         PrepareBuild
 

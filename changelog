@@ -1,4 +1,23 @@
---- v3.1 (2018-xx-xx) ---
+--- v3.2 (2018-xx-xx) ---
+* Add new packages: libusb, pciutils, sysfsutils, udev, usbutils.
+* Add `make all` target: build all available packages.
+* Add `make download` target: download sources without build of packages.
+* Add support of AstraLinux 1.5 [amd64] (static and shared).
+* Stop support of AstraLinux 1.2 [amd64] (static and shared).
+* Improve GetSources() function: show error message if size of downloaded
+  tarball is equal to zero. (Only checksum mismatch was shown earlier.)
+* Use special Build Glibc() function instead of BuildPkg() as a workaround to
+  rare and unpredictable build error: ".../shlib.lds:135: syntax error".
+* Drop "-LTS" suffix from name of Ubuntu configs.
+* Update patch for osgearth package: fix build with OSG 3.6.1 and newer.
+* Update in all static configs:
+  - OPENSSL_VER from 1.0.2n to 1.0.2o
+* Update in all configs:
+  - QT5_VER from 5.10.1 to 5.11.1
+  - PROJ_VER from 5.0.0 to 5.1.0
+  - OPENSCENEGRAPH_VER from 3.4.1 to 3.6.1
+
+--- v3.1 (2018-03-21) ---
 * Delete package: vlc.
 * Add new package: libsignal-protocol-c.
 * Add possibility to build manually selected list of static libraries in
@@ -19,11 +38,11 @@
   - FFMPEG_VER from 3.3.2 to 3.4.1
   - OPENCV_VER from 3.3.1 to 3.4.0
   - TINYXML2_VER from 4.0.1 to 6.0.0
-  - PROTOBUF_VER from 3.4.0 to 3.5.2
+  - PROTOBUF_VER from 3.4.0 to 3.5.1
   - OSGEARTH_VER from 2.8 to 2.9 (except AstraLinux 1.2)
   - QT5_VER from 5.10.0 to 5.10.1 (except AstraLinux 1.2)
   - SDL2_VER from 2.0.7 to 2.0.8 (except AstraLinux 1.2)
-  - PROJ_VER from 4.9.3 to 4.9.3 (except AstraLinux 1.2)
+  - PROJ_VER from 4.9.3 to 5.0.0 (except AstraLinux 1.2)
 
 --- v3.0 (2018-02-01) ---
 * Add checkup of checksums for all tarballs with sources. Only size of tarballs

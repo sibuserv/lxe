@@ -12,7 +12,9 @@
     PKG_URL="ftp://xmlsoft.org/${PKG}/${PKG_FILE}"
     PKG_DEPS="gcc pkg-config-settings"
 
-    if ! IsPkgInstalled
+    CheckSourcesAndDependencies
+
+    if IsBuildRequired
     then
         ProcessStandardAutotoolsProject \
             --without-python \

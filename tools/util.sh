@@ -222,13 +222,6 @@ IsPkgVersionGreaterOrEqualTo()
         return 1
 }
 
-IsPkgInstalled()
-{
-    [ -e "${INST_DIR}/${PKG}" ] && \
-        return 0 || \
-        return 1
-}
-
 PrintSystemInfo()
 {
     echo "[config]   ${CONFIG}"
@@ -266,6 +259,81 @@ CheckPkgUrl()
     fi
 }
 
+FileSize()
+{
+    du ${@} | sed -ne "s;^\(.*\)\t.*$;\1;p"
+}
+
+IsOption()
+{
+    local OPTIONS_LIST="all clean distclean download help list version"
+    for OPT in ${OPTIONS_LIST}
+    do
+        [ "${1}" = "${OPT}" ] && return 0
+    done
+    return 1
+}
+
+IsDownloadOnly()
+{
+    [ "${DOWNLOAD_ONLY}" = "true" ] && \
+        return 0 || \
+        return 1
+}
+
+IsPkgInstalled()
+{
+    [ -e "${INST_DIR}/${PKG}" ] && \
+        return 0 || \
+        return 1
+}
+
+IsDownloadRequired()
+{
+    if IsBuildRequired || IsDownloadOnly
+    then
+        cd "${SRC_DIR}"
+        if [ -e "${PKG_FILE}" ]
+        then
+            if [ $(FileSize "${PKG_FILE}") = "0" ]
+            then
+                return 0
+            else
+                VerifyChecksum
+                return 1
+            fi
+        else
+            return 0
+        fi
+    fi
+
+    return 1
+}
+
+IsBuildRequired()
+{
+    IsDownloadOnly && return 1 || true
+    IsPkgInstalled && return 1 || true
+
+    [ "${DO_NOT_BUILD}" = "true" ] && \
+        return 1 || \
+        return 0
+}
+
+IsIgnoredPackage()
+{
+    local IGNORED_PKGS_LIST="jpeg libjpeg-turbo qt4"
+
+    for IGNORED_PKG in ${IGNORED_PKGS_LIST}
+    do
+        if [ "${IGNORED_PKG}" = "${1}" ]
+        then
+            return 0
+        fi
+    done
+    return 1
+}
+
 IsTarballCheckRequired()
 {
     local MUTABLE_TARBALLS_PKG_LIST="sqlite"
@@ -281,14 +349,29 @@ IsTarballCheckRequired()
     return 0
 }
 
+CheckSourcesAndDependencies()
+{
+    if IsBuildRequired || IsDownloadRequired
+    then
+        CheckDependencies
+
+        IsDownloadRequired && GetSources
+    fi
+}
+
 GetSources()
 {
-    PrintSystemInfo
-
     local WGET="wget -v -c --no-config --no-check-certificate --max-redirect=50"
     local LOG_FILE="${LOG_DIR}/${PKG_SUBDIR}/tarball-download.log"
     mkdir -p "${LOG_DIR}/${PKG_SUBDIR}"
     cd "${SRC_DIR}"
+    if [ -e "${PKG_FILE}" ]
+    then
+        if [ $(FileSize "${PKG_FILE}") = "0" ]
+        then
+            rm "${PKG_FILE}"
+        fi
+    fi
     if [ ! -e "${PKG_FILE}" ]
     then
         BeginDownload
@@ -296,6 +379,20 @@ GetSources()
         ${WGET} -o "${LOG_FILE}" -O "${PKG_FILE}" "${PKG_URL}"
         CheckFail "${LOG_FILE}"
     fi
+    if [ $(FileSize "${PKG_FILE}") = "0" ]
+    then
+        echo "Error! The size of downloaded tarball is equal to zero!"
+        echo "Check your Internet connection and accessibility of URL:"
+        echo "${PKG_URL}"
+        echo "Removing ${PKG_FILE}..."
+        rm "${PKG_FILE}"
+        exit 1
+    fi
+    VerifyChecksum
+}
+
+VerifyChecksum()
+{
     local CHECKSUMS_DATABASE_FILE="${MAIN_DIR}/etc/_checksums.database.txt"
     if [ $(grep "${PKG_FILE}" "${CHECKSUMS_DATABASE_FILE}" | wc -l) != "1" ]
     then
@@ -316,8 +413,6 @@ GetSources()
         echo "rm \"${SRC_DIR}/${PKG_FILE}\""
         exit 1
     fi
-
-    BeginOfPkgBuild
 }
 
 UnpackSources()
@@ -343,6 +438,7 @@ UnpackSources()
         if [ -e "${PATCH_FILE}" ] || [ -h "${PATCH_FILE}" ]
         then
             local LOG_FILE="${LOG_DIR}/${PKG_SUBDIR}/patch.log"
+            mkdir -p "${LOG_DIR}/${PKG_SUBDIR}"
             cd "${PKG_SRC_DIR}/${SUBDIR}"
             patch -p1 -i "${PATCH_FILE}" &> "${LOG_FILE}"
         fi
@@ -358,6 +454,7 @@ UnpackSources()
 PrepareBuild()
 {
     mkdir -p "${BUILD_DIR}/${PKG_SUBDIR}"
+    mkdir -p "${LOG_DIR}/${PKG_SUBDIR}"
     cd "${LOG_DIR}/${PKG_SUBDIR}"
     rm -f configure.log make.log make-install.log
 
@@ -373,6 +470,7 @@ CopySrcAndPrepareBuild()
     else
         cp -afT "${PKG_SRC_DIR}/${PKG_SUBDIR_ORIG}" "${BUILD_DIR}/${PKG_SUBDIR}"
     fi
+    mkdir -p "${LOG_DIR}/${PKG_SUBDIR}"
     cd "${LOG_DIR}/${PKG_SUBDIR}"
     rm -f configure.log make.log make-install.log
 
@@ -383,6 +481,7 @@ CopySrcAndPrepareBuild()
 ConfigurePkg()
 {
     local LOG_FILE="${LOG_DIR}/${PKG_SUBDIR}/configure.log"
+    mkdir -p "${LOG_DIR}/${PKG_SUBDIR}"
     cd "${BUILD_DIR}/${PKG_SUBDIR}"
     if [ -z "${PKG_SUBDIR_ORIG}" ]
     then
@@ -396,6 +495,7 @@ ConfigurePkg()
 ConfigurePkgInBuildDir()
 {
     local LOG_FILE="${LOG_DIR}/${PKG_SUBDIR}/configure.log"
+    mkdir -p "${LOG_DIR}/${PKG_SUBDIR}"
     cd "${BUILD_DIR}/${PKG_SUBDIR}"
     ./configure ${@} &>> "${LOG_FILE}"
     CheckFail "${LOG_FILE}"
@@ -421,8 +521,9 @@ ConfigureAutotoolsProjectInBuildDir()
 
 ConfigureQmakeProject()
 {
-    local LOG_FILE="${LOG_DIR}/${PKG_SUBDIR}/configure.log"
     local PATH="${PREFIX}/qt5/bin:${PATH}"
+    local LOG_FILE="${LOG_DIR}/${PKG_SUBDIR}/configure.log"
+    mkdir -p "${LOG_DIR}/${PKG_SUBDIR}"
     cd "${BUILD_DIR}/${PKG_SUBDIR}"
     "${SYSROOT}/qt5/bin/qmake" ${@} &>> "${LOG_FILE}"
     CheckFail "${LOG_FILE}"
@@ -431,6 +532,7 @@ ConfigureQmakeProject()
 ConfigureCmakeProject()
 {
     local LOG_FILE="${LOG_DIR}/${PKG_SUBDIR}/configure.log"
+    mkdir -p "${LOG_DIR}/${PKG_SUBDIR}"
     cd "${BUILD_DIR}/${PKG_SUBDIR}"
     if [ -z "${PKG_SUBDIR_ORIG}" ]
     then
@@ -441,9 +543,47 @@ ConfigureCmakeProject()
     CheckFail "${LOG_FILE}"
 }
 
+BuildGlibc()
+{
+    # This is an ugly hack for fixing build of glibc library ignoring one
+    # unpredictable build error which looks like:
+    # <some-path>/build/glibc-<library-version>/shlib.lds:135: syntax error
+    # collect2: error: ld returned 1 exit status
+    # make[2]: *** [<some-path>/build/glibc-<library-version>/libc.so] Error 1
+    local LOG_FILE="${LOG_DIR}/${PKG_SUBDIR}/make.log"
+    mkdir -p "${LOG_DIR}/${PKG_SUBDIR}"
+    cd "${BUILD_DIR}/${PKG_SUBDIR}"
+    make ${@} &>> "${LOG_FILE}"
+    if [ ! $? -eq 0 ]
+    then
+        if [ $(grep '/shlib.lds:.*: syntax error' "${LOG_FILE}" | wc -l) != 0 ]
+        then
+            echo &>> "${LOG_FILE}"
+            echo "!!!!! This unpredictable linker error has happened again..." &>> "${LOG_FILE}"
+            echo "!!!!! Let's try to finish the build!" &>> "${LOG_FILE}"
+            echo &>> "${LOG_FILE}"
+            sleep 5
+
+            export LANGUAGE=""
+            export LC_ALL="C"
+            unset cxx CXX
+            ConfigurePkg \
+                ${LXE_CONFIGURE_OPTS} \
+                ${GLIBC_CONFIGURE_OPTS}
+
+            make ${@} &>> "${LOG_FILE}"
+            CheckFail "${LOG_FILE}"
+        else
+            tail -n 50 "${LOG_FILE}"
+            exit 1
+        fi
+    fi
+}
+
 BuildPkg()
 {
     local LOG_FILE="${LOG_DIR}/${PKG_SUBDIR}/make.log"
+    mkdir -p "${LOG_DIR}/${PKG_SUBDIR}"
     cd "${BUILD_DIR}/${PKG_SUBDIR}"
     make ${@} &>> "${LOG_FILE}"
     CheckFail "${LOG_FILE}"
@@ -452,6 +592,7 @@ BuildPkg()
 InstallPkg()
 {
     local LOG_FILE="${LOG_DIR}/${PKG_SUBDIR}/make-install.log"
+    mkdir -p "${LOG_DIR}/${PKG_SUBDIR}"
     cd "${BUILD_DIR}/${PKG_SUBDIR}"
     make ${@} &>> "${LOG_FILE}"
     CheckFail "${LOG_FILE}"
@@ -462,9 +603,8 @@ InstallPkg()
 
 ProcessStandardAutotoolsProject()
 {
-    CheckDependencies
-
-    GetSources
+    PrintSystemInfo
+    BeginOfPkgBuild
     UnpackSources
     PrepareBuild
 
@@ -482,9 +622,8 @@ ProcessStandardAutotoolsProject()
 
 ProcessStandardAutotoolsProjectInBuildDir()
 {
-    CheckDependencies
-
-    GetSources
+    PrintSystemInfo
+    BeginOfPkgBuild
     UnpackSources
     CopySrcAndPrepareBuild
 

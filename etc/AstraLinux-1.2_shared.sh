@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# This distro is not supported for now!
+# This version of system is not supported now!
 
 ### System info ###
 SYSTEM="AstraLinux-1.2_shared"
@@ -79,6 +79,12 @@ GLU_VER=
 
 
 ### System libraries ###
+UDEV_VER=
+LIBUSB_VER=
+PCIUTILS_VER=3.1.7
+USBUTILS_VER=
+SYSFSUTILS_VER=
+
 LIBXML2_VER=2.7.6
 LIBXSLT_VER=1.1.24
 EXPAT_VER=2.0.1
@@ -116,7 +122,7 @@ CURL_VER=7.18.1
 
 
 ### Developer libraries ###
-PROTOBUF_VER=3.5.2
+PROTOBUF_VER=3.5.1
 BOOST_VER=1.65.0
 
 # FREEGLUT_VER=2.6.0

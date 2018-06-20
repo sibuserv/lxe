@@ -13,7 +13,9 @@
     PKG_URL="https://download.videolan.org/pub/videolan/${PKG}/snapshots/${PKG_FILE}"
     PKG_DEPS="gcc"
 
-    if ! IsPkgInstalled
+    CheckSourcesAndDependencies
+
+    if IsBuildRequired
     then
         ProcessStandardAutotoolsProject \
             --cross-prefix="${TARGET}-" \

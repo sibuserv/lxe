@@ -9,15 +9,16 @@
     PKG_VERSION=${OPENSSL_VER}
     PKG_SUBDIR=${PKG}-${PKG_VERSION}
     PKG_FILE=${PKG}-${PKG_VERSION}.tar.gz
-    PKG_URL="ftp://ftp.openssl.org/source/${PKG_FILE}"
-    PKG_URL_2="ftp://ftp.openssl.org/source/old/${OPENSSL_SUBVER}/${PKG_FILE}"
+    PKG_URL="https://ftp.openssl.org/source/${PKG_FILE}"
+    PKG_URL_2="https://ftp.openssl.org/source/old/${OPENSSL_SUBVER}/${PKG_FILE}"
     PKG_DEPS="gcc zlib libgcrypt"
 
-    if ! IsPkgInstalled
-    then
-        CheckDependencies
+    CheckSourcesAndDependencies
 
-        GetSources
+    if IsBuildRequired
+    then
+        PrintSystemInfo
+        BeginOfPkgBuild
         UnpackSources
         CopySrcAndPrepareBuild
 

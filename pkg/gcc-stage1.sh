@@ -13,11 +13,12 @@
     PKG_URL="ftp://ftp.funet.fi/pub/gnu/prep/gcc/${PKG_SUBDIR_ORIG}/${PKG_FILE}"
     PKG_DEPS="glibc-headers"
 
-    if ! IsPkgInstalled
-    then
-        CheckDependencies
+    CheckSourcesAndDependencies
 
-        GetSources
+    if IsBuildRequired
+    then
+        PrintSystemInfo
+        BeginOfPkgBuild
         UnpackSources
         PrepareBuild
 
@@ -33,9 +34,13 @@
             --disable-shared \
             --disable-threads
 
-        BuildPkg all-gcc
+        IsVer1GreaterOrEqualToVer2 "${LINUX_VER}" "3.13.0" &&
+            export NJOBS=${JOBS} ||
+            export NJOBS=1
+
+        BuildPkg -j ${NJOBS} all-gcc
         BuildPkg install-gcc
-        BuildPkg all-target-libgcc
+        BuildPkg -j ${NJOBS} all-target-libgcc
         InstallPkg install-target-libgcc
 
         CleanPkgBuildDir

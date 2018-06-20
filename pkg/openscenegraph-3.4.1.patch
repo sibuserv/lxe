@@ -6,7 +6,6 @@ Bug: https://github.com/mxe/mxe/issues/1230
 Last-Update: 2016-02-22
 
 
-
 diff --git a/src/osgPlugins/CMakeLists.txt b/src/osgPlugins/CMakeLists.txt
 index 1111111..2222222 100644
 --- a/src/osgPlugins/CMakeLists.txt

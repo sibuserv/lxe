@@ -12,7 +12,9 @@
     PKG_URL="http://www.tortall.net/projects/${PKG}/releases/${PKG_FILE}"
     PKG_DEPS="gcc"
 
-    if ! IsPkgInstalled
+    CheckSourcesAndDependencies
+
+    if IsBuildRequired
     then
         ProcessStandardAutotoolsProject \
             --bindir="${PREFIX}/bin" \

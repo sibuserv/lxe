@@ -14,11 +14,12 @@
     PKG_DEPS="gcc cmake-settings curl gdal openscenegraph sqlite tinyxml2 zlib"
     [ ! -z "${GCC_EXTRA_VER}" ] && PKG_DEPS="${PKG_DEPS} gcc-extra"
 
-    if ! IsPkgInstalled
-    then
-        CheckDependencies
+    CheckSourcesAndDependencies
 
-        GetSources
+    if IsBuildRequired
+    then
+        PrintSystemInfo
+        BeginOfPkgBuild
         UnpackSources
         PrepareBuild
 
@@ -29,8 +30,10 @@
         SetCrossToolchainPath
         ConfigureCmakeProject \
             -DDYNAMIC_OSGEARTH="${CMAKE_SHARED_BOOL}" \
-            -DWITH_EXTERNAL_TINYXML=ON \
-            -DBUILD_OSGEARTH_EXAMPLES=OFF
+            -DWITH_EXTERNAL_TINYXML=OFF \
+            -DBUILD_OSGEARTH_EXAMPLES=OFF \
+            -DBUILD_APPLICATIONS=OFF \
+            -DBUILD_TESTS=OFF
 
         BuildPkg -j ${JOBS}
         InstallPkg install

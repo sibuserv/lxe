@@ -13,11 +13,12 @@
     PKG_URL="ftp://ftp.funet.fi/pub/linux/kernel/v${LINUX_SUBVER}/${PKG_FILE}"
     PKG_DEPS=
 
-    if ! IsPkgInstalled
-    then
-        CheckDependencies
+    CheckSourcesAndDependencies
 
-        GetSources
+    if IsBuildRequired
+    then
+        PrintSystemInfo
+        BeginOfPkgBuild
         UnpackSources
         CopySrcAndPrepareBuild
 
@@ -29,8 +30,8 @@
             KERNEL_ARCH=i386 || \
             KERNEL_ARCH=${ARCH}
         IsPkgVersionGreaterOrEqualTo "2.6.20" && \
-            BuildPkg ARCH=${KERNEL_ARCH} ${KERNEL_ARCH}_defconfig || \
-            BuildPkg ARCH=${KERNEL_ARCH} defconfig
+            BuildPkg -j ${JOBS} ARCH=${KERNEL_ARCH} ${KERNEL_ARCH}_defconfig || \
+            BuildPkg -j ${JOBS} ARCH=${KERNEL_ARCH} defconfig
         InstallPkg ARCH=${KERNEL_ARCH} headers_install \
             INSTALL_HDR_PATH="${SYSROOT}/usr"
 

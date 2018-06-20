@@ -11,11 +11,12 @@
     PKG_URL="ftp://freedesktop.org/pub/mesa/${PKG}/${PKG_FILE}"
     PKG_DEPS="gcc mesa"
 
-    if ! IsPkgInstalled
-    then
-        CheckDependencies
+    CheckSourcesAndDependencies
 
-        GetSources
+    if IsBuildRequired
+    then
+        PrintSystemInfo
+        BeginOfPkgBuild
         UnpackSources
         CopySrcAndPrepareBuild
 

@@ -1,5 +1,7 @@
 #!/bin/sh
 
+# This version of system is not supported now!
+
 ### System info ###
 SYSTEM="AstraLinux-1.2_static"
 ARCH=x86_64
@@ -79,6 +81,12 @@ GLU_VER=
 
 
 ### System libraries ###
+UDEV_VER=
+LIBUSB_VER=
+PCIUTILS_VER=3.1.7
+USBUTILS_VER=
+SYSFSUTILS_VER=
+
 # LIBXML2_VER=2.7.6
 LIBXML2_VER=2.9.4
 # LIBXSLT_VER=1.1.24
@@ -100,7 +108,7 @@ YASM_VER=1.3.0
 
 LIBGPG_ERROR_VER=1.27
 LIBGCRYPT_VER=1.8.1
-OPENSSL_VER=1.0.2n
+OPENSSL_VER=1.0.2o
 OPENSSL_SUBVER=1.0.2
 
 HARFBUZZ_VER=
@@ -117,7 +125,7 @@ CURL_VER=7.57.0
 
 
 ### Developer libraries ###
-PROTOBUF_VER=3.5.2
+PROTOBUF_VER=3.5.1
 BOOST_VER=1.65.0
 
 FREEGLUT_VER=3.0.0

@@ -13,7 +13,7 @@
     PKG_URL="https://pkgconfig.freedesktop.org/releases/${PKG_FILE}"
     PKG_DEPS=
 
-    if ! IsPkgInstalled
+    if IsBuildRequired
     then
         CheckDependencies
 

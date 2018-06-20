@@ -12,11 +12,12 @@
     PKG_URL="https://www.freedesktop.org/software/fontconfig/release/${PKG_FILE}"
     PKG_DEPS="gcc pkg-config-settings expat freetype"
 
-    if ! IsPkgInstalled
-    then
-        CheckDependencies
+    CheckSourcesAndDependencies
 
-        GetSources
+    if IsBuildRequired
+    then
+        PrintSystemInfo
+        BeginOfPkgBuild
         UnpackSources
         CopySrcAndPrepareBuild
 

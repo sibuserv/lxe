@@ -2,15 +2,14 @@
 #
 # This file is part of LXE project. See LICENSE file for licensing information.
 
-[ -z "${LIBTOOL_VER}" ] && exit 1
-
+[ -z "${SYSFSUTILS_VER}" ] || \
 (
-    PKG=libtool
-    PKG_VERSION=${LIBTOOL_VER}
+    PKG=sysfsutils
+    PKG_VERSION=${SYSFSUTILS_VER}
     PKG_SUBDIR=${PKG}-${PKG_VERSION}
     PKG_FILE=${PKG}-${PKG_VERSION}.tar.gz
-    PKG_URL="ftp://ftp.funet.fi/pub/gnu/prep/${PKG}/${PKG_FILE}"
-    PKG_DEPS=
+    PKG_URL="https://sourceforge.net/projects/linux-diag/files/sysfsutils/${PKG_VERSION}/${PKG_FILE}"
+    PKG_DEPS="gcc"
 
     CheckSourcesAndDependencies
 
@@ -19,15 +18,14 @@
         PrintSystemInfo
         BeginOfPkgBuild
         UnpackSources
-        PrepareBuild
+        CopySrcAndPrepareBuild
 
         SetBuildFlags
-        SetSystemPath
-        UnsetCrossToolchainVariables
-        ConfigurePkg \
-            --prefix="${PREFIX}" \
-            --enable-static \
-            --disable-shared
+        SetCrossToolchainPath
+        SetCrossToolchainVariables
+        IsStaticPackage && \
+            PrepareLibTypeOpts "both"
+        ConfigureAutotoolsProjectInBuildDir
 
         BuildPkg -j ${JOBS}
         InstallPkg install

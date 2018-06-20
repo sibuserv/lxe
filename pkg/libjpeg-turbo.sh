@@ -20,7 +20,9 @@ fi
     PKG_URL="https://downloads.sourceforge.net/project/${PKG}/${PKG_VERSION}/${PKG_FILE}"
     PKG_DEPS="gcc yasm"
 
-    if ! IsPkgInstalled
+    CheckSourcesAndDependencies
+
+    if IsBuildRequired
     then
         ProcessStandardAutotoolsProject
     fi

@@ -9,11 +9,12 @@
     PKG_FILE=${PKG_SUBDIR_ORIG}.tar.bz2
     PKG_URL="https://xorg.freedesktop.org/releases/individual/proto/${PKG_FILE}"
 
-    if ! IsPkgInstalled
-    then
-        CheckDependencies
+    CheckSourcesAndDependencies
 
-        GetSources
+    if IsBuildRequired
+    then
+        PrintSystemInfo
+        BeginOfPkgBuild
         UnpackSources
         PrepareBuild
 

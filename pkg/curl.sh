@@ -13,7 +13,9 @@
     PKG_URL_2="https://curl.haxx.se/download/archeology/${PKG_FILE}"
     PKG_DEPS="gcc"
 
-    if ! IsPkgInstalled
+    CheckSourcesAndDependencies
+
+    if IsBuildRequired
     then
         ProcessStandardAutotoolsProject \
             --without-gnutls \

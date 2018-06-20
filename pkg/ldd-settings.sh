@@ -8,7 +8,7 @@
     PKG=ldd-settings
     PKG_DEPS=
 
-    if ! IsPkgInstalled
+    if IsBuildRequired
     then
         CheckDependencies
 

@@ -2,15 +2,14 @@
 #
 # This file is part of LXE project. See LICENSE file for licensing information.
 
-[ -z "${LIBIDN_VER}" ] && exit 1
-
+[ -z "${USBUTILS_VER}" ] || \
 (
-    PKG=libidn
-    PKG_VERSION=${LIBIDN_VER}
+    PKG=usbutils
+    PKG_VERSION=${USBUTILS_VER}
     PKG_SUBDIR=${PKG}-${PKG_VERSION}
-    PKG_FILE=${PKG_SUBDIR}.tar.gz
-    PKG_URL="https://ftp.gnu.org/gnu/${PKG}/${PKG_FILE}"
-    PKG_DEPS="gcc"
+    PKG_FILE=${PKG}-${PKG_VERSION}.tar.xz
+    PKG_URL="https://mirrors.edge.kernel.org/pub/linux/utils/usb/usbutils/${PKG_FILE}"
+    PKG_DEPS="gcc libusb"
 
     CheckSourcesAndDependencies
 
@@ -24,8 +23,11 @@
         SetBuildFlags
         SetCrossToolchainPath
         SetCrossToolchainVariables
+        PrepareLibTypeOpts "shared"
         ConfigureAutotoolsProject \
-            --disable-csharp
+            --datarootdir="${SYSROOT}/usr/lib" \
+            --disable-gudev \
+            --disable-introspection
 
         BuildPkg -j ${JOBS}
         InstallPkg install

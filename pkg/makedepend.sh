@@ -12,11 +12,12 @@
     PKG_URL="https://xorg.freedesktop.org/releases/individual/util/${PKG_FILE}"
     PKG_DEPS=
 
-    if ! IsPkgInstalled
-    then
-        CheckDependencies
+    CheckSourcesAndDependencies
 
-        GetSources
+    if IsBuildRequired
+    then
+        PrintSystemInfo
+        BeginOfPkgBuild
         UnpackSources
         PrepareBuild
 

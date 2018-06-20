@@ -12,11 +12,12 @@
     PKG_URL="https://dri.freedesktop.org/${PKG}/${PKG_FILE}"
     PKG_DEPS="gcc pkg-config-settings expat libpciaccess"
 
-    if ! IsPkgInstalled
-    then
-        CheckDependencies
+    CheckSourcesAndDependencies
 
-        GetSources
+    if IsBuildRequired
+    then
+        PrintSystemInfo
+        BeginOfPkgBuild
         UnpackSources
         PrepareBuild
 

@@ -14,7 +14,9 @@
     PKG_URL="https://www.sqlite.org/cgi/src/tarball/${PKG_FILE}"
     PKG_DEPS="gcc"
 
-    if ! IsPkgInstalled
+    CheckSourcesAndDependencies
+
+    if IsBuildRequired
     then
         ProcessStandardAutotoolsProject \
             --disable-readline \

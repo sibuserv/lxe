@@ -12,11 +12,12 @@
     PKG_URL="ftp://ftp.funet.fi/pub/gnu/prep/${PKG}/${PKG_FILE}"
     PKG_DEPS="texinfo gcc-stage1"
 
-    if ! IsPkgInstalled
-    then
-        CheckDependencies
+    CheckSourcesAndDependencies
 
-        GetSources
+    if IsBuildRequired
+    then
+        PrintSystemInfo
+        BeginOfPkgBuild
         UnpackSources
         PrepareBuild
 
@@ -37,7 +38,7 @@
             ${LXE_CONFIGURE_OPTS} \
             ${GLIBC_CONFIGURE_OPTS}
 
-        BuildPkg
+        BuildGlibc -j ${JOBS}
         IsPkgVersionGreaterOrEqualTo "2.16.0" && \
             InstallPkg install DESTDIR="${SYSROOT}" || \
             InstallPkg install install_root="${SYSROOT}"

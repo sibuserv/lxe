@@ -12,7 +12,9 @@
     PKG_URL="ftp://ftp.gnupg.org/gcrypt/${PKG}/${PKG_FILE}"
     PKG_DEPS="gcc libgpg-error"
 
-    if ! IsPkgInstalled
+    CheckSourcesAndDependencies
+
+    if IsBuildRequired
     then
         ProcessStandardAutotoolsProject \
             --with-gpg-error-prefix="${SYSROOT}/usr" \
