@@ -146,8 +146,6 @@ FFMPEG_VER=4.0.1
 
 
 ### Extra libraries ###
-VLC_VER=2.1.4
-
 LIBFCGI_VER=2.4.0
 
 TIDY_HTML5_VER=5.4.0
