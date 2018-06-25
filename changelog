@@ -1,4 +1,5 @@
 --- v3.2 (2018-xx-xx) ---
+* Add native package: pkg-config.
 * Add new packages: hunspell, libusb, pciutils, sysfsutils, udev, usbutils.
 * Add `make all` target: build all available packages.
 * Add `make download` target: download sources without build of packages.
