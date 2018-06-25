@@ -2,8 +2,6 @@
 #
 # This file is part of LXE project. See LICENSE file for licensing information.
 
-[ -z "${MXML_VER}" ] && exit 1
-
 (
     PKG=mxml
     PKG_VERSION=${MXML_VER}
@@ -15,6 +13,7 @@
     PKG_DEPS="gcc"
     [ ! -z "${GCC_EXTRA_VER}" ] && PKG_DEPS="${PKG_DEPS} gcc-extra"
 
+    CheckPkgVersion
     CheckSourcesAndDependencies
 
     if IsBuildRequired

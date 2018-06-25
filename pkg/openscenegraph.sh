@@ -2,8 +2,6 @@
 #
 # This file is part of LXE project. See LICENSE file for licensing information.
 
-[ -z "${OPENSCENEGRAPH_VER}" ] && exit 1
-
 (
     PKG=openscenegraph
     PKG_VERSION=${OPENSCENEGRAPH_VER}
@@ -17,6 +15,7 @@
                                         PKG_DEPS="${PKG_DEPS} jpeg"
     [ ! -z "${GCC_EXTRA_VER}" ] && PKG_DEPS="${PKG_DEPS} gcc-extra"
 
+    CheckPkgVersion
     CheckSourcesAndDependencies
 
     if IsBuildRequired

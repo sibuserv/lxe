@@ -2,8 +2,6 @@
 #
 # This file is part of LXE project. See LICENSE file for licensing information.
 
-[ -z "${LIBXSS_VER}" ] && exit 1
-
 (
     PKG=libxss
     PKG_VERSION=${LIBXSS_VER}

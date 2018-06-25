@@ -2,8 +2,6 @@
 #
 # This file is part of LXE project. See LICENSE file for licensing information.
 
-[ -z "${TIDY_HTML5_VER}" ] && exit 1
-
 (
     PKG=tidy-html5
     PKG_VERSION=${TIDY_HTML5_VER}
@@ -13,6 +11,7 @@
     PKG_DEPS="gcc cmake-settings"
     [ ! -z "${GCC_EXTRA_VER}" ] && PKG_DEPS="${PKG_DEPS} gcc-extra"
 
+    CheckPkgVersion
     CheckSourcesAndDependencies
 
     if IsBuildRequired

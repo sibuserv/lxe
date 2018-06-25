@@ -2,8 +2,6 @@
 #
 # This file is part of LXE project. See LICENSE file for licensing information.
 
-[ -z "${CURL_VER}" ] && exit 1
-
 (
     PKG=curl
     PKG_VERSION=${CURL_VER}
@@ -13,6 +11,7 @@
     PKG_URL_2="https://curl.haxx.se/download/archeology/${PKG_FILE}"
     PKG_DEPS="gcc"
 
+    CheckPkgVersion
     CheckSourcesAndDependencies
 
     if IsBuildRequired

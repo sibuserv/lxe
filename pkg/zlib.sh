@@ -2,8 +2,6 @@
 #
 # This file is part of LXE project. See LICENSE file for licensing information.
 
-[ -z "${ZLIB_VER}" ] && exit 1
-
 (
     PKG=zlib
     PKG_VERSION=${ZLIB_VER}
@@ -13,6 +11,7 @@
     PKG_URL="https://sourceforge.net/projects/libpng/files/${PKG}/${PKG_VERSION}/${PKG_FILE}"
     PKG_DEPS="gcc"
 
+    CheckPkgVersion
     CheckSourcesAndDependencies
 
     if IsBuildRequired

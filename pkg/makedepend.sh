@@ -2,8 +2,6 @@
 #
 # This file is part of LXE project. See LICENSE file for licensing information.
 
-[ -z "${MAKEDEPEND_VER}" ] && exit 1
-
 (
     PKG=makedepend
     PKG_VERSION=${MAKEDEPEND_VER}
@@ -12,6 +10,7 @@
     PKG_URL="https://xorg.freedesktop.org/releases/individual/util/${PKG_FILE}"
     PKG_DEPS=
 
+    CheckPkgVersion
     CheckSourcesAndDependencies
 
     if IsBuildRequired

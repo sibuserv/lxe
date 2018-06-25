@@ -2,8 +2,6 @@
 #
 # This file is part of LXE project. See LICENSE file for licensing information.
 
-[ -z "${GCC_EXTRA_VER}" ] && exit 1
-
 (
     PKG=gcc-extra
     PKG_VERSION=${GCC_EXTRA_VER}

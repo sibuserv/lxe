@@ -2,8 +2,6 @@
 #
 # This file is part of LXE project. See LICENSE file for licensing information.
 
-[ -z "${TEXINFO_VER}" ] && exit 1
-
 (
     PKG=texinfo
     PKG_VERSION=${TEXINFO_VER}
@@ -12,6 +10,7 @@
     PKG_URL="ftp://ftp.funet.fi/pub/gnu/prep/${PKG}/${PKG_FILE}"
     PKG_DEPS=
 
+    CheckPkgVersion
     CheckSourcesAndDependencies
 
     if IsBuildRequired

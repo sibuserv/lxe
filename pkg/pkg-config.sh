@@ -3,12 +3,13 @@
 # This file is part of LXE project. See LICENSE file for licensing information.
 
 (
-    PKG=make
-    PKG_VERSION=${MAKE_VER}
+    PKG=pkg-config
+    PKG_VERSION=${PKGCONFIG_VER}
     PKG_SUBDIR=${PKG}-${PKG_VERSION}
-    PKG_FILE=${PKG}-${PKG_VERSION}.tar.bz2
-    PKG_URL="ftp://ftp.funet.fi/pub/gnu/prep/${PKG}/${PKG_FILE}"
-    PKG_DEPS=
+    PKG_SUBDIR_ORIG=pkg-config-${PKG_VERSION}
+    PKG_FILE=pkg-config-${PKG_VERSION}.tar.gz
+    PKG_URL="https://pkgconfig.freedesktop.org/releases/${PKG_FILE}"
+    PKG_DEPS="libtool"
 
     CheckPkgVersion
     CheckSourcesAndDependencies
@@ -35,6 +36,18 @@
 
         CleanPkgBuildDir
         CleanPkgSrcDir
+
+        cd "${PREFIX}/bin"
+        mv "pkg-config" "pkg-config-bin"
+        cat > "${TARGET}-pkg-config" << EOF
+#!/bin/sh
+PKG_CONFIG_SYSROOT_DIR="/" \\
+PKG_CONFIG_PATH="${SYSROOT}/usr/lib/pkgconfig" \\
+PKG_CONFIG_LIBDIR="${SYSROOT}/usr/lib/pkgconfig" \\
+exec "${PREFIX}/bin/pkg-config-bin" --static "\${@}"
+EOF
+        chmod uog+x "${TARGET}-pkg-config"
+        ln -sf "${TARGET}-pkg-config" "pkg-config"
     fi
 )
 

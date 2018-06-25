@@ -2,8 +2,6 @@
 #
 # This file is part of LXE project. See LICENSE file for licensing information.
 
-[ -z "${LIBXT_VER}" ] && exit 1
-
 (
     PKG=libxt
     PKG_VERSION=${LIBXT_VER}

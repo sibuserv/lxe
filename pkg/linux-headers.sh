@@ -2,8 +2,6 @@
 #
 # This file is part of LXE project. See LICENSE file for licensing information.
 
-[ -z "${LINUX_VER}" ] && exit 1
-
 (
     PKG=linux-headers
     PKG_VERSION=${LINUX_VER}
@@ -13,6 +11,7 @@
     PKG_URL="ftp://ftp.funet.fi/pub/linux/kernel/v${LINUX_SUBVER}/${PKG_FILE}"
     PKG_DEPS=
 
+    CheckPkgVersion
     CheckSourcesAndDependencies
 
     if IsBuildRequired

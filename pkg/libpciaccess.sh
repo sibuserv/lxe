@@ -2,8 +2,6 @@
 #
 # This file is part of LXE project. See LICENSE file for licensing information.
 
-[ -z "${LIBPCIACCESS_VER}" ] && exit 1
-
 (
     PKG=libpciaccess
     PKG_VERSION=${LIBPCIACCESS_VER}

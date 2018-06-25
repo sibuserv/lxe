@@ -2,8 +2,6 @@
 #
 # This file is part of LXE project. See LICENSE file for licensing information.
 
-[ -z "${QT4_VER}" ] && exit 1
-
 (
     PKG=qt4
     PKG_VERSION=${QT4_VER}
@@ -23,6 +21,7 @@
                                         PKG_DEPS="${PKG_DEPS} jpeg"
     [ ! -z "${GCC_EXTRA_VER}" ] && PKG_DEPS="${PKG_DEPS} gcc-extra"
 
+    CheckPkgVersion
     CheckSourcesAndDependencies
 
     if IsBuildRequired

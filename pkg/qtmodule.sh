@@ -17,6 +17,7 @@
     fi
     PKG_URL="https://download.qt.io/archive/qt/${QT5_SUBVER}/${QT5_VER}/submodules/${PKG_FILE}"
 
+    CheckPkgVersion
     CheckSourcesAndDependencies
 
     if IsBuildRequired

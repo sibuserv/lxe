@@ -2,8 +2,6 @@
 #
 # This file is part of LXE project. See LICENSE file for licensing information.
 
-[ -z "${GCC_VER}" ] && exit 1
-
 (
     PKG=gcc-stage1
     PKG_VERSION=${GCC_VER}
@@ -13,6 +11,7 @@
     PKG_URL="ftp://ftp.funet.fi/pub/gnu/prep/gcc/${PKG_SUBDIR_ORIG}/${PKG_FILE}"
     PKG_DEPS="glibc-headers"
 
+    CheckPkgVersion
     CheckSourcesAndDependencies
 
     if IsBuildRequired

@@ -2,16 +2,15 @@
 #
 # This file is part of LXE project. See LICENSE file for licensing information.
 
-[ -z "${FFMPEG_VER}" ] && exit 1
-
 (
     PKG=ffmpeg
     PKG_VERSION=${FFMPEG_VER}
     PKG_SUBDIR=${PKG}-${PKG_VERSION}
     PKG_FILE=${PKG_SUBDIR}.tar.bz2
-    PKG_URL="http://www.ffmpeg.org/releases/${PKG_FILE}"
+    PKG_URL="https://www.ffmpeg.org/releases/${PKG_FILE}"
     PKG_DEPS="gcc bzip2 x264 yasm zlib"
 
+    CheckPkgVersion
     CheckSourcesAndDependencies
 
     if IsBuildRequired

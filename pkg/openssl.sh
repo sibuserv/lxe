@@ -2,8 +2,6 @@
 #
 # This file is part of LXE project. See LICENSE file for licensing information.
 
-[ -z "${OPENSSL_VER}" ] && exit 1
-
 (
     PKG=openssl
     PKG_VERSION=${OPENSSL_VER}
@@ -13,6 +11,7 @@
     PKG_URL_2="https://ftp.openssl.org/source/old/${OPENSSL_SUBVER}/${PKG_FILE}"
     PKG_DEPS="gcc zlib libgcrypt"
 
+    CheckPkgVersion
     CheckSourcesAndDependencies
 
     if IsBuildRequired

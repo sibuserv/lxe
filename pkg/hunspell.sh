@@ -3,11 +3,16 @@
 # This file is part of LXE project. See LICENSE file for licensing information.
 
 (
-    PKG=libidn
-    PKG_VERSION=${LIBIDN_VER}
+    PKG=hunspell
+    PKG_VERSION=${HUNSPELL_VER}
     PKG_SUBDIR=${PKG}-${PKG_VERSION}
     PKG_FILE=${PKG_SUBDIR}.tar.gz
-    PKG_URL="https://ftp.gnu.org/gnu/${PKG}/${PKG_FILE}"
+    if IsPkgVersionGreaterOrEqualTo "1.3.4"
+    then
+        PKG_URL="https://github.com/hunspell/hunspell/archive/v${PKG_VERSION}.tar.gz"
+    else
+        PKG_URL="https://sourceforge.net/projects/hunspell/files/Hunspell/${PKG_VERSION}/${PKG_FILE}"
+    fi
     PKG_DEPS="gcc"
 
     CheckPkgVersion
@@ -23,8 +28,15 @@
         SetBuildFlags
         SetCrossToolchainPath
         SetCrossToolchainVariables
+        if IsPkgVersionGreaterOrEqualTo "1.3.4"
+        then
+            cd "${PKG_SRC_DIR}/${PKG_SUBDIR}"
+            autoreconf -vfi &>> "${LOG_DIR}/${PKG_SUBDIR}/configure.log"
+        fi
         ConfigureAutotoolsProject \
-            --disable-csharp
+            --with-warnings \
+            --without-ui \
+            --with-readline
 
         BuildPkg -j ${JOBS}
         InstallPkg install

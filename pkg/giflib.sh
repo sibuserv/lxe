@@ -2,8 +2,6 @@
 #
 # This file is part of LXE project. See LICENSE file for licensing information.
 
-[ -z "${GIFLIB_VER}" ] && exit 1
-
 (
     PKG=giflib
     PKG_VERSION=${GIFLIB_VER}
@@ -25,6 +23,7 @@
     [ "${USE_JPEG_TURBO}" = "true" ] && PKG_DEPS="${PKG_DEPS} libjpeg-turbo" || \
                                         PKG_DEPS="${PKG_DEPS} jpeg"
 
+    CheckPkgVersion
     CheckSourcesAndDependencies
 
     if IsBuildRequired

@@ -2,8 +2,6 @@
 #
 # This file is part of LXE project. See LICENSE file for licensing information.
 
-[ -z "${BZIP2_VER}" ] && exit 1
-
 (
     PKG=bzip2
     PKG_VERSION=${BZIP2_VER}
@@ -12,6 +10,7 @@
     PKG_URL="http://www.bzip.org/${PKG_VERSION}/${PKG_FILE}"
     PKG_DEPS="gcc"
 
+    CheckPkgVersion
     CheckSourcesAndDependencies
 
     if IsBuildRequired

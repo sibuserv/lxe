@@ -2,10 +2,9 @@
 #
 # This file is part of LXE project. See LICENSE file for licensing information.
 
-[ -z "${QT5_VER}" ] && exit 1
-
 (
     PKG=qt5
+    PKG_VERSION=${QT5_VER}
     PKG_DEPS="qtbase
               qtactiveqt
               qtcanvas3d
@@ -30,6 +29,8 @@
               qtwebsockets
               qtx11extras
               qtxmlpatterns"
+
+    CheckPkgVersion
 
     if IsBuildRequired
     then

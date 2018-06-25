@@ -2,8 +2,6 @@
 #
 # This file is part of LXE project. See LICENSE file for licensing information.
 
-[ -z "${LIBXRANDR_VER}" ] && exit 1
-
 (
     PKG=libxrandr
     PKG_VERSION=${LIBXRANDR_VER}

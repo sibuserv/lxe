@@ -2,8 +2,6 @@
 #
 # This file is part of LXE project. See LICENSE file for licensing information.
 
-[ -z "${XCB_PROTO_VER}" ] && exit 1
-
 (
     PKG=xcb-proto
     PKG_VERSION=${XCB_PROTO_VER}
@@ -12,6 +10,7 @@
     PKG_URL="https://xcb.freedesktop.org/dist/${PKG_FILE}"
     PKG_DEPS="gcc pkg-config-settings libxml2"
 
+    CheckPkgVersion
     CheckSourcesAndDependencies
 
     if IsBuildRequired

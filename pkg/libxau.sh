@@ -2,8 +2,6 @@
 #
 # This file is part of LXE project. See LICENSE file for licensing information.
 
-[ -z "${LIBXAU_VER}" ] && exit 1
-
 (
     PKG=libxau
     PKG_VERSION=${LIBXAU_VER}

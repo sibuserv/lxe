@@ -2,8 +2,6 @@
 #
 # This file is part of LXE project. See LICENSE file for licensing information.
 
-[ -z "${LIBDRM_VER}" ] && exit 1
-
 (
     PKG=libdrm
     PKG_VERSION=${LIBDRM_VER}
@@ -12,6 +10,7 @@
     PKG_URL="https://dri.freedesktop.org/${PKG}/${PKG_FILE}"
     PKG_DEPS="gcc pkg-config-settings expat libpciaccess"
 
+    CheckPkgVersion
     CheckSourcesAndDependencies
 
     if IsBuildRequired

@@ -2,8 +2,6 @@
 #
 # This file is part of LXE project. See LICENSE file for licensing information.
 
-[ -z "${X11PROTO_DRI2_VER}" ] && exit 1
-
 (
     PKG=x11proto-dri2
     PKG_VERSION=${X11PROTO_DRI2_VER}

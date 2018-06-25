@@ -2,8 +2,6 @@
 #
 # This file is part of LXE project. See LICENSE file for licensing information.
 
-[ -z "${GLIBC_VER}" ] && exit 1
-
 (
     PKG=glibc-headers
     PKG_VERSION=${GLIBC_VER}
@@ -13,6 +11,7 @@
     PKG_URL="ftp://ftp.funet.fi/pub/gnu/prep/glibc/${PKG_FILE}"
     PKG_DEPS="binutils make linux-headers"
 
+    CheckPkgVersion
     CheckSourcesAndDependencies
 
     if IsBuildRequired

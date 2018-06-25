@@ -11,6 +11,7 @@
         PKG_FILE=${PKG_SUBDIR}.tar.bz2
     PKG_URL="https://xorg.freedesktop.org/releases/individual/lib/${PKG_FILE}"
 
+    CheckPkgVersion
     CheckSourcesAndDependencies
 
     if IsBuildRequired

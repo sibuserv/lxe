@@ -2,8 +2,6 @@
 #
 # This file is part of LXE project. See LICENSE file for licensing information.
 
-[ -z "${X264_VER}" ] && exit 1
-
 (
     PKG=x264
     PKG_VERSION=${X264_VER}
@@ -13,6 +11,7 @@
     PKG_URL="https://download.videolan.org/pub/videolan/${PKG}/snapshots/${PKG_FILE}"
     PKG_DEPS="gcc"
 
+    CheckPkgVersion
     CheckSourcesAndDependencies
 
     if IsBuildRequired
