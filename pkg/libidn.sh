@@ -2,8 +2,6 @@
 #
 # This file is part of LXE project. See LICENSE file for licensing information.
 
-[ -z "${LIBIDN_VER}" ] && exit 1
-
 (
     PKG=libidn
     PKG_VERSION=${LIBIDN_VER}
@@ -12,6 +10,7 @@
     PKG_URL="https://ftp.gnu.org/gnu/${PKG}/${PKG_FILE}"
     PKG_DEPS="gcc"
 
+    CheckPkgVersion
     CheckSourcesAndDependencies
 
     if IsBuildRequired

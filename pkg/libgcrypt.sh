@@ -2,8 +2,6 @@
 #
 # This file is part of LXE project. See LICENSE file for licensing information.
 
-[ -z "${LIBGCRYPT_VER}" ] && exit 1
-
 (
     PKG=libgcrypt
     PKG_VERSION=${LIBGCRYPT_VER}
@@ -12,6 +10,7 @@
     PKG_URL="ftp://ftp.gnupg.org/gcrypt/${PKG}/${PKG_FILE}"
     PKG_DEPS="gcc libgpg-error"
 
+    CheckPkgVersion
     CheckSourcesAndDependencies
 
     if IsBuildRequired

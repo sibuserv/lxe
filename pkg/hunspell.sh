@@ -2,8 +2,6 @@
 #
 # This file is part of LXE project. See LICENSE file for licensing information.
 
-[ -z "${HUNSPELL_VER}" ] && exit 1
-
 (
     PKG=hunspell
     PKG_VERSION=${HUNSPELL_VER}
@@ -17,6 +15,7 @@
     fi
     PKG_DEPS="gcc"
 
+    CheckPkgVersion
     CheckSourcesAndDependencies
 
     if IsBuildRequired

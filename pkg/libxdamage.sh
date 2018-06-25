@@ -2,8 +2,6 @@
 #
 # This file is part of LXE project. See LICENSE file for licensing information.
 
-[ -z "${LIBXDAMAGE_VER}" ] && exit 1
-
 (
     PKG=libxdamage
     PKG_VERSION=${LIBXDAMAGE_VER}

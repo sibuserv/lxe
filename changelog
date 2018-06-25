@@ -8,6 +8,7 @@
   tarball is equal to zero. (Only checksum mismatch was shown earlier.)
 * Use special BuildGlibc() function instead of BuildPkg() as a workaround to
   rare and unpredictable build error: ".../shlib.lds:135: syntax error".
+* Use CheckPkgVersion() function for improving of debug messages.
 * Drop "-LTS" suffix from name of Ubuntu configs.
 * Update patch for osgearth package: fix build with OSG 3.6.1 and newer.
 * Update in all static configs:

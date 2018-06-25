@@ -4,13 +4,12 @@
 
 if [ "${USE_JPEG_TURBO}" != "true" ]
 then
+    echo "[config]   ${CONFIG}"
     echo "[build]    libjpeg-turbo"
     echo "Error! You cannot build package \"libjpeg-turbo\" because"
     echo "USE_JPEG_TURBO variable is not set to \"true\"."
     exit 1
 fi
-
-[ -z "${JPEG_TURBO_VER}" ] && exit 1
 
 (
     PKG=libjpeg-turbo
@@ -20,6 +19,7 @@ fi
     PKG_URL="https://downloads.sourceforge.net/project/${PKG}/${PKG_VERSION}/${PKG_FILE}"
     PKG_DEPS="gcc yasm"
 
+    CheckPkgVersion
     CheckSourcesAndDependencies
 
     if IsBuildRequired

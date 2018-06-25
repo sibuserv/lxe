@@ -2,8 +2,6 @@
 #
 # This file is part of LXE project. See LICENSE file for licensing information.
 
-[ -z "${MESA_VER}" ] && exit 1
-
 (
     PKG=mesa
     PKG_VERSION=${MESA_VER}
@@ -30,6 +28,7 @@
     # libx11-xcb-dev, libxcb-dri2-0-dev, libxcb-xfixes0-dev
     # python, python-libxml2 (for some versions of mesa)
 
+    CheckPkgVersion
     CheckSourcesAndDependencies
 
     if IsBuildRequired

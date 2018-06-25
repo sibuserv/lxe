@@ -2,8 +2,6 @@
 #
 # This file is part of LXE project. See LICENSE file for licensing information.
 
-[ -z "${ASPELL_VER}" ] && exit 1
-
 (
     PKG=aspell
     PKG_VERSION=${ASPELL_VER}
@@ -12,6 +10,7 @@
     PKG_URL="https://ftp.gnu.org/gnu/${PKG}/${PKG_FILE}"
     PKG_DEPS="gcc"
 
+    CheckPkgVersion
     CheckSourcesAndDependencies
 
     if IsBuildRequired

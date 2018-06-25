@@ -2,8 +2,6 @@
 #
 # This file is part of LXE project. See LICENSE file for licensing information.
 
-[ -z "${FREEGLUT_VER}" ] && exit 1
-
 (
     PKG=freeglut
     PKG_VERSION=${FREEGLUT_VER}
@@ -13,6 +11,7 @@
     PKG_DEPS="gcc mesa libxi cmake-settings"
     [ ! -z "${GLU_VER}" ] && PKG_DEPS="${PKG_DEPS} glu"
 
+    CheckPkgVersion
     CheckSourcesAndDependencies
 
     if IsBuildRequired

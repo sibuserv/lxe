@@ -2,8 +2,6 @@
 #
 # This file is part of LXE project. See LICENSE file for licensing information.
 
-[ -z "${FREETYPE_VER}" ] && exit 1
-
 (
     PKG=freetype-stage1
     PKG_VERSION=${FREETYPE_VER}

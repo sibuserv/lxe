@@ -2,8 +2,6 @@
 #
 # This file is part of LXE project. See LICENSE file for licensing information.
 
-[ -z "${LIBXXF86VM_VER}" ] && exit 1
-
 (
     PKG=libxxf86vm
     PKG_VERSION=${LIBXXF86VM_VER}

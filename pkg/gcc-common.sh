@@ -13,6 +13,7 @@
         PKG_URL="ftp://ftp.funet.fi/pub/gnu/prep/gcc/${PKG_SUBDIR_ORIG}/${PKG_FILE}" || \
         PKG_URL="ftp://ftp.funet.fi/pub/gnu/prep/gcc/${PKG_SUBDIR}/${PKG_FILE}"
 
+    CheckPkgVersion
     CheckSourcesAndDependencies
 
     if IsBuildRequired

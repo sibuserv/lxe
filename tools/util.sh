@@ -243,6 +243,16 @@ EndOfPkgBuild()
     echo "[done]     ${PKG}"
 }
 
+CheckPkgVersion()
+{
+    if [ -z "${PKG_VERSION}" ]
+    then
+        echo "Version of package \"${PKG}\" is empty!"
+        echo "Check config for \"${SYSTEM}\"..."
+        exit 1
+    fi
+}
+
 CheckPkgUrl()
 {
     if [ ! -z "${PKG_URL_2}" ]

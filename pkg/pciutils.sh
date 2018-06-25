@@ -2,8 +2,6 @@
 #
 # This file is part of LXE project. See LICENSE file for licensing information.
 
-[ -z "${PCIUTILS_VER}" ] && exit 1
-
 (
     PKG=pciutils
     PKG_VERSION=${PCIUTILS_VER}
@@ -12,6 +10,7 @@
     PKG_URL="https://www.kernel.org/pub/software/utils/pciutils/${PKG_FILE}"
     PKG_DEPS="gcc"
 
+    CheckPkgVersion
     CheckSourcesAndDependencies
 
     if IsBuildRequired

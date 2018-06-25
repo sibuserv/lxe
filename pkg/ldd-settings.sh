@@ -2,8 +2,6 @@
 #
 # This file is part of LXE project. See LICENSE file for licensing information.
 
-[ -z "${GLIBC_VER}" ] && exit 1
-
 (
     PKG=ldd-settings
     PKG_DEPS=

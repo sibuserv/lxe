@@ -2,8 +2,6 @@
 #
 # This file is part of LXE project. See LICENSE file for licensing information.
 
-[ -z "${QCA_VER}" ] && exit 1
-
 (
     PKG=qca
     PKG_VERSION=${QCA_VER}
@@ -14,6 +12,7 @@
     PKG_DEPS="gcc cmake-settings qtbase"
     [ ! -z "${GCC_EXTRA_VER}" ] && PKG_DEPS="${PKG_DEPS} gcc-extra"
 
+    CheckPkgVersion
     CheckSourcesAndDependencies
 
     if IsBuildRequired

@@ -2,8 +2,6 @@
 #
 # This file is part of LXE project. See LICENSE file for licensing information.
 
-[ -z "${LIBXSLT_VER}" ] && exit 1
-
 (
     PKG=libxslt
     PKG_VERSION=${LIBXSLT_VER}
@@ -13,6 +11,7 @@
     PKG_DEPS="gcc pkg-config-settings libxml2"
     #  libgcrypt
 
+    CheckPkgVersion
     CheckSourcesAndDependencies
 
     if IsBuildRequired

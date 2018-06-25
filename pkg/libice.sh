@@ -2,8 +2,6 @@
 #
 # This file is part of LXE project. See LICENSE file for licensing information.
 
-[ -z "${LIBICE_VER}" ] && exit 1
-
 (
     PKG=libice
     PKG_VERSION=${LIBICE_VER}

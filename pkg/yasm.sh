@@ -2,8 +2,6 @@
 #
 # This file is part of LXE project. See LICENSE file for licensing information.
 
-[ -z "${YASM_VER}" ] && exit 1
-
 (
     PKG=yasm
     PKG_VERSION=${YASM_VER}
@@ -12,6 +10,7 @@
     PKG_URL="http://www.tortall.net/projects/${PKG}/releases/${PKG_FILE}"
     PKG_DEPS="gcc"
 
+    CheckPkgVersion
     CheckSourcesAndDependencies
 
     if IsBuildRequired

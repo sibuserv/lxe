@@ -2,8 +2,6 @@
 #
 # This file is part of LXE project. See LICENSE file for licensing information.
 
-[ -z "${LIBXML2_VER}" ] && exit 1
-
 (
     PKG=libxml2
     PKG_VERSION=${LIBXML2_VER}
@@ -12,6 +10,7 @@
     PKG_URL="ftp://xmlsoft.org/${PKG}/${PKG_FILE}"
     PKG_DEPS="gcc pkg-config-settings"
 
+    CheckPkgVersion
     CheckSourcesAndDependencies
 
     if IsBuildRequired

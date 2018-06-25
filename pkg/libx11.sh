@@ -2,8 +2,6 @@
 #
 # This file is part of LXE project. See LICENSE file for licensing information.
 
-[ -z "${LIBX11_VER}" ] && exit 1
-
 (
     PKG=libx11
     PKG_VERSION=${LIBX11_VER}

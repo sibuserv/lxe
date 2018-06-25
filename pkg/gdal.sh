@@ -2,8 +2,6 @@
 #
 # This file is part of LXE project. See LICENSE file for licensing information.
 
-[ -z "${GDAL_VER}" ] && exit 1
-
 (
     PKG=gdal
     PKG_VERSION=${GDAL_VER}
@@ -15,6 +13,7 @@
     [ "${USE_JPEG_TURBO}" = "true" ] && PKG_DEPS="${PKG_DEPS} libjpeg-turbo" || \
                                         PKG_DEPS="${PKG_DEPS} jpeg"
 
+    CheckPkgVersion
     CheckSourcesAndDependencies
 
     if IsBuildRequired

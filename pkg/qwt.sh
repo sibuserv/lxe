@@ -2,8 +2,6 @@
 #
 # This file is part of LXE project. See LICENSE file for licensing information.
 
-[ -z "${QWT_VER}" ] && exit 1
-
 (
     PKG=qwt
     PKG_VERSION=${QWT_VER}
@@ -12,6 +10,7 @@
     PKG_URL="https://sourceforge.net/projects/${PKG}/files/${PKG}/${PKG_VERSION}/${PKG_FILE}"
     PKG_DEPS="qtbase qtsvg"
 
+    CheckPkgVersion
     CheckSourcesAndDependencies
 
     if IsBuildRequired

@@ -2,8 +2,6 @@
 #
 # This file is part of LXE project. See LICENSE file for licensing information.
 
-[ -z "${PTHREADS_VER}" ] && exit 1
-
 (
     PKG=pthreads
     PKG_VERSION=${PTHREADS_VER}
@@ -13,6 +11,7 @@
     PKG_URL="https://xcb.freedesktop.org/dist/${PKG_FILE}"
     PKG_DEPS="glibc"
 
+    CheckPkgVersion
     CheckSourcesAndDependencies
 
     if IsBuildRequired
