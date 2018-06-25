@@ -4,11 +4,6 @@
 
 (
     PKG=cmake-settings
-#    PKG_VERSION=${CMAKE_VER}
-#    PKG_SUBDIR=${PKG}-${PKG_VERSION}
-#    PKG_SUBDIR_ORIG=cmake-${PKG_VERSION}
-#    PKG_FILE=cmake-${PKG_VERSION}.tar.gz
-#    PKG_URL="https://www.cmake.org/files/v${CMAKE_SUBVER}/${PKG_FILE}"
     PKG_DEPS=
 
     if IsBuildRequired
