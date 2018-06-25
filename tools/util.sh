@@ -332,7 +332,7 @@ IsBuildRequired()
 
 IsIgnoredPackage()
 {
-    local IGNORED_PKGS_LIST="jpeg libjpeg-turbo qt4"
+    local IGNORED_PKGS_LIST="jpeg libjpeg-turbo qt4 cmake pkg-config"
 
     for IGNORED_PKG in ${IGNORED_PKGS_LIST}
     do
