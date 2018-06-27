@@ -269,6 +269,7 @@ aaf219667f87d07a216bd30374013f97deea964471d827f7fc15bdc572e227d9  qtgamepad-ever
 3f3b0631b579630bf58e99f3ca0d8dfdb6a44153c63cf90ac9e07041b4b1847f  qtgraphicaleffects-everywhere-src-5.10.1.tar.xz
 d9d27236696221098e832d6fee8c0fbb2834b1670d9ca1e5bf3d0fbc8e5448f3  qtgraphicaleffects-everywhere-src-5.11.1.tar.xz
 ba8f477be1b0675ce36f48530db050d2922b2a0d6ff80c46559245a94aede80a  qtgraphicaleffects-opensource-src-5.4.2.tar.xz
+b492f603197538bc04b2714105b1ab2b327a9a98d400d53d9a7cb70edd2db12f  qtkeychain-0.8.0.tar.gz
 d84dcec7cfbc99a13e048f935783b0c2e1cb540defc82d77ac869a5b76aa85c7  qtlocation-everywhere-src-5.10.0.tar.xz
 5e5cc05517c701a2c8ebba1fbe3ddff2b6b90d5aa554d307b1c477fe0cfd72c9  qtlocation-everywhere-src-5.10.1.tar.xz
 172c9a39e8267739e20d60bda45de3db02b13163245776bdc696d8c5ab5f790f  qtlocation-everywhere-src-5.11.1.tar.xz

@@ -1,7 +1,7 @@
 --- v3.2 (2018-xx-xx) ---
 * Add new native packages: cmake, pkg-config.
-* Add new packages: hunspell, libusb, minizip, pciutils, sysfsutils, udev,
-  usbutils.
+* Add new packages: libusb, pciutils, sysfsutils, udev, usbutils.
+* Add new packages: hunspell, minizip, qtkeychain.
 * Add `make all` target: build all available packages.
 * Add `make download` target: download sources without build of packages.
 * Add support of AstraLinux 1.5 [amd64] (static and shared).

@@ -48,6 +48,11 @@
                                   -no-xkbcommon-evdev" || \
             EXTRA_CONFIGURE_OPTS="${EXTRA_CONFIGURE_OPTS}
                                   -qt-xkbcommon"
+        IsPkgVersionGreaterOrEqualTo "5.5.0" && \
+            EXTRA_CONFIGURE_OPTS="${EXTRA_CONFIGURE_OPTS}
+                                  -dbus-linked" || \
+            EXTRA_CONFIGURE_OPTS="${EXTRA_CONFIGURE_OPTS}
+                                  -dbus"
         ! IsPkgVersionGreaterOrEqualTo "5.7.0" && \
             EXTRA_CONFIGURE_OPTS="${EXTRA_CONFIGURE_OPTS}
                                   -c++11"
@@ -99,7 +104,6 @@
             -no-libudev \
             -no-evdev \
             -no-icu \
-            -no-dbus \
             -no-mtdev \
             -no-journald \
             -no-accessibility \
