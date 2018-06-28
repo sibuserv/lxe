@@ -1,6 +1,6 @@
 --- TODO ---
 ! Add ability to download sources without building of packages.
-* Add packages: qtwebkit, jsoncpp, miniupnpc, gstreamer, gst-plugins-base, lua.
+* Add packages: quazip, jsoncpp, miniupnpc, gstreamer, gst-plugins-base, lua.
 * Add configs for AstraLinux 1.5.
 * Add configs for Ubuntu 16.04.
 * Add configs for Debian 8.
