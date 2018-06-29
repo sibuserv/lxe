@@ -17,7 +17,6 @@
   - OPENSSL_VER from 1.0.2n to 1.0.2o
   - SQLITE_VER from 3.21.0 to 3.23.2
 * Update in all configs:
-  - QT5_VER from 5.10.1 to 5.11.1
   - PROJ_VER from 5.0.0 to 5.1.0
   - OPENSCENEGRAPH_VER from 3.4.1 to 3.6.1
   - FFMPEG_VER from 3.4.2 to 4.0.1
