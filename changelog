@@ -6,6 +6,8 @@
 * Add `make download` target: download sources without build of packages.
 * Add support of AstraLinux 1.5 [amd64] (static and shared).
 * Stop support of AstraLinux 1.2 [amd64] (static and shared).
+* Update package cmake-settings: add CMAKE_SYSTEM_PREFIX_PATH variable with
+  path to Qt5 root directory to cmake toolchain file.
 * Improve GetSources() function: show error message if size of downloaded
   tarball is equal to zero. (Only checksum mismatch was shown earlier.)
 * Use special BuildGlibc() function instead of BuildPkg() as a workaround to
