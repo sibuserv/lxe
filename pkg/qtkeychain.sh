@@ -27,7 +27,6 @@
         SetCrossToolchainVariables "${GCC_EXTRA_VER}"
         SetCrossToolchainPath
         ConfigureCmakeProject \
-            -DCMAKE_SYSTEM_PREFIX_PATH="${SYSROOT}/qt5" \
             -DQTKEYCHAIN_STATIC="${CMAKE_STATIC_BOOL}" \
             -DBUILD_TEST_APPLICATION="OFF"
 
