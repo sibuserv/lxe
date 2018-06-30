@@ -10,8 +10,8 @@
         PKG_FILE=gcc-${PKG_VERSION}.tar.xz || \
         PKG_FILE=gcc-${PKG_VERSION}.tar.bz2
     [ ! -z "${PKG_SUBDIR_ORIG}" ] && \
-        PKG_URL="ftp://ftp.funet.fi/pub/gnu/prep/gcc/${PKG_SUBDIR_ORIG}/${PKG_FILE}" || \
-        PKG_URL="ftp://ftp.funet.fi/pub/gnu/prep/gcc/${PKG_SUBDIR}/${PKG_FILE}"
+        PKG_URL="http://ftp.funet.fi/pub/gnu/prep/gcc/${PKG_SUBDIR_ORIG}/${PKG_FILE}" || \
+        PKG_URL="http://ftp.funet.fi/pub/gnu/prep/gcc/${PKG_SUBDIR}/${PKG_FILE}"
 
     CheckPkgVersion
     CheckSourcesAndDependencies

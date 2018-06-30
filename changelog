@@ -1,11 +1,13 @@
 --- v3.2 (2018-xx-xx) ---
 * Add new native packages: cmake, pkg-config.
 * Add new packages: libusb, pciutils, sysfsutils, udev, usbutils.
-* Add new packages: hunspell, minizip, qtkeychain.
+* Add new packages: hunspell, icu, minizip, qtkeychain, qtwebkit.
 * Add `make all` target: build all available packages.
 * Add `make download` target: download sources without build of packages.
 * Add support of AstraLinux 1.5 [amd64] (static and shared).
 * Stop support of AstraLinux 1.2 [amd64] (static and shared).
+* Update package cmake-settings: add CMAKE_SYSTEM_PREFIX_PATH variable with
+  path to Qt5 root directory to cmake toolchain file.
 * Improve GetSources() function: show error message if size of downloaded
   tarball is equal to zero. (Only checksum mismatch was shown earlier.)
 * Use special BuildGlibc() function instead of BuildPkg() as a workaround to
@@ -17,7 +19,6 @@
   - OPENSSL_VER from 1.0.2n to 1.0.2o
   - SQLITE_VER from 3.21.0 to 3.23.2
 * Update in all configs:
-  - QT5_VER from 5.10.1 to 5.11.1
   - PROJ_VER from 5.0.0 to 5.1.0
   - OPENSCENEGRAPH_VER from 3.4.1 to 3.6.1
   - FFMPEG_VER from 3.4.2 to 4.0.1

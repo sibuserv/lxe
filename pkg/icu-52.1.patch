@@ -1,0 +1,19 @@
+commit a340d25827b788f63b390f68a82c725f13ff6362
+Author: Boris Pek <tehnick-8@yandex.ru>
+Date:   Sat Jun 29 00:52:19 2018 +0300
+
+    Do not install license file
+
+diff --git a/source/Makefile.in b/source/Makefile.in
+index c24948a..d6884d3 100644
+--- a/source/Makefile.in
++++ b/source/Makefile.in
+@@ -173,7 +173,7 @@ install-icu: $(INSTALLED_BUILT_FILES)
+ 	$(INSTALL_SCRIPT) $(top_srcdir)/install-sh $(DESTDIR)$(pkgdatadir)/install-sh
+ 	@$(MKINSTALLDIRS) $(DESTDIR)$(libdir)/pkgconfig
+ 	$(INSTALL_DATA) $(ALL_PKGCONFIG_FILES) $(DESTDIR)$(libdir)/pkgconfig/
+-	$(INSTALL_DATA) $(top_srcdir)/../license.html $(DESTDIR)$(pkgdatadir)/license.html
++#	$(INSTALL_DATA) $(top_srcdir)/../license.html $(DESTDIR)$(pkgdatadir)/license.html
+ 	$(INSTALL_SCRIPT) $(top_builddir)/config/icu-config $(DESTDIR)$(bindir)/icu-config
+ 	$(INSTALL_DATA) $(top_builddir)/config/Makefile.inc $(DESTDIR)$(pkglibdir)/Makefile.inc
+ 	$(INSTALL_DATA) $(top_builddir)/config/pkgdata.inc $(DESTDIR)$(pkglibdir)/pkgdata.inc
