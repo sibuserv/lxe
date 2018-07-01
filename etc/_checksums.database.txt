@@ -325,6 +325,7 @@ c22c449fecb052597d12f8dd59498db39767037f9098123f3defc04eb20a3764  qtwebchannel-e
 b9a476af15ae0c68a930f0b0aa8d988b8dc3e63c3d2134abebbf2148d6942e87  qtwebchannel-everywhere-src-5.11.1.tar.xz
 56e3a75b67cb512b2a1e212590fff43e7b648515cda1d673e44139f896fcc16f  qtwebchannel-opensource-src-5.4.2.tar.xz
 3efc28662d1a793a3f756b38c05a33df70ed341c74d4e505670e02e81bc3eca5  qtwebkit-bd0657f9.tar.gz
+e4be25c15d126055af7e9243f8ac65f25785bd4b8322e9f1f0af483bc6552805  qtwebkit-ea590d7.tar.gz
 17ab0fa22007e5485bf98cb5fef5387628274548d5e96923f45d097838f49403  qtwebsockets-everywhere-src-5.10.0.tar.xz
 6ecf790955ffe42dce731e10557f4ba625e359e867953d73f7fb453c0bad53ea  qtwebsockets-everywhere-src-5.10.1.tar.xz
 7aaa12f719e853a195a670ff51697b73914e37c94ed2216d53a2d9e0861748ae  qtwebsockets-everywhere-src-5.11.1.tar.xz

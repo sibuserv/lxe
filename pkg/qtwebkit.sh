@@ -8,7 +8,7 @@
     PKG_SUBDIR=${PKG}-${PKG_VERSION}
     PKG_SUBDIR_ORIG=${PKG}-${QTWEBKIT_GIT_VER}
     PKG_FILE=${PKG}-${PKG_VERSION}.tar.gz
-    PKG_URL="https://github.com/qt/qtwebkit/archive/${PKG_VERSION}.tar.gz"
+    PKG_URL="https://github.com/qt/qtwebkit/archive/${QTWEBKIT_GIT_VER}.tar.gz"
     PKG_DEPS="gcc cmake-settings icu sqlite qtbase qtmultimedia qtquickcontrols"
     [ ! -z "${GCC_EXTRA_VER}" ] && PKG_DEPS="${PKG_DEPS} gcc-extra"
 
