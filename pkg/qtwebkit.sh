@@ -17,18 +17,6 @@
 
     if IsBuildRequired
     then
-        # Temporary workaround until static build is fixed:
-        if IsStaticPackage
-        then
-            CheckDependencies
-
-            date -R > "${INST_DIR}/${PKG}"
-            echo "[config]   ${CONFIG}"
-            echo "[no-build] ${PKG}"
-
-            exit 0
-        fi
-
         PrintSystemInfo
         BeginOfPkgBuild
         UnpackSources
