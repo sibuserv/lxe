@@ -68,14 +68,30 @@ then
     exit 0
 elif [ "${1}" = "clean" ] && [ -z "${2}" ]
 then
-    echo "rm -rf \"${MAIN_DIR}/dist\""
-    rm -rf "${MAIN_DIR}/dist"
+    read -p "Do you wish to delete all files from \"dist\" subdirectory? [y/N] " REPLY
+    case "${REPLY}" in
+    "y" | "Y" | "yes" | "Yes")
+        echo "rm -rf \"${MAIN_DIR}/dist\""
+        rm -rf "${MAIN_DIR}/dist"
+    ;;
+    *)
+        echo "Aborted."
+    ;;
+    esac
     exit 0
 elif [ "${1}" = "distclean" ] && [ -z "${2}" ]
 then
     "${MAIN_DIR}/make.sh" clean
-    echo "rm -rf \"${MAIN_DIR}/src\""
-    rm -rf "${MAIN_DIR}/src"
+    read -p "Do you wish to delete all files from \"src\" subdirectory? [y/N] " REPLY
+    case "${REPLY}" in
+    "y" | "Y" | "yes" | "Yes")
+        echo "rm -rf \"${MAIN_DIR}/src\""
+        rm -rf "${MAIN_DIR}/src"
+    ;;
+    *)
+        echo "Aborted."
+    ;;
+    esac
     exit 0
 elif [ "${1}" = "download" ]
 then

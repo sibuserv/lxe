@@ -1,4 +1,4 @@
---- v3.2 (2018-xx-xx) ---
+--- v3.2 (2018-07-07) ---
 * Add new native packages: cmake, pkg-config.
 * Add new packages: libusb, pciutils, sysfsutils, udev, usbutils.
 * Add new packages: hunspell, icu, minizip, qtkeychain, qtwebkit.
@@ -6,6 +6,8 @@
 * Add `make download` target: download sources without build of packages.
 * Add support of AstraLinux 1.5 [amd64] (static and shared).
 * Stop support of AstraLinux 1.2 [amd64] (static and shared).
+* Make `make clean` and `make distclean` targets interactive: user should
+  explicitly confirm massive file deletion.
 * Update package cmake-settings: add CMAKE_SYSTEM_PREFIX_PATH variable with
   path to Qt5 root directory to cmake toolchain file.
 * Improve GetSources() function: show error message if size of downloaded
