@@ -1,4 +1,4 @@
---- v3.2 (2018-xx-xx) ---
+--- v3.2 (2018-07-07) ---
 * Add new native packages: cmake, pkg-config.
 * Add new packages: libusb, pciutils, sysfsutils, udev, usbutils.
 * Add new packages: hunspell, icu, minizip, qtkeychain, qtwebkit.
