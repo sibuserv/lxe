@@ -123,7 +123,7 @@ ICU_VER=4.0.1
 
 
 ### Developer libraries ###
-PROTOBUF_VER=3.5.1
+PROTOBUF_VER=3.6.1
 BOOST_VER=1.65.0
 
 FREEGLUT_VER=2.6.0

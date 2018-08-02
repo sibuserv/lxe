@@ -1,3 +1,7 @@
+--- v3.3 (2018-xx-xx) ---
+* Update in all configs:
+  - PROTOBUF_VER from 3.5.1 to 3.6.1
+
 --- v3.2 (2018-07-07) ---
 * Add new native packages: cmake, pkg-config.
 * Add new packages: libusb, pciutils, sysfsutils, udev, usbutils.
