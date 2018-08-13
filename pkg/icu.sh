@@ -25,6 +25,7 @@
         SetCrossToolchainPath
         SetCrossToolchainVariables
 
+        # Native build
         cd "${PKG_SRC_DIR}"
         cp -aT "${PKG_SUBDIR_ORIG}/source" "${PKG_SUBDIR}"
         cp -aT "${PKG_SUBDIR_ORIG}/source" "${PKG_SUBDIR}-native-build"
@@ -32,12 +33,13 @@
         unset PKG_SUBDIR_ORIG
 
         PKG_SUBDIR=${PKG}-${PKG_VERSION}-native-build
-        mkdir -p "${BUILD_DIR}/${PKG_SUBDIR}"
+        PrepareBuild
         ConfigurePkg \
             --prefix="${PREFIX}" \
             --enable-static \
             --disable-shared
         BuildPkg -j ${JOBS}
+        # End of native build
 
         PKG_SUBDIR=${PKG}-${PKG_VERSION}
         ConfigureAutotoolsProject \

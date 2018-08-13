@@ -21,6 +21,26 @@
         UnpackSources
         PrepareBuild
 
+        # Native build
+        cd "${PKG_SRC_DIR}"
+        cp -aT "${PKG_SUBDIR}" "${PKG_SUBDIR}-native-build"
+
+        PKG_SUBDIR=${PKG}-${PKG_VERSION}-native-build
+        PrepareBuild
+
+        SetBuildFlags
+        SetSystemPath
+        UnsetCrossToolchainVariables
+        ConfigurePkg \
+            --prefix="${PREFIX}" \
+            --enable-static \
+            --disable-shared
+        BuildPkg -j ${JOBS}
+
+        cp -a "${BUILD_DIR}/${PKG_SUBDIR}/src/protoc" "${PREFIX}/bin/"
+        CleanPkgBuildDir
+        # End of native build
+
         SetBuildFlags "${GCC_EXTRA_VER}"
         UpdateGCCSymlinks "${GCC_EXTRA_VER}"
         SetCrossToolchainVariables "${GCC_EXTRA_VER}"
@@ -32,6 +52,8 @@
             ./autogen.sh &>> "${LOG_DIR}/${PKG_SUBDIR}/configure.log"
             CheckFail "${LOG_DIR}/${PKG_SUBDIR}/configure.log"
         fi
+
+        PKG_SUBDIR=${PKG}-${PKG_VERSION}
         ConfigureAutotoolsProject \
             --with-zlib
 
