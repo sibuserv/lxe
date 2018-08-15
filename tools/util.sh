@@ -651,20 +651,14 @@ ProcessStandardAutotoolsProjectInBuildDir()
 
 CleanPkgSrcDir()
 {
-    if [ "${CLEAN_SRC_DIR}" = "true" ]
-    then
-        [ -z "${PKG_SUBDIR_ORIG}" ] && \
-            rm -rf "${PKG_SRC_DIR}/${PKG_SUBDIR}" || \
-            rm -rf "${PKG_SRC_DIR}/${PKG_SUBDIR_ORIG}"
-    fi
+    [ -z "${PKG_SUBDIR_ORIG}" ] && \
+        rm -rf "${PKG_SRC_DIR}/${PKG_SUBDIR}" || \
+        rm -rf "${PKG_SRC_DIR}/${PKG_SUBDIR_ORIG}"
 }
 
 CleanPkgBuildDir()
 {
-    if [ "${CLEAN_BUILD_DIR}" = "true" ]
-    then
-        rm -rf "${BUILD_DIR}/${PKG_SUBDIR}"
-    fi
+    rm -rf "${BUILD_DIR}/${PKG_SUBDIR}"
 }
 
 DeleteExtraFiles()

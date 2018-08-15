@@ -42,12 +42,6 @@ LOCAL_PKG_LIST="cmake-settings ldd-settings freeglut sdl2 qtbase qtconnectivity
 #                  openscenegraph osgearth x264 ffmpeg libfcgi"
 # STATIC_PKG_LIST="qtbase"
 
-# Delete unpacked source files after successful build of the package (true/false):
-CLEAN_SRC_DIR=true
-
-# Delete files from "build/" sub-directory after successful build of the package (true/false):
-CLEAN_BUILD_DIR=true
-
 # Override or add extra settings:
 EXTRA_SETTINGS_FILE=$(ls "${MAIN_DIR}"/settings.sh.* 2> /dev/null | sort -V | tail -n1)
 [ ! -z "${EXTRA_SETTINGS_FILE}" ] && . "${EXTRA_SETTINGS_FILE}" || true
