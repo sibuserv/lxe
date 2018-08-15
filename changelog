@@ -1,6 +1,8 @@
 --- v3.3 (2018-xx-xx) ---
 * Delete extra variables CLEAN_SRC_DIR and CLEAN_BUILD_DIR from settings file.
 * Update package protobuf: make also binary executable for host system.
+* Update package gcc-extra: add permanent symlinks for executable files:
+  c++, cpp, g++, gcc, gcc-ar, gcc-nm, gcc-ranlib, gcov, gcov-tool.
 * Update in all (supported) configs:
   - PROTOBUF_VER from 3.5.1 to 3.6.1
   - OPENSCENEGRAPH_VER from 3.6.1 to 3.6.2
