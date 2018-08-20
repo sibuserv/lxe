@@ -1,0 +1,43 @@
+Description: Disable ffmpeg
+ OpenSceneGraph is using removed features of ffmpeg, which have
+ been deprecated for 3+ years.
+Origin: http://forum.openscenegraph.org/viewtopic.php?t=10485
+Bug: https://github.com/mxe/mxe/issues/1230
+Last-Update: 2018-06-09
+
+
+diff --git a/src/osgPlugins/CMakeLists.txt b/src/osgPlugins/CMakeLists.txt
+index 1111111..2222222 100644
+--- a/src/osgPlugins/CMakeLists.txt
++++ b/src/osgPlugins/CMakeLists.txt
+@@ -217,10 +217,6 @@ IF(XINE_FOUND)
+     ADD_PLUGIN_DIRECTORY(xine)
+ ENDIF()
+ 
+-IF(FFMPEG_FOUND AND OSG_CPP_EXCEPTIONS_AVAILABLE)
+-    ADD_PLUGIN_DIRECTORY(ffmpeg)
+-ENDIF()
+-
+ IF(GSTREAMER_FOUND AND GLIB_FOUND)
+     ADD_PLUGIN_DIRECTORY(gstreamer)
+ ENDIF()
+
+
+
+From: Boris Pek <tehnick-8@yandex.ru>
+Date: Sat Jun 9 00:57:36 2018 +0300
+Subject: Fix cross-compilation
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 82816f5..eb13e4d 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -323,7 +323,7 @@ ENDIF()
+ 
+ INCLUDE_DIRECTORIES(${OpenSceneGraph_SOURCE_DIR}/include/)
+ 
+-INCLUDE_DIRECTORIES(SYSTEM ${OPENGL_INCLUDE_DIR})
++INCLUDE_DIRECTORIES(${OPENGL_INCLUDE_DIR})
+ 
+ # Common global definitions
+ #ADD_DEFINITIONS(-D)

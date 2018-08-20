@@ -7,7 +7,7 @@
     PKG_VERSION=${BZIP2_VER}
     PKG_SUBDIR=${PKG}-${PKG_VERSION}
     PKG_FILE=${PKG}-${PKG_VERSION}.tar.gz
-    PKG_URL="http://www.bzip.org/${PKG_VERSION}/${PKG_FILE}"
+    PKG_URL="https://web.archive.org/web/20180801004107/http://www.bzip.org/${PKG_VERSION}/${PKG_FILE}"
     PKG_DEPS="gcc"
 
     CheckPkgVersion

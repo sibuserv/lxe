@@ -19,11 +19,6 @@
         PrintSystemInfo
         BeginOfPkgBuild
         UnpackSources
-        PrepareBuild
-
-        SetBuildFlags
-        SetCrossToolchainPath
-        SetCrossToolchainVariables
 
         cd "${PKG_SRC_DIR}"
         cp -aT "${PKG_SUBDIR_ORIG}/source" "${PKG_SUBDIR}"
@@ -31,15 +26,26 @@
         rm -rf "${PKG_SUBDIR_ORIG}"
         unset PKG_SUBDIR_ORIG
 
+        # Native build
         PKG_SUBDIR=${PKG}-${PKG_VERSION}-native-build
-        mkdir -p "${BUILD_DIR}/${PKG_SUBDIR}"
+        PrepareBuild
+
+        SetBuildFlags
+        SetSystemPath
+        UnsetCrossToolchainVariables
         ConfigurePkg \
             --prefix="${PREFIX}" \
             --enable-static \
             --disable-shared
         BuildPkg -j ${JOBS}
+        # End of native build
 
         PKG_SUBDIR=${PKG}-${PKG_VERSION}
+        PrepareBuild
+
+        SetBuildFlags
+        SetCrossToolchainPath
+        SetCrossToolchainVariables
         ConfigureAutotoolsProject \
             --with-cross-build="${BUILD_DIR}/${PKG_SUBDIR}-native-build"
         BuildPkg -j ${JOBS} VERBOSE=1

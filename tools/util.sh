@@ -112,6 +112,30 @@ UpdateGCCSymlinks()
     done
 }
 
+PermanentGCCSymlinks()
+{
+    if [ -z "${1}" ] || [ -z "${1}" ]
+    then
+        echo "Function PermanentGCCSymlinks() requires two arguments."
+        exit 1
+    fi
+
+    local GCC_CURRENT_VER=${1}
+    local GCC_SUFFIX=${2}
+    local FILE=""
+
+    cd "${PREFIX}/bin"
+    for N in c++ cpp g++ gcc gcc-ar gcc-nm gcc-ranlib gcov gcov-tool
+    do
+        FILE="${N}-${GCC_CURRENT_VER}"
+        if [ -e "${FILE}" ]
+        then
+            ln -sf "${FILE}" "${N}-${GCC_SUFFIX}"
+            ln -sf "${FILE}" "${TARGET}-${N}-${GCC_SUFFIX}"
+        fi
+    done
+}
+
 DeleteGCCSymlinks()
 {
     cd "${PREFIX}/bin"
@@ -651,20 +675,14 @@ ProcessStandardAutotoolsProjectInBuildDir()
 
 CleanPkgSrcDir()
 {
-    if [ "${CLEAN_SRC_DIR}" = "true" ]
-    then
-        [ -z "${PKG_SUBDIR_ORIG}" ] && \
-            rm -rf "${PKG_SRC_DIR}/${PKG_SUBDIR}" || \
-            rm -rf "${PKG_SRC_DIR}/${PKG_SUBDIR_ORIG}"
-    fi
+    [ -z "${PKG_SUBDIR_ORIG}" ] && \
+        rm -rf "${PKG_SRC_DIR}/${PKG_SUBDIR}" || \
+        rm -rf "${PKG_SRC_DIR}/${PKG_SUBDIR_ORIG}"
 }
 
 CleanPkgBuildDir()
 {
-    if [ "${CLEAN_BUILD_DIR}" = "true" ]
-    then
-        rm -rf "${BUILD_DIR}/${PKG_SUBDIR}"
-    fi
+    rm -rf "${BUILD_DIR}/${PKG_SUBDIR}"
 }
 
 DeleteExtraFiles()

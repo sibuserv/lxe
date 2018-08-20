@@ -19,13 +19,36 @@
         PrintSystemInfo
         BeginOfPkgBuild
         UnpackSources
+
+        cd "${PKG_SRC_DIR}"
+        cp -aT "${PKG_SUBDIR}" "${PKG_SUBDIR}-native-build"
+
+        # Native build
+        PKG_SUBDIR=${PKG}-${PKG_VERSION}-native-build
+        PrepareBuild
+
+        SetBuildFlags
+        SetSystemPath
+        UnsetCrossToolchainVariables
+        ConfigurePkg \
+            --prefix="${PREFIX}" \
+            --enable-static \
+            --disable-shared
+
+        BuildPkg -j ${JOBS}
+        cp -a "${BUILD_DIR}/${PKG_SUBDIR}/src/protoc" "${PREFIX}/bin/"
+
+        CleanPkgBuildDir
+        CleanPkgSrcDir
+        # End of native build
+
+        PKG_SUBDIR=${PKG}-${PKG_VERSION}
         PrepareBuild
 
         SetBuildFlags "${GCC_EXTRA_VER}"
         UpdateGCCSymlinks "${GCC_EXTRA_VER}"
         SetCrossToolchainVariables "${GCC_EXTRA_VER}"
         SetCrossToolchainPath
-
         if IsVer1GreaterOrEqualToVer2 "${LIBTOOL_VER}" "2.4.2"
         then
             cd "${PKG_SRC_DIR}/${PKG_SUBDIR}"

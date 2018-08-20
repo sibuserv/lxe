@@ -17,3 +17,45 @@ index b2492a6..9c03e7b 100644
  	$(INSTALL_SCRIPT) $(top_builddir)/config/icu-config $(DESTDIR)$(bindir)/icu-config
  	$(INSTALL_DATA) $(top_builddir)/config/Makefile.inc $(DESTDIR)$(pkglibdir)/Makefile.inc
  	cd $(DESTDIR)$(pkglibdir)/..; \
+
+
+commit 3c1d4c9532089517ea1de97d53e788628b8d45f6
+Author: Boris Pek <tehnick-8@yandex.ru>
+Date:   Wed Aug 15 19:20:18 2018 +0300
+
+    Disable build of tools/genuca
+
+diff --git a/source/configure b/source/configure
+index 8f1cc2c..0b35d8c 100755
+--- a/source/configure
++++ b/source/configure
+@@ -8415,7 +8415,7 @@ then
+     CXXFLAGS="$CXXFLAGS \$(THREADSCXXFLAGS)"
+ fi
+ 
+-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              ac_config_files="$ac_config_files icudefs.mk Makefile data/icupkg.inc config/Makefile.inc data/Makefile stubdata/Makefile common/Makefile i18n/Makefile layout/Makefile layoutex/Makefile io/Makefile extra/Makefile extra/uconv/Makefile extra/scrptrun/Makefile tools/Makefile tools/ctestfw/Makefile tools/toolutil/Makefile tools/makeconv/Makefile tools/genrb/Makefile tools/genuca/Makefile tools/genccode/Makefile tools/gencmn/Makefile tools/gencnval/Makefile tools/genctd/Makefile tools/gennames/Makefile tools/gentest/Makefile tools/gennorm/Makefile tools/genprops/Makefile tools/gencase/Makefile tools/genbidi/Makefile tools/genpname/Makefile tools/genbrk/Makefile tools/gensprep/Makefile tools/icupkg/Makefile tools/icuswap/Makefile tools/pkgdata/Makefile tools/tzcode/Makefile test/Makefile test/compat/Makefile test/testdata/Makefile test/testdata/pkgdata.inc test/hdrtst/Makefile test/intltest/Makefile test/cintltst/Makefile test/iotest/Makefile test/letest/Makefile test/perf/Makefile test/perf/collationperf/Makefile test/perf/ubrkperf/Makefile test/perf/charperf/Makefile test/perf/convperf/Makefile test/perf/normperf/Makefile test/perf/strsrchperf/Makefile test/perf/unisetperf/Makefile test/perf/usetperf/Makefile test/perf/ustrperf/Makefile test/perf/utfperf/Makefile samples/Makefile samples/date/Makefile samples/cal/Makefile samples/layout/Makefile common/unicode/platform.h"
++                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              ac_config_files="$ac_config_files icudefs.mk Makefile data/icupkg.inc config/Makefile.inc data/Makefile stubdata/Makefile common/Makefile i18n/Makefile layout/Makefile layoutex/Makefile io/Makefile extra/Makefile extra/uconv/Makefile extra/scrptrun/Makefile tools/Makefile tools/ctestfw/Makefile tools/toolutil/Makefile tools/makeconv/Makefile tools/genrb/Makefile tools/genccode/Makefile tools/gencmn/Makefile tools/gencnval/Makefile tools/genctd/Makefile tools/gennames/Makefile tools/gentest/Makefile tools/gennorm/Makefile tools/genprops/Makefile tools/gencase/Makefile tools/genbidi/Makefile tools/genpname/Makefile tools/genbrk/Makefile tools/gensprep/Makefile tools/icupkg/Makefile tools/icuswap/Makefile tools/pkgdata/Makefile tools/tzcode/Makefile test/Makefile test/compat/Makefile test/testdata/Makefile test/testdata/pkgdata.inc test/hdrtst/Makefile test/intltest/Makefile test/cintltst/Makefile test/iotest/Makefile test/letest/Makefile test/perf/Makefile test/perf/collationperf/Makefile test/perf/ubrkperf/Makefile test/perf/charperf/Makefile test/perf/convperf/Makefile test/perf/normperf/Makefile test/perf/strsrchperf/Makefile test/perf/unisetperf/Makefile test/perf/usetperf/Makefile test/perf/ustrperf/Makefile test/perf/utfperf/Makefile samples/Makefile samples/date/Makefile samples/cal/Makefile samples/layout/Makefile common/unicode/platform.h"
+ cat >confcache <<\_ACEOF
+ # This file is a shell script that caches the results of configure
+ # tests run on this system so they can be shared between configure
+@@ -8960,7 +8960,6 @@ do
+   "tools/toolutil/Makefile" ) CONFIG_FILES="$CONFIG_FILES tools/toolutil/Makefile" ;;
+   "tools/makeconv/Makefile" ) CONFIG_FILES="$CONFIG_FILES tools/makeconv/Makefile" ;;
+   "tools/genrb/Makefile" ) CONFIG_FILES="$CONFIG_FILES tools/genrb/Makefile" ;;
+-  "tools/genuca/Makefile" ) CONFIG_FILES="$CONFIG_FILES tools/genuca/Makefile" ;;
+   "tools/genccode/Makefile" ) CONFIG_FILES="$CONFIG_FILES tools/genccode/Makefile" ;;
+   "tools/gencmn/Makefile" ) CONFIG_FILES="$CONFIG_FILES tools/gencmn/Makefile" ;;
+   "tools/gencnval/Makefile" ) CONFIG_FILES="$CONFIG_FILES tools/gencnval/Makefile" ;;
+diff --git a/source/tools/Makefile.in b/source/tools/Makefile.in
+index da7c907..91f67cd 100644
+--- a/source/tools/Makefile.in
++++ b/source/tools/Makefile.in
+@@ -13,7 +13,7 @@ include $(top_builddir)/icudefs.mk
+ ## Build directory information
+ subdir = tools
+ 
+-SUBDIRS = toolutil ctestfw makeconv genrb genuca genbrk genctd \
++SUBDIRS = toolutil ctestfw makeconv genrb genbrk genctd \
+ gennames genpname gencnval gensprep genccode gencmn icupkg pkgdata \
+ gentest genprops gencase genbidi gennorm icuswap
+ 

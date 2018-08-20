@@ -46,6 +46,11 @@
         UpdateGCCSymlinks "${PKG_VERSION}"
         UpdateGCCSymlinks "${GCC_VER}"
 
+        if [ "${PKG}" = "gcc-extra" ]
+        then
+            PermanentGCCSymlinks "${GCC_EXTRA_VER}" "extra"
+        fi
+
         DIR="${SYSROOT}/usr/lib/gcc/${TARGET}"
         mv -f "${DIR}"/lib*/* "${DIR}/${PKG_VERSION}/" 2> /dev/null
         rmdir "${DIR}"/lib* 2> /dev/null

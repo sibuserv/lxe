@@ -1,3 +1,16 @@
+--- v3.3 (2018-xx-xx) ---
+* Delete extra variables CLEAN_SRC_DIR and CLEAN_BUILD_DIR from settings file.
+* Update package protobuf: make also binary executable for host system.
+* Update package gcc-extra: add permanent symlinks for executable files:
+  c++, cpp, g++, gcc, gcc-ar, gcc-nm, gcc-ranlib, gcov, gcov-tool.
+* Update package bzip2: use web.archive.org in PKG_URL because www.bzip.org
+  website is dead.
+* Update in all static configs:
+  - OPENSSL_VER from 1.0.2o to 1.0.2p
+* Update in all (supported) configs:
+  - PROTOBUF_VER from 3.5.1 to 3.6.1
+  - OPENSCENEGRAPH_VER from 3.6.1 to 3.6.2
+
 --- v3.2 (2018-07-07) ---
 * Add new native packages: cmake, pkg-config.
 * Add new packages: libusb, pciutils, sysfsutils, udev, usbutils.
