@@ -12,6 +12,7 @@
   - PROTOBUF_VER from 3.5.1 to 3.6.1
   - OPENSCENEGRAPH_VER from 3.6.1 to 3.6.2
   - QTKEYCHAIN_VER from 0.8.0 to 0.9.1
+  - QT5_VER from 5.10.1 to 5.11.1
   - X264_VER from 20161130-2245 to 20180806-2245
   - FFMPEG_VER from 4.0.1 to 4.0.2
 
