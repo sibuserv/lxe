@@ -32,7 +32,7 @@ JOBS=$(nproc 2>/dev/null || echo 1)
 
 # Default list of packages:
 # LOCAL_PKG_LIST="gcc pkg-config-settings cmake-settings ldd-settings"
-# TODO: gstreamer gst-plugins-base lua
+# TODO: pcre2 lua gstreamer gst-plugins-base
 LOCAL_PKG_LIST="cmake-settings ldd-settings boost aspell hunspell libidn minizip
                 miniupnpc tidy-html5 libotr libsignal-protocol-c qtbase qttools
                 qtx11extras qtmultimedia qca qtkeychain qtwebkit"
