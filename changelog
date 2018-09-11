@@ -1,5 +1,5 @@
 --- v3.3 (2018-09-xx) ---
-* Add new package: miniupnpc.
+* Add new packages: miniupnpc, pcre2.
 * Delete extra variables CLEAN_SRC_DIR and CLEAN_BUILD_DIR from settings file.
 * Update package protobuf: make also binary executable for host system.
 * Update package gcc-extra: add permanent symlinks for executable files:
