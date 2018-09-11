@@ -1,6 +1,7 @@
 --- v3.3 (2018-09-xx) ---
-* Add new package: miniupnpc.
+* Add new packages: miniupnpc, pcre2.
 * Delete extra variables CLEAN_SRC_DIR and CLEAN_BUILD_DIR from settings file.
+* Update package qtbase: build with system pcre2 library.
 * Update package protobuf: make also binary executable for host system.
 * Update package gcc-extra: add permanent symlinks for executable files:
   c++, cpp, g++, gcc, gcc-ar, gcc-nm, gcc-ranlib, gcov, gcov-tool.
@@ -8,6 +9,7 @@
   website is dead.
 * Update in all static configs:
   - OPENSSL_VER from 1.0.2o to 1.0.2p
+  - CURL_VER from 7.57.0 to 7.61.1
 * Update in all (supported) configs:
   - GCC_EXTRA_VER from 6.4.0 to 8.2.0
   - PROTOBUF_VER from 3.5.1 to 3.6.1
