@@ -1,10 +1,7 @@
 --- TODO ---
-! Add ability to download sources without building of packages.
-* Add packages: quazip, jsoncpp, miniupnpc, gstreamer, gst-plugins-base, lua.
-* Add configs for AstraLinux 1.5.
-* Add configs for Ubuntu 16.04.
-* Add configs for Debian 8.
+* Add packages: quazip, jsoncpp, gstreamer, gst-plugins-base.
+* Add configs for Ubuntu 16.04 and Ubuntu 18.04.
+* Add configs for Debian 8 and Debian 9.
 * Add package clang-extra and cmake toolchain file for builds using Clang.
 ! Use firejail for sandboxing of build tools.
 ? Rewrite project from bash scripts to make files.
-
