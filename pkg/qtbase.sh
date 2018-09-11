@@ -16,7 +16,7 @@
     fi
     PKG_URL="https://download.qt.io/archive/qt/${QT5_SUBVER}/${QT5_VER}/submodules/${PKG_FILE}"
     PKG_DEPS="gcc pkg-config-settings zlib libpng freetype fontconfig openssl
-              sqlite libxcb libx11 libxext libxi libxrender libxrandr mesa"
+              sqlite pcre2 libxcb libx11 libxext libxi libxrender libxrandr mesa"
     [ "${USE_JPEG_TURBO}" = "true" ] && PKG_DEPS="${PKG_DEPS} libjpeg-turbo" || \
                                         PKG_DEPS="${PKG_DEPS} jpeg"
     [ ! -z "${GCC_EXTRA_VER}" ] && PKG_DEPS="${PKG_DEPS} gcc-extra"
@@ -86,6 +86,7 @@
             -system-libjpeg \
             -system-sqlite \
             -system-freetype \
+            -system-pcre \
             -fontconfig \
             -openssl-linked \
             -no-kms \
