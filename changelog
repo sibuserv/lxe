@@ -1,4 +1,4 @@
---- v3.3 (2018-09-xx) ---
+--- v3.3 (2018-09-13) ---
 * Add new packages: lua, miniupnpc, pcre2.
 * Delete extra variables CLEAN_SRC_DIR and CLEAN_BUILD_DIR from settings file.
 * Update package qtbase: build with system pcre2 library.
