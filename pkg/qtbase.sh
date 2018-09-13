@@ -15,7 +15,7 @@
         PKG_FILE=${PKG}-opensource-src-${PKG_VERSION}.tar.xz
     fi
     PKG_URL="https://download.qt.io/archive/qt/${QT5_SUBVER}/${QT5_VER}/submodules/${PKG_FILE}"
-    PKG_DEPS="gcc pkg-config-settings zlib libpng freetype fontconfig openssl
+    PKG_DEPS="gcc pkg-config-settings zlib libpng giflib freetype fontconfig openssl
               sqlite pcre2 libxcb libx11 libxext libxi libxrender libxrandr mesa"
     [ "${USE_JPEG_TURBO}" = "true" ] && PKG_DEPS="${PKG_DEPS} libjpeg-turbo" || \
                                         PKG_DEPS="${PKG_DEPS} jpeg"
@@ -39,26 +39,27 @@
             LIB_TYPE_OPTS="-static" || \
             LIB_TYPE_OPTS="-shared"
         export LD=${CROSS_COMPILE}g++
+
         [ -z "${HARFBUZZ_VER}" ] && \
-            EXTRA_CONFIGURE_OPTS="${EXTRA_CONFIGURE_OPTS}
+            EXTRA_CONFIGURE_OPTS="${EXTRA_CONFIGURE_OPTS} \
                                   -no-harfbuzz"
         IsPkgVersionGreaterOrEqualTo "5.5.0" && \
-            EXTRA_CONFIGURE_OPTS="${EXTRA_CONFIGURE_OPTS}
-                                  -qt-xkbcommon-x11
+            EXTRA_CONFIGURE_OPTS="${EXTRA_CONFIGURE_OPTS} \
+                                  -qt-xkbcommon-x11 \
                                   -no-xkbcommon-evdev" || \
-            EXTRA_CONFIGURE_OPTS="${EXTRA_CONFIGURE_OPTS}
+            EXTRA_CONFIGURE_OPTS="${EXTRA_CONFIGURE_OPTS} \
                                   -qt-xkbcommon"
-        IsPkgVersionGreaterOrEqualTo "5.5.0" && \
-            EXTRA_CONFIGURE_OPTS="${EXTRA_CONFIGURE_OPTS}
-                                  -dbus-linked" || \
-            EXTRA_CONFIGURE_OPTS="${EXTRA_CONFIGURE_OPTS}
-                                  -dbus"
         ! IsPkgVersionGreaterOrEqualTo "5.7.0" && \
-            EXTRA_CONFIGURE_OPTS="${EXTRA_CONFIGURE_OPTS}
+            EXTRA_CONFIGURE_OPTS="${EXTRA_CONFIGURE_OPTS} \
                                   -c++11"
         ! IsPkgVersionGreaterOrEqualTo "5.7.1" && \
-            EXTRA_CONFIGURE_OPTS="${EXTRA_CONFIGURE_OPTS}
+            EXTRA_CONFIGURE_OPTS="${EXTRA_CONFIGURE_OPTS} \
                                   -no-nis"
+        ! IsPkgVersionGreaterOrEqualTo "5.11.0" && \
+            EXTRA_CONFIGURE_OPTS="${EXTRA_CONFIGURE_OPTS} \
+                                  -no-qml-debug \
+                                  -no-pulseaudio \
+                                  -no-alsa"
         export OPENSSL_LIBS="$(${TARGET}-pkg-config --libs-only-l openssl)"
         ConfigurePkg \
             -xplatform "linux-g++-${SYSTEM}" \
@@ -78,7 +79,6 @@
             -nomake examples \
             -nomake tests \
             -plugin-sql-sqlite \
-            -pch \
             -qt-pcre \
             -qt-xcb \
             -system-zlib \
@@ -89,6 +89,13 @@
             -system-pcre \
             -fontconfig \
             -openssl-linked \
+            -accessibility \
+            -no-compile-examples \
+            -no-optimized-qmake \
+            -no-use-gold-linker \
+            -no-pch \
+            -no-rpath \
+            -no-cups \
             -no-kms \
             -no-egl \
             -no-eglfs \
@@ -98,17 +105,12 @@
             -no-glib \
             -no-xinput2 \
             -no-xcb-xlib \
-            -no-qml-debug \
-            -no-rpath \
-            -no-cups \
             -no-iconv \
             -no-libudev \
             -no-evdev \
             -no-icu \
             -no-mtdev \
             -no-journald \
-            -no-accessibility \
-            -no-compile-examples \
             -no-sql-sqlite2 \
             -no-sql-mysql \
             -no-sql-psql \
@@ -117,13 +119,8 @@
             -no-sql-oci \
             -no-sql-db2 \
             -no-sql-ibase \
-            -no-optimized-qmake \
-            -no-use-gold-linker \
-            -no-pulseaudio \
-            -no-alsa \
-            -no-pch \
             ${EXTRA_CONFIGURE_OPTS} \
-            -v
+            -verbose
 #             -platform "linux-g++-${SYSTEM}" \
 #             -no-gcc-sysroot \
 
