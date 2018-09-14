@@ -71,7 +71,6 @@
             ${LIB_TYPE_OPTS} \
             -confirm-license \
             -opensource \
-            -continue \
             -release \
             -strip \
             -pkg-config \
