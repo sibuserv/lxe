@@ -1,5 +1,5 @@
 Description: Fix install prefix
-Author: Boris Pek <tehnick-8@mail.ru>
+Author: Boris Pek <tehnick-8@yandex.ru>
 Last-Update: 2016-07-01
 
 diff --git a/qwtconfig.pri b/qwtconfig.pri

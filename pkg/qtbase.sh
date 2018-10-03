@@ -46,9 +46,11 @@
         IsPkgVersionGreaterOrEqualTo "5.5.0" && \
             EXTRA_CONFIGURE_OPTS="${EXTRA_CONFIGURE_OPTS} \
                                   -qt-xkbcommon-x11 \
-                                  -no-xkbcommon-evdev" || \
+                                  -no-xkbcommon-evdev \
+                                  -system-pcre" || \
             EXTRA_CONFIGURE_OPTS="${EXTRA_CONFIGURE_OPTS} \
-                                  -qt-xkbcommon"
+                                  -qt-xkbcommon \
+                                  -qt-pcre"
         ! IsPkgVersionGreaterOrEqualTo "5.7.0" && \
             EXTRA_CONFIGURE_OPTS="${EXTRA_CONFIGURE_OPTS} \
                                   -c++11"
@@ -78,14 +80,12 @@
             -nomake examples \
             -nomake tests \
             -plugin-sql-sqlite \
-            -qt-pcre \
             -qt-xcb \
             -system-zlib \
             -system-libpng \
             -system-libjpeg \
             -system-sqlite \
             -system-freetype \
-            -system-pcre \
             -fontconfig \
             -openssl-linked \
             -accessibility \

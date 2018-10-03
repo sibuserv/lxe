@@ -1,0 +1,62 @@
+From 4fc4f7b0ce0e6ee186a7d7fe9b5dd20e94efe432 Mon Sep 17 00:00:00 2001
+From: Thiago Macieira <thiago.macieira@intel.com>
+Date: Fri, 21 Sep 2018 09:04:24 -0700
+Subject: [PATCH] Export qt_open64 from QtCore
+
+Other libs use qcore_unix_p.h.
+
+qopenglprogrambinarycache.cpp:function QOpenGLProgramBinaryCache::load(QByteArray const&, unsigned int): error: undefined reference to 'qt_open64(char const*, int, unsigned int)'
+
+Change-Id: I44e7d800c68141bdaae0fffd155675d15eded2e4
+Reviewed-by: Simon Hausmann <simon.hausmann@qt.io>
+Reviewed-by: Eric Lemanissier <eric.lemanissier@gmail.com>
+---
+ src/corelib/kernel/qcore_unix_p.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/corelib/kernel/qcore_unix_p.h b/src/corelib/kernel/qcore_unix_p.h
+index cb98bef347..5a2a29a327 100644
+--- a/src/corelib/kernel/qcore_unix_p.h
++++ b/src/corelib/kernel/qcore_unix_p.h
+@@ -178,7 +178,7 @@ inline void qt_ignore_sigpipe()
+ 
+ #if defined(Q_PROCESSOR_X86_32) && defined(__GLIBC__)
+ #  if !__GLIBC_PREREQ(2, 22)
+-int qt_open64(const char *pathname, int flags, mode_t);
++Q_CORE_EXPORT int qt_open64(const char *pathname, int flags, mode_t);
+ #    undef QT_OPEN
+ #    define QT_OPEN qt_open64
+ #  endif
+
+
+From cb5c24fa26142edaff8fd2c9787dbe45c222b4ff Mon Sep 17 00:00:00 2001
+From: Thiago Macieira <thiago.macieira@intel.com>
+Date: Fri, 14 Sep 2018 17:38:53 -0700
+Subject: [PATCH] Fix integer overflow in very long sections in ELF objects
+
+The source is an ElfXX_Off, which is an unsigned 32- or 64-bit. That
+means any section bigger than 2 GB would cause an overflow when we
+assigned in
+
+    m_stringTableFileOffset = strtab.offset;
+
+Change-Id: Ib47c56818178458a88b4fffd15546bd47a89894e
+Fixes: QTBUG-70560
+Reviewed-by: Olivier Goffart (Woboq GmbH) <ogoffart@woboq.com>
+---
+ src/corelib/plugin/qelfparser_p.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/corelib/plugin/qelfparser_p.h b/src/corelib/plugin/qelfparser_p.h
+index 1d3578255f..cdf055329d 100644
+--- a/src/corelib/plugin/qelfparser_p.h
++++ b/src/corelib/plugin/qelfparser_p.h
+@@ -84,7 +84,7 @@ public:
+ 
+     int m_endian;
+     int m_bits;
+-    int m_stringTableFileOffset;
++    qelfoff_t m_stringTableFileOffset;
+ 
+     template <typename T>
+     T read(const char *s)

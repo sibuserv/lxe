@@ -1,5 +1,5 @@
 Description: Fix build of glibc >= 2.16.0
-Author: Boris Pek <tehnick-8@mail.ru>
+Author: Boris Pek <tehnick-8@yandex.ru>
 Last-Update: 2015-06-23
 
 --- a/sunrpc/Makefile
