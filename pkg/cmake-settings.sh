@@ -33,6 +33,9 @@ set(CMAKE_BUILD_TYPE Release CACHE STRING "Debug|Release|RelWithDebInfo|MinSizeR
 set(CMAKE_CROSS_COMPILING ON) # Workaround for https://www.cmake.org/Bug/view.php?id=14075
 set(PKG_CONFIG_EXECUTABLE ${PREFIX}/bin/${TARGET}-pkg-config)
 
+set(CMAKE_C_IMPLICIT_INCLUDE_DIRECTORIES "${SYSROOT}/usr/include")
+set(CMAKE_CXX_IMPLICIT_INCLUDE_DIRECTORIES "${SYSROOT}/usr/include")
+
 if(NOT DEFINED CMAKE_C_FLAGS)
     set(CMAKE_C_FLAGS "${CFLAGS}" CACHE STRING "" FORCE)
 endif()
