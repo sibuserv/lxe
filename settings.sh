@@ -35,8 +35,8 @@ JOBS=$(nproc 2>/dev/null || echo 1)
 # TODO: gstreamer gst-plugins-base
 LOCAL_PKG_LIST="cmake-settings ldd-settings boost aspell hunspell libidn
                 minizip miniupnpc tidy-html5 libotr libsignal-protocol-c
-                pcre2 lua libfcgi qtbase qttools qtx11extras qtmultimedia
-                qca qtkeychain qtwebkit"
+                pcre pcre2 lua libfcgi qtbase qttools qtx11extras qca
+                qtmultimedia qtkeychain qtwebkit"
 
 # List of packages which should provide static libraries in environments with
 # shared libraries (see DEFAULT_LIB_TYPE variable in configs):
