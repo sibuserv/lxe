@@ -28,6 +28,8 @@
             INSTALL_TOP="${SYSROOT}/usr" \
             CC="${CC}" \
             RANLIB="${RANLIB}" \
+            MYCFLAGS="${CFLAGS}" \
+            MYLDFLAGS="${LDFLAGS}" \
             linux
         InstallPkg -j 1 \
             INSTALL_TOP="${SYSROOT}/usr" \
