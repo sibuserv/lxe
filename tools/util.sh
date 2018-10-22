@@ -587,7 +587,7 @@ BuildGlibc()
     local LOG_FILE="${LOG_DIR}/${PKG_SUBDIR}/make.log"
     mkdir -p "${LOG_DIR}/${PKG_SUBDIR}"
     cd "${BUILD_DIR}/${PKG_SUBDIR}"
-    make ${@} &>> "${LOG_FILE}"
+    make "${@}" &>> "${LOG_FILE}"
     if [ ! $? -eq 0 ]
     then
         if [ $(grep '/shlib.lds:.*: syntax error' "${LOG_FILE}" | wc -l) != 0 ]
@@ -605,7 +605,7 @@ BuildGlibc()
                 ${LXE_CONFIGURE_OPTS} \
                 ${GLIBC_CONFIGURE_OPTS}
 
-            make ${@} &>> "${LOG_FILE}"
+            make "${@}" &>> "${LOG_FILE}"
             CheckFail "${LOG_FILE}"
         else
             tail -n 50 "${LOG_FILE}"
@@ -619,7 +619,7 @@ BuildPkg()
     local LOG_FILE="${LOG_DIR}/${PKG_SUBDIR}/make.log"
     mkdir -p "${LOG_DIR}/${PKG_SUBDIR}"
     cd "${BUILD_DIR}/${PKG_SUBDIR}"
-    make ${@} &>> "${LOG_FILE}"
+    make "${@}" &>> "${LOG_FILE}"
     CheckFail "${LOG_FILE}"
 }
 
@@ -628,7 +628,7 @@ InstallPkg()
     local LOG_FILE="${LOG_DIR}/${PKG_SUBDIR}/make-install.log"
     mkdir -p "${LOG_DIR}/${PKG_SUBDIR}"
     cd "${BUILD_DIR}/${PKG_SUBDIR}"
-    make ${@} &>> "${LOG_FILE}"
+    make "${@}" &>> "${LOG_FILE}"
     CheckFail "${LOG_FILE}"
 
     DeleteExtraFiles
