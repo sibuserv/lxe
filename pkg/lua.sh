@@ -35,9 +35,6 @@
             INSTALL_TOP="${SYSROOT}/usr" \
             install
 
-        DeleteExtraFiles
-        EndOfPkgBuild
-
         CleanPkgBuildDir
         CleanPkgSrcDir
     fi
