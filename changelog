@@ -4,6 +4,7 @@
   workarround for fixing builds of some cmake-based projects using GCC >= 6.x.
   (Due to misuse of "-isystem" compiler option.)
 * Package qtbase: update configuration options after switching to Qt 5.11.x.
+* Package lua: fix usage of CFLAGS and LDFLAGS from build environment.
 * Update in all configs:
   - QT5_VER from 5.11.1 to 5.11.2
 
