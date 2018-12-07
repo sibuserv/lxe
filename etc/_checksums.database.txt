@@ -317,6 +317,7 @@ d231a1993dc6a3f0dbc60a21d01fc0be15b0c26e881bd0631573952ea61682b7  qtquickcontrol
 baea7f59513ffade3f8041c1756722334b7d04245667fa8faaeace07a430c656  qtquickcontrols-everywhere-src-5.11.1.tar.xz
 9c772e30fb1ba107168498328585063f4303c6562baf4a5cfedd0c5250b621e0  qtquickcontrols-everywhere-src-5.11.2.tar.xz
 e720d6b029078682d788c0e3df14057cab8a3ba0ecfdc35c9b9bf6dc061bff8c  qtquickcontrols-opensource-src-5.4.2.tar.xz
+f2bc6d65f4d4b90fc222c0fd0539120f29452b6d336171930f90e5129cd25c19  qtremoteobjects-everywhere-src-5.11.2.tar.xz
 6cf2f2f09ccafa9c9cd5d16641ae2b75b7f98947de6ec0ec1717489f3a09cafc  qtscript-everywhere-src-5.10.0.tar.xz
 e0618af7cb1f1f30d292c04cf484e3507cf6f4815f79870e35d2b0ce7ac9532d  qtscript-everywhere-src-5.10.1.tar.xz
 1c430fd06e8eb25dbca43422453a16588d1aade936770df2e4b4e8961659da7c  qtscript-everywhere-src-5.11.1.tar.xz
