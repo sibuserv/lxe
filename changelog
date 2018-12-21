@@ -6,7 +6,7 @@
 * Package qtbase: update configuration options after switching to Qt 5.11.x.
 * Package lua: fix usage of CFLAGS and LDFLAGS from build environment.
 * Update in all configs:
-  - QT5_VER from 5.11.1 to 5.11.2
+  - QT5_VER from 5.11.1 to 5.12.0
 
 --- v3.3 (2018-09-13) ---
 * Add new packages: lua, miniupnpc, pcre2.
