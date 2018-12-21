@@ -5,6 +5,8 @@
   (Due to misuse of "-isystem" compiler option.)
 * Package qtbase: update configuration options after switching to Qt 5.11.x.
 * Package lua: fix usage of CFLAGS and LDFLAGS from build environment.
+* Update in all static configs:
+  - OPENSSL_VER from 1.0.2p to 1.0.2q
 * Update in all configs:
   - QT5_VER from 5.11.1 to 5.12.0
 
