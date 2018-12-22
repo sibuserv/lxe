@@ -62,6 +62,9 @@
                                   -no-qml-debug \
                                   -no-pulseaudio \
                                   -no-alsa"
+        ! IsPkgVersionGreaterOrEqualTo "5.12.0" && \
+            EXTRA_CONFIGURE_OPTS="${EXTRA_CONFIGURE_OPTS} \
+                                  -no-xinput2"
         export OPENSSL_LIBS="$(${TARGET}-pkg-config --libs-only-l openssl)"
         ConfigurePkg \
             -xplatform "linux-g++-${SYSTEM}" \
@@ -102,7 +105,6 @@
             -no-linuxfb \
             -no-openvg \
             -no-glib \
-            -no-xinput2 \
             -no-xcb-xlib \
             -no-iconv \
             -no-libudev \
