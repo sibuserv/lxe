@@ -433,6 +433,8 @@ VerifyChecksum()
         echo "[checksum] ${PKG_FILE}"
         echo "Error! Checksum for file \"${PKG_FILE}\" is not found in"
         echo "${CHECKSUMS_DATABASE_FILE}"
+        echo "You may add this file into database using special script:"
+        echo "./tools/update-checksums-database.sh \"${PKG_FILE}\""
         exit 1
     fi
     local PKG_CHECKSUM=$(cat "${CHECKSUMS_DATABASE_FILE}" | sed -ne "s|^\(.*\)  ${PKG_FILE}$|\1|p")
