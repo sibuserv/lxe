@@ -10,6 +10,7 @@
 * Update in all configs:
   - QT5_VER from 5.11.1 to 5.12.0 (except AstraLinux 1.3)
   - QT5_VER from 5.11.1 to 5.11.3 (for AstraLinux 1.3)
+  - QWT_VER from 6.1.3 to 6.1.4
 
 --- v3.3 (2018-09-13) ---
 * Add new packages: lua, miniupnpc, pcre2.
