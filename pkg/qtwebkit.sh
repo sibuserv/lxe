@@ -9,7 +9,8 @@
     PKG_SUBDIR_ORIG=${PKG}-${QTWEBKIT_GIT_VER}
     PKG_FILE=${PKG}-${PKG_VERSION}.tar.gz
     PKG_URL="https://github.com/qt/qtwebkit/archive/${QTWEBKIT_GIT_VER}.tar.gz"
-    PKG_DEPS="gcc cmake-settings icu sqlite qtbase qtmultimedia qtquickcontrols"
+    PKG_DEPS="gcc cmake-settings libxml2 libxslt icu sqlite qtbase qtmultimedia
+              qtquickcontrols qtsensors qtwebchannel"
     [ ! -z "${GCC_EXTRA_VER}" ] && PKG_DEPS="${PKG_DEPS} gcc-extra"
 
     CheckPkgVersion
@@ -24,10 +25,25 @@
 
         SetBuildFlags "${GCC_EXTRA_VER}"
         UpdateGCCSymlinks "${GCC_EXTRA_VER}"
+        UpdateCmakeSymlink "${GCC_EXTRA_VER}"
         SetCrossToolchainVariables "${GCC_EXTRA_VER}"
         SetCrossToolchainPath
-        ConfigureQmakeProject \
-            "${PKG_SRC_DIR}/${PKG_SUBDIR_ORIG}/WebKit.pro"
+        ConfigureCmakeProject \
+            -DPKG_CONFIG_EXECUTABLE="${PREFIX}/bin/${TARGET}-pkg-config" \
+            -DEGPF_DEPS='Qt5Core Qt5Gui Qt5Multimedia Qt5Widgets Qt5WebKit' \
+            -DCMAKE_CXX_FLAGS="${CXXFLAGS} -fpermissive" \
+            -DCMAKE_SYSTEM_PREFIX_PATH="${SYSROOT}/qt5" \
+            -DCMAKE_INSTALL_PREFIX="${SYSROOT}/qt5" \
+            -DCMAKE_SYSTEM_PROCESSOR="${ARCH}" \
+            -DPORT=Qt \
+            -DENABLE_X11_TARGET=OFF \
+            -DENABLE_GEOLOCATION=OFF \
+            -DENABLE_MEDIA_SOURCE=ON \
+            -DENABLE_VIDEO=ON \
+            -DENABLE_WEB_AUDIO=ON \
+            -DUSE_GSTREAMER=OFF \
+            -DUSE_QT_MULTIMEDIA=ON \
+            -DUSE_LIBHYPHEN=OFF
 
         BuildPkg -j ${JOBS}
         InstallPkg install
@@ -36,8 +52,7 @@
         CleanPkgSrcDir
 
         UpdateGCCSymlinks
-
-        find "${SYSROOT}/qt5/lib" -type f -name '*.la' -exec rm -f {} \;
+        UpdateCmakeSymlink
     fi
 )
 
