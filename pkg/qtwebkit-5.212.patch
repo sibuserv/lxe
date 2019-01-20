@@ -1,0 +1,132 @@
+commit 5a9fecfcf6bfeecb7be1013c5534b3057f8b1232
+Author: Boris Pek <tehnick-8@yandex.ru>
+Date:   Sun Jan 21 03:14:59 2019 +0300
+
+    Fix cross-compilation
+
+diff --git a/Source/WebCore/css/makeSelectorPseudoClassAndCompatibilityElementMap.py b/Source/WebCore/css/makeSelectorPseudoClassAndCompatibilityElementMap.py
+index 1111111..2222222 100644
+--- a/Source/WebCore/css/makeSelectorPseudoClassAndCompatibilityElementMap.py
++++ b/Source/WebCore/css/makeSelectorPseudoClassAndCompatibilityElementMap.py
+@@ -57,7 +57,7 @@ def enumerablePseudoType(stringPseudoType):
+ def expand_ifdef_condition(condition):
+     return condition.replace('(', '_').replace(')', '')
+ 
+-output_file = open('SelectorPseudoClassAndCompatibilityElementMap.gperf', 'w')
++output_file = open('SelectorPseudoClassAndCompatibilityElementMap.gperf', 'wb')
+ 
+ output_file.write("""
+ %{
+diff --git a/Source/WebCore/css/makeSelectorPseudoElementsMap.py b/Source/WebCore/css/makeSelectorPseudoElementsMap.py
+index 1111111..2222222 100644
+--- a/Source/WebCore/css/makeSelectorPseudoElementsMap.py
++++ b/Source/WebCore/css/makeSelectorPseudoElementsMap.py
+@@ -57,7 +57,7 @@ def enumerablePseudoType(stringPseudoType):
+ def expand_ifdef_condition(condition):
+     return condition.replace('(', '_').replace(')', '')
+ 
+-output_file = open('SelectorPseudoElementTypeMap.gperf', 'w')
++output_file = open('SelectorPseudoElementTypeMap.gperf', 'wb')
+ 
+ output_file.write("""
+ %{
+diff --git a/Source/WebCore/platform/network/create-http-header-name-table b/Source/WebCore/platform/network/create-http-header-name-table
+index 1111111..2222222 100755
+--- a/Source/WebCore/platform/network/create-http-header-name-table
++++ b/Source/WebCore/platform/network/create-http-header-name-table
+@@ -54,7 +54,7 @@ input_file.close()
+ 
+ http_header_names.sort()
+ 
+-gperf_file = open('HTTPHeaderNames.gperf', 'w')
++gperf_file = open('HTTPHeaderNames.gperf', 'wb')
+ gperf_file.write('''
+ %{
+ /*
+diff --git a/Source/cmake/ECMGeneratePriFile.cmake b/Source/cmake/ECMGeneratePriFile.cmake
+index 1111111..2222222 100644
+--- a/Source/cmake/ECMGeneratePriFile.cmake
++++ b/Source/cmake/ECMGeneratePriFile.cmake
+@@ -101,7 +101,11 @@ if(KDE_INSTALL_USE_QT_SYS_PATHS OR _askqmake)
+   query_qmake(qt_host_data_dir QT_HOST_DATA)
+   set(ECM_MKSPECS_INSTALL_DIR ${qt_host_data_dir}/mkspecs/modules CACHE PATH "The directory where mkspecs will be installed to.")
+ else()
+-  set(ECM_MKSPECS_INSTALL_DIR mkspecs/modules CACHE PATH "The directory where mkspecs will be installed to.")
++  if(MINGW)
++    set(ECM_MKSPECS_INSTALL_DIR share/qt5/mkspecs/modules CACHE PATH "The directory where mkspecs will be installed to.")
++  else()
++    set(ECM_MKSPECS_INSTALL_DIR mkspecs/modules CACHE PATH "The directory where mkspecs will be installed to.")
++  endif()
+ endif()
+ 
+ function(ECM_GENERATE_PRI_FILE)
+diff --git a/Source/cmake/FindICU.cmake b/Source/cmake/FindICU.cmake
+index 1111111..2222222 100644
+--- a/Source/cmake/FindICU.cmake
++++ b/Source/cmake/FindICU.cmake
+@@ -49,7 +49,7 @@ if (ICU_INCLUDE_DIR AND ICU_LIBRARY)
+     pkg_check_modules(PC_ICU_I18N icu-i18n)
+     find_library(
+         ICU_I18N_LIBRARY
+-        NAMES icui18n icuin cygicuin cygicuin32
++        NAMES icuin icui18n cygicuin cygicuin32
+         HINTS ${PC_ICU_I18N_LIBRARY_DIRS}
+               ${PC_ICU_I18N_LIBDIR}
+         DOC "Libraries to link against for ICU internationalization")
+diff --git a/Source/WebKit/PlatformQt.cmake b/Source/WebKit/PlatformQt.cmake
+index 1111111..2222222 100644
+--- a/Source/WebKit/PlatformQt.cmake
++++ b/Source/WebKit/PlatformQt.cmake
+@@ -418,7 +418,7 @@ install(
+     COMPONENT Data
+ )
+ 
+-file(GLOB WebKit_PRIVATE_HEADERS qt/Api/*_p.h)
++file(GLOB WebKit_PRIVATE_HEADERS qt/Api/*_p.h ../WebKit2/UIProcess/API/qt/*_p.h)
+ install(
+     FILES
+         ${WebKit_PRIVATE_HEADERS}
+@@ -510,7 +510,7 @@ if (NOT MACOS_BUILD_FRAMEWORKS)
+     install(FILES ${WebKit_PKGCONFIG_FILENAME} DESTINATION ${ECM_PKGCONFIG_INSTALL_DIR} COMPONENT Data)
+ endif ()
+ 
+-if (KDE_INSTALL_USE_QT_SYS_PATHS)
++if (KDE_INSTALL_USE_QT_SYS_PATHS OR MINGW)
+     set(WebKit_PRI_ARGUMENTS
+         BIN_INSTALL_DIR "$$QT_MODULE_BIN_BASE"
+         LIB_INSTALL_DIR "$$QT_MODULE_LIB_BASE"
+@@ -734,7 +734,7 @@ if (NOT MACOS_BUILD_FRAMEWORKS)
+     install(FILES ${WebKitWidgets_PKGCONFIG_FILENAME} DESTINATION ${ECM_PKGCONFIG_INSTALL_DIR} COMPONENT Data)
+ endif ()
+ 
+-if (KDE_INSTALL_USE_QT_SYS_PATHS)
++if (KDE_INSTALL_USE_QT_SYS_PATHS OR MINGW)
+     set(WebKitWidgets_PRI_ARGUMENTS
+         BIN_INSTALL_DIR "$$QT_MODULE_BIN_BASE"
+         LIB_INSTALL_DIR "$$QT_MODULE_LIB_BASE"
+diff --git a/Source/cmake/WebKitMacros.cmake b/Source/cmake/WebKitMacros.cmake
+index 1111111..2222222 100644
+--- a/Source/cmake/WebKitMacros.cmake
++++ b/Source/cmake/WebKitMacros.cmake
+@@ -265,8 +265,6 @@ macro(WEBKIT_FRAMEWORK _target)
+         ${${_target}_HEADERS}
+         ${${_target}_SOURCES}
+         ${${_target}_DERIVED_SOURCES}
+-        ${${_target}_PRIVATE_HEADERS}
+-        ${${_target}_PUBLIC_HEADERS}
+     )
+     target_link_libraries(${_target} ${${_target}_LIBRARIES})
+     set_target_properties(${_target} PROPERTIES COMPILE_DEFINITIONS "BUILDING_${_target}")
+diff --git a/Source/cmake/ECMGeneratePkgConfigFile.cmake b/Source/cmake/ECMGeneratePkgConfigFile.cmake
+index 1111111..2222222 100644
+--- a/Source/cmake/ECMGeneratePkgConfigFile.cmake
++++ b/Source/cmake/ECMGeneratePkgConfigFile.cmake
+@@ -129,6 +129,7 @@ function(ECM_GENERATE_PKGCONFIG_FILE)
+       else()
+           set(EGPF_INCLUDE_INSTALL_DIR "include/${EGPF_BASE_NAME}")
+       endif()
++      string(REPLACE "/Qt5" "/Qt" EGPF_INCLUDE_INSTALL_DIR "${EGPF_INCLUDE_INSTALL_DIR}")
+   endif()
+   if(NOT EGPF_LIB_INSTALL_DIR)
+       if(LIB_INSTALL_DIR)
+
