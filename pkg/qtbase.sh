@@ -16,7 +16,7 @@
     fi
     PKG_URL="https://download.qt.io/archive/qt/${QT5_SUBVER}/${QT5_VER}/submodules/${PKG_FILE}"
     PKG_DEPS="gcc pkg-config-settings zlib libpng giflib freetype fontconfig openssl
-              sqlite pcre2 libxcb libx11 libxext libxi libxrender libxrandr mesa"
+              sqlite pcre2 libxcb libx11 libxkbcommon libxext libxi libxrender libxrandr mesa"
     [ "${USE_JPEG_TURBO}" = "true" ] && PKG_DEPS="${PKG_DEPS} libjpeg-turbo" || \
                                         PKG_DEPS="${PKG_DEPS} jpeg"
     [ ! -z "${GCC_EXTRA_VER}" ] && PKG_DEPS="${PKG_DEPS} gcc-extra"
@@ -43,13 +43,19 @@
         [ -z "${HARFBUZZ_VER}" ] && \
             EXTRA_CONFIGURE_OPTS="${EXTRA_CONFIGURE_OPTS} \
                                   -no-harfbuzz"
+        if [ -z "${LIBXKBCOMMON_VER}" ]
+        then
+            IsPkgVersionGreaterOrEqualTo "5.5.0" && \
+                EXTRA_CONFIGURE_OPTS="${EXTRA_CONFIGURE_OPTS} \
+                                      -qt-xkbcommon-x11 \
+                                      -no-xkbcommon-evdev" || \
+                EXTRA_CONFIGURE_OPTS="${EXTRA_CONFIGURE_OPTS} \
+                                      -qt-xkbcommon"
+        fi
         IsPkgVersionGreaterOrEqualTo "5.5.0" && \
             EXTRA_CONFIGURE_OPTS="${EXTRA_CONFIGURE_OPTS} \
-                                  -qt-xkbcommon-x11 \
-                                  -no-xkbcommon-evdev \
                                   -system-pcre" || \
             EXTRA_CONFIGURE_OPTS="${EXTRA_CONFIGURE_OPTS} \
-                                  -qt-xkbcommon \
                                   -qt-pcre"
         ! IsPkgVersionGreaterOrEqualTo "5.7.0" && \
             EXTRA_CONFIGURE_OPTS="${EXTRA_CONFIGURE_OPTS} \
@@ -122,8 +128,6 @@
             -no-sql-ibase \
             ${EXTRA_CONFIGURE_OPTS} \
             -verbose
-#             -platform "linux-g++-${SYSTEM}" \
-#             -no-gcc-sysroot \
 
         BuildPkg -j ${JOBS}
         InstallPkg install
