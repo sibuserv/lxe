@@ -2,6 +2,7 @@
 * Package qtwebkit: update build script after switching of project to cmake.
 * Update in all (supported) configs:
   - QTWEBKIT_VER to 5.212 (code from git repository is used)
+  - QT5_VER from 5.12.0 to 5.12.1
 
 --- v3.4 (2018-12-26) ---
 * Add new packages: pcre, qtremoteobjects.
