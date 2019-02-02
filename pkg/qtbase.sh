@@ -51,6 +51,9 @@
                                       -no-xkbcommon-evdev" || \
                 EXTRA_CONFIGURE_OPTS="${EXTRA_CONFIGURE_OPTS} \
                                       -qt-xkbcommon"
+        else
+                EXTRA_CONFIGURE_OPTS="${EXTRA_CONFIGURE_OPTS} \
+                                      -xkbcommon"
         fi
         IsPkgVersionGreaterOrEqualTo "5.5.0" && \
             EXTRA_CONFIGURE_OPTS="${EXTRA_CONFIGURE_OPTS} \
