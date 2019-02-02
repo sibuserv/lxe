@@ -1,4 +1,5 @@
 --- v3.5 (2019-xx-xx) ---
+* Add new package: libxkbcommon.
 * Package qtwebkit: update build script after switching of project to cmake.
 * Update in all (supported) configs:
   - QTWEBKIT_VER to 5.212 (code from git repository is used)
