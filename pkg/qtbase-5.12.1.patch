@@ -1,0 +1,26 @@
+commit d226973a5875da8d0a5fb29daa2f05dea9c15fda
+Author: Boris Pek <tehnick-8@yandex.ru>
+Date:   Sat Feb 2 00:44:45 2019 +0300
+
+    Decrease requirement to xkbcommon minimal version
+
+diff --git a/src/gui/configure.json b/src/gui/configure.json
+index 89934c8f..3faa4a07 100644
+--- a/src/gui/configure.json
++++ b/src/gui/configure.json
+@@ -756,13 +756,13 @@
+             "use": "xcb"
+         },
+         "xkbcommon": {
+-            "label": "xkbcommon >= 0.5.0",
++            "label": "xkbcommon >= 0.4.1",
+             "test": {
+                 "main": "xkb_context_new(XKB_CONTEXT_NO_FLAGS);"
+             },
+             "headers": [ "xkbcommon/xkbcommon.h" ],
+             "sources": [
+-                { "type": "pkgConfig", "args": "xkbcommon >= 0.5.0" }
++                { "type": "pkgConfig", "args": "xkbcommon >= 0.4.1" }
+             ]
+         },
+         "xkbcommon_x11": {
