@@ -3,6 +3,7 @@
 * Update package fontconfig: set FONTCONFIG_PATH to "/etc/fonts" at
   configuration stage for fixing of runtime error:
   "Fontconfig error: Cannot load default config file"
+* Update package exiv2: update PKG_URL after changes on website.
 * Update package qtwebkit: rewrite build script after switching of QtWebKit
   project to cmake.
 * Update in all (supported) configs:
