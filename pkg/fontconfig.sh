@@ -27,12 +27,14 @@
             --with-arch="${TARGET}" \
             --with-sysroot="${SYSROOT}" \
             --with-expat="${SYSROOT}/usr" \
+            --sysconfdir="/etc" \
+            --localstatedir="/var" \
             --disable-libxml2 \
             --disable-docs \
             --with-gnu-ld
 
         BuildPkg -j ${JOBS}
-        InstallPkg install
+        InstallPkg install sysconfdir="${SYSROOT}/etc"
 
         CleanPkgBuildDir
         CleanPkgSrcDir
