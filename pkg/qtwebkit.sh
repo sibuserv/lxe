@@ -18,6 +18,14 @@
 
     if IsBuildRequired
     then
+        if IsStaticPackage
+        then
+            date -R > "${INST_DIR}/${PKG}"
+            echo "[config]   ${CONFIG}"
+            echo "[no-build] ${PKG}"
+            exit 0
+        fi
+
         PrintSystemInfo
         BeginOfPkgBuild
         UnpackSources
