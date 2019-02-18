@@ -1,8 +1,11 @@
 --- v3.5 (2019-xx-xx) ---
 * Add new package: libxkbcommon.
+* Exclude package qtwebkit from list of packages for `make all` target.
 * Update package fontconfig: set FONTCONFIG_PATH to "/etc/fonts" at
   configuration stage for fixing of runtime error:
   "Fontconfig error: Cannot load default config file"
+* Update packages pcre and pcre2: build using gcc-extra for enabling of C++11
+  features in libpcrecpp.
 * Update package exiv2: update PKG_URL after changes on website.
 * Update package qtwebkit: rewrite build script after switching of QtWebKit
   project to cmake.

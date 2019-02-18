@@ -356,7 +356,7 @@ IsBuildRequired()
 
 IsIgnoredPackage()
 {
-    local IGNORED_PKGS_LIST="jpeg libjpeg-turbo cmake pkg-config qt4"
+    local IGNORED_PKGS_LIST="jpeg libjpeg-turbo cmake pkg-config qt4 qtwebkit"
 
     for IGNORED_PKG in ${IGNORED_PKGS_LIST}
     do
@@ -644,9 +644,10 @@ ProcessStandardAutotoolsProject()
     UnpackSources
     PrepareBuild
 
-    SetBuildFlags
+    SetBuildFlags "${USE_GCC_EXTRA}"
+    UpdateGCCSymlinks "${USE_GCC_EXTRA}"
+    SetCrossToolchainVariables "${USE_GCC_EXTRA}"
     SetCrossToolchainPath
-    SetCrossToolchainVariables
     ConfigureAutotoolsProject ${@}
 
     BuildPkg -j ${JOBS}
@@ -654,6 +655,8 @@ ProcessStandardAutotoolsProject()
 
     CleanPkgBuildDir
     CleanPkgSrcDir
+
+    UpdateGCCSymlinks
 }
 
 ProcessStandardAutotoolsProjectInBuildDir()
@@ -663,9 +666,10 @@ ProcessStandardAutotoolsProjectInBuildDir()
     UnpackSources
     CopySrcAndPrepareBuild
 
-    SetBuildFlags
+    SetBuildFlags "${USE_GCC_EXTRA}"
+    UpdateGCCSymlinks "${USE_GCC_EXTRA}"
+    SetCrossToolchainVariables "${USE_GCC_EXTRA}"
     SetCrossToolchainPath
-    SetCrossToolchainVariables
     ConfigureAutotoolsProjectInBuildDir ${@}
 
     BuildPkg -j ${JOBS}
@@ -673,6 +677,8 @@ ProcessStandardAutotoolsProjectInBuildDir()
 
     CleanPkgBuildDir
     CleanPkgSrcDir
+
+    UpdateGCCSymlinks
 }
 
 CleanPkgSrcDir()
