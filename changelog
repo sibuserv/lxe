@@ -1,5 +1,6 @@
 --- v3.5 (2019-xx-xx) ---
 * Add new package: libxkbcommon.
+* Exclude package qtwebkit from list of packages for `make all` target.
 * Update package fontconfig: set FONTCONFIG_PATH to "/etc/fonts" at
   configuration stage for fixing of runtime error:
   "Fontconfig error: Cannot load default config file"
