@@ -17,24 +17,11 @@
 
     if IsBuildRequired
     then
-        PrintSystemInfo
-        BeginOfPkgBuild
-        UnpackSources
-        CopySrcAndPrepareBuild
+        [ ! -z "${GCC_EXTRA_VER}" ] && export USE_GCC_EXTRA="${GCC_EXTRA_VER}"
+        ProcessStandardAutotoolsProjectInBuildDir
 
-        SetBuildFlags "${GCC_EXTRA_VER}"
-        UpdateGCCSymlinks "${GCC_EXTRA_VER}"
-        SetCrossToolchainVariables "${GCC_EXTRA_VER}"
-        SetCrossToolchainPath
-        ConfigureAutotoolsProjectInBuildDir
-
-        BuildPkg
-        InstallPkg install
-
-        CleanPkgBuildDir
-        CleanPkgSrcDir
-
-        UpdateGCCSymlinks
+        # It is very important to unset USE_GCC_EXTRA variable here!
+        [ ! -z "${GCC_EXTRA_VER}" ] && unset USE_GCC_EXTRA
     fi
 )
 
