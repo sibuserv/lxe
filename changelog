@@ -1,4 +1,4 @@
---- v3.5 (2019-xx-xx) ---
+--- v3.5 (2019-02-18) ---
 * Add new package: libxkbcommon.
 * Exclude package qtwebkit from list of packages for `make all` target.
 * Update package fontconfig: set FONTCONFIG_PATH to "/etc/fonts" at
