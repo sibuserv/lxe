@@ -514,6 +514,29 @@ CopySrcAndPrepareBuild()
     UnsetMakeFlags
 }
 
+GenerateConfigureScript()
+{
+    if [ ! -e "${PKG_SRC_DIR}/${PKG_SUBDIR}/configure" ]
+    then
+        if [ ! -z "${PKG_SUBDIR_ORIG}" ]
+        then 
+            cd "${PKG_SRC_DIR}/${PKG_SUBDIR_ORIG}"
+        else
+            cd "${PKG_SRC_DIR}/${PKG_SUBDIR}"
+        fi
+        autoreconf -vfi &> "${LOG_DIR}/${PKG_SUBDIR}/autoreconf.log"
+    fi
+}
+
+GenerateConfigureScriptInBuildDir()
+{
+    if [ ! -e "${BUILD_DIR}/${PKG_SUBDIR}/configure" ]
+    then
+        cd "${BUILD_DIR}/${PKG_SUBDIR}"
+        autoreconf -vfi &> "${LOG_DIR}/${PKG_SUBDIR}/autoreconf.log"
+    fi
+}
+
 ConfigurePkg()
 {
     local LOG_FILE="${LOG_DIR}/${PKG_SUBDIR}/configure.log"
@@ -648,6 +671,8 @@ ProcessStandardAutotoolsProject()
     UpdateGCCSymlinks "${USE_GCC_EXTRA}"
     SetCrossToolchainVariables "${USE_GCC_EXTRA}"
     SetCrossToolchainPath
+
+    GenerateConfigureScript
     ConfigureAutotoolsProject ${@}
 
     BuildPkg -j ${JOBS}
@@ -670,6 +695,8 @@ ProcessStandardAutotoolsProjectInBuildDir()
     UpdateGCCSymlinks "${USE_GCC_EXTRA}"
     SetCrossToolchainVariables "${USE_GCC_EXTRA}"
     SetCrossToolchainPath
+
+    GenerateConfigureScriptInBuildDir
     ConfigureAutotoolsProjectInBuildDir ${@}
 
     BuildPkg -j ${JOBS}

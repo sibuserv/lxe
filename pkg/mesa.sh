@@ -43,7 +43,7 @@
         SetCrossToolchainVariables
         PrepareLibTypeOpts "shared"
         cd "${BUILD_DIR}/${PKG_SUBDIR}"
-        autoreconf -vfi &>> "${LOG_DIR}/${PKG_SUBDIR}/configure.log"
+        autoreconf -vfi &>> "${LOG_DIR}/${PKG_SUBDIR}/autoreconf.log"
         IsPkgVersionGreaterOrEqualTo "10.5.0" && \
             EXTRA_CONFIGURE_OPTS="--enable-sysfs" || \
             EXTRA_CONFIGURE_OPTS=""

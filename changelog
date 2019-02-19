@@ -1,5 +1,7 @@
 --- v3.6 (2019-xx-xx) ---
 * Package libfcgi: update PKG_URL.
+* Add function GenerateConfigureScript() and use it for simplifying build
+  scripts of some packages.
 * Update in all configs:
   - LIBFCGI_VER from 2.4.0 to 2.4.2
 

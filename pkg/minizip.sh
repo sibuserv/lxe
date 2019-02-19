@@ -32,9 +32,8 @@
         rm -rf "${PKG_SUBDIR_ORIG}"
         unset PKG_SUBDIR_ORIG
 
-        cd "${PKG_SRC_DIR}/${PKG_SUBDIR}"
         export LIBTOOL="/usr/bin/libtool"
-        autoreconf -vfi &>> "${LOG_DIR}/${PKG_SUBDIR}/configure.log"
+        GenerateConfigureScript
         ConfigureAutotoolsProject
 
         BuildPkg -j ${JOBS} minizip miniunzip LIBTOOL="${LIBTOOL}"
