@@ -9,6 +9,7 @@
     if IsBuildRequired
     then
         CheckDependencies
+        PrepareLibTypeOpts
 
         mkdir -p "${SYSROOT}/usr/share/cmake"
         for GCC_CURRENT_VER in ${GCC_VER} ${GCC_EXTRA_VER}
