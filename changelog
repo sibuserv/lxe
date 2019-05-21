@@ -2,6 +2,8 @@
 * Package libfcgi: update PKG_URL.
 * Add function GenerateConfigureScript() and use it for simplifying build
   scripts of some packages.
+* Improve cmake toolchain files: added BUILD_SHARED_LIBS, BUILD_STATIC_LIBS,
+  BUILD_SHARED and BUILD_STATIC variables.
 * Update in all configs:
   - LIBFCGI_VER from 2.4.0 to 2.4.2
 
