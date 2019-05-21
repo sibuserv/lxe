@@ -1,3 +1,12 @@
+--- v3.6 (2019-xx-xx) ---
+* Package libfcgi: update PKG_URL.
+* Add function GenerateConfigureScript() and use it for simplifying build
+  scripts of some packages.
+* Improve cmake toolchain files: added BUILD_SHARED_LIBS, BUILD_STATIC_LIBS,
+  BUILD_SHARED and BUILD_STATIC variables.
+* Update in all configs:
+  - LIBFCGI_VER from 2.4.0 to 2.4.2
+
 --- v3.5 (2019-02-18) ---
 * Add new package: libxkbcommon.
 * Exclude package qtwebkit from list of packages for `make all` target.

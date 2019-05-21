@@ -28,11 +28,7 @@
         SetBuildFlags
         SetCrossToolchainPath
         SetCrossToolchainVariables
-        if IsPkgVersionGreaterOrEqualTo "1.3.4"
-        then
-            cd "${PKG_SRC_DIR}/${PKG_SUBDIR}"
-            autoreconf -vfi &>> "${LOG_DIR}/${PKG_SUBDIR}/configure.log"
-        fi
+        GenerateConfigureScript
         ConfigureAutotoolsProject \
             --with-warnings \
             --without-ui \
