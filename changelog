@@ -18,6 +18,7 @@
 * Update in all configs:
   - GCC_EXTRA_VER from 8.2.0 to 8.3.0
   - LIBFCGI_VER from 2.4.0 to 2.4.2
+  - PCRE_VER from 8.42 to 8.43
 
 --- v3.5 (2019-02-18) ---
 * Add new package: libxkbcommon.
