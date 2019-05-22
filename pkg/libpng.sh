@@ -7,8 +7,8 @@
     PKG_VERSION=${LIBPNG_VER}
     PKG_SUBDIR=${PKG}-${PKG_VERSION}
     PKG_FILE=${PKG}-${PKG_VERSION}.tar.xz
-    PKG_URL="https://sourceforge.net/projects/${PKG}/files/libpng${LIBPNG_SUBVER}/${PKG_VERSION}/${PKG_FILE}"
-    PKG_URL_2="https://sourceforge.net/projects/${PKG}/files/libpng${LIBPNG_SUBVER}/older-releases/${PKG_VERSION}/${PKG_FILE}"
+    PKG_URL="https://sourceforge.net/projects/libpng/files/libpng${LIBPNG_SUBVER}/${PKG_VERSION}/${PKG_FILE}"
+    PKG_URL_2="https://sourceforge.net/projects/libpng/files/libpng${LIBPNG_SUBVER}/older-releases/${PKG_VERSION}/${PKG_FILE}"
     PKG_DEPS="gcc zlib"
 
     CheckPkgVersion
