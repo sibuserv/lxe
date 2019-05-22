@@ -11,6 +11,7 @@
   - EXPAT_VER from 2.2.5 to 2.2.6
   - TIFF_VER from 4.0.9 to 4.0.10
   - LIBGPG_ERROR_VER from 1.27 to 1.36
+  - LIBGCRYPT_VER from 1.8.1 to 1.8.4
 * Update in all configs:
   - GCC_EXTRA_VER from 8.2.0 to 8.3.0
   - LIBFCGI_VER from 2.4.0 to 2.4.2
