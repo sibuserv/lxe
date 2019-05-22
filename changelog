@@ -12,9 +12,15 @@
   - TIFF_VER from 4.0.9 to 4.0.10
   - LIBGPG_ERROR_VER from 1.27 to 1.36
   - LIBGCRYPT_VER from 1.8.1 to 1.8.4
+  - OPENSSL_VER from 1.0.2q to 1.0.2r
+  - FREETYPE_VER from 2.8.1 to 2.10.0
+  - FONTCONFIG_VER from 2.12.6 to 2.13.1
 * Update in all configs:
   - GCC_EXTRA_VER from 8.2.0 to 8.3.0
+  - BOOST_VER from 1.65.0 to 1.67.0
   - LIBFCGI_VER from 2.4.0 to 2.4.2
+  - PCRE_VER from 8.42 to 8.43
+  - PCRE2_VER from 10.30 to 10.33
 
 --- v3.5 (2019-02-18) ---
 * Add new package: libxkbcommon.
