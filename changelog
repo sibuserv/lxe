@@ -13,6 +13,7 @@
   - LIBGPG_ERROR_VER from 1.27 to 1.36
   - LIBGCRYPT_VER from 1.8.1 to 1.8.4
   - OPENSSL_VER from 1.0.2q to 1.0.2r
+  - FREETYPE_VER from 2.8.1 to 2.10.0
 * Update in all configs:
   - GCC_EXTRA_VER from 8.2.0 to 8.3.0
   - LIBFCGI_VER from 2.4.0 to 2.4.2
