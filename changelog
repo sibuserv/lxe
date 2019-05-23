@@ -18,6 +18,7 @@
   - OPENSSL_VER from 1.0.2q to 1.0.2r
   - FREETYPE_VER from 2.8.1 to 2.10.0
   - FONTCONFIG_VER from 2.12.6 to 2.13.1
+  - HUNSPELL_VER from 1.6.2 to 1.7.0
 * Update in all configs:
   - GCC_EXTRA_VER from 8.2.0 to 8.3.0
   - BOOST_VER from 1.65.0 to 1.67.0
