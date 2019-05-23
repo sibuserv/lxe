@@ -1,4 +1,4 @@
---- v3.6 (2019-05-xx) ---
+--- v3.6 (2019-05-23) ---
 * Add new package: libuuid.
 * Package libfcgi: update PKG_URL.
 * Package fontconfig depends on package libuuid now.
