@@ -32,9 +32,9 @@ JOBS=$(nproc 2>/dev/null || echo 1)
 
 # Default list of packages:
 # LOCAL_PKG_LIST="gcc pkg-config-settings cmake-settings ldd-settings"
-LOCAL_PKG_LIST="cmake-settings ldd-settings freeglut sdl2 qtbase qtconnectivity
-                qtscript qtserialport qtsvg qttools qtwebsockets qwt protobuf
-                boost ffmpeg openscenegraph osgearth"
+LOCAL_PKG_LIST="cmake-settings ldd-settings freeglut sdl2 qtbase qttranslations
+                qtconnectivity qtscript qtserialport qtsvg qttools qtwebsockets
+                qwt protobuf boost ffmpeg openscenegraph osgearth"
 
 # List of packages which should provide static libraries in environments with
 # shared libraries (see DEFAULT_LIB_TYPE variable in configs):
