@@ -7,6 +7,7 @@
 * Improve cmake toolchain files: added BUILD_SHARED_LIBS, BUILD_STATIC_LIBS,
   BUILD_SHARED and BUILD_STATIC variables.
 * Update in all static configs:
+  - ATTR_VER from 2.4.47 to 2.4.48
   - SQLITE_VER from 3.23.2 to 3.28.0
   - LIBXML2_VER from 2.9.4 to 2.9.9
   - LIBXSLT_VER from 1.1.29 to 1.1.33
