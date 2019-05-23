@@ -1,5 +1,7 @@
 --- v3.6 (2019-xx-xx) ---
+* Add new package: libuuid.
 * Package libfcgi: update PKG_URL.
+* Package fontconfig depends on package libuuid now.
 * Add function GenerateConfigureScript() and use it for simplifying build
   scripts of some packages.
 * Improve cmake toolchain files: added BUILD_SHARED_LIBS, BUILD_STATIC_LIBS,

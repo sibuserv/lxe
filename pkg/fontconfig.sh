@@ -9,6 +9,7 @@
     PKG_FILE=${PKG}-${PKG_VERSION}.tar.gz
     PKG_URL="https://www.freedesktop.org/software/fontconfig/release/${PKG_FILE}"
     PKG_DEPS="gcc pkg-config-settings expat freetype"
+    IsPkgVersionGreaterOrEqualTo "2.13.0" && PKG_DEPS="${PKG_DEPS} libuuid"
 
     CheckPkgVersion
     CheckSourcesAndDependencies
