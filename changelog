@@ -1,4 +1,4 @@
---- v3.6 (2019-xx-xx) ---
+--- v3.6 (2019-05-xx) ---
 * Add new package: libuuid.
 * Package libfcgi: update PKG_URL.
 * Package fontconfig depends on package libuuid now.
@@ -28,6 +28,7 @@
   - PCRE_VER from 8.42 to 8.43
   - PCRE2_VER from 10.30 to 10.33
   - FFMPEG_VER from 4.0.2 to 4.1.3
+  - QT5_VER from 5.12.1 to 5.12.3
 
 --- v3.5 (2019-02-18) ---
 * Add new package: libxkbcommon.
