@@ -24,7 +24,6 @@
         SetBuildFlags
         SetCrossToolchainPath
         SetCrossToolchainVariables
-        PrepareLibTypeOpts "shared"
         PATH="${PATH}:${SYSROOT}/usr/bin"
         ConfigureAutotoolsProject \
             --disable-build-docs
