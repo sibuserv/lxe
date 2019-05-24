@@ -1,3 +1,6 @@
+--- v3.7 (2019-xx-xx) ---
+* Package libxkbcommon: add ability to build static library.
+
 --- v3.6 (2019-05-23) ---
 * Add new package: libuuid.
 * Package libfcgi: update PKG_URL.
