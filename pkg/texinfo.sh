@@ -9,6 +9,7 @@
     PKG_FILE=${PKG}-${PKG_VERSION}.tar.gz
     PKG_URL="ftp://ftp.funet.fi/pub/gnu/prep/${PKG}/${PKG_FILE}"
     PKG_DEPS=
+    [ "${LXE_USE_CCACHE}" = "true" ] && PKG_DEPS="ccache ${PKG_DEPS}"
 
     CheckPkgVersion
     CheckSourcesAndDependencies
