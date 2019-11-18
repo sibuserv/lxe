@@ -24,7 +24,9 @@
         SetSystemPath
         UnsetCrossToolchainVariables
         ConfigurePkg \
-            --prefix="${PREFIX}"
+            --prefix="${PREFIX}" \
+            --disable-info \
+            --disable-man
 
         BuildPkg -j ${JOBS}
         InstallPkg install
