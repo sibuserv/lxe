@@ -22,14 +22,24 @@ PrepareDirs()
     fi
 }
 
+AddCcachePath()
+{
+    [ "${LXE_USE_CCACHE}" != true ] && return 0
+    [ "${PKG}" = ccache ] && return 0
+
+    export PATH="${PREFIX}/lib/ccache:${PATH}"
+}
+
 SetCrossToolchainPath()
 {
     export PATH="${PREFIX}/bin:${ORIG_PATH}"
+    AddCcachePath
 }
 
 SetSystemPath()
 {
     export PATH="${ORIG_PATH}"
+    AddCcachePath
 }
 
 SetLibraryPath()

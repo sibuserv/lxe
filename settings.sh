@@ -30,6 +30,9 @@ BUILD="$(LC_ALL=C gcc -v 2>&1 | sed -ne "s|^Target: \(.*\)$|\1|p")"
 JOBS=$(nproc 2>/dev/null || echo 1)
 # JOBS=7
 
+# Use ccache tool for (re)building of LXE (false|true):
+LXE_USE_CCACHE=false
+
 # Default list of packages:
 # LOCAL_PKG_LIST="gcc pkg-config-settings cmake-settings ldd-settings"
 LOCAL_PKG_LIST="cmake-settings ldd-settings freeglut sdl2 qtbase qttranslations
