@@ -25,8 +25,8 @@
         UnsetCrossToolchainVariables
         ConfigurePkg \
             --prefix="${PREFIX}" \
-            --infodir="${PREFIX}/share/info" \
-            --mandir="${PREFIX}/share/man" \
+            --disable-info \
+            --disable-man \
             --enable-static \
             --disable-shared
 

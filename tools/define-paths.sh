@@ -10,6 +10,7 @@ DefinePaths()
     SYSROOT="${PREFIX}/sysroot"
     PKG_DIR="${MAIN_DIR}/pkg"
     SRC_DIR="${MAIN_DIR}/src"
+    CCACHE_DIR="${MAIN_DIR}/cache"
     PKG_SRC_DIR="${PREFIX}/src"
     BUILD_DIR="${PREFIX}/build"
     LOG_DIR="${PREFIX}/log"

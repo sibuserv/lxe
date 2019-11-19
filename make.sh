@@ -92,6 +92,19 @@ then
         echo "Aborted."
     ;;
     esac
+    if [ "${LXE_USE_CCACHE}" = "true" ]
+    then
+        read -p "Do you wish to delete all files from \"cache\" subdirectory? [y/N] " REPLY
+        case "${REPLY}" in
+        "y" | "Y" | "yes" | "Yes")
+            echo "rm -rf \"${MAIN_DIR}/cache\""
+            rm -rf "${MAIN_DIR}/cache"
+        ;;
+        *)
+            echo "Aborted."
+        ;;
+        esac
+    fi
     exit 0
 elif [ "${1}" = "download" ]
 then

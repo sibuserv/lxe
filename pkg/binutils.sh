@@ -30,6 +30,8 @@
             --build="${BUILD}" \
             --host="${BUILD}" \
             --with-sysroot="${SYSROOT}" \
+            --disable-info \
+            --disable-man \
             --disable-multilib \
             --disable-werror \
             --with-gnu-ld \
