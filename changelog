@@ -9,6 +9,8 @@
   - МСВС-3.0-80001-12_shared.sh
   - МСВС-3.0-80001-16_shared.sh
   - МСВС-5.0_shared.sh
+* Update in all static configs:
+  - OPENSSL_VER from 1.0.2r to 1.0.2t
 * Update in all configs:
   - GCC_EXTRA_VER from 8.3.0 to 9.2.0
 
