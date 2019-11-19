@@ -8,7 +8,7 @@
     PKG_SUBDIR=${PKG}-${PKG_VERSION}
     PKG_FILE=${PKG}-${PKG_VERSION}.tar.bz2
     PKG_URL="ftp://ftp.gnupg.org/gcrypt/${PKG}/${PKG_FILE}"
-    PKG_DEPS="gcc"
+    PKG_DEPS="gcc gawk"
 
     CheckPkgVersion
     CheckSourcesAndDependencies
