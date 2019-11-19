@@ -9,6 +9,8 @@
   - МСВС-3.0-80001-12_shared.sh
   - МСВС-3.0-80001-16_shared.sh
   - МСВС-5.0_shared.sh
+* Update in all configs:
+  - GCC_EXTRA_VER from 8.3.0 to 9.2.0
 
 --- v3.6 (2019-05-23) ---
 * Add new package: libuuid.
