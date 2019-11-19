@@ -12,6 +12,7 @@
   - МСВС-5.0_shared.sh
 * Update in all static configs:
   - OPENSSL_VER from 1.0.2r to 1.0.2t
+  - SQLITE_VER from 3.28.0 to 3.23.2
 * Update in all configs:
   - GCC_EXTRA_VER from 8.3.0 to 9.2.0
   - QT5_VER from 5.12.3 to 5.13.2
