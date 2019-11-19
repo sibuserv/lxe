@@ -25,7 +25,8 @@ PrepareDirs()
 AddCcachePath()
 {
     [ "${LXE_USE_CCACHE}" != true ] && return 0
-    [ "${PKG}" = ccache ] && return 0
+    [ "${PKG}" = "ccache" ] && return 0
+    [ "${PKG}" = "glibc-headers" ] && return 0
 
     export PATH="${PREFIX}/lib/ccache:${PATH}"
 }
