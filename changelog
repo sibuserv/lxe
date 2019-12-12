@@ -14,7 +14,7 @@
   - OPENSSL_VER from 1.0.2r to 1.0.2t
 * Update in all configs:
   - GCC_EXTRA_VER from 8.3.0 to 9.2.0
-  - QT5_VER from 5.12.3 to 5.13.2
+  - QT5_VER from 5.12.3 to 5.14.0
 
 --- v3.6 (2019-05-23) ---
 * Add new package: libuuid.
