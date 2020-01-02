@@ -257,6 +257,7 @@ ec3f5c9714ba0fd45cb4e087301eb1336c317e0d20b575a125050470e8089e4d  openssl-1.0.2o
 50a98e07b1a89eb8f6a99477f262df71c6fa7bef77df4dc83025a2845c827d00  openssl-1.0.2p.tar.gz
 5744cfcbcec2b1b48629f7354203bc1e5e9b5466998bbccc5b5fcde3b18eb684  openssl-1.0.2q.tar.gz
 ae51d08bba8a83958e894946f15303ff894d75c2b8bbd44a852b64e3fe11d0d6  openssl-1.0.2r.tar.gz
+14cb464efe7ac6b54799b34456bd69558a749a4931ecfd9cf9f71d7881cac7bc  openssl-1.0.2t.tar.gz
 5570dc5b62f6f9e28954f5cbd7946a9b35767c06b375eff1c4cc40561e7f1655  osgearth-2.8.tar.gz
 22aeef42bb700c1e669d9ba57ce4155c0668caf86cc738750a6b9d34c1eaf2a4  osgearth-2.9.tar.gz
 57045120a26a0dbaf58e787df872fc5bf6573e91d7872648afddc6fdd856e131  pciutils-3.1.7.tar.xz
@@ -286,6 +287,8 @@ b06c634059e2069584dccf331a45074e6a2c63ca6ea5576769c47a985173a041  qtactiveqt-eve
 a22876b4243cb433042e7f4812974eac05935872f39cc880a3587bc3eae86d3e  qtactiveqt-everywhere-src-5.12.0.tar.xz
 a56fbd9aa018b9b91a1de6018db6538f4bc4309bfbdd86c52d437e7297983c45  qtactiveqt-everywhere-src-5.12.1.tar.xz
 15a5fde0a069f402bea9f422d8d2c46af440d202122c6307c2a6be642d20dc0f  qtactiveqt-everywhere-src-5.12.3.tar.xz
+0f34a2f59a4438b4d060066eaed35e0f738d620b42782d598bad2f1a56cc094a  qtactiveqt-everywhere-src-5.13.2.tar.xz
+0bfb32189a79af97c86e4591c8b11fa47cec53b1b2a81c7cf20b2e0a70a051b0  qtactiveqt-everywhere-src-5.14.0.tar.xz
 8a5269d82d6826b6ae83d07513eb451507a4ab4788fb501b8fac79cca2e39304  qtactiveqt-opensource-src-5.4.2.tar.xz
 fd5578cd320a13617c12cf2b19439386b203d6d45548e855f94e07be9829f762  qtbase-everywhere-src-5.10.0.tar.xz
 d8660e189caa5da5142d5894d328b61a4d3ee9750b76d61ad74e4eee8765a969  qtbase-everywhere-src-5.10.1.tar.xz
@@ -295,6 +298,8 @@ c6bf887732b83ce072eb72eddb7497bedcdf9ca794e7ed91261a93f063623e1c  qtbase-everywh
 5e03221d780e121aabd734896aab8f331e5d8c9d9b54f1eb04907d0818eaeecb  qtbase-everywhere-src-5.12.0.tar.xz
 533078ce02678988576e224cb3844979907950cf83e0fda3364bc1d5701c9049  qtbase-everywhere-src-5.12.1.tar.xz
 fddfd8852ef7503febeed67b876d1425160869ae2b1ae8e10b3fb0fedc5fe701  qtbase-everywhere-src-5.12.3.tar.xz
+26b6b686d66a7ad28eaca349e55e2894e5a735f3831e45f2049e93b1daa92121  qtbase-everywhere-src-5.13.2.tar.xz
+4ef921c0f208a1624439801da8b3f4344a3793b660ce1095f2b7f5c4246b9463  qtbase-everywhere-src-5.14.0.tar.xz
 9fc4f720b8b5a8b8e4a7d45e13ce4d5b86756ad46fb406386637eb2de5fd5a74  qtbase-opensource-src-5.4.2.tar.xz
 267eb2af1a203c087f2113f43b08014d0e2d2cb269295b8602d869a2fad5296c  qtbase-opensource-src-5.9.0.tar.xz
 d289626f06236f2c0e3065416fd6a8a72b8895cb5253ee2d9b6320df5b452987  qtcanvas3d-everywhere-src-5.10.0.tar.xz
@@ -313,6 +318,8 @@ f6a312c596bfffa5074a3a5606dff1ef197dac075b3c1bd6443e3a6db1c3a114  qtcharts-every
 9cd71c4a4c10611083ce8f16992c59666d51b5275cc1a79f324ee18579ced450  qtcharts-everywhere-src-5.12.0.tar.xz
 142eb2b87a0bc2220a9f12e56bf390b846968c201d135b1a2a2338545692fdc0  qtcharts-everywhere-src-5.12.1.tar.xz
 820c94b2bf5d73e921fe99be1e3a03a6f012d96574a08e504d68db237522b3a9  qtcharts-everywhere-src-5.12.3.tar.xz
+3bad81c3cfb32cf72fb0ce2ac2794d031cf78a3902b4715f89c09b2d0e041e87  qtcharts-everywhere-src-5.13.2.tar.xz
+ce7e22ca84e6a5fb85d6eb9e196407e0fa02848187548a2c388668e71f41a346  qtcharts-everywhere-src-5.14.0.tar.xz
 2e3fe2e872449065ec3326955fb97c629106f62b9441e8dfd2e0adfc9fb169a6  qtconnectivity-everywhere-src-5.10.0.tar.xz
 652821dc6819658ec4bc1a6bf149fd7a61008748ff4745b54f038ccf276d3ec9  qtconnectivity-everywhere-src-5.10.1.tar.xz
 738ed4eb058334fe7cfd6d68f2e2e7c9b2a97f3477b36ae26ed82703dcaae657  qtconnectivity-everywhere-src-5.11.1.tar.xz
@@ -321,6 +328,8 @@ f6a312c596bfffa5074a3a5606dff1ef197dac075b3c1bd6443e3a6db1c3a114  qtcharts-every
 8ebca1ba859ebb5b0e8e6fffff1f8131dd84f9e44448df6ac58c8be32b5122a4  qtconnectivity-everywhere-src-5.12.0.tar.xz
 0edd0bd784a71809540dc23d24a842bd88dee2cdb5394b69c9e704f7e1ac8d6c  qtconnectivity-everywhere-src-5.12.1.tar.xz
 01518cee71a8d53b9c2387f8c7facbcc2c4d63ab3b79462edfa06ba3bfeae661  qtconnectivity-everywhere-src-5.12.3.tar.xz
+644e234eb64f602ef5cdeb8802ef9b58e75478f1124f001937275d62ed692e17  qtconnectivity-everywhere-src-5.13.2.tar.xz
+2843b3b479d0feba0624eb4ae41382b99db77b87a6b7dea5aacdf3b33644f0bd  qtconnectivity-everywhere-src-5.14.0.tar.xz
 3a6bd51d24f49fd50372c4dd524197637d172d5340ce70c27b218ffafe4246da  qtconnectivity-opensource-src-5.4.2.tar.xz
 9755f4bc0a55fba3250635e3a902c0f6611a36c3d23583b84d0465ee3553a24c  qtconnectivity-opensource-src-5.9.0.tar.xz
 9206c4d7a093a20b57d0e5013aadd6fc52bccb321eb0d3329efccc44481f6618  qtdatavis3d-everywhere-src-5.10.0.tar.xz
@@ -331,6 +340,8 @@ f6a312c596bfffa5074a3a5606dff1ef197dac075b3c1bd6443e3a6db1c3a114  qtcharts-every
 4eda7e352b5d7d58a19611f76a906e952f6a86451740a80a3759b8871090f433  qtdatavis3d-everywhere-src-5.12.0.tar.xz
 8ebb94459e5eb5b978dcdac1d2d6503a7763d790ce74b03f78388beb480436a0  qtdatavis3d-everywhere-src-5.12.1.tar.xz
 f6d073c4575542f8ff6de3ac3b6e8dde6ae2d87e98119de7a13bc984aa967313  qtdatavis3d-everywhere-src-5.12.3.tar.xz
+ecf934c3eb07173505781734f95cfc2cf9d89e6b1b98516ac98a137797f4ef28  qtdatavis3d-everywhere-src-5.13.2.tar.xz
+ba7269413b04de74086e2b876f3e4d39e90f14f363011ff36d082485dc683eb1  qtdatavis3d-everywhere-src-5.14.0.tar.xz
 5ccb4dbca5046554037bcffbb05918f6efcff321c44cd1c39b1c47be7e67711e  qtdeclarative-everywhere-src-5.10.0.tar.xz
 3af9ed51bce5b5c6f04c4a67a6008f98765ccde897c43fff670621ab70789553  qtdeclarative-everywhere-src-5.10.1.tar.xz
 9ecf5ef6bf618fcb6719a4b22e3d9f9ce7623c2344667038171d5662624c4f3a  qtdeclarative-everywhere-src-5.11.1.tar.xz
@@ -339,6 +350,8 @@ f6d073c4575542f8ff6de3ac3b6e8dde6ae2d87e98119de7a13bc984aa967313  qtdatavis3d-ev
 4ffd58102b5714ae058f91cc31511f1c928978f77f01652beb9ce2352a4c227b  qtdeclarative-everywhere-src-5.12.0.tar.xz
 a384a734d94f28a98aa74e076d50fa6b9724af83526feb6c371945545d8cb409  qtdeclarative-everywhere-src-5.12.1.tar.xz
 839881cd6996e35c351bc7d560372ebb91e61f3688957c33248c4f31ea007fa7  qtdeclarative-everywhere-src-5.12.3.tar.xz
+d9a524f45fe9e136cda2252f9d7013ec17046d907e3f39606db920987c22d1fd  qtdeclarative-everywhere-src-5.13.2.tar.xz
+bbf11ee33d6f0d6bd6c4dc641d4f2aafbc7c6cd3b421a658955302d441dc9d8e  qtdeclarative-everywhere-src-5.14.0.tar.xz
 b73021d78fffe7894c5fde998a767a866b09811c7e210f8e46f252a32be741ae  qtdeclarative-opensource-src-5.4.2.tar.xz
 537550f988a71942392b3df21044e4cd566378bad2d9727663c9e8e7743e87e6  qtgamepad-everywhere-src-5.10.0.tar.xz
 85c72801f56f7d5f55caff8ef23137978abe01637bb179566dd5976d6f5346f7  qtgamepad-everywhere-src-5.10.1.tar.xz
@@ -348,6 +361,8 @@ e99590cc14e7fb98caf7b48ddf8515f3e32388af3024659d46047f143a1342cc  qtgamepad-ever
 4c1900b9917dc18584b2287cd7382f0668d71237ef8e71e3feb4d457c2b56091  qtgamepad-everywhere-src-5.12.0.tar.xz
 717c11f8fba4e23c0096fcf3161d43223956038e866fcd7a18d2255755415d62  qtgamepad-everywhere-src-5.12.1.tar.xz
 5d046869e9646912936e3622efa755d85ccc8eddba91f5b12880cfb5e6489642  qtgamepad-everywhere-src-5.12.3.tar.xz
+75164885433e36a90b557aa7f319ff3d6278c3616469f67b42dda6eb8b92e76e  qtgamepad-everywhere-src-5.13.2.tar.xz
+3d9835538afe7299e42d53a7bb85fb90aecdc714846671582139ff80d752a657  qtgamepad-everywhere-src-5.14.0.tar.xz
 97b969112f21161fc924c1b1c98f1dad2bf7027e31b27ea9eec532db7b045e30  qtgraphicaleffects-everywhere-src-5.10.0.tar.xz
 3f3b0631b579630bf58e99f3ca0d8dfdb6a44153c63cf90ac9e07041b4b1847f  qtgraphicaleffects-everywhere-src-5.10.1.tar.xz
 d9d27236696221098e832d6fee8c0fbb2834b1670d9ca1e5bf3d0fbc8e5448f3  qtgraphicaleffects-everywhere-src-5.11.1.tar.xz
@@ -356,6 +371,8 @@ a9dcaaa3932f7b71717a393700e1387bcd6f9c03538d0ffca2a64128a0e4a9fd  qtgraphicaleff
 81058fb12d4dd019bed6bb196a13ea5d308a390d72a1468da11171f8c3003455  qtgraphicaleffects-everywhere-src-5.12.0.tar.xz
 2e63abf6b02b86461b73b317eba00b6721601a9469c22da28e3f4ea1d5df68d7  qtgraphicaleffects-everywhere-src-5.12.1.tar.xz
 772c98a009cc82ac290f868906c5aa719e4608ef3c5905d69ef7402b15924a73  qtgraphicaleffects-everywhere-src-5.12.3.tar.xz
+297a89bb6c771f849c4ce866e5c98dadf665163b3dab03bc48a58f51424e7e66  qtgraphicaleffects-everywhere-src-5.13.2.tar.xz
+d931637d97cbb0e57bf2d78bf0eb06494f21a05d2e6a17e7c4f4f2a2fabc23cd  qtgraphicaleffects-everywhere-src-5.14.0.tar.xz
 ba8f477be1b0675ce36f48530db050d2922b2a0d6ff80c46559245a94aede80a  qtgraphicaleffects-opensource-src-5.4.2.tar.xz
 b492f603197538bc04b2714105b1ab2b327a9a98d400d53d9a7cb70edd2db12f  qtkeychain-0.8.0.tar.gz
 9c2762d9d0759a65cdb80106d547db83c6e9fdea66f1973c6e9014f867c6f28e  qtkeychain-0.9.1.tar.gz
@@ -367,6 +384,8 @@ d698911edfb2d45b7adca6557b3de880e966cb8823a8adf1beb3a3079560024e  qtlocation-eve
 b0a3134df3a00f6045405d3c12e0ea3ae7e640feaf38e238873df85424674449  qtlocation-everywhere-src-5.12.0.tar.xz
 8b922373e6eefd1b0e2a993dbf3d0b3f3df777bc720d40cad3ccb46e1936bc50  qtlocation-everywhere-src-5.12.1.tar.xz
 52d589be2852ada0c000b06cc411b61e521cd0797470be567fd1625bcc9d75c6  qtlocation-everywhere-src-5.12.3.tar.xz
+5fe4b824d3dc6c800682ff986333ec09edb9c27582066e928b1862b4d58212e3  qtlocation-everywhere-src-5.13.2.tar.xz
+87906fd100dd93ed495a4db2c435dcfab073d399ea11d5e18727cc782fac4cd1  qtlocation-everywhere-src-5.14.0.tar.xz
 dc4af26e5398222aade1f7e405b6c8c0caaca7de0df910b8da20c5ff058583ec  qtlocation-opensource-src-5.4.2.tar.xz
 008333fdc3bc2d87977392397d38ebaae1329059997319cb1b0613fb6489806f  qtmultimedia-everywhere-src-5.10.0.tar.xz
 a1fa98015ee5a6b81f2d337abc98d8b297c6718f7714a1f13fccfd2934c23649  qtmultimedia-everywhere-src-5.10.1.tar.xz
@@ -376,6 +395,8 @@ f28bb57890b4666a9aafaa116a30c51dedb0f23b60a510280a27eb032b58c90c  qtmultimedia-e
 5c4b0cb9c08c57ce1aad3aee267c6f6270d254addfb2a6dd363a272e98e926a9  qtmultimedia-everywhere-src-5.12.0.tar.xz
 9c5ba11225f57d3a8124f109514443e290a9eb94e063a5b1f78e63edfb5f0b18  qtmultimedia-everywhere-src-5.12.1.tar.xz
 a30beeb37fb284d93522e29c01fb8d12726f40e9248e80b70b1f8ab60197a301  qtmultimedia-everywhere-src-5.12.3.tar.xz
+5f885459d46ea2f2bb24597678befd4913d8f88029730d01984f51f9c367b9f4  qtmultimedia-everywhere-src-5.13.2.tar.xz
+e7901aa32fe71f1409cf73a0c62f27b98f434688e7b16ea8591b29cd8f90ad5e  qtmultimedia-everywhere-src-5.14.0.tar.xz
 d2668c7922412344384482239d34bee66d8ebb6d9fa9d025cc4a5aa990664940  qtmultimedia-opensource-src-5.4.2.tar.xz
 818770247a3a211714dfc17f7f5a07c6cf49999ff405d36fd00fab1d5559a1a1  qtquickcontrols2-everywhere-src-5.10.0.tar.xz
 5dc64a1b901e418b76fd3bf65dfa87a0cb11338741fb8970211c1df6df0e604a  qtquickcontrols2-everywhere-src-5.10.1.tar.xz
@@ -385,6 +406,8 @@ f45630b652585b62204405b28432977e67c148ca5f1789a794654fd6c1bad086  qtquickcontrol
 89777e2ee89a08d203e0e394be0c47dc52008ea58506f4b3bdf1a696c5907dc6  qtquickcontrols2-everywhere-src-5.12.0.tar.xz
 caa47b6d771b11c65d595fdd0f0942c3d78cda2884d318e3b1da8ec67155a8e7  qtquickcontrols2-everywhere-src-5.12.1.tar.xz
 e855e8369c3cb5a2ebcd2028a2a195ba73945fd9d5bc26134706c2fa14e99b3a  qtquickcontrols2-everywhere-src-5.12.3.tar.xz
+90ee8be7b66cc65f3f22e71a0b35adab5c169ac4f8ebc6f9e7685228bf8a7d70  qtquickcontrols2-everywhere-src-5.13.2.tar.xz
+827bf86db44ce4f698f172378313db04e1cb81c593e9342bdd95bb1708f27911  qtquickcontrols2-everywhere-src-5.14.0.tar.xz
 a133ef7724d5d2eef4085920d463af78024f327d0ae320f24202a51b554e6129  qtquickcontrols-everywhere-src-5.10.0.tar.xz
 d231a1993dc6a3f0dbc60a21d01fc0be15b0c26e881bd0631573952ea61682b7  qtquickcontrols-everywhere-src-5.10.1.tar.xz
 baea7f59513ffade3f8041c1756722334b7d04245667fa8faaeace07a430c656  qtquickcontrols-everywhere-src-5.11.1.tar.xz
@@ -393,12 +416,16 @@ baea7f59513ffade3f8041c1756722334b7d04245667fa8faaeace07a430c656  qtquickcontrol
 2bfb63240beed6926be429310e91b33df836fe38bcaf9de6883d5e781511cd73  qtquickcontrols-everywhere-src-5.12.0.tar.xz
 15164b00921352b5145a4fc3be0015b8521138a0cb1ecfb9811f39fd35ecd62c  qtquickcontrols-everywhere-src-5.12.1.tar.xz
 68ae03b35eaa44a24c3f663b842252053c9f2b00b18841fd39ff7d2150986f46  qtquickcontrols-everywhere-src-5.12.3.tar.xz
+d6e64d8db13ada55fcb0d5e8ca26097085680087d931435c6c6db859d87493ea  qtquickcontrols-everywhere-src-5.13.2.tar.xz
+6dd477bcb36a94ab417faab5e607f7a07c217c4ca3f751d8d76d475ab0f3558e  qtquickcontrols-everywhere-src-5.14.0.tar.xz
 e720d6b029078682d788c0e3df14057cab8a3ba0ecfdc35c9b9bf6dc061bff8c  qtquickcontrols-opensource-src-5.4.2.tar.xz
 f2bc6d65f4d4b90fc222c0fd0539120f29452b6d336171930f90e5129cd25c19  qtremoteobjects-everywhere-src-5.11.2.tar.xz
 f70306a78f440516eaacd6908140bc469ebd101a61c724b9590f4aefbafe72b4  qtremoteobjects-everywhere-src-5.11.3.tar.xz
 0940d0a4a961b64f38c52a2e5638c2b3341fe46bd6bd88d1c638707f42159d5f  qtremoteobjects-everywhere-src-5.12.0.tar.xz
 f18cfde8d060d76f5f56ffb701a27f6e0c39b5abdae3dbac933dbb41d191f740  qtremoteobjects-everywhere-src-5.12.1.tar.xz
 3475a409127739930e0bf833cea5f7f605adc66ab25fac39b72ce4bf3039cc42  qtremoteobjects-everywhere-src-5.12.3.tar.xz
+bd24db9d2bb08ae7955291af52ee7510aa193d0f72ed0e3ff74f7cf7e81f4d65  qtremoteobjects-everywhere-src-5.13.2.tar.xz
+306765539d97c9c5b9e262393b1950d14f487260f2e333019010689de04bd235  qtremoteobjects-everywhere-src-5.14.0.tar.xz
 6cf2f2f09ccafa9c9cd5d16641ae2b75b7f98947de6ec0ec1717489f3a09cafc  qtscript-everywhere-src-5.10.0.tar.xz
 e0618af7cb1f1f30d292c04cf484e3507cf6f4815f79870e35d2b0ce7ac9532d  qtscript-everywhere-src-5.10.1.tar.xz
 1c430fd06e8eb25dbca43422453a16588d1aade936770df2e4b4e8961659da7c  qtscript-everywhere-src-5.11.1.tar.xz
@@ -407,6 +434,8 @@ bb84f3cc581078df4ff76705c5623cd88287f70f7405cbccf99e6fb6dedbec08  qtscript-every
 97fe1a22e5d0e89d3850546c0771fe41707d4c40062dc16fae8e21bf6f8cffa8  qtscript-everywhere-src-5.12.0.tar.xz
 e5c158fb85799404d20d1ec5dd33a25d5f5736807e1008ce626f666a52c80624  qtscript-everywhere-src-5.12.1.tar.xz
 0f37bf032a2370bd08667aad053f5a57717ea49596c16bf6cfb32b0d6e5c1f9e  qtscript-everywhere-src-5.12.3.tar.xz
+3d92691c25577fbf7511d40253de0cd9d31444ea5a0aa860f65efb9fa0f3ce70  qtscript-everywhere-src-5.13.2.tar.xz
+6715ed5294013edfc338367b63ee6df2438965e4626435f30837e26a2151d3b9  qtscript-everywhere-src-5.14.0.tar.xz
 e042e444de4c759b562f6e8097a668b84bea5b9ccd8290d18931a2cc80affa47  qtscript-opensource-src-5.4.2.tar.xz
 3c32b6be7b5dcf61b1a25d4646cdac96cc44f5c739c38597a5881231ae3ac964  qtscript-opensource-src-5.9.0.tar.xz
 cd98c5afb25bdb243b03a8e1da1a9643fbad334549c8128328446d0818fe3971  qtsensors-everywhere-src-5.10.0.tar.xz
@@ -417,6 +446,8 @@ a75753d1d5607d4cb27b1849ea9612a65bb3a5271bb31bf0817edd143b620859  qtsensors-ever
 c53132847a1f70d5a4c5fe689a9943d8afae3f3648bf5b0d824015093addc5a6  qtsensors-everywhere-src-5.12.0.tar.xz
 ebc8b4bcfacf10c3bea3f400da7bf3fc7f44f90fa9eb0320c3b87f17307a63e4  qtsensors-everywhere-src-5.12.1.tar.xz
 7f63fedf60fdf110a3fc529568c7226d7acd59cc5eaee908f4d5a969e34005fc  qtsensors-everywhere-src-5.12.3.tar.xz
+46f73bbfddfd78a419c6424d6839318774b84c955a7f7a96c12c590f6d8fb177  qtsensors-everywhere-src-5.13.2.tar.xz
+306fc19309b218b062eb6415e2a8364c5c3b53c2942e200012d45f0c33717926  qtsensors-everywhere-src-5.14.0.tar.xz
 8e6d961df033733a08b3d050515b9aacf7846c643fe5789c42fc55df96dc5cf9  qtsensors-opensource-src-5.4.2.tar.xz
 e580fed9ffd2a978df72775205a96b21d619b5fd5f5754f653864a206e831457  qtserialport-everywhere-src-5.10.0.tar.xz
 08e4cb13bbf165eb99857301f3cffe280a4946ff58a34ccc542ad1f790194a9e  qtserialport-everywhere-src-5.10.1.tar.xz
@@ -426,6 +457,8 @@ b01b69ce421d449402363c0cf617fcc8856e39d6d2c28aa3d06d1f5359dc6f6e  qtserialport-e
 59d4005695089c6b50fc5123094125d9224c1715655128640158a2404075a9bb  qtserialport-everywhere-src-5.12.0.tar.xz
 243b2502283c45f5163d68c3f23c787d46eb0e3ba58f3d9a0560dc7968a6ce19  qtserialport-everywhere-src-5.12.1.tar.xz
 1faf7df4a1f9028bef1ce79330badb4e5cbbba9f717c53cafc5aea41eed1de51  qtserialport-everywhere-src-5.12.3.tar.xz
+7677ffc1dce3b75c0a98d07d215588a8dccb5c276c55b4ecd60c35ed1c89cb34  qtserialport-everywhere-src-5.13.2.tar.xz
+4b647a66ae4da6b05b41b49ed296012002c1951f8a3ee24e0f2aa493f48e1ed3  qtserialport-everywhere-src-5.14.0.tar.xz
 93cd414e809beed424eee018338e84742509fc4bc78e5649fbaf370a562ed7c0  qtserialport-opensource-src-5.4.2.tar.xz
 80022e3e6d5652502891fec3774615a36d51901dacc4fbb2dfe6e562fd729d7f  qtserialport-opensource-src-5.9.0.tar.xz
 4a2aa7cae70a3156846655422b9ed884d8b08b3707b95858e49c7cf9afe5e7b0  qtsvg-everywhere-src-5.10.0.tar.xz
@@ -436,6 +469,8 @@ bc16bbf855b466e77dda996d8c91fa73db7fe14d3aa98ce6d92145ca1a1bd166  qtsvg-everywhe
 ebe68d8ad73b6b8d8eabac81edcbf395838caf4d498d6b047c74b57341c3fbce  qtsvg-everywhere-src-5.12.0.tar.xz
 5bc1f744d32c06f5aa4eff33759568106a995ce21fa1326a247dfa5f783f63c8  qtsvg-everywhere-src-5.12.1.tar.xz
 f666438dbf6816b7534e539b95e3fa4405f11d7e2e2bbcde34f2db5ae0f27dc2  qtsvg-everywhere-src-5.12.3.tar.xz
+849e2e357e1333b64ecb728352f652cd8d916f029ed848f775b15d0b500cb7d7  qtsvg-everywhere-src-5.13.2.tar.xz
+1ee51a66e1996f96bf7fd4c696079c4cb22ea2bc710d47535c1daf3638d8f393  qtsvg-everywhere-src-5.14.0.tar.xz
 7f2a66a9bc55eace254505475a31b4d53f0baa74b65a81da59bb93122eb35eb7  qtsvg-opensource-src-5.4.2.tar.xz
 0fd1ac11bdcbbc359156792dc6f943f4c69936068550e7c2916a32b0f628fe7e  qtsvg-opensource-src-5.9.0.tar.xz
 1ff5dc747b7935de85257673424dfdffb231f3409f09a5f833d37e2f625cfe32  qttools-everywhere-src-5.10.0.tar.xz
@@ -446,6 +481,8 @@ c205e81bba9b87c6186604a05ab48e4e6cac0cd511525749dfd00b107b6f9f8e  qttools-everyw
 574ce34b6e5bcd5dce4020a3947730f3c2223eee65d0396a311099223364dac3  qttools-everywhere-src-5.12.0.tar.xz
 ab1da4fbd84a9d3873e4ed212a0ae614c6059b8e7dca2f0a599a6f7e61f6cbf3  qttools-everywhere-src-5.12.1.tar.xz
 c9e92d2f0d369e44bb1a60e9fa6d970f8d9893d653212305e04be5e6daec2cd8  qttools-everywhere-src-5.12.3.tar.xz
+919a2713b6d2d7873a09ad85bd93cf4282606e5bf84d5884250f665a253ec06e  qttools-everywhere-src-5.13.2.tar.xz
+8d7f8612ab6078fe7289d8a8dd8112b550fd0f51b5455df2dcfba651c30c3adf  qttools-everywhere-src-5.14.0.tar.xz
 edf3d7e00227f9989101da84b2fdf8eaf1a5b7863dc5e0d26bb0f39303e8b6b4  qttools-opensource-src-5.4.2.tar.xz
 64fe968e35f9d9f6617b48027957761cf76c20d43721ee6e2855a965afa285ee  qttools-opensource-src-5.9.0.tar.xz
 ec4dbd3601afe06d1814f4bc81af9cffbbe7de2b9f4aef4eb4595b049c8eb9be  qttranslations-everywhere-src-5.10.0.tar.xz
@@ -456,6 +493,8 @@ fa84b284d8aa34d6076b5e87a33ba6eb2382b69c371089c1c25b88bfd4141149  qttranslations
 5b4f186e0b96703041319b5b131393b6aa829ea74e067697ede548d936327508  qttranslations-everywhere-src-5.12.0.tar.xz
 7443d70d8572321e810c52fbdd096666e61510e07e17437f1910f0b800cca6a7  qttranslations-everywhere-src-5.12.1.tar.xz
 eefcec0a91c302548f9d948a138b8ec77d78570ce818931bd8475b1bff1205ca  qttranslations-everywhere-src-5.12.3.tar.xz
+25755941a2525de2d7ae48e0011d04db7cc09e4e73fe83293206ceafa0aa82d9  qttranslations-everywhere-src-5.13.2.tar.xz
+8b7529e102233153bfecc608d3944e11e086421c72e2d4eaf7e95ebbef301609  qttranslations-everywhere-src-5.14.0.tar.xz
 9ab6ddb730b1862781991b4ccf53ceaa3f21e9f8bf1c5c49930f7d135832942c  qttranslations-opensource-src-5.4.2.tar.xz
 2c2ddd65a335ecdd15e9ff1032a1634330e0d2359760f2a968b21dbc9f4e0b57  qtvirtualkeyboard-everywhere-src-5.10.0.tar.xz
 4319f90e68a571974d03f39507dde548971412e31f971081ca7eaf388187d52e  qtvirtualkeyboard-everywhere-src-5.10.1.tar.xz
@@ -465,6 +504,8 @@ eefcec0a91c302548f9d948a138b8ec77d78570ce818931bd8475b1bff1205ca  qttranslations
 db93b89ba13ec1a688850f456be9f10037033cebf7b4deb151ed9f5322d0d6da  qtvirtualkeyboard-everywhere-src-5.12.0.tar.xz
 a9e3ed4786d603314144c7ad29a9fdeb6e5c3f2ea5a27f6545cc9777244cd683  qtvirtualkeyboard-everywhere-src-5.12.1.tar.xz
 7b83af4527310de4ab81146622f3a46677daabf05556d0e33a2e25ca2aa13b22  qtvirtualkeyboard-everywhere-src-5.12.3.tar.xz
+8e368dde237d21666f6cc8512a060e205388e519a4d7559c0505cc75224ed62b  qtvirtualkeyboard-everywhere-src-5.13.2.tar.xz
+2f3362bf7999b912a4e92d0e9b5378089bc8dfcf270fe226bc68f2050de31410  qtvirtualkeyboard-everywhere-src-5.14.0.tar.xz
 f22424dc6235110bb7f587b01ce692738af1497fba2a9739fa90a5e57ba135a3  qtwebchannel-everywhere-src-5.10.0.tar.xz
 c22c449fecb052597d12f8dd59498db39767037f9098123f3defc04eb20a3764  qtwebchannel-everywhere-src-5.10.1.tar.xz
 b9a476af15ae0c68a930f0b0aa8d988b8dc3e63c3d2134abebbf2148d6942e87  qtwebchannel-everywhere-src-5.11.1.tar.xz
@@ -473,6 +514,8 @@ b9a476af15ae0c68a930f0b0aa8d988b8dc3e63c3d2134abebbf2148d6942e87  qtwebchannel-e
 851af30ab951c7543c82640f46686227b244331ebf9235f963edcb7e5a184bf0  qtwebchannel-everywhere-src-5.12.0.tar.xz
 40c3e74347c67a9864d0d54f14120555860e4ce529746407325b3cd6e9aeb5bf  qtwebchannel-everywhere-src-5.12.1.tar.xz
 72d1620bcc94e14caa91ddf344c84cd1288aa9479e00b1bb3b5e51f92efe088a  qtwebchannel-everywhere-src-5.12.3.tar.xz
+f452d419d8b19b566835f316bbf282dabc8b1c2a74c9c98c1aec4184465e9c13  qtwebchannel-everywhere-src-5.13.2.tar.xz
+0cb8dd07b34da8d44f8a14701409ce87fce5010f9b57273b357717c2dfd35383  qtwebchannel-everywhere-src-5.14.0.tar.xz
 56e3a75b67cb512b2a1e212590fff43e7b648515cda1d673e44139f896fcc16f  qtwebchannel-opensource-src-5.4.2.tar.xz
 e4be25c15d126055af7e9243f8ac65f25785bd4b8322e9f1f0af483bc6552805  qtwebkit-5.4.2.tar.gz
 2e393e7429387437cbfef56ec839329663e9b136ea68997d1e1cdd2f4d9d3ae0  qtwebkit-5.212.tar.gz
@@ -486,6 +529,8 @@ ae6197619ce0c4104bdc43e097d79082f90ba6567fa286eae6306ce7aec88b8d  qtwebsockets-e
 444da1c1d32910738a01b8251c1ccc3ffe4df148f125bb4af532b247ad74fc3f  qtwebsockets-everywhere-src-5.12.0.tar.xz
 2fd0627916d817599c5f855a97156113ed3625b90b350603be6f668762abfc79  qtwebsockets-everywhere-src-5.12.1.tar.xz
 258883225c5e089015c4036f31019aa8f5bb013ecd8eecd193342e606319a577  qtwebsockets-everywhere-src-5.12.3.tar.xz
+fc11236c8bf69b27a4e237a27b9ea27fc90d8c25d81d1d451ce3a0b63cbc02d3  qtwebsockets-everywhere-src-5.13.2.tar.xz
+50b881e83225b21e6657361e1af9b0154117d5efc03ba8c87aecacee3e42b0ad  qtwebsockets-everywhere-src-5.14.0.tar.xz
 44a61a8576190697fb1a112ef982cf1da86c6d1744335d7b8e168f3190a26153  qtwebsockets-opensource-src-5.4.2.tar.xz
 62977acaa9a44a4174d4ea3bd53f756758e3ae78d8470728326e6408ca0586d6  qtwebsockets-opensource-src-5.9.0.tar.xz
 cb79e744b122d5705e7a7b86ee1243a5095c8923377a1d0f6e8c630988025786  qtx11extras-everywhere-src-5.10.0.tar.xz
@@ -496,6 +541,8 @@ f99eebe685f7cdbb71cd62903c2b2511548345535841bcc3f6b662205815cd85  qtx11extras-ev
 06d4b4e9868d206f07ae4e884c46d46a5540172a85ce67d829fdb1fba7228b84  qtx11extras-everywhere-src-5.12.0.tar.xz
 08fb1c40e1562d43087368a5efa39569fa1ad52b72d2360f9fc1fe18b00da366  qtx11extras-everywhere-src-5.12.1.tar.xz
 85e3ae5177970c2d8656226d7535d0dff5764c100e55a79a59161d80754ba613  qtx11extras-everywhere-src-5.12.3.tar.xz
+95a7c5c30f42e9575c3a17a2c0eb0cdbdd2d89dbcb3ee1426cd41bb07e28c51c  qtx11extras-everywhere-src-5.13.2.tar.xz
+7a06de3b49d34b72fa773800f049c06c04c51eb3440833779f1e9300a94947b1  qtx11extras-everywhere-src-5.14.0.tar.xz
 f6ff62df88810304937664aa5a0b0ad4fd981ed0e30920d08fd76dd525f7fe49  qtx11extras-opensource-src-5.4.2.tar.xz
 b08abca6227e942a128e478b2eb81416c40925418d89064ee151c155e3d203c3  qtxmlpatterns-everywhere-src-5.10.0.tar.xz
 3cdef59ce96a796606e5adc5756c63c8607fb29b281fddb38acee3e674d5e9fe  qtxmlpatterns-everywhere-src-5.10.1.tar.xz
@@ -505,6 +552,8 @@ b08abca6227e942a128e478b2eb81416c40925418d89064ee151c155e3d203c3  qtxmlpatterns-
 f36279bcafb8052a0b60edd473e1d341b4733a43eb26239848b4382303679375  qtxmlpatterns-everywhere-src-5.12.0.tar.xz
 76988ca9a7a184b9013b8a5864dad150e4603890c7eb7aecad4baad071802ecb  qtxmlpatterns-everywhere-src-5.12.1.tar.xz
 e0b98e7c92cd791a9b354d090788347db78f14c47579384fe22d0b650c1d8a61  qtxmlpatterns-everywhere-src-5.12.3.tar.xz
+1e87d8c004ec0beea3b29d13f0964c563aa9fae51c392c998750ca4e386374e2  qtxmlpatterns-everywhere-src-5.13.2.tar.xz
+935209e91942e89d569f977153f0ca209125c205065960e55d4f4065a96d90d9  qtxmlpatterns-everywhere-src-5.14.0.tar.xz
 aa7fd8aae6f53f74a69048756197746a3e0ac7fc53f8678b8202c470b1fd272b  qtxmlpatterns-opensource-src-5.4.2.tar.xz
 f4e0ada8d4d516bbb8600a3ee7d9046c9c79e38cd781df9ffc46d8f16acd1768  qt-everywhere-opensource-src-4.6.3.tar.gz
 e2882295097e47fe089f8ac741a95fef47e0a73a3f3cdf21b56990638f626ea0  qt-everywhere-opensource-src-4.8.7.tar.gz
