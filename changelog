@@ -14,7 +14,8 @@
   is still in usable state.
 * Move openssl package from list of system libraries to developer ones, so the
   latest version of openssl may be used in all configs now.
-* Update in all static configs:
+* Update in static configs:
+  - LIBGCRYPT_VER from 1.8.4 to 1.8.5
 * Update in all configs:
   - GCC_EXTRA_VER from 8.3.0 to 9.2.0
   - QT5_VER from 5.12.3 to 5.14.0
