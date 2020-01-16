@@ -1,5 +1,5 @@
 --- v3.7 (2020-xx-xx) ---
-* Remove package: qtcanvas3.
+* Remove packages: qt4, qtcanvas3.
 * Add new packages: ccache, gawk.
 * Add possibility to use ccache tool for (re)building of build environments. See
   LXE_USE_CCACHE variable in settings.sh. This feature is disabled by default.
