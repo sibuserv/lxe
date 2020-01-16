@@ -26,6 +26,7 @@
   - QT5_VER from 5.12.3 to 5.14.0
   - OPENSSL_VER from 1.0.2r to 1.1.1d
   - PROTOBUF_VER from 3.6.1 to 3.9.0
+  - PCRE2_VER from 10.33 to 10.34
 
 --- v3.6 (2019-05-23) ---
 * Add new package: libuuid.
