@@ -16,6 +16,7 @@
   latest version of openssl may be used in all configs now.
 * Update in static configs:
   - LIBGCRYPT_VER from 1.8.4 to 1.8.5
+  - LIBXML2_VER from 2.9.9 to 2.9.10
 * Update in all configs:
   - GCC_EXTRA_VER from 8.3.0 to 9.2.0
   - QT5_VER from 5.12.3 to 5.14.0
