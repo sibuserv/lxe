@@ -28,6 +28,7 @@
   - PROTOBUF_VER from 3.6.1 to 3.9.0
   - PCRE2_VER from 10.33 to 10.34
   - SDL2_VER from 2.0.8 to 2.0.10
+  - MXML_VER from 2.11 to 3.1
 
 --- v3.6 (2019-05-23) ---
 * Add new package: libuuid.
