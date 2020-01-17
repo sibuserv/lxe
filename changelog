@@ -1,20 +1,38 @@
---- v3.7 (2019-xx-xx) ---
-* Remove package: qtcanvas3.
+--- v3.7 (2020-xx-xx) ---
+* Remove packages: qt4, qtcanvas3.
 * Add new packages: ccache, gawk.
 * Add possibility to use ccache tool for (re)building of build environments. See
   LXE_USE_CCACHE variable in settings.sh. This feature is disabled by default.
   Cache directory is common for all systems: <LXE dir>/ccache
   Common ccache config: <LXE dir>/ccache/ccache.conf
 * Package libxkbcommon: add ability to build static library.
-* Remove configs for some unsupported systems:
+* Remove old configs for some unsupported systems:
   - МСВС-3.0-80001-12_shared.sh
   - МСВС-3.0-80001-16_shared.sh
   - МСВС-5.0_shared.sh
-* Update in all static configs:
-  - OPENSSL_VER from 1.0.2r to 1.0.2t
+* Stop support of AstraLinux 1.3 [amd64] (static and shared), but its config
+  is still in usable state.
+* Move openssl package from list of system libraries to developer ones, so the
+  latest version of openssl may be used in all configs now.
+* Update in static configs:
+  - LIBGCRYPT_VER from 1.8.4 to 1.8.5
+  - LIBXML2_VER from 2.9.9 to 2.9.10
+  - LIBXSLT_VER from 1.1.33 to 1.1.34
+  - EXPAT_VER from 2.2.6 to 2.2.9
+  - JPEG_VER from 9c to 9d
+  - CURL_VER from 7.65.0 to 7.68.0
 * Update in all configs:
   - GCC_EXTRA_VER from 8.3.0 to 9.2.0
   - QT5_VER from 5.12.3 to 5.14.0
+  - OPENSSL_VER from 1.0.2r to 1.1.1d
+  - PROTOBUF_VER from 3.6.1 to 3.9.0
+  - PCRE2_VER from 10.33 to 10.34
+  - SDL2_VER from 2.0.8 to 2.0.10
+  - MXML_VER from 2.11 to 3.1
+  - TINYXML2_VER from 6.0.0 to 7.0.1
+  - TIDY_HTML5_VER from 5.4.0 to 5.6.0
+  - FFMPEG_VER from 4.1.3 to 4.2.2
+  - GDAL_VER from 2.2.3 to 2.2.4
 
 --- v3.6 (2019-05-23) ---
 * Add new package: libuuid.
