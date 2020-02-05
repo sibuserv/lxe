@@ -23,7 +23,7 @@
   - CURL_VER from 7.65.0 to 7.68.0
 * Update in all configs:
   - GCC_EXTRA_VER from 8.3.0 to 9.2.0
-  - QT5_VER from 5.12.3 to 5.14.0
+  - QT5_VER from 5.12.3 to 5.14.1
   - OPENSSL_VER from 1.0.2r to 1.1.1d
   - PROTOBUF_VER from 3.6.1 to 3.9.0
   - PCRE2_VER from 10.33 to 10.34
