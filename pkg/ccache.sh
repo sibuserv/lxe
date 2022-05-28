@@ -6,7 +6,7 @@
     PKG=ccache
     PKG_VERSION=${CCACHE_VER}
     PKG_SUBDIR=${PKG}-${PKG_VERSION}
-    PKG_FILE=${PKG}-${PKG_VERSION}.tar.xz
+    PKG_FILE=${PKG_SUBDIR}.tar.xz
     PKG_URL="https://github.com/ccache/ccache/releases/download/v${PKG_VERSION}/${PKG_FILE}"
     PKG_DEPS=
 
