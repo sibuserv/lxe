@@ -29,6 +29,7 @@
         SetCrossToolchainPath
         DeleteGCCSymlinks
         unset cc CC cxx CXX
+        export CXXFLAGS="${CXXFLAGS} --std=c++14"
         ConfigurePkg \
             ${GCC_CONFIGURE_OPTS} \
             --enable-languages=c,c++ \
