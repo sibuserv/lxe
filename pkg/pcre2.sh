@@ -7,7 +7,7 @@
     PKG_VERSION=${PCRE2_VER}
     PKG_SUBDIR=${PKG}-${PKG_VERSION}
     PKG_FILE=${PKG}-${PKG_VERSION}.tar.bz2
-    PKG_URL="https://ftp.pcre.org/pub/pcre/${PKG_FILE}"
+    PKG_URL="https://sourceforge.net/projects/pcre/files/${PKG}/${PKG_VERSION}/${PKG_FILE}"
     PKG_DEPS="gcc"
     [ ! -z "${GCC_EXTRA_VER}" ] && PKG_DEPS="${PKG_DEPS} gcc-extra"
 

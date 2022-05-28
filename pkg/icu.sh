@@ -4,11 +4,10 @@
 
 (
     PKG=icu
-    PKG_VERSION=${ICU_VER}
-    PKG_SUBDIR=${PKG}-${PKG_VERSION}
-    PKG_SUBDIR_ORIG=${PKG}
-    PKG_FILE=icu4c-$(echo "${ICU_VER}" | sed -e "s;\.;_;g")-src.tgz
-    PKG_URL="http://download.icu-project.org/files/icu4c/${PKG_VERSION}/${PKG_FILE}"
+    PKG_VERSION=$(echo "${ICU_VER}" | sed -e "s;\.;-;g")
+    PKG_SUBDIR=${PKG}-release-${PKG_VERSION}
+    PKG_FILE=${PKG_SUBDIR}.tar.gz
+    PKG_URL="https://github.com/unicode-org/icu/archive/refs/tags/${PKG_FILE}"
     PKG_DEPS="gcc"
 
     CheckPkgVersion
