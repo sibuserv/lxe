@@ -23,3 +23,18 @@ Last-Update: 2016-06-01
  
    switch (hval)
      {
+
+Avoid gcc/reload1.c compile error when building with newer GCC 10 and newer
+The error was: use of an operand of type ‘bool’ in ‘operator++’ is forbidden in C++17
+
+--- a/gcc/reload1.c
++++ b/gcc/reload1.c
+@@ -440,7 +440,7 @@
+ 
+   while (memory_address_p (QImode, tem))
+     {
+-      spill_indirect_levels++;
++      spill_indirect_levels = 1;
+       tem = gen_rtx_MEM (Pmode, tem);
+     }
+ 
