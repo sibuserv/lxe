@@ -1,4 +1,4 @@
---- v3.7 (2020-xx-xx) ---
+--- v3.7 (2022-xx-xx) ---
 * Remove packages: qt4, qtcanvas3.
 * Add new packages: ccache, gawk.
 * Add possibility to use ccache tool for (re)building of build environments. See
@@ -6,6 +6,7 @@
   Cache directory is common for all systems: <LXE dir>/ccache
   Common ccache config: <LXE dir>/ccache/ccache.conf
 * Package libxkbcommon: add ability to build static library.
+* Package make: fix build with GCC 10 and newer.
 * Remove old configs for some unsupported systems:
   - МСВС-3.0-80001-12_shared.sh
   - МСВС-3.0-80001-16_shared.sh

@@ -23,6 +23,8 @@
         SetBuildFlags
         SetSystemPath
         UnsetCrossToolchainVariables
+        # Fix build with GCC 10 and newer:
+        export CFLAGS="${CFLAGS} -fcommon"
         ConfigurePkg \
             --prefix="${PREFIX}" \
             --disable-info \
