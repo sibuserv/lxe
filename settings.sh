@@ -1,18 +1,17 @@
 #!/bin/sh
 
-
 # All available configs are in "etc/" subdirectory. Select necessary of them:
 CONFIGS=""
-CONFIGS="${CONFIGS} Ubuntu-14.04_amd64_shared"
+#CONFIGS="${CONFIGS} Ubuntu-14.04_amd64_shared"
 CONFIGS="${CONFIGS} Ubuntu-14.04_amd64_static"
-CONFIGS="${CONFIGS} Ubuntu-14.04_i386_shared"
+#CONFIGS="${CONFIGS} Ubuntu-14.04_i386_shared"
 CONFIGS="${CONFIGS} Ubuntu-14.04_i386_static"
 #CONFIGS="${CONFIGS} AstraLinux-1.5_shared"
-#CONFIGS="${CONFIGS} AstraLinux-1.5_static"
+CONFIGS="${CONFIGS} AstraLinux-1.5_static"
 #CONFIGS="${CONFIGS} AstraLinux-1.4_shared"
-#CONFIGS="${CONFIGS} AstraLinux-1.4_static"
+CONFIGS="${CONFIGS} AstraLinux-1.4_static"
 #CONFIGS="${CONFIGS} AstraLinux-1.3_shared"
-#CONFIGS="${CONFIGS} AstraLinux-1.3_static"
+CONFIGS="${CONFIGS} AstraLinux-1.3_static"
 #CONFIGS="${CONFIGS} AstraLinux-1.2_shared"
 #CONFIGS="${CONFIGS} AstraLinux-1.2_static"
 
@@ -29,11 +28,9 @@ LXE_USE_CCACHE=false
 
 # Default list of packages:
 # LOCAL_PKG_LIST="gcc pkg-config-settings cmake-settings ldd-settings"
-# TODO: gstreamer gst-plugins-base
-LOCAL_PKG_LIST="cmake-settings ldd-settings boost aspell hunspell libidn2
-                minizip miniupnpc tidy-html5 libotr libsignal-protocol-c
-                pcre pcre2 lua libfcgi libxss qtbase qttools qtx11extras qca
-                qttranslations qtmultimedia qtkeychain qtwebkit"
+LOCAL_PKG_LIST="cmake-settings ldd-settings freeglut sdl2 qtbase qttranslations
+                qtconnectivity qtscript qtserialport qtsvg qttools qtwebsockets
+                qwt protobuf boost ffmpeg openscenegraph osgearth"
 
 # List of packages which should provide static libraries in environments with
 # shared libraries (see DEFAULT_LIB_TYPE variable in configs):
