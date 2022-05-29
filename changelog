@@ -1,6 +1,6 @@
 --- v3.7 (2022-xx-xx) ---
 * Remove packages: qt4, qtcanvas3.
-* Add new packages: ccache, gawk.
+* Add new packages: ccache, gawk, libidn2.
 * Add possibility to use ccache tool for (re)building of build environments. See
   LXE_USE_CCACHE variable in settings.sh. This feature is disabled by default.
   Cache directory is common for all systems: <LXE dir>/ccache
