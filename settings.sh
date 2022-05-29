@@ -36,7 +36,7 @@ LXE_USE_CCACHE=false
 # Default list of packages:
 # LOCAL_PKG_LIST="gcc pkg-config-settings cmake-settings ldd-settings"
 # TODO: gstreamer gst-plugins-base
-LOCAL_PKG_LIST="cmake-settings ldd-settings boost aspell hunspell libidn
+LOCAL_PKG_LIST="cmake-settings ldd-settings boost aspell hunspell libidn2
                 minizip miniupnpc tidy-html5 libotr libsignal-protocol-c
                 pcre pcre2 lua libfcgi libxss qtbase qttools qtx11extras qca
                 qttranslations qtmultimedia qtkeychain qtwebkit"
