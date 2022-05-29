@@ -27,6 +27,7 @@
     IsPkgVersionGreaterOrEqualTo "10.5.0" && PKG_DEPS="${PKG_DEPS} udev"
     # libx11-xcb-dev, libxcb-dri2-0-dev, libxcb-xfixes0-dev
     # python, python-libxml2 (for some versions of mesa)
+    # python3, python3-libxml2 (for some versions of mesa)
 
     CheckPkgVersion
     CheckSourcesAndDependencies

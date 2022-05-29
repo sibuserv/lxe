@@ -10,6 +10,7 @@
     PKG_FILE=${PKG_SUBDIR}.tar.xz
     PKG_URL="https://xkbcommon.org/download/${PKG_FILE}"
     PKG_DEPS="gcc pkg-config-settings x11proto-core x11proto-kb libxcb libx11"
+    # TODO: check that "byacc" is installed in the system
 
     CheckPkgVersion
     CheckSourcesAndDependencies
@@ -26,7 +27,7 @@
         SetCrossToolchainVariables
         PATH="${PATH}:${SYSROOT}/usr/bin"
         ConfigureAutotoolsProject \
-            --disable-build-docs
+            --disable-docs
 
         BuildPkg -j ${JOBS}
         InstallPkg install
