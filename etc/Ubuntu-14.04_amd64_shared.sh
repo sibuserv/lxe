@@ -128,7 +128,7 @@ ICU_VER=52.1
 
 
 ### Developer libraries ###
-OPENSSL_VER=1.1.1d
+OPENSSL_VER=1.1.1o
 OPENSSL_SUBVER=1.1.1
 
 PROTOBUF_VER=3.9.0
