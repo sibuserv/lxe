@@ -381,7 +381,7 @@ IsIgnoredPackage()
 
 IsTarballCheckRequired()
 {
-    local MUTABLE_TARBALLS_PKG_LIST="sqlite"
+    local MUTABLE_TARBALLS_PKG_LIST="sqlite jpeg"
 
     for PKG_WITH_MUTABLE_TARBALL in ${MUTABLE_TARBALLS_PKG_LIST}
     do

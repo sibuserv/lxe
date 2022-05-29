@@ -5,8 +5,9 @@
 (
     PKG=icu
     PKG_VERSION=$(echo "${ICU_VER}" | sed -e "s;\.;-;g")
-    PKG_SUBDIR=${PKG}-release-${PKG_VERSION}
-    PKG_FILE=${PKG_SUBDIR}.tar.gz
+    PKG_SUBDIR=icu-icu-release-${PKG_VERSION}
+    PKG_SUBDIR_ORIG=icu-release-${PKG_VERSION}
+    PKG_FILE=${PKG_SUBDIR_ORIG}.tar.gz
     PKG_URL="https://github.com/unicode-org/icu/archive/refs/tags/${PKG_FILE}"
     PKG_DEPS="gcc"
 

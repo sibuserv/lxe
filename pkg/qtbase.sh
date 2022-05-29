@@ -15,6 +15,7 @@
         PKG_FILE=${PKG}-opensource-src-${PKG_VERSION}.tar.xz
     fi
     PKG_URL="https://download.qt.io/archive/qt/${QT5_SUBVER}/${QT5_VER}/submodules/${PKG_FILE}"
+    PKG_URL_2="https://github.com/qt/qtbase/archive/refs/tags/v${PKG_VERSION}.tar.gz"
     PKG_DEPS="gcc pkg-config-settings zlib libpng giflib freetype fontconfig openssl
               sqlite pcre2 libxcb libx11 libxkbcommon libxext libxi libxrender libxrandr mesa"
     [ "${USE_JPEG_TURBO}" = "true" ] && PKG_DEPS="${PKG_DEPS} libjpeg-turbo" || \

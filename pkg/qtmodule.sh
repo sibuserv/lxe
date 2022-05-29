@@ -16,6 +16,7 @@
         PKG_FILE=${PKG}-opensource-src-${PKG_VERSION}.tar.xz
     fi
     PKG_URL="https://download.qt.io/archive/qt/${QT5_SUBVER}/${QT5_VER}/submodules/${PKG_FILE}"
+    PKG_URL_2=" https://github.com/qt/${PKG}/archive/refs/tags/v${PKG_VERSION}.tar.gz"
 
     CheckPkgVersion
     CheckSourcesAndDependencies
