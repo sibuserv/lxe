@@ -36,6 +36,7 @@
   - TIDY_HTML5_VER from 5.4.0 to 5.6.0
   - FFMPEG_VER from 4.1.3 to 4.2.2
   - GDAL_VER from 2.2.3 to 2.2.4
+  - LIBSIGNAL_PROTOCOL_C_VER from 2.3.2 to 2.3.3
 
 --- v3.6 (2019-05-23) ---
 * Add new package: libuuid.
